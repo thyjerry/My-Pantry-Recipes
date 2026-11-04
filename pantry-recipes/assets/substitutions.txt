@@ -1,0 +1,916 @@
+# Pantry Recipes ingredient substitutions. Written for this app (MIT License).
+# Format: "## Category", "* Ingredient | alias, alias", "= what to use instead | needs | ratio | effect",
+# where needs are ingredient names joined by "+" (all needed); "a / b" means either one.
+# ratio is "swap:original" by volume or count (fractions allowed, e.g. 3/4:1), or "to taste".
+# effect says how the result changes. "~ note" adds a tip. Diet and allergen flags are worked out
+# by the app from the needed ingredients, the same way recipe tags are.
+
+## Dairy & eggs
+* Buttermilk
+= 1 cup milk + 1 tbsp lemon juice or vinegar; stir and wait 5 minutes | milk + lemon / white vinegar / cider vinegar | 1:1 | Same tang and rise; slightly thinner
+= ¾ cup plain yogurt + ¼ cup milk, whisked | yogurt + milk | 1:1 | Thicker and tangier; very tender crumb
+= 1 cup kefir | kefir | 1:1 | Almost identical; a little more sour
+= 1 cup plant milk + 1 tbsp lemon juice (dairy-free) | soy milk / oat milk / almond milk + lemon / cider vinegar | 1:1 | Dairy-free; soy milk curdles best, others stay thinner
+* Heavy cream | whipping cream, double cream
+= For cooking: ¾ cup milk + ¼ cup melted butter per cup (won't whip) | milk + butter | 1:1 | Rich enough for sauces; will not whip
+= 1 cup half and half for sauces and soups (won't whip) | half and half | 1:1 | Lighter; may split if boiled hard
+= 1 cup full-fat coconut cream (dairy-free) | coconut cream | 1:1 | Dairy-free; adds coconut flavour; chilled it whips
+= 1 cup evaporated milk in sauces and baking | evaporated milk | 1:1 | Lighter, slightly caramel taste; will not whip
+~ None of these whip like real cream except chilled coconut cream.
+* Half and half
+= ½ cup milk + ½ cup heavy cream per cup | milk + heavy cream | 1:1 | Same result
+= ¾ cup milk + 2 tbsp melted butter per cup | milk + butter | 1:1 | Close in sauces and coffee; less body
+* Sour cream
+= Same amount of plain or Greek yogurt | yogurt | 1:1 | Tangier and lighter; can split if boiled
+= Same amount of crème fraîche | creme fraiche | 1:1 | Richer and milder; safe to boil
+= Blend 1 cup cottage cheese with 1 tbsp lemon juice | cottage cheese + lemon | 1:1 | Lower fat; good in dips
+* Yogurt | greek yogurt, natural yogurt
+= Same amount of sour cream | sour cream | 1:1 | Richer, less tart
+= Same amount of kefir (thinner) | kefir | 1:1 | Thinner; use in marinades and batters, not as a topping
+= Same amount of coconut yogurt (dairy-free) | coconut yogurt | 1:1 | Dairy-free; slight coconut taste
+* Creme fraiche
+= Same amount of sour cream | sour cream | 1:1 | Tangier; may split if boiled
+= Same amount of Greek yogurt (don't boil it) | yogurt | 1:1 | Lighter and sharper; add off the heat
+* Milk
+= ½ cup evaporated milk + ½ cup water per cup | evaporated milk | 1:1 | Same in baking and sauces
+= Same amount of soy, oat or almond milk | soy milk / oat milk / almond milk | 1:1 | Dairy-free; soy is closest in baking, oat in sauces
+= ¼ cup half and half + ¾ cup water per cup | half and half | 1:1 | Same result
+* Butter
+= For baking: ¾ cup oil per 1 cup butter | vegetable oil / coconut oil | 3/4:1 | Moister, denser crumb; no butter flavour; not for creaming
+= Same amount of vegan butter or margarine | vegan butter | 1:1 | Dairy-free; bakes almost the same
+= Same amount of ghee | ghee | 1:1 | Nuttier; less water, so cookies spread a little more
+= For sautéing: olive oil, about ¾ the amount | olive oil | 3/4:1 | Savoury cooking only; fruity flavour
+~ Baked goods made with oil come out a little denser and moister.
+* Ghee | clarified butter
+= Same amount of butter (watch the heat, it burns sooner) | butter | 1:1 | Lower smoke point; milkier taste
+= Same amount of vegetable or coconut oil | vegetable oil / coconut oil | 1:1 | Dairy-free; loses the nutty flavour
+* Cream cheese
+= Same amount of mascarpone | mascarpone | 1:1 | Richer and sweeter; softer set in cheesecake
+= Same amount of ricotta blended smooth | ricotta | 1:1 | Lighter, grainier; fine in dips and fillings
+= Thick Greek yogurt strained for an hour | yogurt | 1:1 | Tangier and lower fat; softer
+= Same amount of vegan cream cheese (dairy-free) | vegan cream cheese | 1:1 | Dairy-free; softer when baked
+* Ricotta
+= Same amount of cottage cheese, blended or drained | cottage cheese | 1:1 | Saltier and wetter unless drained
+= Same amount of mascarpone (richer) | mascarpone | 1:1 | Much richer, smoother
+* Mascarpone
+= Same amount of cream cheese beaten with a splash of cream | cream cheese + heavy cream | 1:1 | Tangier, firmer
+= Same amount of ricotta, blended smooth | ricotta | 1:1 | Lighter, less rich
+* Evaporated milk
+= 1 cup milk simmered down to about ⅔ cup | milk | 3/2:1 | Same once reduced; takes about 15 minutes
+= Same amount of half and half | half and half | 1:1 | Slightly richer, no cooked taste
+* Condensed milk | sweetened condensed milk
+= 1 cup evaporated milk + ¾ cup sugar, simmered until thick | evaporated milk + sugar | 1:1 | Close; a little thinner
+= 1 cup milk + ⅔ cup sugar + 2 tbsp butter, simmered until reduced by half | milk + sugar + butter | 2:1 | Close after long reduction
+= Coconut condensed milk or 1 can coconut milk + ½ cup sugar, reduced (dairy-free) | coconut milk + sugar | 1:1 | Dairy-free; coconut flavour
+* Egg
+= 1 tbsp ground flaxseed + 3 tbsp water, rested 5 minutes (per egg) | flaxseed | 1:1 | Egg-free binder; denser, slightly nutty
+= 1 tbsp chia seeds + 3 tbsp water, rested 10 minutes (per egg) | chia seeds | 1:1 | Egg-free binder; visible specks
+= ¼ cup applesauce per egg (sweet bakes) | applesauce | 1:1 | Moist and dense; adds sweetness
+= ½ ripe banana, mashed, per egg (sweet bakes) | banana | 1:1 | Moist; banana flavour
+= 3 tbsp aquafaba per egg | aquafaba / chickpeas | 1:1 | Egg-free; best for light bakes and meringue
+= ¼ cup plain yogurt per egg | yogurt | 1:1 | Moist, tender; less lift
+~ Egg swaps work best when eggs are a binder, not the star (not for omelettes or meringues).
+~ Egg whites: 3 tbsp aquafaba per white whips like meringue. Yolks in custard: 1 whole egg per 2 yolks (firmer, less rich).
+* Parmesan | pecorino, grana padano, parmesan cheese
+~ Pecorino and grana padano work 1:1 (pecorino is saltier).
+= Nutritional yeast, about half the amount (dairy-free) | nutritional yeast | 1/2:1 | Dairy-free; cheesy-savoury but no melt
+= Same amount of aged manchego or gouda, finely grated | manchego / gouda | 1:1 | Milder, slightly sweeter
+* Mozzarella
+= Same amount of provolone | provolone | 1:1 | Sharper; melts well
+= Same amount of Monterey Jack | monterey jack | 1:1 | Creamier melt, mild
+= Same amount of burrata (torn, add after cooking) | burrata | 1:1 | Creamier; do not bake
+= Same amount of vegan cheese (dairy-free) | vegan cheese | 1:1 | Dairy-free; melts less evenly
+* Cheddar
+= Same amount of Monterey Jack, Colby or Gouda | monterey jack / colby jack / gouda | 1:1 | Milder; melts smoothly
+= Same amount of Swiss cheese or Gruyère | swiss cheese / gruyere | 1:1 | Nuttier; stretchier melt
+* Feta
+= Same amount of goat cheese | goat cheese | 1:1 | Creamier, less salty
+= Same amount of queso fresco or cotija | queso fresco / cotija | 1:1 | Milder (queso fresco) or saltier (cotija)
+= Halloumi, cubed (firmer, saltier) | halloumi | 1:1 | Squeaky and firm; grill it
+* Gruyere
+= Same amount of Swiss cheese | swiss cheese | 1:1 | Milder
+= Same amount of aged gouda or cheddar | gouda / cheddar | 1:1 | Sharper; less nutty
+* Goat cheese
+= Same amount of feta | feta | 1:1 | Saltier, crumblier
+= Same amount of cream cheese + pinch of salt | cream cheese | 1:1 | Milder, smoother
+* Paneer
+= Same amount of halloumi | halloumi | 1:1 | Saltier; soak 10 minutes to soften
+= Same amount of extra-firm tofu, pressed (vegan) | tofu | 1:1 | Vegan; softer, absorbs sauce
+* Queso fresco
+= Same amount of feta, rinsed for less salt | feta | 1:1 | Saltier and tangier
+= Same amount of ricotta salata or mild crumbly goat cheese | ricotta salata / goat cheese | 1:1 | Similar crumble
+* Blue cheese | gorgonzola, stilton, roquefort
+= Same amount of feta + a little black pepper | feta | 1:1 | Saltier and milder; no blue tang
+* Swiss cheese | emmental
+= Same amount of gruyere | gruyere | 1:1 | Nuttier and stronger
+= Same amount of jarlsberg or provolone | provolone | 1:1 | Similar melt
+* Monterey jack | pepper jack
+= Same amount of mild cheddar | cheddar | 1:1 | Sharper; slightly oilier melt
+= Same amount of mozzarella | mozzarella | 1:1 | Stretchier, milder
+* Provolone
+= Same amount of mozzarella | mozzarella | 1:1 | Milder
+= Same amount of swiss cheese | swiss cheese | 1:1 | Nuttier
+* Halloumi
+= Same amount of paneer, fried | paneer | 1:1 | Milder, less salty; also holds shape
+= Thick slices of feta, fried briefly (very soft) | feta | 1:1 | Softer and saltier; handle gently
+* Burrata
+= Same amount of fresh mozzarella with a spoon of cream | mozzarella + heavy cream | 1:1 | Similar; less oozy
+* Cottage cheese
+= Same amount of ricotta | ricotta | 1:1 | Smoother, sweeter
+= Same amount of farmer cheese | farmer cheese | 1:1 | Drier; good in pancakes and fillings
+* Kefir
+= Same amount of buttermilk | buttermilk | 1:1 | Same tang
+= Same amount of yogurt thinned with milk | yogurt + milk | 1:1 | Same in smoothies and bakes
+* Labneh
+= Greek yogurt, strained overnight | yogurt | 3/2:1 | Same once strained; start with 1½ times the amount
+= Same amount of cream cheese + a squeeze of lemon | cream cheese + lemon | 1:1 | Richer, less tangy
+* Vegan butter
+= Same amount of coconut oil (solid for pastry, melted for cakes) | coconut oil | 1:1 | Dairy-free; can taste of coconut
+= ¾ the amount of vegetable oil in cakes and muffins | vegetable oil | 3/4:1 | Moist; not for creaming or pastry
+
+## Baking
+* Baking powder
+= 1 tsp = ¼ tsp baking soda + ½ tsp cream of tartar | baking soda + cream of tartar | 1:1 | Same lift; mix just before using
+= 1 tsp = ¼ tsp baking soda + ½ cup buttermilk or yogurt (reduce other liquid by ½ cup) | baking soda + buttermilk / yogurt | 1:1 | Same lift; tangier, moister
+* Baking soda | bicarbonate of soda
+= 3 tsp baking powder per 1 tsp baking soda (and leave out salt) | baking powder | 3:1 | Weaker browning; slightly different taste
+~ Use soda swaps only in recipes with an acid like buttermilk, yogurt or lemon.
+* Self raising flour | self-rising flour
+= 1 cup flour + 1½ tsp baking powder + ¼ tsp salt | flour + baking powder | 1:1 | Same result
+* Flour | all-purpose flour, plain flour
+= Whole wheat flour for up to half the flour (denser) | whole wheat flour | 1:1 | Denser and nuttier; add a spoon more liquid
+= 1 cup gluten-free blend or rice flour (cakes, not bread) | gluten free flour / rice flour | 1:1 | Gluten-free; more crumbly; add ¼ tsp xanthan gum per cup if the blend has none
+= ¾ cup almond flour per cup in cookies and quick breads | almond flour | 3/4:1 | Gluten-free; moist, flat and nutty; not for yeast bread
+= Same amount of oat flour in muffins and pancakes | oat flour | 1:1 | Softer, nuttier; gluten-free only with certified oats
+~ Bread flour: all-purpose works 1:1 with a little less chew (add 1 tsp vital wheat gluten per cup if you have it).
+* Cake flour
+= ¾ cup + 2 tbsp flour + 2 tbsp cornstarch per cup, sifted | flour + cornstarch | 1:1 | Same tender crumb
+* Gluten free flour | gluten free flour blend
+= Mix 2 parts rice flour + 2/3 part potato starch + 1/3 part tapioca flour | rice flour + potato starch / cornstarch + tapioca flour | 1:1 | Gluten-free blend; add ½ tsp xanthan gum per cup for cakes
+= Plain flour (not gluten-free) | flour | 1:1 | Contains gluten; usually needs a little less liquid
+* Almond flour | ground almonds, almond meal
+= Same weight of ground hazelnuts or cashews | hazelnuts / cashews | 1:1 | Different nut flavour; same moist crumb
+= Sunflower seed flour (nut-free; may turn green with baking soda) | sunflower seeds | 1:1 | Nut-free; add a little lemon juice to stop greening
+= ½ the amount of plain flour in cookies | flour | 1/2:1 | Not gluten-free; drier, less nutty
+* Oat flour
+= Rolled oats blended fine | oats | 5/4:1 | Same; 1¼ cups oats make about 1 cup flour
+= Same amount of plain flour | flour | 1:1 | Lighter, less nutty; contains gluten
+* Xanthan gum
+= 2 tsp psyllium husk powder per 1 tsp | psyllium husk | 2:1 | Similar binding; slightly darker crumb
+= 1 tbsp chia or flaxseed, ground, per 1 tsp | chia seeds / flaxseed | 3:1 | Binds well; visible specks
+* Cornstarch | cornflour
+= 2 tbsp flour per 1 tbsp cornstarch for thickening | flour | 2:1 | Cloudier sauce; cook 2 minutes longer; contains gluten
+= Same amount of rice flour, potato starch or arrowroot | rice flour / potato starch / arrowroot | 1:1 | Gluten-free; arrowroot stays glossy, add at the end
+* Potato starch
+= Same amount of cornstarch | cornstarch | 1:1 | Slightly less crisp coating
+= Same amount of tapioca flour | tapioca flour | 1:1 | Chewier; good for crisp frying
+* Tapioca flour | tapioca starch
+= Same amount of cornstarch or potato starch | cornstarch / potato starch | 1:1 | Less chewy (cheese bread will be flatter)
+* Semolina
+= Same amount of fine polenta | cornmeal | 1:1 | Gluten-free; grainier and more yellow
+= Same amount of plain flour in pasta dough | flour | 1:1 | Softer pasta
+* Cornmeal | polenta
+= Same amount of fine semolina | semolina | 1:1 | Contains gluten; smoother
+= Same amount of masa harina in breads | masa harina | 1:1 | Stronger corn flavour; finer
+* Masa harina
+= Same amount of fine cornmeal + a little extra water | cornmeal | 1:1 | Grittier; tortillas crack more easily
+* Masarepa | precooked cornmeal
+= Same amount of masa harina (arepas a little denser) | masa harina | 1:1 | Denser, nixtamal flavour
+* Brown sugar
+= 1 cup sugar + 1 tbsp molasses | sugar + molasses | 1:1 | Same; use 2 tbsp molasses for dark brown
+= 1 cup sugar + 2 tbsp maple syrup (slightly lighter) | sugar + maple syrup | 1:1 | Lighter caramel note
+= Same amount of coconut sugar | coconut sugar | 1:1 | Less moist; deeper toffee flavour
+* Sugar | white sugar, caster sugar
+= Same amount of brown sugar (adds caramel notes) | brown sugar | 1:1 | Moister, chewier, darker
+= ¾ cup honey per cup; cut liquid by 3 tbsp and bake 25°F/15°C cooler | honey | 3/4:1 | Moist and browns faster; not vegan
+= ¾ cup maple syrup per cup; cut liquid by 3 tbsp | maple syrup | 3/4:1 | Moist, maple taste
+= Same amount of coconut sugar | coconut sugar | 1:1 | Darker, less sweet
+* Powdered sugar | icing sugar, confectioners sugar
+= Blend 1 cup sugar + 1 tbsp cornstarch until fine | sugar + cornstarch | 1:1 | Same once very fine
+* Honey
+= Same amount of maple syrup | maple syrup | 1:1 | Vegan; thinner, maple flavour
+= Same amount of agave syrup | agave syrup | 1:1 | Vegan; sweeter, neutral
+= Same amount of golden syrup | golden syrup | 1:1 | Vegan; buttery taste
+= 1¼ cups sugar + ¼ cup water per cup | sugar | 5/4:1 | Less flavour; crisper bakes
+* Maple syrup
+= Same amount of honey | honey | 1:1 | Thicker, floral; not vegan
+= Same amount of agave syrup | agave syrup | 1:1 | Neutral sweetness
+= 1 cup brown sugar + ¼ cup water, simmered (per cup) | brown sugar | 1:1 | Similar on pancakes; no maple flavour
+* Agave syrup | agave
+= Same amount of maple syrup | maple syrup | 1:1 | Maple flavour; slightly less sweet
+= Same amount of honey | honey | 1:1 | Thicker; not vegan
+* Molasses
+= Same amount of dark corn syrup, honey or maple syrup | honey / maple syrup / corn syrup | 1:1 | Less bitter and dark
+= ¾ cup brown sugar + ¼ cup water per cup | brown sugar | 1:1 | Milder
+* Corn syrup
+= Same amount of golden syrup | golden syrup | 1:1 | Same texture; buttery
+= Same amount of honey or agave (browns faster) | honey / agave syrup | 1:1 | Browns faster; adds flavour
+* Golden syrup
+= Same amount of honey | honey | 1:1 | Floral; not vegan
+= Same amount of light corn syrup | corn syrup | 1:1 | Less flavour
+* Vanilla extract
+= 1 vanilla bean's seeds per 1 tbsp extract | vanilla bean | 1:1 | Stronger, specks
+= Same amount of maple syrup (for flavour) | maple syrup | 1:1 | Maple note instead of vanilla
+= Half the amount of almond extract (stronger) | almond extract | 1/2:1 | Almond flavour; contains nut flavouring
+* Chocolate | dark chocolate
+= 1 oz (30 g) = 3 tbsp cocoa powder + 1 tbsp butter or oil | cocoa powder + butter / vegetable oil / coconut oil | 1:1 | Same in bakes; not for melting or dipping
+= Same amount of raisins, dried cranberries or chopped nuts (in cookies) | raisins / dried cranberries / walnuts | 1:1 | No chocolate; chewier or crunchier
+* White chocolate
+= Same amount of milk chocolate | milk chocolate | 1:1 | More chocolatey, less sweet
+* Cocoa powder
+= 1 oz (30 g) unsweetened chocolate per 3 tbsp cocoa; reduce fat by 1 tbsp | chocolate | 1:1 | Fudgier
+* Cream of tartar
+= For egg whites: ½ tsp lemon juice or vinegar per ¼ tsp | lemon / white vinegar | 2:1 | Same stability
+* Yeast | dried yeast, instant yeast
+~ No real swap for bread. For quick breads use 2 tsp baking powder per cup of flour instead.
+= Quick bread instead: 2 tsp baking powder per cup flour | baking powder | 1:1 | Becomes a soda-bread style loaf; no chew
+* Gelatin
+= Agar powder, about ⅓ the amount, boiled 2 minutes to set (vegan) | agar | 1/3:1 | Vegan; firmer, sets at room temperature
+~ Agar must boil; it won't set with raw pineapple or kiwi either way.
+* Breadcrumbs | panko
+= Same amount of crushed crackers | cracker | 1:1 | Saltier, finer
+= Same amount of rolled oats, pulsed | oats | 1:1 | Chewier; good binder in meatballs
+= Same amount of crushed cornflakes or cereal | cereal | 1:1 | Crunchier, slightly sweet
+= Ground almonds (gluten-free) | almond flour / almonds | 1:1 | Gluten-free; browns faster
+* Graham cracker | digestive biscuit
+= Same amount of crushed cookies or vanilla wafers | cookie / vanilla wafer | 1:1 | Sweeter crust
+= Same amount of gingersnaps | gingersnap cookie | 1:1 | Spiced crust
+* Ladyfinger | ladyfingers, savoiardi
+= Slices of sponge cake, lightly toasted | sponge cake | 1:1 | Softer; soak more briefly
+* Pie crust | shortcrust pastry
+= Press-in crust: 1½ cups crushed cookies + 5 tbsp melted butter | cookie / graham cracker + butter | 1:1 | Crunchy and sweet; no blind baking needed
+= Puff pastry (flakier) | puff pastry | 1:1 | Flakier and puffier
+* Puff pastry
+= Phyllo, brushed with melted butter, 4-5 layers | phyllo dough + butter | 1:1 | Crisper, shatters; less rise
+= Pie crust (less flaky) | pie crust | 1:1 | Denser, short texture
+* Phyllo dough | filo
+= Puff pastry, rolled thin | puff pastry | 1:1 | Puffier and richer
+* Shredded coconut | desiccated coconut
+= Fresh coconut, grated and dried in a low oven | coconut | 1:1 | Same once dried
+= Same amount of finely chopped almonds | almonds | 1:1 | No coconut flavour; adds tree nuts
+* Marshmallows | marshmallow
+= Same amount of marshmallow fluff | marshmallow fluff | 1:1 | Softer, sticks better
+* Sprinkles | chocolate sprinkles
+= Finely grated chocolate | chocolate | 1:1 | Less colourful; melts faster
+* Jam | raspberry jam, strawberry jam, preserves
+= Same amount of any fruit jam or marmalade | marmalade | 1:1 | Different fruit flavour
+= Quick chia jam: 1 cup mashed berries + 2 tbsp chia + 1 tbsp maple syrup | chia seeds + berries | 1:1 | Less sweet, softer set
+* Chocolate hazelnut spread | hazelnut spread
+= Melted chocolate + a spoon of hazelnut or peanut butter | chocolate + peanut butter | 1:1 | Close; firms when cold
+
+## Sauces & seasonings
+* Soy sauce
+= Same amount of tamari (gluten-free) | tamari | 1:1 | Gluten-free; a little richer
+= 1 tbsp miso + 1 tbsp water per 2 tbsp soy sauce | miso | 1:1 | Thicker, sweeter, less salty
+= Half the amount of fish sauce + a pinch of sugar | fish sauce | 1/2:1 | Funkier; not vegetarian
+= Coconut aminos or Worcestershire with a pinch of salt | worcestershire sauce | 1:1 | Sweeter and tangier
+~ Dark soy sauce: regular soy sauce + ½ tsp molasses or brown sugar per tbsp gives the same colour.
+* Tamari
+= Same amount of soy sauce (not gluten-free) | soy sauce | 1:1 | Contains wheat; slightly saltier
+* Fish sauce
+= Same amount of soy sauce + a squeeze of lime | soy sauce + lime | 1:1 | Vegetarian; less funky
+= 1 anchovy, mashed, per 1 tbsp | anchovies | 1:1 | Same savoury depth
+= Same amount of tamari or miso thinned with water (vegan) | tamari / miso | 1:1 | Vegan; no sea flavour
+* Oyster sauce
+= 2 tbsp soy sauce + 1 tsp sugar per 2 tbsp | soy sauce + sugar / brown sugar | 1:1 | Thinner and less savoury
+= Same amount of hoisin sauce (sweeter) | hoisin sauce | 1:1 | Sweeter, spiced
+= Same amount of mushroom stir-fry sauce, or soy sauce thickened with a little cornstarch (vegetarian) | soy sauce + cornstarch | 1:1 | Vegetarian; similar gloss
+* Hoisin sauce
+= 2 tbsp soy sauce + 1 tbsp peanut butter + 1 tsp honey + garlic | soy sauce + peanut butter + honey | 1:1 | Close; contains peanut
+= Same amount of BBQ sauce + a little soy sauce | bbq sauce + soy sauce | 1:1 | Smokier
+* Kecap manis | sweet soy sauce
+= 2 tbsp soy sauce + 1 tbsp brown sugar, simmered until syrupy (per 2 tbsp) | soy sauce + brown sugar | 1:1 | Same; slightly thinner
+* Worcestershire sauce
+= Equal mix of soy sauce and vinegar + pinch of sugar | soy sauce + vinegar | 1:1 | Vegetarian; less complex
+= Same amount of steak sauce | steak sauce | 1:1 | Sweeter, tomato-based
+* Mirin
+= 1 tbsp rice vinegar + 1 tsp sugar per tbsp | rice vinegar + sugar | 1:1 | Sharper; no alcohol
+= Same amount of sake or dry white wine + ½ tsp sugar per tbsp | sake / white wine + sugar | 1:1 | Close
+* Sake
+= Same amount of dry sherry or dry white wine | sherry / white wine | 1:1 | Fruitier
+= Same amount of rice vinegar diluted with an equal amount of water | rice vinegar | 1:1 | Alcohol-free; sharper
+* Rice wine | shaoxing wine
+= Same amount of dry sherry | sherry | 1:1 | Closest flavour
+= Same amount of dry white wine | white wine | 1:1 | Lighter
+= Same amount of sake | sake | 1:1 | Cleaner taste
+* Dashi
+= Same amount of chicken or vegetable stock + a pinch of seaweed or a splash of soy sauce | chicken stock / vegetable stock + soy sauce | 1:1 | Less smoky-sea flavour
+* Rice vinegar
+= Same amount of cider vinegar + a pinch of sugar | cider vinegar | 1:1 | Fruitier
+= Same amount of white wine vinegar | white wine vinegar | 1:1 | Sharper; add a pinch of sugar
+* Balsamic vinegar
+= 1 tbsp red wine vinegar + ½ tsp honey or sugar | red wine vinegar + honey / sugar | 1:1 | Thinner, sharper
+= Same amount of balsamic glaze, thinned with water | balsamic glaze | 1:1 | Sweeter
+* White wine vinegar
+= Same amount of cider vinegar, rice vinegar or champagne vinegar | cider vinegar / rice vinegar | 1:1 | Fruitier or milder
+= Lemon juice (same amount) in dressings | lemon | 1:1 | Fresher, citrus note
+* Red wine vinegar
+= Same amount of sherry vinegar | sherry vinegar | 1:1 | Nuttier
+= 1 tbsp white wine vinegar + a splash of red wine | white wine vinegar | 1:1 | Same
+* Sherry vinegar
+= Same amount of red wine vinegar | red wine vinegar | 1:1 | Less nutty
+= Same amount of cider vinegar | cider vinegar | 1:1 | Fruitier
+* Cider vinegar | apple cider vinegar
+= Same amount of white wine vinegar or lemon juice | white wine vinegar / lemon | 1:1 | Less fruity
+* Lemon | lemon juice
+= Same amount of lime juice | lime | 1:1 | More floral, slightly more bitter
+= Half the amount of white wine or cider vinegar (in savory dishes) | white wine vinegar / cider vinegar | 1/2:1 | Sharper; no citrus aroma
+* Lime | lime juice
+= Same amount of lemon juice | lemon | 1:1 | Less floral
+* Orange | orange juice
+= Same amount of tangerine or clementine juice | clementine | 1:1 | Sweeter
+= Lemon juice + a little sugar, half the amount (in sauces) | lemon + sugar | 1/2:1 | Sharper; no orange aroma
+* Tomato paste | tomato puree
+= 3 tbsp tomato sauce/passata per 1 tbsp, simmered down | canned tomatoes | 3:1 | Same once reduced
+= Same amount of ketchup (sweeter) | ketchup | 1:1 | Sweeter and tangier
+* Canned tomatoes | chopped tomatoes, crushed tomatoes
+= 1¼ lb (600 g) fresh tomatoes, chopped and simmered 10 min per 14-oz can | tomato | 3/2:1 | Fresher, lighter; needs longer cooking
+= Passata or marinara sauce, same amount | marinara sauce | 1:1 | Smoother; already seasoned
+* Marinara sauce | pasta sauce
+= 1 can tomatoes + garlic + olive oil + basil, simmered 15 min | canned tomatoes + garlic | 1:1 | Same, fresher
+* Ketchup
+= 1 tbsp tomato paste + 1 tsp vinegar + 1 tsp sugar per tbsp | tomato paste + sugar | 1:1 | Close
+= Same amount of BBQ sauce | bbq sauce | 1:1 | Smokier and sweeter
+* BBQ sauce | barbecue sauce
+= Ketchup + 1 tbsp brown sugar + 1 tsp smoked paprika + splash of vinegar per ½ cup | ketchup + brown sugar + smoked paprika | 1:1 | Close; less smoky
+* Mayonnaise
+= Same amount of Greek yogurt or sour cream | yogurt / sour cream | 1:1 | Lighter and tangier
+= Mashed avocado (in sandwiches and salads) | avocado | 1:1 | Egg-free and dairy-free; turns brown
+= Same amount of vegan mayonnaise (egg-free) | vegan mayonnaise | 1:1 | Egg-free; same use
+* Aioli | garlic aioli
+= Mayonnaise + 1 grated garlic clove + lemon per ½ cup | mayonnaise + garlic | 1:1 | Same
+* Dijon mustard
+= 1 tsp mustard powder + 1 tsp water + a few drops vinegar per tbsp | mustard powder | 1:1 | Sharper
+* Hot sauce | tabasco
+= Sriracha or chili garlic sauce, to taste | sriracha / chili garlic sauce | to taste | Thicker, garlicky
+= Pinch of cayenne or chili flakes + a splash of vinegar | cayenne / chili flakes | to taste | Heat without the sauce body
+* Sriracha
+= Chili garlic sauce or sambal oelek + a little sugar | chili garlic sauce / sambal oelek | 1:1 | Chunkier, less sweet
+= Hot sauce + a little garlic and sugar | hot sauce | 1:1 | Thinner, more vinegar
+* Sambal oelek | chili paste
+= Same amount of chili garlic sauce | chili garlic sauce | 1:1 | Garlicky
+= Fresh chilies blended with a pinch of salt and vinegar | chili | 1:1 | Fresher heat
+* Gochujang
+= 1 tbsp miso + 1 tsp chili flakes + ½ tsp sugar per tbsp | miso + chili flakes | 1:1 | Close; less sticky
+= Sriracha with a little soy sauce and sugar | sriracha + soy sauce | 1:1 | Thinner, hotter
+* Gochugaru | korean chili flakes
+= Half the amount of chili flakes + a pinch of sweet paprika | chili flakes + paprika | 1/2:1 | Hotter, less fruity
+* Doenjang | korean soybean paste
+= Same amount of dark (red) miso | miso | 1:1 | Milder, sweeter
+* Miso
+= Half the amount of soy sauce or tamari | soy sauce / tamari | 1/2:1 | Thinner, saltier
+= Same amount of tahini + soy sauce (for dressings) | tahini + soy sauce | 1:1 | Nuttier; contains sesame
+* Tahini
+= Same amount of peanut butter or almond butter, thinned | peanut butter / almond butter | 1:1 | Nutty; contains peanut or tree nuts
+= Ground sesame seeds + a little sesame oil | sesame seeds + sesame oil | 1:1 | Grainier
+= Sunflower seed butter (sesame-free, nut-free) | sunflower seed butter | 1:1 | Sesame-free; sweeter
+* Peanut butter
+= Same amount of almond butter, cashew butter or tahini | almond butter / tahini | 1:1 | Peanut-free; may contain tree nuts or sesame
+= Sunflower seed butter (nut-free) | sunflower seed butter / sunflower seeds | 1:1 | Nut-free; may turn green with baking soda
+* Pesto
+= Blend basil, garlic, parmesan, olive oil and any nut | basil + garlic + olive oil | 1:1 | Fresher
+= Blend spinach or arugula with garlic and oil | spinach / arugula + garlic | 1:1 | Milder or more peppery; nut-free
+* Curry paste | thai red curry paste, thai green curry paste
+= 1 tbsp curry powder + garlic + ginger + oil per 1 tbsp paste | curry powder + garlic | 1:1 | Less fragrant; Indian rather than Thai
+* Chipotle in adobo
+= ½ tsp smoked paprika + pinch of cayenne per pepper | smoked paprika | 1:1 | Smoky heat without tang
+= Chipotle powder, ¼ tsp per pepper | chipotle powder | 1:1 | Same smoke; no sauce
+* Tamarind | tamarind paste
+= Equal parts lime juice and brown sugar | lime + brown sugar | 1:1 | Brighter, less fruity
+= Pomegranate molasses (same amount) | pomegranate molasses | 1:1 | Fruitier
+* Pomegranate molasses
+= Balsamic vinegar + honey, simmered down | balsamic vinegar + honey | 1:1 | Close
+= Lemon juice + a little sugar | lemon + sugar | 1:1 | Sharper, thinner
+* Harissa
+= Chili paste or sriracha + cumin + garlic | sriracha / chili garlic sauce + cumin | 1:1 | Close
+= Smoked paprika + chili flakes + olive oil | smoked paprika + chili flakes | 1:1 | Smokier
+* Liquid smoke
+= Smoked paprika in sauces, a pinch at a time | smoked paprika | to taste | Gentler smoke
+= Chipotle in adobo for smoky heat | chipotle in adobo | to taste | Adds heat too
+* Nuoc cham
+= 2 tbsp fish sauce + 2 tbsp lime + 1 tbsp sugar + 4 tbsp water + garlic and chili | fish sauce + lime + sugar | 1:1 | Same
+* Sweet chili sauce
+= Honey or sugar warmed with chili flakes, garlic and rice vinegar | honey / sugar + chili flakes + rice vinegar | 1:1 | Thinner
+* Salsa | salsa roja, pico de gallo
+= Chopped tomato, onion, lime and chili | tomato + onion + lime | 1:1 | Fresher, chunkier
+= Same amount of canned tomatoes with green chilies | canned tomatoes | 1:1 | Smoother
+* Salsa verde
+= Tomatillos blended with onion, cilantro, chili and lime | tomatillo + cilantro | 1:1 | Same
+* Tzatziki
+= Greek yogurt + grated cucumber + garlic + dill | yogurt + cucumber + garlic | 1:1 | Same
+* Taco seasoning
+= 2 tsp chili powder + 1 tsp cumin + ½ tsp each paprika, garlic powder, oregano + salt per 2 tbsp | chili powder + cumin + paprika | 1:1 | Same
+* Cajun seasoning | creole seasoning
+= Paprika + garlic powder + cayenne + oregano + thyme + black pepper + salt | paprika + cayenne + garlic powder | 1:1 | Same; adjust cayenne for heat
+
+## Herbs & spices
+* Basil
+= 1 tsp dried basil per 1 tbsp fresh | dried basil | 1/3:1 | Muted flavour; add early
+= Same amount of Thai basil or a little mint | thai basil / mint | 1:1 | Anise or cooler note
+* Parsley
+= 1 tsp dried parsley per 1 tbsp fresh | dried parsley | 1/3:1 | Little flavour; mostly colour
+= Same amount of cilantro or chervil (different flavour) | cilantro | 1:1 | Citrusy, soapy to some
+* Cilantro | coriander leaves
+= Same amount of parsley + a squeeze of lime | parsley + lime | 1:1 | Milder
+= Thai basil or mint in Southeast Asian dishes | thai basil / mint | 1:1 | Different but fresh
+* Thyme
+= 1 tsp dried thyme per 1 tbsp fresh | dried thyme | 1/3:1 | Same; add early
+= Same amount of oregano or marjoram | oregano / marjoram | 1:1 | Stronger (oregano) or sweeter
+* Rosemary
+= 1 tsp dried rosemary per 1 tbsp fresh | dried rosemary | 1/3:1 | Woody; crush it first
+= Thyme or sage (same amount) | thyme / sage | 1:1 | Milder or earthier
+* Dill
+= 1 tsp dried dill per 1 tbsp fresh | dried dill | 1/3:1 | Muted
+= Fennel fronds or tarragon | fennel / tarragon | 1:1 | Anise flavour
+* Mint
+= 1 tsp dried mint per 1 tbsp fresh | dried mint | 1/3:1 | Works in cooked dishes, not salads
+= Basil (in salads) | basil | 1:1 | Sweeter, less cooling
+* Oregano
+= Same amount of marjoram (milder) | marjoram | 1:1 | Milder, sweeter
+= Italian seasoning, same amount | italian seasoning | 1:1 | Mixed herb note
+= Same amount of thyme | thyme | 1:1 | Earthier
+* Sage
+= Same amount of rosemary or thyme | rosemary / thyme | 1:1 | Piney or lighter
+* Tarragon
+= Same amount of basil or a pinch of fennel seeds | basil / fennel seeds | 1:1 | Less anise
+* Chives
+= Green onion tops, finely sliced | green onion | 1:1 | Slightly stronger
+* Green onion | scallion, spring onion
+= Chives (same amount) | chives | 1:1 | Milder, no crunch
+= Half the amount of finely chopped shallot or red onion | shallot / red onion | 1/2:1 | Sharper; cook it lightly
+* Shallot
+= Same amount of red onion or yellow onion, finely chopped | red onion / onion | 1:1 | Sharper, less sweet
+* Onion
+= Shallots, about 3 per onion | shallot | 3:1 | Sweeter, milder
+= 1 tsp onion powder per onion | onion powder | 1:1 | No texture; flavour only
+= Leek (white and light green part) | leek | 1:1 | Milder, softer
+* Garlic
+= ⅛ tsp garlic powder per clove | garlic powder | 1:1 | Flatter flavour; don't burn it
+= ½ tsp garlic paste per clove | ginger garlic paste | 1:1 | Adds ginger
+* Ginger
+= ¼ tsp ground ginger per 1 tbsp fresh | ground ginger | 1/12:1 | Warmer, less zingy
+= Ginger garlic paste (and skip some garlic) | ginger garlic paste | 1:1 | Adds garlic
+* Galangal
+= Same amount of fresh ginger + a squeeze of lime | ginger + lime | 1:1 | Less piney and peppery
+* Lemongrass
+= Zest of 1 lemon per stalk | lemon | 1:1 | Brighter, less herbal
+= 1 tbsp lemongrass paste per stalk | lemongrass paste | 1:1 | Same
+* Kaffir lime leaves | makrut lime leaves
+= 1 tsp lime zest per 2 leaves | lime | 1:2 | Citrusy but less perfumed
+= Bay leaf + lime zest | bay leaf + lime | 1:1 | Close in curries
+* Italian seasoning | italian herbs, mixed herbs
+= Equal parts dried oregano, basil and thyme | oregano + dried basil / dried thyme | 1:1 | Same
+= Herbes de Provence | herbe de provence | 1:1 | Adds lavender note
+* Cumin
+= Half the amount of chili powder or taco seasoning (has cumin in it) | chili powder / taco seasoning | 1/2:1 | Adds heat and salt
+= Ground coriander + a pinch of smoked paprika | coriander + smoked paprika | 1:1 | Lighter, citrusy
+* Coriander | ground coriander
+= Same amount of cumin (earthier) | cumin | 1:1 | Earthier, stronger
+= Curry powder, half the amount | curry powder | 1/2:1 | Curry flavour
+* Smoked paprika
+= Same amount of sweet paprika + pinch of chipotle or cayenne | paprika | 1:1 | Less smoke
+* Paprika
+= Same amount of smoked paprika (smokier) | smoked paprika | 1:1 | Smokier
+= Half the amount of chili powder (hotter) | chili powder | 1/2:1 | Hotter, cumin note
+* Chili powder
+= Cayenne, ¼ the amount + paprika + cumin | cayenne + paprika | 1:1 | Close
+= Chili flakes, half the amount | chili flakes | 1/2:1 | Heat in specks
+* Cayenne
+= Chili flakes or hot sauce, to taste | chili flakes / hot sauce | to taste | Coarser heat
+= Chili powder, about 3x the amount (milder) | chili powder | 3:1 | Milder, adds cumin
+* Chili flakes | red pepper flakes
+= Pinch of cayenne per ½ tsp | cayenne | 1/4:1 | Finer, even heat
+= A fresh chili, chopped | chili / jalapeno | 1:1 | Fresher heat
+* Chili | fresh chili
+= ¼ tsp chili flakes per chili | chili flakes | 1:1 | Dried heat
+= A jalapeno (milder) | jalapeno | 1:1 | Milder, grassier
+* Aleppo pepper | pul biber
+= Half sweet paprika, half chili flakes | paprika + chili flakes | 1:1 | Close
+* Garam masala
+= Curry powder (same amount) | curry powder | 1:1 | More turmeric, less warm spice
+= 1 tsp cumin + ½ tsp coriander + ¼ tsp cinnamon + pinch cloves | cumin + coriander + cinnamon | 1:1 | Close
+* Curry powder
+= Garam masala + a pinch of turmeric | garam masala + turmeric | 1:1 | Warmer, less earthy
+= Cumin + coriander + turmeric + chili powder | cumin + coriander + turmeric | 1:1 | Close
+* Chaat masala
+= Amchur or lemon juice + cumin + black salt or salt + chili | cumin + lemon | 1:1 | Less sulphurous tang
+* Allspice
+= Equal parts cinnamon, nutmeg and cloves | cinnamon + nutmeg | 1:1 | Close
+* Pumpkin pie spice | mixed spice
+= 1 tsp = ½ tsp cinnamon + ¼ tsp ginger + pinch nutmeg + pinch cloves | cinnamon + nutmeg | 1:1 | Same
+* Nutmeg
+= Same amount of mace or allspice | allspice | 1:1 | Close
+= Half the amount of cinnamon | cinnamon | 1/2:1 | Sweeter
+* Cinnamon
+= Pumpkin pie spice (same amount) | pumpkin pie spice | 1:1 | Adds ginger and clove
+= ¼ the amount of allspice or nutmeg | allspice / nutmeg | 1/4:1 | Stronger; use less
+* Cardamom
+= Equal parts cinnamon and nutmeg | cinnamon + nutmeg | 1:1 | Warm but not floral
+* Saffron
+= Pinch of turmeric for color (flavour differs) | turmeric | to taste | Colour only; earthier
+* Chinese five spice
+= Equal parts cinnamon, star anise, fennel seeds, cloves and pepper | cinnamon + star anise / fennel seeds | 1:1 | Same
+* Star anise
+= ½ tsp fennel seeds per star | fennel seeds | 1:1 | Milder anise
+* Za atar | zaatar
+= Dried thyme + sesame seeds + sumac or lemon zest | dried thyme / oregano + sesame seeds | 1:1 | Close
+* Sumac
+= Lemon zest + a pinch of salt | lemon | to taste | Sharper citrus
+* Black pepper
+= White pepper, a little less | white pepper | 3/4:1 | Earthier, hotter
+* White pepper
+= Black pepper, a little more finely ground | black pepper | 1:1 | Specks show; milder
+* Bay leaf
+= Pinch of dried thyme per leaf | dried thyme / thyme | to taste | Herbal note
+* Juniper berries | juniper berry
+= A splash of gin or a little rosemary per 4 berries | rosemary | to taste | Piney note only
+* Sichuan peppercorns | sichuan peppercorn
+= Black pepper + a little lemon zest | black pepper + lemon | 1:1 | No numbing tingle
+* Fennel seeds
+= Same amount of anise seed or caraway | caraway | 1:1 | Stronger
+* Caraway | caraway seeds
+= Same amount of fennel seeds | fennel seeds | 1:1 | Sweeter
+* Turmeric
+= Pinch of saffron or curry powder for colour | curry powder | 1/2:1 | Adds other spices
+
+## Proteins
+* Ground beef | minced beef
+= Same amount of ground turkey, chicken or pork | ground turkey / ground chicken / ground pork | 1:1 | Leaner (poultry) and milder
+= Same amount of plant-based mince | plant based mince | 1:1 | Vegetarian; check label for soy and gluten
+= 1 cup cooked lentils per ½ lb (225 g) in sauces | lentils | 1:1 | Vegan; softer, earthier
+= Finely chopped mushrooms in sauces and tacos | mushroom | 1:1 | Vegan; meaty, more moisture
+* Ground pork
+= Same amount of ground chicken or turkey + a little extra oil | ground chicken / ground turkey | 1:1 | Leaner, milder
+= Same amount of sausage meat, removed from casings | sausage / italian sausage | 1:1 | Pre-seasoned; reduce salt
+* Ground turkey
+= Same amount of ground chicken | ground chicken | 1:1 | Same
+= Same amount of lean ground beef | ground beef | 1:1 | Richer, beefier
+* Ground lamb
+= Same amount of ground beef + a pinch of cumin | ground beef | 1:1 | Less gamey
+* Chicken breast
+= Same amount of boneless chicken thighs (cook a few minutes longer) | chicken thighs | 1:1 | Juicier, richer
+= Same amount of turkey breast | turkey | 1:1 | Same; leaner
+= Extra-firm tofu or tempeh (vegetarian) | tofu / tempeh | 1:1 | Vegan; press tofu first; contains soy
+* Chicken thighs
+= Same amount of chicken breast (cook a few minutes less) | chicken breast | 1:1 | Leaner; dries out sooner
+= Chicken drumsticks, bone-in (cook longer) | chicken drumsticks | 1:1 | Needs 10 to 15 minutes longer
+* Chicken
+= Rotisserie chicken, shredded (add at the end) | rotisserie chicken | 1:1 | Faster; already seasoned
+= Same amount of turkey | turkey | 1:1 | Same
+* Steak | sirloin, ribeye
+= Same weight of pork chops or lamb chops | pork chop / lamb chops | 1:1 | Cook pork through to 63 °C
+= Thick slices of portobello mushroom (vegetarian) | portobello mushrooms | 1:1 | Vegan; much quicker to cook
+* Beef roast | chuck roast
+= Same weight of beef short ribs or brisket | short rib / brisket | 1:1 | Richer; similar slow-cook time
+= Same weight of pork shoulder | pork shoulder | 1:1 | Milder, similar braising time
+* Pork shoulder
+= Same weight of boneless chicken thighs (shorter cooking) | chicken thighs | 1:1 | Cooks in about a third of the time
+= Same weight of beef chuck | beef | 1:1 | Beefier
+* Pork chop | pork chops
+= Same weight of boneless chicken thighs | chicken thighs | 1:1 | Similar cook time
+* Lamb shoulder
+= Same weight of beef chuck or goat | beef / goat | 1:1 | Milder (beef) or gamier (goat)
+* Sausage | sausages, italian sausage
+= Ground pork + fennel seeds + chili flakes + garlic | ground pork + fennel seeds | 1:1 | Same in sauces
+= Same amount of vegetarian sausage | vegan sausage | 1:1 | Vegetarian
+* Bacon
+= Pancetta, cubed | pancetta | 1:1 | Unsmoked, richer
+= Same amount of ham + a pinch of smoked paprika | ham + smoked paprika | 1:1 | Leaner, less crisp
+= Prosciutto, crisped in a pan | prosciutto | 1:1 | Saltier, thinner
+= Smoked tempeh or mushrooms with smoked paprika (vegetarian) | tempeh / mushroom + smoked paprika | 1:1 | Vegan; less fat
+* Pancetta
+= Same amount of bacon | bacon | 1:1 | Smokier
+= Salami or prosciutto, diced | salami / prosciutto | 1:1 | Saltier
+* Prosciutto
+= Same amount of thin ham or serrano ham | ham | 1:1 | Milder
+* Ham
+= Same amount of smoked turkey | turkey | 1:1 | Leaner
+= Same amount of Canadian bacon | canadian bacon | 1:1 | Same
+* Chorizo
+= Smoked sausage + 1 tsp smoked paprika | smoked sausage + smoked paprika | 1:1 | Milder, less red oil
+= Pepperoni or salami, diced | pepperoni / salami | 1:1 | Saltier, drier
+* Shrimp | prawns
+= Same amount of scallops or firm white fish, cubed | scallop / white fish | 1:1 | Softer; shorter cooking
+= Squid rings | squid | 1:1 | Chewier; cook very fast or very slow
+* White fish | cod, haddock
+= Same amount of salmon or trout | salmon / trout | 1:1 | Richer, oilier
+= Shrimp | shrimp | 1:1 | Shellfish allergen
+* Salmon
+= Same amount of trout | trout | 1:1 | Milder, thinner; cook less
+= Firm white fish | white fish | 1:1 | Leaner, flakier
+* Tuna
+= Canned salmon or sardines | salmon / sardine | 1:1 | Richer, stronger
+= Chickpeas, mashed (vegetarian "tuna" salad) | chickpeas | 1:1 | Vegan; softer
+* Anchovies
+= Fish sauce, ½ tsp per fillet | fish sauce | 1:1 | Same savoury depth
+= Miso, ½ tsp per fillet (vegan) | miso | 1:1 | Vegan; less salty-sea
+* Crab | crab meat
+= Same amount of cooked shrimp, chopped | shrimp | 1:1 | Firmer, sweeter
+= Same amount of flaked white fish | white fish | 1:1 | Milder; no shellfish
+* Scallop | scallops
+= Same weight of large shrimp | shrimp | 1:1 | Firmer
+= Thick rounds of king oyster mushroom stems, seared (vegan) | oyster mushroom | 1:1 | Vegan; similar look
+* Squid | calamari
+= Same amount of shrimp | shrimp | 1:1 | Softer, quicker
+* Mussels
+= Same weight of clams | clam | 1:1 | Brinier; cook until they open
+* Smoked salmon
+= Same amount of gravlax or hot-smoked trout | trout | 1:1 | Flakier (trout)
+* Tofu
+= Same amount of tempeh | tempeh | 1:1 | Firmer, nuttier
+= Paneer (vegetarian, not vegan) | paneer | 1:1 | Vegetarian; contains dairy
+= Chickpeas in curries and stir-fries | chickpeas | 1:1 | Soy-free; firmer
+* Tempeh
+= Extra-firm tofu, pressed | tofu | 1:1 | Softer, milder
+= Seitan | seitan | 1:1 | Chewier; contains gluten
+* Seitan
+= Same amount of extra-firm tofu or tempeh | tofu / tempeh | 1:1 | Gluten-free; softer
+* Paneer cubes in curry | paneer curry
+= Halloumi or extra-firm tofu | halloumi / tofu | 1:1 | Saltier (halloumi) or vegan (tofu)
+
+## Pantry & grains
+* Chicken stock | chicken broth
+= Vegetable stock (same amount) | vegetable stock | 1:1 | Vegetarian; lighter
+= 1 tsp bouillon powder per cup of water | bouillon powder | 1:1 | Saltier; reduce added salt
+= Water + a splash of soy sauce + a knob of butter, in a pinch | soy sauce + butter | 1:1 | Thin flavour
+* Beef stock | beef broth
+= Mushroom or vegetable stock + 1 tsp soy sauce per cup | vegetable stock + soy sauce | 1:1 | Vegetarian; lighter
+= 1 tsp bouillon powder per cup water | bouillon powder | 1:1 | Saltier
+* Vegetable stock | vegetable broth
+= Chicken stock (not vegetarian) | chicken stock | 1:1 | Richer; not vegetarian
+= 1 tsp bouillon powder per cup of water | bouillon powder | 1:1 | Saltier
+= Water + 1 tsp miso or soy sauce per cup | miso / soy sauce | 1:1 | Lighter
+* Fish stock | seafood stock
+= Same amount of vegetable stock + 1 tsp fish sauce per cup | vegetable stock + fish sauce | 1:1 | Close
+= Same amount of chicken stock | chicken stock | 1:1 | Less of the sea
+* White wine | dry white wine
+= Same amount of stock + 1 tsp white wine vinegar or lemon juice per cup | chicken stock / vegetable stock + white wine vinegar / lemon | 1:1 | Alcohol-free; less fruity
+= Same amount of dry vermouth or sake | sake | 1:1 | Similar
+* Red wine | dry red wine
+= Same amount of beef or vegetable stock + 1 tbsp red wine vinegar per cup | beef stock / vegetable stock + red wine vinegar / balsamic vinegar | 1:1 | Alcohol-free; less depth
+= Grape or cranberry juice + a splash of vinegar | cranberry juice + vinegar | 1:1 | Sweeter
+* Sherry | dry sherry
+= Same amount of dry white wine | white wine | 1:1 | Less nutty
+= Same amount of rice wine | rice wine | 1:1 | Close
+* Beer
+= Same amount of stock (in stews) | beef stock / chicken stock / vegetable stock | 1:1 | No malt bitterness
+= Sparkling water (in batters) | sparkling water | 1:1 | Gluten-free batter if the flour is too
+* Coconut milk
+= Same amount of heavy cream or half and half (not vegan) | heavy cream / half and half | 1:1 | Richer; not dairy-free
+= ¾ cup coconut cream + ¼ cup water per cup | coconut cream | 1:1 | Same
+= Same amount of yogurt, stirred in off the heat | yogurt | 1:1 | Tangy; not dairy-free
+* Coconut cream
+= Full-fat coconut milk, chilled; use the thick top | coconut milk | 1:1 | Same
+= Same amount of heavy cream (not dairy-free) | heavy cream | 1:1 | No coconut flavour
+* Arborio rice | risotto rice
+= Same amount of short-grain or sushi rice | sushi rice | 1:1 | Slightly less creamy
+= Pearl barley (longer cooking) | barley | 1:1 | Chewier; contains gluten
+* Rice
+= Same amount of quinoa (cooks in 15 min) | quinoa | 1:1 | Nuttier, more protein
+= Couscous (5 min, no cooking) | couscous | 1:1 | Contains gluten; finer
+= Bulgur or farro | bulgur / farro | 1:1 | Chewier; contains gluten
+= Cauliflower rice (low carb) | cauliflower | 1:1 | Much lighter; cook 5 minutes
+~ Basmati, jasmine and long-grain rice swap 1:1; jasmine is a little stickier.
+* Sushi rice
+= Same amount of arborio or short-grain rice | arborio rice | 1:1 | Close; a little less sticky
+* Brown rice
+= White rice (cooks in half the time) | rice | 1:1 | Softer, less fibre
+* Quinoa
+= Same amount of couscous, bulgur or rice | couscous / bulgur / rice | 1:1 | Different texture; couscous and bulgur have gluten
+* Couscous
+= Same amount of bulgur or quinoa | bulgur / quinoa | 1:1 | Chewier; quinoa is gluten-free
+= Orzo or other tiny pasta | orzo | 1:1 | Needs boiling
+* Bulgur
+= Same amount of quinoa (gluten-free) | quinoa | 1:1 | Gluten-free
+= Same amount of couscous | couscous | 1:1 | Finer
+* Farro
+= Same amount of pearl barley or wheat berries | barley | 1:1 | Softer
+= Same amount of brown rice (gluten-free) | brown rice | 1:1 | Gluten-free
+* Barley | pearl barley
+= Same amount of farro | farro | 1:1 | Nuttier
+= Same amount of brown rice (gluten-free) | brown rice | 1:1 | Gluten-free
+* Oats | rolled oats
+= Quinoa flakes or millet in porridge | quinoa / millet | 1:1 | Gluten-free
+= Certified gluten-free oats | gluten free oats | 1:1 | Same; safe for gluten-free diets
+* Steel cut oats | steel-cut oats
+= Rolled oats (cook 5 minutes, not 25) | oats | 1:1 | Softer, less chewy
+* Gluten free oats
+= Regular rolled oats (not gluten-free) | oats | 1:1 | Same texture; may contain gluten
+* Grits
+= Same amount of polenta | cornmeal | 1:1 | Same
+* Pasta
+= Any shape of similar size; cooking time on the packet | spaghetti / penne / fusilli / macaroni | 1:1 | Same
+= Gluten-free pasta, rice noodles or zucchini ribbons | gluten free pasta / rice noodles / zucchini | 1:1 | Gluten-free; zucchini is much lighter
+* Gluten free pasta
+= Regular pasta (not gluten-free) | pasta | 1:1 | Contains gluten; holds shape better
+= Rice noodles | rice noodles | 1:1 | Softer, Asian style
+* Lasagna noodles | lasagna sheets
+= Thin slices of zucchini or eggplant (gluten-free) | zucchini / eggplant | 1:1 | Gluten-free; wetter, salt and drain first
+* Gnocchi
+= Small potatoes, boiled and halved | potato | 1:1 | Firmer
+* Rice noodles
+= Glass noodles | glass noodles | 1:1 | Slippery, clear
+= Thin spaghetti or linguine (not gluten-free) | spaghetti / linguine | 1:1 | Contains gluten; chewier
+* Egg noodles
+= Same amount of ramen noodles (discard the sachet) | ramen noodles | 1:1 | Springier
+= Spaghetti or linguine, cooked soft | spaghetti / linguine | 1:1 | Close
+* Udon noodles | udon
+= Thick spaghetti or bucatini | spaghetti | 1:1 | Firmer, less chewy
+* Soba noodles | soba
+= Whole wheat spaghetti | spaghetti | 1:1 | Similar nutty taste
+* Ramen noodles | ramen
+= Thin spaghetti boiled with ½ tsp baking soda per litre | spaghetti + baking soda | 1:1 | Springier, close to ramen
+* Glass noodles | vermicelli, bean thread noodles
+= Rice vermicelli | rice vermicelli | 1:1 | Softer, white
+* Tortillas | flour tortilla
+= Pita or flatbread | pita / flatbread / naan | 1:1 | Thicker
+= Large lettuce leaves as wraps | lettuce | 1:1 | Gluten-free and much lighter
+= Corn tortillas (gluten-free) | corn tortilla | 1:1 | Gluten-free; smaller, warm them first
+* Corn tortilla | corn tortillas
+= Small flour tortillas (not gluten-free) | tortilla | 1:1 | Softer; contains gluten
+* Pita | pita bread
+= Flatbread or naan | flatbread / naan | 1:1 | Softer; no pocket
+* Naan
+= Pita or flatbread, brushed with butter | pita / flatbread + butter | 1:1 | Thinner
+* Bread
+= Tortillas or pita for sandwiches | tortillas / pita | 1:1 | Wrap instead
+= Bagels or English muffins | bagel / english muffin | 1:1 | Chewier
+* Wonton wrappers | dumpling wrappers
+= Thin homemade dough: 1 cup flour + 1 egg + water, rolled very thin | flour + egg | 1:1 | Thicker and chewier; homemade
+* Rice paper
+= Large lettuce leaves | lettuce | 1:1 | Crunchier, lighter
+= Phyllo dough, for baked rolls | phyllo dough | 1:1 | Crisp and flaky; contains gluten
+* Pizza dough
+= Naan or flatbread as a base | naan / flatbread | 1:1 | Quicker, softer crust
+* Chickpeas
+= Same amount of white beans | white beans | 1:1 | Creamier
+= Same amount of black-eyed peas | black eyed pea | 1:1 | Earthier
+* Black beans
+= Same amount of kidney or pinto beans | kidney beans / pinto beans | 1:1 | Similar
+* Kidney beans
+= Same amount of black beans or pinto beans | black beans / pinto beans | 1:1 | Similar
+* Pinto beans
+= Same amount of black or kidney beans | black beans / kidney beans | 1:1 | Similar
+* White beans | cannellini beans
+= Same amount of chickpeas | chickpeas | 1:1 | Firmer
+= Same amount of borlotti or pinto beans | pinto beans | 1:1 | Earthier
+* Lentils
+= Split peas (longer cooking) | split peas | 1:1 | Softer, sweeter
+= Chana dal or moong dal | chana dal / moong dal | 1:1 | Similar
+~ Red lentils cook to mush in 15 minutes; brown or green lentils hold shape and need 25 to 30.
+* Breadcrumbs for coating | coating crumbs
+= Crushed tortilla chips or cornflakes | tortilla chips / cereal | 1:1 | Crunchier
+* Crackers | cracker
+= Rice cakes, broken | rice cake | 1:1 | Gluten-free
+* Tortilla chips
+= Crushed corn tortillas, baked | corn tortilla | 1:1 | Same
+* Refried beans
+= Canned pinto or black beans, mashed with a little oil and cumin | pinto beans / black beans + cumin | 1:1 | Same
+* Pickles | dill pickles
+= Capers or chopped cornichons | capers | 1/2:1 | Saltier
+* Capers
+= Chopped green olives | olive | 1:1 | Milder, oilier
+* Olives | black olives, kalamata olives
+= Capers, half the amount | capers | 1/2:1 | Saltier, sharper
+* Sun-dried tomatoes | sun dried tomato
+= Roasted red peppers or tomato paste | roasted red peppers / tomato paste | 1:1 | Sweeter (peppers) or more concentrated
+* Roasted red peppers
+= Fresh bell pepper, charred under the grill and peeled | bell pepper | 1:1 | Same, fresher
+* Artichoke hearts
+= Hearts of palm or roasted zucchini | zucchini | 1:1 | Milder
+* Coconut oil
+= Same amount of butter (not dairy-free) | butter | 1:1 | Buttery; contains dairy
+= Same amount of vegetable oil (in cakes) | vegetable oil | 1:1 | Neutral; liquid when cold
+* Vegetable oil | canola oil, sunflower oil
+= Same amount of light olive oil or any neutral oil | olive oil | 1:1 | Fruitier (olive)
+= Same amount of melted butter (in baking) | butter | 1:1 | Richer, firmer crumb
+* Olive oil
+= Same amount of vegetable or avocado oil | vegetable oil | 1:1 | Neutral flavour
+* Sesame oil | toasted sesame oil
+= Neutral oil + toasted sesame seeds, crushed | vegetable oil + sesame seeds | 1:1 | Milder
+= A few drops of peanut oil (sesame-free) | peanut oil | 1:1 | Sesame-free; different nutty note
+## Nuts & seeds
+* Pine nuts
+= Same amount of walnuts, almonds or sunflower seeds, toasted | walnuts / almonds / sunflower seeds | 1:1 | Different crunch; sunflower is nut-free
+* Walnuts
+= Same amount of pecans | pecans | 1:1 | Sweeter
+= Sunflower or pumpkin seeds (nut-free) | sunflower seeds / pumpkin seeds | 1:1 | Nut-free
+* Pecans
+= Same amount of walnuts | walnuts | 1:1 | More bitter
+= Same amount of toasted pumpkin seeds (nut-free) | pumpkin seeds | 1:1 | Nut-free
+* Almonds
+= Same amount of cashews or hazelnuts | cashews / hazelnuts | 1:1 | Softer (cashews)
+= Same amount of sunflower seeds (nut-free) | sunflower seeds | 1:1 | Nut-free
+* Cashews
+= Same amount of macadamia or almonds | macadamia nut / almonds | 1:1 | Firmer
+= For creamy sauces: silken tofu or white beans blended (nut-free) | tofu / white beans | 1:1 | Nut-free; less rich
+* Peanuts
+= Same amount of cashews or almonds | cashews / almonds | 1:1 | Peanut-free; contains tree nuts
+= Roasted chickpeas (nut-free) | chickpeas | 1:1 | Nut-free; crunchy
+* Hazelnuts
+= Same amount of almonds | almonds | 1:1 | Milder
+* Pistachios
+= Same amount of almonds or pumpkin seeds | almonds / pumpkin seeds | 1:1 | Less green, milder
+* Sesame seeds
+= Same amount of hemp seeds or poppy seeds | hemp seeds / poppy seeds | 1:1 | Sesame-free
+* Chia seeds
+= Same amount of ground flaxseed | flaxseed | 1:1 | Binds the same; nuttier
+* Flaxseed | ground flaxseed
+= Same amount of chia seeds | chia seeds | 1:1 | Binds the same; specks
+* Sunflower seeds
+= Same amount of pumpkin seeds | pumpkin seeds | 1:1 | Bigger, greener
+* Pumpkin seeds | pepitas
+= Same amount of sunflower seeds | sunflower seeds | 1:1 | Smaller
+
+## Vegetables & fruit
+* Spinach
+= Kale or Swiss chard (cook a bit longer) | kale / swiss chard | 1:1 | Firmer, earthier
+* Kale
+= Spinach (cook briefly) | spinach | 1:1 | Softer, wilts more
+= Swiss chard or collard greens | swiss chard / collard greens | 1:1 | Similar
+* Collard greens
+= Same amount of kale | kale | 1:1 | Quicker cooking
+* Bok choy
+= Same amount of napa cabbage or spinach | napa cabbage / spinach | 1:1 | Softer
+* Arugula | rocket
+= Watercress or baby spinach | watercress / spinach | 1:1 | Milder (spinach)
+* Lettuce | romaine
+= Same amount of shredded cabbage | cabbage | 1:1 | Crunchier
+* Cabbage
+= Same amount of napa cabbage or Brussels sprouts, shredded | napa cabbage / brussels sprouts | 1:1 | Sweeter
+* Zucchini
+= Yellow squash or eggplant | eggplant | 1:1 | Softer and creamier
+* Eggplant
+= Zucchini (cooks faster) | zucchini | 1:1 | Firmer, less creamy
+= Portobello mushrooms | portobello mushrooms | 1:1 | Meatier
+* Bell pepper
+= Roasted red peppers from a jar | roasted red peppers | 1:1 | Softer, sweeter
+= Poblano pepper (a little heat) | poblano | 1:1 | Mild heat
+* Jalapeno
+= Serrano chili, half the amount | chili | 1/2:1 | Hotter
+= Pickled jalapenos | pickled jalapenos | 1:1 | Tangier, softer
+* Mushroom
+= Portobello or shiitake | portobello mushrooms / shiitake mushrooms | 1:1 | Meatier or smokier
+= Rehydrated dried porcini (use the soaking water too) | dried porcini | 1/4:1 | Intense; a little goes far
+* Potato
+= Sweet potato | sweet potato | 1:1 | Sweeter; cooks faster
+= Cauliflower (for mash, lower carb) | cauliflower | 1:1 | Lighter, wetter
+* Sweet potato
+= Butternut squash or pumpkin | pumpkin | 1:1 | Less sweet
+= Carrots (in soups and stews) | carrot | 1:1 | Firmer
+* Pumpkin | butternut squash
+= Sweet potato | sweet potato | 1:1 | Sweeter, denser
+= Acorn squash | acorn squash | 1:1 | Similar
+* Cauliflower
+= Same amount of broccoli | broccoli | 1:1 | Greener, stronger
+* Broccoli
+= Same amount of broccolini or cauliflower | broccolini / cauliflower | 1:1 | Similar
+* Green beans
+= Same amount of asparagus or snap peas | asparagus / snap peas | 1:1 | Quicker
+* Peas | frozen peas
+= Same amount of edamame | edamame | 1:1 | Firmer; contains soy
+* Corn | corn kernels
+= Same amount of peas or diced bell pepper (in salads and salsas) | peas / bell pepper | 1:1 | Less sweet; same colour pop
+* Carrot
+= Same amount of parsnip | parsnip | 1:1 | Sweeter, spicier
+* Celery
+= Fennel (milder anise flavour) | fennel | 1:1 | Anise note
+= Celeriac, diced | celeriac | 1:1 | Softer
+* Leek
+= Onion + a few green onions | onion / green onion | 1:1 | Sharper
+* Fresh tomatoes | tomato
+= Canned tomatoes in cooked dishes | canned tomatoes | 1:1 | Softer, more concentrated
+= Cherry tomatoes, halved | cherry tomatoes | 1:1 | Sweeter
+* Cherry tomatoes
+= Regular tomatoes, chopped | tomato | 1:1 | Juicier, less sweet
+* Cucumber
+= Same amount of zucchini, thinly sliced and salted | zucchini | 1:1 | Firmer, less juicy
+* Avocado
+= Mashed edamame or peas with lime (for spreads) | edamame / peas + lime | 1:1 | Brighter; less creamy
+* Apple
+= Firm pear | pear | 1:1 | Softer, juicier
+* Pear
+= Same amount of apple | apple | 1:1 | Firmer
+* Banana
+= Applesauce in baking (same volume) | applesauce | 1:1 | Less sweet, lighter
+* Berries | mixed berries
+= Same amount of chopped strawberries, blueberries or raspberries | strawberries / blueberries / raspberries | 1:1 | Single-fruit flavour
+* Blueberries
+= Same amount of raspberries or blackberries | raspberries / blackberries | 1:1 | Tarter, softer
+* Strawberries
+= Same amount of raspberries | raspberries | 1:1 | Tarter
+* Mango
+= Same amount of peach or pineapple | peach / pineapple | 1:1 | Tarter
+* Peach
+= Same amount of nectarine, apricot or mango | nectarine / mango | 1:1 | Similar
+* Pineapple
+= Same amount of mango | mango | 1:1 | Less acidic
+* Raisins
+= Dried cranberries or chopped dates | dried cranberries / dates | 1:1 | Tarter (cranberries) or sweeter
+* Dried cranberries
+= Same amount of raisins or dried cherries | raisins | 1:1 | Sweeter
+* Dates
+= Raisins or prunes (in baking) | raisins / prunes | 1:1 | Less caramel
+= Same amount of maple syrup for sweetness in smoothies | maple syrup | 1/2:1 | Thinner
+* Applesauce
+= Same amount of mashed banana or pumpkin puree | banana / pumpkin puree | 1:1 | Different flavour

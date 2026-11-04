@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v2.0 modern: per-app language. The app text is English only for now; these English variants are offered
+     so the system picker works. Regional formats (dates, units, money) come from Settings > Region. -->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en-US" />
+    <locale android:name="en-GB" />
+    <locale android:name="en-CA" />
+    <locale android:name="en-AU" />
+    <locale android:name="en-IE" />
+    <locale android:name="en-NZ" />
+    <locale android:name="en-IN" />
+    <locale android:name="en-ZA" />
+</locale-config>

@@ -1,0 +1,37 @@
+# U.S. Bureau of Labor Statistics, Average Retail Food and Energy Prices, U.S. and four Census regions (Northeast,
+# Midwest, South, West), September 2026 (series APU..., public domain, U.S. government work). "-" = not published
+# for that region. Columns: BLS item, app ingredient keys (comma-separated), amount, unit, US, NE, MW, S, W (US$).
+# Source tables: https://www.bls.gov/regions/mid-atlantic/data/averageretailfoodandenergyprices_usandwest_table.htm
+# (and the matching northeast, midwest and south tables). Mapping to app ingredients was done for this app.
+@date	Sep 2026
+Flour, white, all purpose	flour	1	lb	0.545	-	-	0.486	-
+Rice, white, long grain, uncooked	rice	1	lb	1.118	-	-	1.218	-
+Spaghetti and macaroni	spaghetti,pasta	1	lb	1.375	-	-	1.283	-
+Bread, white, pan	bread	1	lb	1.830	-	-	1.748	2.115
+Sugar, white	sugar	1	lb	1.019	-	-	1.061	0.994
+Coffee, 100% ground roast	coffee	1	lb	9.332	-	-	-	-
+Potato chips	potato chip	16	oz	6.668	7.604	6.223	6.967	5.884
+Ground beef, 100% beef	ground beef	1	lb	6.792	7.016	6.753	6.501	6.926
+Beef chuck roast, boneless	beef	1	lb	9.186	8.729	8.779	9.187	9.908
+Steak, sirloin, boneless	steak	1	lb	14.106	-	12.868	13.653	18.091
+Bacon, sliced	bacon	1	lb	6.756	7.926	6.504	6.188	7.014
+Pork chops, boneless	pork chop	1	lb	4.550	4.335	4.755	4.560	4.571
+Ham, boneless	ham	1	lb	5.450	5.192	5.633	5.451	5.464
+Chicken, fresh, whole	chicken	1	lb	2.064	2.148	2.149	1.947	2.177
+Chicken breast, boneless	chicken breast	1	lb	4.203	3.957	3.840	4.146	4.739
+Chicken legs, bone-in	chicken drumstick,chicken leg	1	lb	1.739	-	-	1.744	-
+Eggs, grade A, large	egg	12		2.272	-	-	2.368	-
+Milk, fresh, whole, fortified	milk	3.785	l	4.106	-	-	3.901	4.621
+Cheddar cheese, natural	cheddar	1	lb	6.133	-	-	5.533	7.551
+American processed cheese	american cheese	1	lb	4.737	-	-	4.475	-
+Ice cream, prepackaged, bulk, regular	ice cream	1.893	l	5.931	-	-	5.448	7.137
+Bananas	banana	1	lb	0.656	0.689	0.625	0.616	0.725
+Oranges, navel	orange	1	lb	1.723	-	1.875	1.697	-
+Grapefruit	grapefruit	1	lb	1.624	-	-	1.538	-
+Lemons	lemon	1	lb	2.128	1.935	2.512	2.175	1.976
+Strawberries, dry pint	strawberry	12	oz	2.840	-	-	2.742	-
+Potatoes, white	potato	1	lb	0.989	1.011	0.873	1.027	1.006
+Lettuce, iceberg	lettuce	1	lb	1.636	-	-	-	-
+Tomatoes, field grown	tomato	1	lb	1.992	2.603	2.031	2.006	-
+Wine, red and white table	white wine,red wine	1	l	13.769	15.434	13.227	12.457	14.494
+Malt beverages	beer	473	ml	1.875	1.906	1.738	1.767	2.214

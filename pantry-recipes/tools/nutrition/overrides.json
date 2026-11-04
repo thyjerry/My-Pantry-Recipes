@@ -1,0 +1,180 @@
+{
+"_note": "Hand-set portion weights (g per ml, g per item, g per named unit) where SR Legacy has no matching portion. Rough kitchen averages.",
+"lime": {
+"gml": 1.03
+},
+"cucumber": {
+"geach": 300
+},
+"celery": {
+"geach": 40,
+"head": 450
+},
+"lettuce": {
+"geach": 600
+},
+"chocolate": {
+"gml": 0.67
+},
+"sweetcorn": {
+"geach": 100
+},
+"bread": {
+"geach": 29
+},
+"broccoli": {
+"geach": 350
+},
+"sweet potato": {
+"geach": 130
+},
+"steak": {
+"geach": 225
+},
+"cabbage": {
+"geach": 900
+},
+"thyme": {
+"sprig": 0.5
+},
+"rosemary": {
+"sprig": 1
+},
+"pumpkin": {
+"geach": 1500
+},
+"eggplant": {
+"geach": 450
+},
+"shallot": {
+"geach": 40
+},
+"chia seed": {
+"gml": 0.68
+},
+"bay leaf": {
+"geach": 0.2
+},
+"marinara sauce": {
+"gml": 1.06
+},
+"date": {
+"geach": 8
+},
+"baguette": {
+"geach": 250
+},
+"ghee": {
+"gml": 0.87
+},
+"thai basil": {
+"bunch": 40
+},
+"parsley": {
+"bunch": 60
+},
+"cilantro": {
+"bunch": 60
+},
+"cardamom": {
+"geach": 0.2
+},
+"bok choy": {
+"geach": 250
+},
+"red cabbage": {
+"geach": 900
+},
+"sage": {
+"geach": 1
+},
+"beet": {
+"geach": 130
+},
+"puff pastry": {
+"geach": 320,
+"sheet": 320
+},
+"tea": {
+"geach": 240
+},
+"parsnip": {
+"geach": 130
+},
+"anchovy": {
+"geach": 4
+},
+"lasagne sheet": {
+"geach": 20
+},
+"star anise": {
+"geach": 0.5
+},
+"pie crust": {
+"geach": 250
+},
+"clove": {
+"geach": 0.1
+},
+"lemongrass": {
+"geach": 20,
+"stalk": 20
+},
+"ciabatta": {
+"geach": 280
+},
+"plantain": {
+"geach": 180
+},
+"napa cabbage": {
+"geach": 900
+},
+"wonton wrapper": {
+"geach": 8
+},
+"maraschino cherry": {
+"geach": 5
+},
+"fennel": {
+"geach": 230
+},
+"cantaloupe": {
+"geach": 550
+},
+"tzatziki": {
+"gml": 1.0
+},
+"leek": {
+"geach": 90
+},
+"chicken breast": {
+"geach": 200
+},
+"bacon": {
+"geach": 28
+},
+"mint": {
+"bunch": 40
+},
+"dill": {
+"bunch": 40
+},
+"basil": {
+"bunch": 40
+},
+"salmon": {
+"geach": 150
+},
+"canned tomato": {
+"can": 400
+},
+"coconut milk": {
+"can": 400
+},
+"nut": {
+"gml": 0.56
+},
+"chickpea flour": {
+"gml": 0.38
+}
+}

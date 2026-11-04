@@ -1,0 +1,205 @@
+# Rough default prices: key, price (US$), for amount, unit ("" = per item). Hand-made ballpark figures for a
+# typical US supermarket (not from any data source); they are editable estimates, not real prices.
+salt	1.50	750	g
+olive oil	9.00	1	l
+garlic	0.60	50	g
+onion	1.30	1	lb
+vegetable oil	4.50	1.4	l
+butter	5.00	1	lb
+egg	4.00	12	
+black pepper	4.50	100	g
+sugar	4.00	4	lb
+lemon	0.70	1	
+milk	4.00	3.8	l
+flour	4.00	5	lb
+soy sauce	3.50	450	ml
+cumin	3.50	50	g
+bell pepper	1.30	1	
+green onion	1.20	100	g
+rice	3.00	2	lb
+canned tomato	1.60	400	g
+lime	0.40	1	
+ginger	4.00	1	lb
+carrot	1.50	1	lb
+parmesan	6.00	200	g
+honey	7.00	340	g
+chicken stock	3.00	1	l
+vegetable stock	3.00	1	l
+cinnamon	3.50	60	g
+parsley	1.50	60	g
+cilantro	1.20	60	g
+potato	1.00	1	lb
+brown sugar	3.50	2	lb
+baking powder	3.00	230	g
+water	0	1	l
+cheddar	5.00	1	lb
+yogurt	4.50	907	g
+vanilla extract	6.00	60	ml
+red onion	1.60	1	lb
+spinach	4.00	300	g
+cornstarch	2.50	450	g
+cucumber	0.90	1	
+sesame oil	5.00	250	ml
+oats	4.50	1.2	kg
+maple syrup	9.00	350	ml
+heavy cream	4.50	473	ml
+chicken thigh	3.50	1	lb
+tomato	2.00	1	lb
+chicken breast	4.50	1	lb
+dijon mustard	3.50	340	g
+coconut milk	2.50	400	ml
+mayonnaise	5.00	850	ml
+oregano	3.50	20	g
+rice vinegar	3.50	350	ml
+sour cream	2.50	450	g
+paprika	3.50	60	g
+chickpea	1.30	250	g
+black bean	1.20	250	g
+mushroom	3.00	8	oz
+mint	2.00	30	g
+cherry tomato	3.50	1	lb
+mozzarella	4.50	1	lb
+avocado	1.50	1	
+dried thyme	3.50	20	g
+chili powder	3.50	70	g
+breadcrumb	2.50	425	g
+celery	2.00	1	lb
+tomato paste	1.20	170	g
+lettuce	2.00	1	
+tortilla	3.50	10	
+turmeric	3.50	50	g
+chili flake	3.00	40	g
+sesame seed	4.00	100	g
+baking soda	1.50	450	g
+apple	2.00	1	lb
+chocolate	3.50	100	g
+salsa	3.50	450	g
+smoked paprika	4.00	50	g
+sweetcorn	2.00	450	g
+ground beef	6.00	1	lb
+basil	2.50	20	g
+cider vinegar	3.50	950	ml
+tofu	2.50	400	g
+zucchini	1.80	1	lb
+feta	4.50	200	g
+garlic powder	3.50	80	g
+peanut butter	3.50	450	g
+curry powder	3.50	50	g
+bread	3.50	600	g
+chili	0.30	1	
+broccoli	2.50	1	lb
+banana	0.25	1	
+shrimp	10.00	1	lb
+cocoa powder	5.00	225	g
+dill	2.00	20	g
+bacon	6.00	1	lb
+sweet potato	1.50	1	lb
+lentil	2.00	1	lb
+pea	2.50	450	g
+steak	12.00	1	lb
+beef stock	3.00	1	l
+rotisserie chicken	6.00	900	g
+fish sauce	4.00	200	ml
+red wine vinegar	3.50	500	ml
+corn tortilla	3.00	30	
+walnut	6.00	8	oz
+garam masala	4.00	50	g
+cabbage	1.00	1	lb
+green bean	2.50	1	lb
+nutmeg	4.50	40	g
+almond	7.00	1	lb
+worcestershire sauce	3.50	295	ml
+peanut	4.00	1	lb
+taco seasoning	1.20	28	g
+thyme	2.00	20	g
+italian seasoning	3.50	20	g
+olive	3.50	170	g
+ketchup	3.00	900	g
+burger bun	3.50	8	
+rosemary	2.00	20	g
+orange	0.90	1	
+raisin	3.50	340	g
+salmon	11.00	1	lb
+jalapeno	0.20	1	
+pumpkin	2.00	425	g
+pita	3.00	6	
+eggplant	1.80	1	
+strawberry	4.00	1	lb
+chive	2.00	20	g
+white fish	9.00	1	lb
+shallot	4.00	1	lb
+white bean	1.30	250	g
+cream cheese	3.00	225	g
+powdered sugar	3.00	900	g
+balsamic vinegar	5.00	500	ml
+tahini	7.00	450	g
+kale	3.00	300	g
+oyster sauce	3.50	250	ml
+kidney bean	1.20	250	g
+white wine	10.00	750	ml
+arugula	4.00	140	g
+chia seed	6.00	340	g
+tuna	1.50	140	g
+almond milk	3.50	1.9	l
+rice noodle	3.00	400	g
+pineapple	3.50	1	
+cauliflower	3.00	1	
+macaroni	1.50	1	lb
+spaghetti	1.50	1	lb
+penne	1.50	1	lb
+pasta	1.50	1	lb
+noodle	2.50	1	lb
+egg noodle	2.50	340	g
+mango	1.20	1	
+ham	6.00	1	lb
+ricotta	4.00	425	g
+ground pork	4.50	1	lb
+cashew	9.00	1	lb
+goat cheese	4.50	113	g
+blueberry	4.50	1	lb
+hummus	4.00	283	g
+marinara sauce	4.00	680	g
+arborio rice	5.00	1	kg
+baguette	3.00	1	
+yeast	1.50	21	g
+ice	0	1	kg
+ginger garlic paste	3.50	200	g
+bay leaf	3.00	10	g
+bean sprout	2.50	340	g
+dried cranberry	4.00	170	g
+asparagus	4.00	1	lb
+pesto	4.50	190	g
+gochujang	6.00	500	g
+pear	0.90	1	
+ghee	9.00	380	g
+sweet chili sauce	3.50	300	ml
+miso	6.00	400	g
+date	6.00	1	lb
+red wine	10.00	750	ml
+shredded coconut	3.50	200	g
+coriander	3.50	40	g
+pecan	9.00	1	lb
+buttermilk	2.50	946	ml
+sriracha	4.00	480	ml
+raspberry	4.50	170	g
+dried apricot	5.00	200	g
+ground turkey	5.00	1	lb
+snow pea	4.00	1	lb
+berry	4.50	1	lb
+gruyere	8.00	200	g
+caper	3.50	100	g
+queso fresco	4.00	283	g
+pistachio	9.00	1	lb
+mirin	4.50	300	ml
+monterey jack	4.50	1	lb
+kimchi	6.00	450	g
+cherry	6.00	1	lb
+tortilla chip	4.00	300	g
+peach	0.90	1	
+pork shoulder	3.00	1	lb
+edamame	3.00	340	g
+chorizo	5.00	250	g
+wonton wrapper	3.00	50	
+sausage	5.00	1	lb
+nut	8.00	1	lb
+chickpea flour	4.00	1	lb

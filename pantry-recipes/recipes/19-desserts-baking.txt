@@ -1,0 +1,521 @@
+# Brownies
+Dessert | American | 15 | 25 | 16 | Dessert, Baked goods
+- 200 g | chocolate, dark, chopped
+- 150 g | butter
+- 250 g | sugar
+- 3 | eggs
+- 1 tsp | vanilla extract
+- 100 g | flour
+- 30 g | cocoa powder
+- 1 pinch | salt
+> Heat the oven to 180°C (160°C fan) and line a 20 cm square tin.
+> Melt the chocolate and butter together, then whisk in the sugar, eggs and vanilla.
+> Fold in the flour, cocoa and salt.
+> Bake for 22-25 minutes until just set with a slightly gooey center. Cool before cutting.
+
+# Lemon Bars
+Dessert | American | 20 | 40 | 16 | Dessert, Baked goods
+- 200 g | flour
+- 60 g | powdered sugar
+- 150 g | butter, softened
+- 4 | eggs
+- 300 g | sugar
+- 3 | lemons, zested and juiced
+- 2 tbsp | cornstarch
+> Heat the oven to 180°C (160°C fan). Rub the flour, powdered sugar and butter together, press into a lined 20 x 30 cm tin and bake 18 minutes.
+> Whisk the eggs, sugar, lemon zest and juice and cornstarch.
+> Pour over the hot base and bake 20 minutes until set. Cool completely and dust with more powdered sugar.
+
+# Oatmeal Raisin Cookies
+Baking | American | 15 | 12 | 24 | Snack, Dessert, Baked goods
+- 115 g | butter, softened
+- 150 g | brown sugar
+- 1 | egg
+- 1 tsp | vanilla extract
+- 120 g | flour
+- 0.5 tsp | baking soda
+- 1 tsp | cinnamon
+- 150 g | oats
+- 120 g | raisins
+> Heat the oven to 180°C (160°C fan) and line two trays.
+> Beat the butter and sugar until creamy, then the egg and vanilla.
+> Stir in the flour, baking soda, cinnamon, oats and raisins.
+> Drop spoonfuls onto the trays and bake for 10-12 minutes until golden at the edges.
+
+# Peanut Butter Cookies
+Baking | American | 10 | 10 | 20 | Snack, Dessert, Baked goods
+- 250 g | peanut butter
+- 150 g | sugar
+- 1 | egg
+- 0.5 tsp | baking soda
+> Heat the oven to 180°C (160°C fan).
+> Mix everything until smooth, roll into 20 balls and flatten with a fork in a crisscross.
+> Bake for 9-10 minutes. Let them firm up on the tray before moving.
+
+# Snickerdoodles
+Baking | American | 15 | 10 | 24 | Snack, Dessert, Baked goods
+- 115 g | butter, softened
+- 200 g | sugar
+- 1 | egg
+- 200 g | flour
+- 1 tsp | cream of tartar
+- 0.5 tsp | baking soda
+- 2 tsp | cinnamon
+> Heat the oven to 190°C (170°C fan).
+> Beat the butter with 150 g sugar, then the egg. Stir in the flour, cream of tartar and baking soda.
+> Roll into balls and coat in the rest of the sugar mixed with the cinnamon.
+> Bake for 9-10 minutes until puffed and crackled.
+
+# Shortbread
+Baking | Scottish | 10 | 25 | 16 | Snack, Dessert, Baked goods
+- 225 g | butter, softened
+- 100 g | sugar
+- 300 g | flour
+- 1 pinch | salt
+> Heat the oven to 160°C (140°C fan).
+> Beat the butter and sugar, then work in the flour and salt to a dough.
+> Press into a 20 cm square tin, prick all over and bake 25 minutes until pale golden. Cut while warm.
+
+# Carrot Cake
+Baking | American | 25 | 40 | 12 | Dessert, Baked goods
+- 250 g | flour
+- 2 tsp | baking powder
+- 1 tsp | baking soda
+- 2 tsp | cinnamon
+- 250 g | brown sugar
+- 4 | eggs
+- 240 ml | vegetable oil
+- 300 g | carrots, grated
+- 80 g | walnuts, chopped
+- 200 g | cream cheese
+- 60 g | butter, softened
+- 200 g | powdered sugar
+> Heat the oven to 180°C (160°C fan) and line a 23 x 33 cm tin.
+> Whisk the eggs, sugar and oil, then fold in the flour, baking powder, soda, cinnamon, carrots and walnuts.
+> Bake for 35-40 minutes and cool completely.
+> Beat the cream cheese, butter and powdered sugar into a frosting and spread over the cake.
+
+# Vegan Chocolate Cake
+Baking | American | 15 | 35 | 12 | Dessert, Baked goods
+- 250 g | flour
+- 250 g | sugar
+- 50 g | cocoa powder
+- 1 tsp | baking soda
+- 0.5 tsp | salt
+- 350 ml | water
+- 100 ml | vegetable oil
+- 1 tbsp | apple cider vinegar
+- 1 tsp | vanilla extract
+> Heat the oven to 180°C (160°C fan) and line a 20 cm square tin.
+> Whisk the dry ingredients, then stir in the water, oil, vinegar and vanilla until smooth.
+> Bake for 30-35 minutes until a skewer comes out clean.
+
+# Lemon Drizzle Cake
+Baking | British | 15 | 45 | 10 | Dessert, Baked goods
+- 225 g | butter, softened
+- 225 g | sugar
+- 4 | eggs
+- 225 g | self-raising flour
+- 2 | lemons, zested and juiced
+- 100 g | powdered sugar
+> Heat the oven to 180°C (160°C fan) and line a loaf tin.
+> Beat the butter and sugar, then the eggs one at a time. Fold in the flour and lemon zest.
+> Bake for 45 minutes until risen.
+> Mix the lemon juice with the powdered sugar and pour over the warm cake after poking it all over with a skewer.
+
+# Pumpkin Bread
+Baking | American | 15 | 60 | 10 | Breakfast, Brunch, Snack, Baked goods
+- 400 g | pumpkin puree
+- 2 | eggs
+- 200 g | brown sugar
+- 120 ml | vegetable oil
+- 250 g | flour
+- 1 tsp | baking soda
+- 2 tsp | pumpkin pie spice
+- 0.5 tsp | salt
+> Heat the oven to 175°C (155°C fan) and line a loaf tin.
+> Whisk the pumpkin, eggs, sugar and oil, then fold in the dry ingredients.
+> Bake for 55-60 minutes until a skewer comes out clean.
+
+# Zucchini Bread
+Baking | American | 15 | 55 | 10 | Breakfast, Brunch, Snack, Baked goods
+- 2 | zucchini, grated and squeezed
+- 2 | eggs
+- 150 g | sugar
+- 120 ml | vegetable oil
+- 1 tsp | vanilla extract
+- 250 g | flour
+- 1 tsp | baking soda
+- 2 tsp | cinnamon
+> Heat the oven to 175°C (155°C fan) and line a loaf tin.
+> Whisk the eggs, sugar, oil and vanilla, then fold in the zucchini and dry ingredients.
+> Bake for 50-55 minutes.
+
+# Cinnamon Rolls
+Baking | American | 30 | 25 | 12 | Breakfast, Brunch, Baked goods
+- 500 g | flour
+- 7 g | yeast
+- 50 g | sugar
+- 250 ml | milk, warm
+- 1 | egg
+- 120 g | butter, half melted for the dough, half softened for the filling
+- 100 g | brown sugar
+- 2 tbsp | cinnamon
+- 150 g | powdered sugar
+> Mix the flour, yeast, sugar, a pinch of salt, milk, egg and the melted half of the butter and knead for 8 minutes. Leave to rise for 1 hour.
+> Roll out to 30 x 45 cm, spread with the softened butter and sprinkle with brown sugar and cinnamon. Roll up and cut into 12.
+> Arrange in a lined tin, rise 30 minutes, then bake at 180°C (160°C fan) for 22-25 minutes.
+> Mix the powdered sugar with 2 tablespoons water and drizzle over.
+
+# No-Knead Bread
+Baking | International | 10 | 45 | 10 | Dinner, Side dish, Baked goods
+- 500 g | flour
+- 1 tsp | yeast
+- 2 tsp | salt
+- 400 ml | water, lukewarm
+> Mix everything into a shaggy dough, cover and leave at room temperature for 12-18 hours.
+> Shape into a ball on a floured surface and rest 1 hour.
+> Bake in a preheated covered pot at 230°C (210°C fan) for 30 minutes, then uncovered for 15 minutes until deep brown.
+
+# Easy Pizza Dough Margherita
+Main | Italian | 20 | 12 | 4 | Dinner, Main dish
+- 400 g | flour
+- 7 g | yeast
+- 1 tsp | salt
+- 250 ml | water, warm
+- 2 tbsp | olive oil
+- 200 ml | pizza sauce
+- 250 g | mozzarella, torn
+- 1 handful | basil
+> Mix the flour, yeast, salt, water and oil and knead 5 minutes. Rest 1 hour.
+> Heat the oven as hot as it goes with a tray inside. Divide the dough in two and stretch thin.
+> Spread with sauce, add mozzarella and bake on the hot tray for 10-12 minutes. Top with basil.
+
+# Focaccia
+Baking | Italian | 20 | 25 | 8 | Dinner, Side dish, Appetizer, Baked goods
+- 500 g | flour
+- 7 g | yeast
+- 2 tsp | salt
+- 400 ml | water, warm
+- 6 tbsp | olive oil
+- 1 tbsp | rosemary, chopped
+> Mix the flour, yeast, salt and water into a sticky dough. Cover and leave for 1.5 hours.
+> Pour 3 tablespoons oil into a 23 x 33 cm tin, add the dough and stretch it out. Rest 30 minutes.
+> Dimple with oiled fingers, drizzle with the rest of the oil, sprinkle with rosemary and flaky salt.
+> Bake at 220°C (200°C fan) for 22-25 minutes until golden.
+
+# Naan
+Baking | Indian | 20 | 10 | 8 | Dinner, Side dish, Baked goods
+- 400 g | flour
+- 1 tsp | yeast
+- 1 tsp | sugar
+- 1 tsp | salt
+- 150 g | yogurt
+- 150 ml | water, warm
+- 2 tbsp | butter, melted
+> Mix everything except the butter into a soft dough, knead 5 minutes and rest 1 hour.
+> Divide into 8 and roll into ovals.
+> Cook in a very hot dry pan for 1-2 minutes per side until puffed and charred. Brush with butter.
+
+# Flour Tortillas
+Baking | Mexican | 20 | 15 | 8 | Dinner, Side dish, Baked goods
+- 300 g | flour
+- 1 tsp | baking powder
+- 1 tsp | salt
+- 60 ml | vegetable oil
+- 180 ml | water, warm
+> Mix everything into a soft dough and knead 2 minutes. Rest 20 minutes.
+> Divide into 8 and roll each very thin.
+> Cook in a hot dry pan for 30-45 seconds per side until bubbly and spotted.
+
+# Apple Pie
+Dessert | American | 30 | 50 | 8 | Dessert, Baked goods
+- 2 | pie crusts
+- 1 kg | apples, peeled and sliced
+- 120 g | sugar
+- 2 tbsp | flour
+- 1 tsp | cinnamon
+- 1 | lemon
+- 20 g | butter
+- 1 | egg, beaten
+> Heat the oven to 200°C (180°C fan). Line a pie dish with one crust.
+> Toss the apples with the sugar, flour, cinnamon and lemon juice and pile into the dish. Dot with butter.
+> Cover with the second crust, seal, cut vents and brush with egg.
+> Bake for 45-50 minutes until golden and bubbling. Cool for at least 1 hour.
+
+# Peach Cobbler
+Dessert | Southern US | 15 | 40 | 8 | Dessert
+- 800 g | peaches, sliced
+- 200 g | sugar, divided
+- 1 tsp | cinnamon
+- 150 g | flour
+- 2 tsp | baking powder
+- 200 ml | milk
+- 80 g | butter, melted
+> Heat the oven to 180°C (160°C fan). Toss the peaches with 100 g sugar and the cinnamon.
+> Pour the butter into a baking dish. Mix the flour, baking powder, the other 100 g sugar and milk, and pour over the butter without stirring.
+> Spoon the peaches on top and bake for 40 minutes until golden.
+
+# Berry Crumble
+Dessert | British | 10 | 35 | 6 | Dessert
+- 600 g | frozen berries
+- 2 tbsp | sugar
+- 1 tbsp | cornstarch
+- 120 g | flour
+- 60 g | oats
+- 80 g | brown sugar
+- 100 g | butter, cold
+> Heat the oven to 190°C (170°C fan). Toss the berries with the sugar and cornstarch in a dish.
+> Rub the flour, oats, brown sugar and butter into crumbs and scatter over.
+> Bake for 35 minutes until golden and bubbling.
+
+# Tiramisu
+Dessert | Italian | 25 | 0 | 8 | Dessert
+- 250 g | mascarpone
+- 3 | eggs, separated
+- 80 g | sugar
+- 300 ml | coffee, strong, cooled
+- 200 g | ladyfingers
+- 2 tbsp | cocoa powder
+> Beat the yolks with the sugar until pale, then beat in the mascarpone.
+> Whisk the whites to soft peaks and fold in.
+> Dip the ladyfingers quickly in coffee and layer in a dish with the cream, twice.
+> Chill at least 4 hours and dust with cocoa. Contains raw egg.
+
+# Panna Cotta with Berries
+Dessert | Italian | 10 | 5 | 6 | Dessert
+- 500 ml | heavy cream
+- 200 ml | milk
+- 80 g | sugar
+- 1 tsp | vanilla extract
+- 2 tsp | gelatin
+- 200 g | raspberries
+> Sprinkle the gelatin over 3 tablespoons cold milk and leave 5 minutes.
+> Heat the cream, remaining milk and sugar until steaming, take off the heat and stir in the gelatin until dissolved. Add the vanilla.
+> Pour into 6 glasses and chill for at least 4 hours. Top with raspberries.
+
+# Creme Brulee
+Dessert | French | 15 | 40 | 6 | Dessert
+- 500 ml | heavy cream
+- 1 | vanilla bean, split
+- 5 | eggs, yolks only
+- 110 g | sugar, 80 g for the custard and the rest for the tops
+> Heat the oven to 150°C (130°C fan). Warm the cream with the vanilla.
+> Whisk the yolks with 80 g sugar, then whisk in the cream and strain into 6 ramekins.
+> Bake in a water bath for 35-40 minutes until just set with a wobble. Chill.
+> Sprinkle each with a teaspoon of sugar and caramelize with a torch or under a very hot grill.
+
+# Chocolate Pudding
+Dessert | American | 5 | 10 | 4 | Dessert
+- 500 ml | milk
+- 70 g | sugar
+- 30 g | cocoa powder
+- 3 tbsp | cornstarch
+- 60 g | chocolate, chopped
+- 1 tsp | vanilla extract
+> Whisk the sugar, cocoa and cornstarch, then whisk in the milk.
+> Cook over medium heat, whisking, until thick and bubbling, about 6 minutes.
+> Stir in the chocolate and vanilla, pour into bowls and chill.
+
+# Mango Sticky Rice
+Dessert | Thai | 10 | 25 | 4 | Dessert
+- 250 g | sticky rice, soaked for 4 hours
+- 400 ml | coconut milk
+- 70 g | sugar
+- 0.5 tsp | salt
+- 2 | mangoes, sliced
+- 1 tbsp | sesame seeds
+> Steam the rice for 20-25 minutes until tender.
+> Warm 300 ml coconut milk with the sugar and salt and stir into the hot rice. Leave 15 minutes to absorb.
+> Serve with mango, the rest of the coconut milk spooned over, and sesame seeds.
+
+# Churros
+Dessert | Spanish | 15 | 15 | 6 | Dessert
+- 250 ml | water
+- 110 g | sugar, 2 tbsp for the dough and the rest for coating
+- 60 g | butter
+- 150 g | flour
+- 2 | eggs
+- 500 ml | vegetable oil
+- 2 tsp | cinnamon
+> Boil the water, 2 tablespoons of the sugar, the butter and a pinch of salt, then beat in the flour until it forms a ball. Cool 5 minutes and beat in the eggs.
+> Pipe 10 cm lengths into oil heated to 180°C and fry 2-3 minutes until golden.
+> Roll in the cinnamon sugar.
+
+# Banana Nice Cream
+Dessert | International | 5 | 0 | 4 | Snack, Dessert
+- 4 | bananas, sliced and frozen
+- 3 tbsp | almond milk
+- 2 tbsp | peanut butter | opt
+> Blend the frozen banana with the milk, scraping down often, until it looks like soft-serve.
+> Swirl in the peanut butter and eat at once, or freeze for 1 hour for a firmer scoop.
+
+# Strawberry Shortcake
+Dessert | American | 20 | 15 | 6 | Dessert, Baked goods
+- 250 g | flour
+- 1 tbsp | baking powder
+- 3 tbsp | sugar
+- 80 g | butter, cold
+- 180 ml | heavy cream
+- 500 g | strawberries, sliced
+- 300 ml | whipped cream
+> Heat the oven to 210°C (190°C fan). Rub the butter into the flour, baking powder and 2 tablespoons sugar, then stir in the cream.
+> Pat out and cut 6 rounds. Bake 12-15 minutes.
+> Toss the strawberries with the rest of the sugar. Split the shortcakes and fill with strawberries and whipped cream.
+
+# Rice Krispie-Style Marshmallow Treats
+Dessert | American | 10 | 5 | 16 | Snack, Dessert
+- 50 g | butter
+- 300 g | marshmallows
+- 180 g | cereal, puffed rice
+> Melt the butter in a large pan, add the marshmallows and stir until melted.
+> Stir in the cereal and press into a greased 20 x 30 cm tin. Cool and cut.
+
+# No-Bake Cheesecake
+Dessert | American | 20 | 0 | 10 | Dessert
+- 200 g | graham crackers, crushed
+- 80 g | butter, melted
+- 500 g | cream cheese
+- 100 g | powdered sugar
+- 1 | lemon
+- 300 ml | heavy cream
+> Mix the crumbs and butter and press into a 23 cm springform tin.
+> Beat the cream cheese, powdered sugar and lemon juice until smooth.
+> Whip the cream to soft peaks and fold in. Spread over the base and chill at least 6 hours.
+
+# Coconut Macaroons
+Baking | American | 10 | 20 | 20 | Snack, Dessert, Baked goods
+- 250 g | shredded coconut
+- 200 ml | condensed milk
+- 1 tsp | vanilla extract
+- 2 | eggs, whites only
+> Heat the oven to 165°C (145°C fan). Mix the coconut, condensed milk and vanilla.
+> Whisk the egg whites to stiff peaks with a pinch of salt and fold in.
+> Scoop onto a lined tray and bake 18-20 minutes until golden.
+
+# Baklava
+Dessert | Turkish | 30 | 45 | 20 | Dessert, Baked goods
+- 300 g | walnuts, finely chopped
+- 100 g | pistachios, chopped
+- 1 tsp | cinnamon
+- 20 sheets | phyllo dough
+- 150 g | butter, melted
+- 200 g | sugar
+- 120 ml | honey
+- 1 | lemon
+> Heat the oven to 175°C (155°C fan). Mix the nuts with the cinnamon.
+> Layer 8 sheets of phyllo in a 23 x 33 cm tin, brushing each with butter. Scatter with half the nuts, add 4 sheets, the rest of the nuts, and finish with the remaining sheets, brushing each.
+> Cut into diamonds and bake for 45 minutes.
+> Boil the sugar with 200 ml water, the honey and a squeeze of lemon for 8 minutes and pour over the hot baklava. Cool completely.
+
+# Gulab Jamun-Style Milk Dumplings
+Dessert | Indian | 20 | 20 | 6 | Dessert
+- 120 g | milk powder
+- 40 g | flour
+- 0.5 tsp | baking soda
+- 2 tbsp | ghee
+- 80 ml | milk
+- 300 g | sugar
+- 1 tsp | cardamom
+- 500 ml | vegetable oil
+> Boil the sugar with 400 ml water and the cardamom for 5 minutes.
+> Mix the milk powder, flour and soda, rub in the ghee and add milk to make a soft dough. Roll into 18 smooth balls.
+> Fry over low heat, turning, for 6-8 minutes until deep brown. Drop into the warm syrup and soak 30 minutes.
+
+# Tres Leches Cake
+Dessert | Mexican | 20 | 30 | 12 | Dessert, Baked goods
+- 5 | eggs
+- 200 g | sugar
+- 150 g | flour
+- 1.5 tsp | baking powder
+- 400 ml | condensed milk
+- 350 ml | evaporated milk
+- 200 ml | milk
+- 300 ml | whipped cream
+> Heat the oven to 180°C (160°C fan). Whisk the eggs and sugar until thick and pale, then fold in the flour and baking powder.
+> Bake in a lined 23 x 33 cm tin for 25-30 minutes.
+> Poke holes all over and pour over the three milks mixed together. Chill overnight and top with whipped cream.
+
+# Dark Chocolate Bark with Nuts
+Dessert | International | 10 | 0 | 8 | Snack, Dessert
+- 200 g | chocolate, dark
+- 50 g | almonds, chopped
+- 40 g | dried cranberries
+- 30 g | pumpkin seeds
+> Melt the chocolate and spread thinly on a lined tray.
+> Scatter over the nuts, cranberries and seeds and chill until set. Break into pieces.
+
+# Vanilla Sheet Cake
+Baking | American | 15 | 30 | 16 | Dessert, Baked goods
+- 300 g | flour
+- 2 tsp | baking powder
+- 300 g | sugar
+- 170 g | butter, softened
+- 3 | eggs
+- 240 ml | milk
+- 2 tsp | vanilla extract
+- 150 g | butter, softened, for frosting
+- 300 g | powdered sugar
+> Heat the oven to 180°C (160°C fan) and line a 23 x 33 cm tin.
+> Beat 170 g butter with the sugar, then the eggs, then fold in the flour and baking powder alternately with the milk and vanilla.
+> Bake for 28-30 minutes and cool.
+> Beat the frosting butter with the powdered sugar and a splash of milk and spread over.
+
+# Pecan Pie Bars
+Dessert | Southern US | 20 | 40 | 16 | Dessert, Baked goods
+- 200 g | flour
+- 150 g | butter, 100 g cold and 50 g melted
+- 50 g | sugar
+- 3 | eggs
+- 150 g | brown sugar
+- 150 ml | maple syrup
+- 200 g | pecans, chopped
+> Heat the oven to 180°C (160°C fan). Rub the flour, cold butter and sugar together, press into a lined 20 x 30 cm tin and bake 15 minutes.
+> Whisk the eggs, brown sugar, maple syrup and melted butter and stir in the pecans.
+> Pour over the base and bake 25 minutes until set. Cool before cutting.
+
+# Bread and Butter Pudding
+Dessert | British | 15 | 40 | 6 | Dessert
+- 8 slices | bread, buttered
+- 60 g | raisins
+- 3 | eggs
+- 500 ml | milk
+- 60 g | sugar
+- 1 tsp | vanilla extract
+- 1 pinch | nutmeg
+> Cut the bread into triangles and layer in a buttered dish with the raisins.
+> Whisk the eggs, milk, sugar and vanilla and pour over. Rest 15 minutes and grate over nutmeg.
+> Bake at 180°C (160°C fan) for 35-40 minutes until puffed and golden.
+
+# Poached Pears in Red Wine
+Dessert | French | 10 | 30 | 4 | Dessert
+- 4 | pears, peeled
+- 500 ml | red wine
+- 120 g | sugar
+- 1 | cinnamon stick
+- 2 | star anise
+- 1 | orange, peel only
+> Bring the wine, sugar, spices and orange peel to a simmer.
+> Add the pears, cover and poach gently for 25-30 minutes, turning, until tender.
+> Lift out the pears and boil the liquid until syrupy. Serve the pears with the syrup.
+
+# Air Fryer Cinnamon Apple Chips
+Snack | American | 10 | 20 | 4 | Snack
+- 3 | apples, thinly sliced
+- 1 tsp | cinnamon
+- 1 tsp | sugar
+> Toss the apple slices with the cinnamon and sugar.
+> Air fry in a single layer at 150°C for 15-20 minutes, turning halfway, until dry. They crisp as they cool.
+
+# Vegan Oat Cookies
+Baking | International | 10 | 12 | 16 | Snack, Dessert, Baked goods
+- 150 g | oats
+- 100 g | flour
+- 80 g | brown sugar
+- 0.5 tsp | baking soda
+- 80 ml | coconut oil, melted
+- 60 ml | maple syrup
+- 80 g | chocolate, dark, chopped
+> Heat the oven to 180°C (160°C fan).
+> Mix everything into a dough and roll into 16 balls. Flatten on a lined tray.
+> Bake for 10-12 minutes until golden. Check the chocolate is dairy-free if needed.

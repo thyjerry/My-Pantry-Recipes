@@ -1,0 +1,13 @@
+<resources>
+    <!-- Colours are applied at runtime from the chosen palette (Ui.load / core/Palette.java);
+         these are only the platform bases (light or dark widgets) and a neutral window while starting. -->
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+    </style>
+    <style name="AppThemeDark" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+    </style>
+    <style name="CookTheme" parent="AppTheme" />
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="sc_bg">#13AE48</color>
+    <color name="ic_bg">#13AE48</color>
+    <string name="sc_pantry">My pantry</string>
+    <string name="sc_shopping">Shopping list</string>
+    <string name="sc_plan">Meal plan</string>
+    <string name="sc_inventory">Use-by &amp; locations</string>
+</resources>

@@ -1,0 +1,823 @@
+# Kitchen helpers data (v2.0 Stage 2). Original text written for this app. Parsed lazily on first use.
+# Sections: [equiv] [rescue] [blends] [times] [explain]. Lines starting with # are comments.
+[equiv]
+# group | amount | equals | note
+Volume | 1 tablespoon | 3 teaspoons | 15 ml (US, UK, CA, NZ)
+Volume | 1 Australian tablespoon | 4 teaspoons | 20 ml; use 3 tsp + 1 tsp for US/UK recipes
+Volume | 1 teaspoon | 5 ml |
+Volume | 1/8 cup | 2 tablespoons | 30 ml
+Volume | 1/4 cup | 4 tablespoons | 60 ml
+Volume | 1/3 cup | 5 tablespoons + 1 teaspoon | 80 ml
+Volume | 1/2 cup | 8 tablespoons | 120 ml
+Volume | 2/3 cup | 10 tablespoons + 2 teaspoons | 160 ml
+Volume | 3/4 cup | 12 tablespoons | 180 ml
+Volume | 1 US cup | 16 tablespoons | 237 ml (240 ml on nutrition labels)
+Volume | 1 metric cup | 250 ml | Australia, New Zealand, Canada, South Africa
+Volume | 1 rice-cooker cup | 180 ml | the small cup that comes with most rice cookers
+Volume | 1 US fluid ounce | 29.6 ml |
+Volume | 1 UK fluid ounce | 28.4 ml |
+Volume | 1 US pint | 2 US cups | 473 ml
+Volume | 1 UK (imperial) pint | 20 UK fl oz | 568 ml
+Volume | 1 US quart | 4 US cups | 946 ml
+Volume | 1 US gallon | 16 US cups | 3.79 litres
+Volume | 1 litre | 4 1/4 US cups | 1.76 UK pints
+Volume | 1 pinch | about 1/16 teaspoon | what fits between thumb and finger
+Volume | 1 dash | about 1/8 teaspoon | a quick shake
+Weight | 1 ounce | 28 g | 28.35 g exactly
+Weight | 1 pound | 454 g | 16 ounces
+Weight | 1/2 pound | 227 g |
+Weight | 1 kilogram | 2.2 pounds | 35.3 ounces
+Weight | 100 g | 3.5 ounces |
+Weight | 1 stick of butter | 113 g | 1/2 cup = 8 tablespoons (US)
+Weight | 1 block of butter | 250 g | UK, EU and ANZ size, about 2 1/4 US sticks
+Flour & starch | 1 cup all-purpose (plain) flour | 125 g | spooned and levelled; up to 150 g if scooped
+Flour & starch | 1 cup bread (strong) flour | 130 g |
+Flour & starch | 1 cup whole-wheat (wholemeal) flour | 120 g |
+Flour & starch | 1 cup cake flour | 115 g |
+Flour & starch | 1 cup self-raising flour | 125 g |
+Flour & starch | 1 cup almond flour | 100 g |
+Flour & starch | 1 cup cornmeal | 150 g |
+Flour & starch | 1 cup semolina | 165 g |
+Flour & starch | 1 cup rolled oats | 90 g |
+Flour & starch | 1 tablespoon cornstarch (cornflour) | 8 g |
+Flour & starch | 1 cup cocoa powder | 85 g | 1 tablespoon = about 5 g
+Flour & starch | 1 cup dry breadcrumbs | 110 g |
+Flour & starch | 1 cup panko | 55 g |
+Sugar & syrups | 1 cup granulated sugar | 200 g | 1 tablespoon = 12.5 g
+Sugar & syrups | 1 cup brown sugar, packed | 220 g |
+Sugar & syrups | 1 cup powdered (icing) sugar | 120 g |
+Sugar & syrups | 1 cup honey | 340 g | 1 tablespoon = 21 g
+Sugar & syrups | 1 cup maple syrup | 320 g |
+Sugar & syrups | 1 cup molasses (treacle) | 340 g |
+Fats & oils | 1 cup butter | 227 g | 2 US sticks
+Fats & oils | 1 tablespoon butter | 14 g |
+Fats & oils | 1 cup vegetable oil | 218 g | 1 tablespoon = 13.6 g
+Fats & oils | 1 cup olive oil | 216 g |
+Fats & oils | 1 cup lard or tallow | 205 g |
+Fats & oils | 1 cup peanut butter | 270 g | 2 tablespoons = 32 g
+Fats & oils | 1 cup mayonnaise | 225 g |
+Dairy | 1 cup milk | 245 g |
+Dairy | 1 cup heavy (double) cream | 238 g |
+Dairy | 1 cup plain yogurt | 245 g |
+Dairy | 1 cup sour cream | 230 g |
+Dairy | 1 cup grated cheddar | 113 g | loosely packed
+Dairy | 1 cup finely grated parmesan | 100 g | loosely packed
+Dairy | 1 cup cream cheese | 232 g | 8 oz pack = 1 cup
+Dairy | 1 large egg, out of the shell | 50 g | white 30 g, yolk 18 g
+Dairy | 1 US large egg | 1 UK/EU medium egg | close enough for baking
+Dairy | 1 cup water | 237 g | 1 ml of water weighs 1 g
+Salt & leaveners | 1 teaspoon table salt | 6 g |
+Salt & leaveners | 1 teaspoon fine sea salt | 6 g |
+Salt & leaveners | 1 teaspoon flaky kosher salt | 3 g | about half as salty per spoon as table salt
+Salt & leaveners | 1 teaspoon dense kosher salt | 5 g |
+Salt & leaveners | 1 teaspoon baking soda | 5 g |
+Salt & leaveners | 1 teaspoon baking powder | 4 g |
+Salt & leaveners | 1 packet dry yeast | 7 g | 2 1/4 teaspoons
+Salt & leaveners | 7 g instant yeast | 21 g fresh yeast | fresh = about 3x instant or 2x active dry, by weight
+Salt & leaveners | 1 envelope powdered gelatine | 7 g | about 2 1/2 teaspoons; sets about 2 cups liquid
+Salt & leaveners | 1 teaspoon ground cinnamon | 2.6 g |
+Nuts, seeds & dried fruit | 1 cup whole almonds | 140 g |
+Nuts, seeds & dried fruit | 1 cup chopped walnuts | 120 g |
+Nuts, seeds & dried fruit | 1 cup peanuts | 145 g |
+Nuts, seeds & dried fruit | 1 cup sesame seeds | 145 g |
+Nuts, seeds & dried fruit | 1 cup raisins | 150 g |
+Nuts, seeds & dried fruit | 1 cup shredded coconut | 85 g |
+Nuts, seeds & dried fruit | 1 cup chocolate chips | 170 g |
+Grains & pasta | 1 cup uncooked white rice | 190 g | makes about 3 cups cooked
+Grains & pasta | 1 cup uncooked brown rice | 190 g | makes about 3 1/2 cups cooked
+Grains & pasta | 1 cup uncooked quinoa | 170 g | makes about 3 cups cooked
+Grains & pasta | 1 cup dry couscous | 175 g | makes about 2 1/2 cups
+Grains & pasta | 2 oz (56 g) dry pasta | 1 portion | about 1 cup cooked
+Grains & pasta | 1 lb (450 g) dry pasta | 4 to 6 portions |
+Grains & pasta | 1 cup dry lentils | 200 g | makes about 2 1/2 cups cooked
+Beans & cans | 1 cup dried beans | 2 1/2 to 3 cups cooked |
+Beans & cans | 1 can beans (15 oz / 425 g) | 1 1/2 cups drained | about 240 g
+Beans & cans | 1 can tomatoes (400 g / 14 oz) | 1 3/4 cups |
+Beans & cans | 1 can coconut milk (400 ml) | 1 2/3 cups |
+Beans & cans | 1 tablespoon tomato paste | 16 g |
+Beans & cans | 1 stock cube + 1 cup water | 1 cup stock | taste before salting
+Produce | 1 medium onion | 1 cup chopped | about 150 g
+Produce | 1 garlic clove | 1 teaspoon minced | 1/8 teaspoon garlic powder
+Produce | 1 shallot | 2 tablespoons minced |
+Produce | 1 medium carrot | 1/2 cup chopped | about 60 g
+Produce | 1 celery stalk | 1/2 cup chopped | about 40 g
+Produce | 1 bell pepper (capsicum) | 1 cup chopped | about 150 g
+Produce | 1 medium tomato | 3/4 cup chopped | about 125 g
+Produce | 1 medium potato | 1 cup diced | about 170 g
+Produce | 1 lb (450 g) potatoes | 3 medium |
+Produce | 10 oz (280 g) fresh spinach | about 1 cup cooked |
+Produce | 8 oz (225 g) mushrooms | 3 cups sliced |
+Produce | 1 lemon | 2 to 3 tablespoons juice | plus about 1 tablespoon zest
+Produce | 1 lime | 2 tablespoons juice |
+Produce | 1 medium orange | 1/3 cup juice |
+Produce | 1 medium apple | 1 cup chopped |
+Produce | 1 medium banana | 1/2 cup mashed |
+Produce | 1 avocado | 1/2 cup mashed |
+Produce | 1 cup frozen peas | 145 g |
+Produce | 1 cup diced cooked chicken | 140 g |
+Produce | 1 inch (2.5 cm) fresh ginger | 1 tablespoon grated |
+Herbs & spices | 1 tablespoon fresh herbs | 1 teaspoon dried | 3:1, fresh to dried
+Herbs & spices | 1 tablespoon grated fresh ginger | 1/4 teaspoon ground ginger |
+Herbs & spices | 1 bay leaf | 1/4 teaspoon crushed bay |
+Herbs & spices | 1 vanilla bean | 1 tablespoon vanilla extract |
+Herbs & spices | 1 fresh chilli | 1/4 teaspoon chilli flakes | heat varies a lot
+Herbs & spices | 1 teaspoon whole seeds | 1 1/4 teaspoons ground |
+Swaps | 1 cup buttermilk | 1 cup milk + 1 tablespoon lemon juice | stand 5 minutes
+Swaps | 1 cup self-raising flour | 1 cup plain flour + 1 1/2 tsp baking powder + 1/4 tsp salt |
+Swaps | 1 cup cake flour | 1 cup plain flour minus 2 tbsp, plus 2 tbsp cornstarch | sift twice
+Swaps | 1 teaspoon baking powder | 1/4 tsp baking soda + 1/2 tsp cream of tartar |
+Swaps | 1 tablespoon cornstarch (thickening) | 2 tablespoons flour |
+Swaps | 1 cup brown sugar | 1 cup sugar + 1 tablespoon molasses |
+Swaps | 1 cup powdered sugar | 1 cup sugar + 1 tbsp cornstarch, blended fine |
+Swaps | 1 cup sour cream | 1 cup thick plain yogurt |
+Swaps | 1 cup heavy cream (cooking) | 3/4 cup milk + 1/4 cup melted butter | will not whip
+Swaps | 1 oz unsweetened chocolate | 3 tbsp cocoa + 1 tbsp butter or oil |
+Swaps | 1 egg (baking) | 1 tbsp ground flaxseed + 3 tbsp water | rest 5 minutes
+Swaps | 1 egg (baking) | 1/4 cup unsweetened apple sauce | dense, moist cakes only
+Swaps | 1 cup wine (cooking) | 1 cup stock + 1 tablespoon vinegar |
+Swaps | 1 tablespoon lemon juice | 1/2 tablespoon vinegar | for acidity, not flavour
+Swaps | 1 cup honey | 1 1/4 cups sugar + 1/4 cup liquid |
+Swaps | 1 cup milk | 1/2 cup evaporated milk + 1/2 cup water |
+Swaps | 1 cup milk | 1/3 cup milk powder + 1 cup water |
+Swaps | 1 tablespoon prepared mustard | 1 teaspoon mustard powder + 2 tsp water |
+Swaps | 1 cup tomato sauce (passata) | 1/2 cup tomato paste + 1/2 cup water |
+Oven & pans | 150 C | 300 F | gas mark 2; fan oven 130 C
+Oven & pans | 160 C | 325 F | gas mark 3; fan oven 140 C
+Oven & pans | 180 C | 350 F | gas mark 4; fan oven 160 C
+Oven & pans | 190 C | 375 F | gas mark 5; fan oven 170 C
+Oven & pans | 200 C | 400 F | gas mark 6; fan oven 180 C
+Oven & pans | 220 C | 425 F | gas mark 7; fan oven 200 C
+Oven & pans | 230 C | 450 F | gas mark 8; fan oven 210 C
+Oven & pans | 8-inch square pan | 20 cm square |
+Oven & pans | 9-inch round pan | 23 cm round |
+Oven & pans | 9 x 13 inch pan | 23 x 33 cm |
+Oven & pans | 9 x 5 inch loaf pan | 23 x 13 cm | 2 lb loaf tin
+Oven & pans | two 8-inch rounds | one 9 x 13 inch pan | about the same batter
+[rescue]
+# @ problem | kind of dish ; - fix ; ! prevent next time
+@ Too salty | soups, stews, sauces
+- Add more of everything except salt: unsalted stock, water, tomatoes, beans or cooked rice, then simmer to taste.
+- Stir in something rich or creamy (unsalted butter, cream, coconut milk, yogurt off the heat). Fat softens how salty it tastes.
+- A squeeze of lemon or a little vinegar can mask mild saltiness.
+- Serve over plain rice, pasta, potatoes or bread with no salt added.
+- A raw potato does not pull salt out. Diluting is what actually works.
+! Season gradually and taste near the end, because liquids get saltier as they reduce.
+@ Too spicy | curries, chilli, sauces
+- Add dairy or coconut: yogurt, sour cream, cream, coconut milk or grated cheese.
+- Make a bigger batch with no chilli in it (more beans, tomatoes, stock or meat) and mix the two.
+- A little sugar or honey and a squeeze of lime help balance the heat.
+- Serve with cooling sides: plain rice, bread, cucumber, yogurt.
+! Add chilli in small amounts and taste. Seeds and membranes hold much of the heat.
+@ Too sour or acidic | tomato sauces, dressings, soups
+- Add a pinch of sugar or a little honey, then taste.
+- Stir in butter, cream or olive oil to round it out.
+- For tomato sauce, a tiny pinch of baking soda (1/8 tsp per 4 cups) neutralises some acid. It will foam, so stir and taste.
+- Make more of the dish without the acidic ingredient and combine.
+! Add lemon juice and vinegar at the end, a little at a time.
+@ Too sweet | sauces, curries, glazes
+- Add acid: lemon or lime juice, or vinegar.
+- Add salt, or something salty like soy sauce.
+- Add heat or bitterness: chilli, black pepper, mustard or cocoa (in savoury chilli).
+- Make more of the dish without the sweet part and mix.
+! Sweet ingredients concentrate as they reduce. Add sugar last.
+@ Bitter | greens, coffee-based sauces, burnt garlic
+- Add a little salt first, because salt reduces bitterness.
+- Balance with sweetness (honey, sugar, sweet vegetables) and fat (butter, cream).
+- If garlic or spices scorched, start the base again. Burnt garlic does not cook out.
+! Cook garlic gently for under a minute. Blanch bitter greens before sautéing.
+@ Bland or flat | anything savoury
+- Add salt a pinch at a time and taste after each pinch.
+- Add acid: lemon, lime or vinegar. This is often what is missing.
+- Add savoury depth: soy sauce, fish sauce, tomato paste, parmesan or a stock cube.
+- Finish with fresh herbs, black pepper or a drizzle of good oil.
+! Season each stage (onions, meat, liquid) instead of only at the end.
+@ Sauce too thin | gravies, stews, pan sauces
+- Simmer uncovered to reduce.
+- Whisk 1 tbsp cornstarch into 2 tbsp cold water, stir it in and simmer 1 to 2 minutes.
+- Mash some of the beans or potatoes into the liquid.
+- Mix equal parts soft butter and flour into a paste and whisk in small pieces.
+! Leave the lid off for the last part of cooking.
+@ Sauce too thick | gravies, cheese sauces, stews
+- Whisk in warm stock, milk or water a splash at a time.
+- Taste again after thinning and re-season.
+! Sauces thicken as they stand. Take them off the heat a little thinner than you want.
+@ Sauce split or curdled | cream sauces, custards, mayonnaise
+- Take it off the heat at once.
+- Cream or cheese sauce: whisk in a spoonful of cold cream, or blend briefly.
+- Mayonnaise or hollandaise: start a new yolk (or 1 tbsp warm water) in a clean bowl and slowly whisk the split sauce into it.
+- Custard: strain, then blend. It will be thinner but smooth.
+! Use gentle heat, add acid off the heat, and warm dairy before it goes into hot liquid.
+@ Lumpy sauce or gravy | white sauce, gravy
+- Whisk hard off the heat.
+- Push it through a sieve, or use a stick blender.
+! Add liquid gradually to the roux and whisk the whole time.
+@ Burnt on the bottom | stews, rice, beans
+- Do not stir. Pour the unburnt part into a clean pot straight away.
+- Taste it. If it tastes smoky, add a little dairy, acid or sugar and serve with strong sides.
+! Use a heavy pot, lower heat and stir from the bottom. Add liquid when it looks dry.
+@ Overcooked pasta or rice | pasta, rice
+- Pasta: rinse in cold water and pan-fry, or bake it with sauce and cheese.
+- Mushy rice: spread on a tray to steam dry, then use for fried rice, rice pudding or rice cakes.
+! Start tasting pasta 2 minutes before the packet time.
+@ Undercooked rice | rice
+- Add 2 to 4 tbsp hot water, cover tightly and steam on very low heat for 5 to 10 minutes.
+- Or cover and put in a low oven for 10 minutes.
+! Keep the lid on and let it rest 10 minutes after cooking.
+@ Dry or tough meat | roasts, chops, chicken breast
+- Slice thinly against the grain.
+- Serve with a sauce, gravy or the pan juices.
+- Shred it and simmer briefly in stock or sauce (tacos, sandwiches, soup).
+- Tough stewing cuts usually need more time, not less. Keep simmering until tender.
+! Use a thermometer and rest meat before cutting.
+@ Rubbery eggs | scrambled eggs, omelettes
+- Fold in a spoonful of cream, butter or soft cheese off the heat.
+! Cook on low heat and take them off while still slightly wet.
+@ Soggy fried or roasted food | fries, roast vegetables, breaded food
+- Re-crisp on a rack in a hot oven (220 C / 425 F) for 5 to 10 minutes.
+! Dry food well, do not crowd the pan and get the oil hot first.
+@ Cake sank or is dense | cakes, quick breads
+- Cut out the sunken middle and fill it with fruit and cream, or make trifle.
+- Crumble a dense cake into crumbs for a crumble topping or cake pops.
+! Check that baking powder is fresh, measure flour by weight and do not open the oven early.
+@ Cookies spread too much | cookies
+- Trim warm cookies into neat circles with a round cutter.
+! Chill the dough for 30 minutes, use a cool tray and check the butter was not melted.
+@ Dough will not rise | bread, pizza dough
+- Move it somewhere warmer, such as an oven with only the light on.
+- If the yeast was dead, knead in a fresh pinch of yeast dissolved in a little warm water.
+- Flat dough still makes flatbread or crackers.
+! Water should feel warm, not hot. Check the yeast date.
+@ Too greasy | stews, soups, sauces
+- Chill and lift off the set fat, or skim with a spoon.
+- Lay a paper towel briefly on the surface to soak up fat.
+! Brown meat first and pour off extra fat before adding liquid.
+@ Too much garlic or onion | sauces, dressings
+- Add more of the other ingredients to dilute it.
+- Simmer longer, because cooked garlic is milder than raw.
+- Add acid and a little sweetness to balance.
+! Remember that raw garlic gets stronger as a dressing sits.
+@ Seized chocolate | melted chocolate
+- Stir in 1 teaspoon of hot water or neutral oil at a time until smooth. It works for sauces and drizzles, not tempering.
+! Keep all water and steam out of melting chocolate.
+@ Whipped cream over-whipped | whipped cream
+- Gently fold in a few spoonfuls of liquid cream by hand.
+- If it is grainy, keep whipping to make butter.
+! Stop when soft peaks form, and finish by hand.
+@ Soup too thick or stodgy | soups
+- Thin with hot stock or water, then re-season.
+! Starchy soups (lentils, potatoes) thicken as they cool.
+@ Pastry cracked or torn | pie crust, tart shells
+- Patch with leftover pastry, using a little water as glue.
+- For a blind-baked shell, brush cracks with beaten egg and bake 2 minutes to seal.
+! Let chilled pastry soften slightly before rolling.
+[blends]
+# @ name | country | what it is for ; - parts | spice [| heat|salt|opt]
+@ Cajun-style blend | American | blackened fish, chicken, rice dishes and beans
+- 2 | Paprika
+- 1 | Garlic powder
+- 1 | Onion powder
+- 1 | Dried thyme
+- 1 | Oregano
+- 1 | Black pepper
+- 1/2 | Cayenne | heat
+- 1 | Salt | salt
+@ Taco seasoning | Mexican | ground meat, beans, roast vegetables
+- 2 | Chili powder | heat
+- 1 1/2 | Cumin
+- 1 | Paprika
+- 1/2 | Garlic powder
+- 1/2 | Onion powder
+- 1/2 | Oregano
+- 1/4 | Chili flakes | heat
+- 1 | Salt | salt
+@ Garam masala | Indian | stir into curries and dals near the end
+- 2 | Coriander
+- 2 | Cumin
+- 1 | Cardamom
+- 1 | Black pepper
+- 1/2 | Cinnamon
+- 1/4 | Cloves
+- 1/4 | Nutmeg
+@ Curry powder (everyday) | Indian | quick curries, eggs, roast cauliflower
+- 3 | Coriander
+- 2 | Turmeric
+- 2 | Cumin
+- 1 | Ground ginger
+- 1/2 | Mustard powder
+- 1/2 | Fenugreek | opt
+- 1/2 | Black pepper
+- 1/4 | Cayenne | heat
+@ Ras el hanout | Moroccan | tagines, couscous, roast lamb or chicken
+- 2 | Cumin
+- 2 | Ground ginger
+- 1 | Turmeric
+- 1 | Coriander
+- 1 | Cinnamon
+- 1 | Paprika
+- 1/2 | Allspice
+- 1/2 | Black pepper
+- 1/4 | Cardamom
+- 1/4 | Cloves
+@ Za'atar | Lebanese | flatbread with oil, eggs, labneh, roast vegetables
+- 2 | Dried thyme
+- 1 | Sumac
+- 1 | Sesame seeds
+- 1/2 | Oregano | opt
+- 1/4 | Salt | salt
+@ Baharat | Lebanese | kofta, rice, stuffed vegetables, lentil soup
+- 2 | Black pepper
+- 2 | Paprika
+- 1 | Cumin
+- 1 | Coriander
+- 1 | Cinnamon
+- 1/2 | Cloves
+- 1/2 | Cardamom
+- 1/2 | Nutmeg
+@ Berbere-style blend | Ethiopian | lentil stews, chicken stews, roast squash
+- 3 | Paprika
+- 1 | Cayenne | heat
+- 1/2 | Ground ginger
+- 1/2 | Coriander
+- 1/2 | Fenugreek
+- 1/4 | Cardamom
+- 1/4 | Cinnamon
+- 1/4 | Allspice
+- 1/4 | Cloves
+- 1/2 | Salt | salt
+@ Chinese five spice | Chinese | roast pork, duck, braises, glazes
+- 2 | Star anise
+- 2 | Fennel seeds
+- 1 | Cinnamon
+- 1/2 | Cloves
+- 1/2 | Black pepper
+@ Jerk dry rub | Jamaican | chicken, pork, tofu, grilled vegetables
+- 2 | Allspice
+- 1 | Dried thyme
+- 1 | Brown sugar
+- 1 | Garlic powder
+- 1 | Onion powder
+- 1/2 | Cinnamon
+- 1/2 | Nutmeg
+- 1/2 | Black pepper
+- 1/2 | Cayenne | heat
+- 1 | Salt | salt
+@ Italian herb blend | Italian | tomato sauces, dressings, roast vegetables
+- 2 | Oregano
+- 2 | Dried basil
+- 1 | Dried thyme
+- 1 | Marjoram
+- 1/2 | Dried rosemary
+- 1/4 | Chili flakes | heat
+@ Herbes de Provence | French | roast chicken, potatoes, grilled fish
+- 2 | Dried thyme
+- 2 | Marjoram
+- 1 | Dried rosemary
+- 1 | Oregano
+- 1/2 | Fennel seeds
+- 1/2 | Tarragon | opt
+@ Greek-style seasoning | Greek | chicken, lamb, potatoes, salads
+- 2 | Oregano
+- 1 | Dried basil
+- 1 | Garlic powder
+- 1 | Onion powder
+- 1/2 | Dried dill
+- 1/2 | Black pepper
+- 1/2 | Dried mint
+- 1/2 | Salt | salt
+@ Barbecue dry rub | American | ribs, pulled pork, chicken thighs
+- 3 | Brown sugar
+- 2 | Smoked paprika
+- 1 | Garlic powder
+- 1 | Onion powder
+- 1 | Black pepper
+- 1/2 | Mustard powder
+- 1/2 | Chili powder | heat
+- 1/4 | Cayenne | heat
+- 2 | Salt | salt
+@ Steak rub | American | steaks, burgers, roast beef
+- 2 | Black pepper
+- 1 | Garlic powder
+- 1 | Onion powder
+- 1/2 | Paprika
+- 1/2 | Coriander
+- 1/4 | Chili flakes | heat
+- 2 | Salt | salt
+@ Seafood seasoning | American | crab cakes, shrimp boils, fries
+- 2 | Celery seed
+- 2 | Paprika
+- 1 | Mustard powder
+- 1/2 | Black pepper
+- 1/2 | Ground ginger
+- 1/4 | Allspice
+- 1/4 | Cayenne | heat
+- 1/4 | Cloves
+- 2 | Salt | salt
+@ Poultry seasoning | American | stuffing, roast chicken, gravy
+- 2 | Sage
+- 1 | Dried thyme
+- 1 | Marjoram
+- 1/2 | Dried rosemary
+- 1/2 | Black pepper
+- 1/4 | Nutmeg
+@ Chili powder blend | American | chilli con carne, beans, tacos
+- 2 | Paprika
+- 1 | Cayenne | heat
+- 1 | Cumin
+- 1 | Oregano
+- 1 | Garlic powder
+- 1/2 | Smoked paprika
+@ Lemon pepper (dry) | American | fish, chicken, vegetables
+- 2 | Black pepper
+- 1 | Dried lemon zest
+- 1/2 | Garlic powder
+- 1/2 | Onion powder
+- 1 | Salt | salt
+@ Pumpkin pie spice | American | pies, muffins, oatmeal, lattes
+- 4 | Cinnamon
+- 1 | Ground ginger
+- 1 | Nutmeg
+- 1/2 | Allspice
+- 1/2 | Cloves
+@ Mixed spice | British | fruit cakes, hot cross buns, crumbles
+- 3 | Cinnamon
+- 1 | Nutmeg
+- 1 | Allspice
+- 1/2 | Coriander
+- 1/2 | Ground ginger
+- 1/4 | Cloves
+@ Quatre épices | French | pâté, terrines, stews, roast pork
+- 3 | White pepper
+- 1 | Nutmeg
+- 1 | Ground ginger
+- 1/2 | Cloves
+@ Shichimi-style blend | Japanese | noodles, rice, grilled meat
+- 2 | Chili flakes | heat
+- 1 | Sesame seeds
+- 1 | Dried orange zest
+- 1/2 | Ground ginger
+- 1/2 | Black pepper
+- 1/2 | Nori flakes | opt
+@ Dukkah | Egyptian | dip bread in oil then dukkah; eggs, salads
+- 4 | Hazelnuts
+- 2 | Sesame seeds
+- 2 | Coriander
+- 1 | Cumin
+- 1/2 | Black pepper
+- 1/2 | Salt | salt
+@ Everything seed topping | American | bagels, eggs, avocado toast, rolls
+- 2 | Sesame seeds
+- 1 | Poppy seeds
+- 1 | Dried minced onion
+- 1 | Dried minced garlic
+- 1 | Flaky salt | salt
+@ Adobo-style seasoning | Puerto Rican | rice, beans, chicken, pork
+- 2 | Garlic powder
+- 1 | Oregano
+- 1 | Onion powder
+- 1/2 | Black pepper
+- 1/2 | Turmeric
+- 2 | Salt | salt
+@ Chaat-style masala | Indian | fruit, potatoes, chickpeas, yogurt
+- 2 | Cumin
+- 1 | Coriander
+- 1 | Amchur (dried mango powder)
+- 1/2 | Black pepper
+- 1/2 | Dried mint
+- 1/4 | Cayenne | heat
+- 1 | Black salt (kala namak) | salt
+[times]
+# group | item | method | time | note
+Safe temperatures | Chicken, turkey, duck (whole, pieces, ground) | Thermometer | 74 C / 165 F | thickest part, not touching bone
+Safe temperatures | Ground beef, pork, lamb | Thermometer | 71 C / 160 F |
+Safe temperatures | Beef, pork, lamb, veal steaks, chops and roasts | Thermometer | 63 C / 145 F | then rest 3 minutes
+Safe temperatures | Fish and shellfish | Thermometer | 63 C / 145 F | or until it flakes and turns opaque
+Safe temperatures | Egg dishes (quiche, casseroles) | Thermometer | 71 C / 160 F |
+Safe temperatures | Leftovers and reheated dishes | Thermometer | 74 C / 165 F |
+Steak doneness | Rare | Thermometer | 52 C / 125 F | take off 3 C / 5 F early; below the safe temperature
+Steak doneness | Medium-rare | Thermometer | 57 C / 135 F | below the safe temperature
+Steak doneness | Medium | Thermometer | 63 C / 145 F |
+Steak doneness | Medium-well | Thermometer | 66 C / 150 F |
+Steak doneness | Well done | Thermometer | 71 C / 160 F |
+Eggs | Soft-boiled egg | Boil (from boiling water) | 6 to 7 min | then cold water
+Eggs | Jammy egg | Boil (from boiling water) | 7 to 8 min |
+Eggs | Hard-boiled egg | Boil (from boiling water) | 10 to 12 min |
+Eggs | Poached egg | Barely simmering water | 3 to 4 min |
+Eggs | Fried egg, runny yolk | Pan, medium heat | 2 to 3 min |
+Eggs | Hard-boiled egg | Instant Pot, high pressure | 5 min | 5 min natural release, then ice bath
+Grains & pasta | White rice (long grain) | Simmer, covered | 15 to 18 min | 1 cup rice to 1 1/2 to 2 cups water; rest 10 min
+Grains & pasta | Brown rice | Simmer, covered | 40 to 45 min | 1 cup to 2 1/2 cups water
+Grains & pasta | Basmati rice (rinsed) | Simmer, covered | 12 to 15 min | 1 cup to 1 1/2 cups water
+Grains & pasta | White rice | Instant Pot, high pressure | 4 min | 1:1 water; 10 min natural release
+Grains & pasta | Brown rice | Instant Pot, high pressure | 22 min | 1:1 1/4 water; 10 min natural release
+Grains & pasta | Quinoa (rinsed) | Simmer, covered | 15 min | 1 cup to 2 cups water; rest 5 min
+Grains & pasta | Couscous | Pour over boiling water | 5 min | equal volume water, covered
+Grains & pasta | Bulgur, fine | Soak in boiling water | 10 to 15 min |
+Grains & pasta | Rolled oats | Simmer | 5 min | 1 cup oats to 2 cups liquid
+Grains & pasta | Steel-cut oats | Simmer | 25 to 30 min | 1 cup to 3 to 4 cups liquid
+Grains & pasta | Polenta, coarse | Simmer, stirring | 30 to 40 min | instant polenta 3 to 5 min
+Grains & pasta | Dried pasta | Boil, salted water | 8 to 12 min | taste 2 min before the packet time
+Grains & pasta | Fresh pasta | Boil, salted water | 2 to 4 min |
+Grains & pasta | Rice noodles, thin | Soak in hot water | 5 to 10 min |
+Beans & lentils | Red lentils | Simmer | 15 to 20 min | no soaking
+Beans & lentils | Green or brown lentils | Simmer | 20 to 30 min | no soaking
+Beans & lentils | Split peas | Simmer | 45 to 60 min |
+Beans & lentils | Chickpeas, soaked | Simmer | 1 to 1 1/2 hours |
+Beans & lentils | Black or kidney beans, soaked | Simmer | 1 to 1 1/2 hours | boil kidney beans hard for 10 min first
+Beans & lentils | Chickpeas, soaked | Instant Pot, high pressure | 12 to 15 min | natural release
+Beans & lentils | Chickpeas, unsoaked | Instant Pot, high pressure | 40 to 45 min | natural release
+Beans & lentils | Black beans, unsoaked | Instant Pot, high pressure | 25 to 30 min | natural release
+Beans & lentils | Lentils | Instant Pot, high pressure | 8 to 10 min |
+Vegetables | Broccoli or cauliflower florets | Steam | 4 to 6 min |
+Vegetables | Broccoli or cauliflower florets | Roast 220 C / 425 F | 20 to 25 min |
+Vegetables | Green beans | Boil or steam | 4 to 6 min |
+Vegetables | Asparagus | Roast 220 C / 425 F | 8 to 12 min | steam 3 to 5 min
+Vegetables | Carrots, sliced | Boil or steam | 6 to 8 min |
+Vegetables | Carrots, chunks | Roast 200 C / 400 F | 30 to 35 min |
+Vegetables | Potatoes, cubed | Boil from cold water | 12 to 15 min |
+Vegetables | Potatoes, whole medium | Boil from cold water | 20 to 25 min |
+Vegetables | Potatoes, chunks | Roast 200 C / 400 F | 40 to 50 min | turn once
+Vegetables | Baked potato | Oven 200 C / 400 F | 50 to 60 min |
+Vegetables | Sweet potato, cubed | Roast 200 C / 400 F | 25 to 30 min |
+Vegetables | Brussels sprouts, halved | Roast 200 C / 400 F | 20 to 25 min |
+Vegetables | Butternut squash, cubed | Roast 200 C / 400 F | 30 to 40 min |
+Vegetables | Corn on the cob | Boil | 4 to 6 min |
+Vegetables | Spinach | Wilt in a pan | 1 to 2 min |
+Vegetables | Peas, frozen | Boil | 2 to 3 min |
+Vegetables | Onions, softened | Pan, medium heat | 6 to 8 min |
+Vegetables | Onions, caramelised | Pan, low heat | 35 to 45 min |
+Vegetables | Potatoes, whole medium | Instant Pot, high pressure | 12 to 15 min |
+Meat | Steak, 2.5 cm / 1 inch, medium-rare | Pan, high heat | 3 to 4 min per side | rest 5 min
+Meat | Pork chop, 2.5 cm / 1 inch | Pan, medium-high heat | 4 to 5 min per side | to 63 C / 145 F
+Meat | Burger, 2 cm / 3/4 inch | Pan or grill | 4 to 5 min per side | to 71 C / 160 F
+Meat | Beef roast | Oven 180 C / 350 F | 20 to 25 min per 450 g / lb | medium; check temperature
+Meat | Pork loin roast | Oven 180 C / 350 F | 20 to 25 min per 450 g / lb |
+Meat | Leg of lamb | Oven 180 C / 350 F | 20 to 25 min per 450 g / lb | medium
+Meat | Pulled pork shoulder | Oven 150 C / 300 F | 5 to 7 hours | until it shreds
+Meat | Beef stew or chuck | Simmer, covered | 2 to 3 hours |
+Meat | Beef stew or chuck | Instant Pot, high pressure | 35 to 45 min | natural release
+Meat | Pork shoulder chunks | Instant Pot, high pressure | 60 to 75 min |
+Meat | Sausages | Pan, medium heat | 12 to 15 min | turn often
+Meat | Bacon | Oven 200 C / 400 F | 15 to 20 min | pan 8 to 10 min
+Poultry | Chicken breast, boneless | Pan, medium heat | 6 to 7 min per side |
+Poultry | Chicken breast, boneless | Oven 200 C / 400 F | 20 to 25 min |
+Poultry | Chicken thighs, bone-in | Oven 200 C / 400 F | 35 to 45 min |
+Poultry | Chicken wings | Oven 220 C / 425 F | 40 to 45 min | turn once
+Poultry | Whole chicken, 1.5 kg / 3.5 lb | Oven 200 C / 400 F | 1 1/4 to 1 1/2 hours | rest 15 min
+Poultry | Whole turkey, 5.5 kg / 12 lb | Oven 165 C / 325 F | 3 to 3 1/2 hours | unstuffed
+Poultry | Chicken breast, boneless | Instant Pot, high pressure | 8 to 10 min | natural release 5 min
+Poultry | Chicken thighs, boneless | Instant Pot, high pressure | 8 min |
+Fish & seafood | Salmon fillet | Oven 200 C / 400 F | 12 to 15 min |
+Fish & seafood | Salmon fillet | Pan, skin side down | 4 min, then 2 to 3 min | 
+Fish & seafood | White fish fillet | Oven 200 C / 400 F | 10 to 12 min | about 10 min per 2.5 cm / inch
+Fish & seafood | Shrimp / prawns | Pan or boil | 2 to 3 min | until pink and curled
+Fish & seafood | Mussels | Steam, covered | 5 to 7 min | throw away any that stay shut
+Fish & seafood | Scallops | Pan, high heat | 1 1/2 to 2 min per side |
+Baking | Bread loaf | Oven 200 C / 400 F | 30 to 40 min | 93 C / 200 F inside, sounds hollow
+Baking | Bread rolls | Oven 200 C / 400 F | 15 to 20 min |
+Baking | Cookies | Oven 180 C / 350 F | 9 to 12 min |
+Baking | Muffins | Oven 200 C / 400 F | 18 to 22 min |
+Baking | Layer cake, 23 cm / 9 inch | Oven 180 C / 350 F | 25 to 35 min | skewer comes out clean
+Baking | Brownies, 20 cm / 8 inch | Oven 180 C / 350 F | 25 to 30 min |
+Baking | Pizza | Oven, hottest setting | 8 to 12 min |
+Baking | Roast vegetables (most) | Oven 200 C / 400 F | 25 to 40 min |
+[explain]
+# @ name | what it is ; = region | local name   (regions: us, uk, ca, anz, eu, in, also)
+@ Botanical fruit | The part of a plant that grows from its flower and holds its seeds. Tomatoes, peppers, squash, cucumbers and avocados are botanical fruits that cooks often use as vegetables. Fun fact: in 1893 the U.S. Supreme Court (Nix v. Hedden) ruled that tomatoes count as vegetables for import taxes, while agreeing that botanists call them fruits.
+= us | fruit (in botany)
+= uk | fruit (in botany)
+= also | culinary vegetable
+@ Cilantro | The leaves of the coriander plant. Fresh and citrusy; some people find it soapy. The seeds are the spice coriander.
+= us | cilantro
+= uk | coriander, fresh coriander
+= anz | coriander
+= in | dhania, hara dhania
+= also | Chinese parsley
+@ Green onion | A young onion with a small white end and long green tops. Eat it raw or lightly cooked.
+= us | green onion, scallion
+= uk | spring onion
+= anz | spring onion; also shallot in parts of Australia
+= ca | green onion
+@ Eggplant | A purple-skinned vegetable (botanically a fruit, a berry) with spongy flesh that softens and soaks up oil and sauce.
+= us | eggplant
+= uk | aubergine
+= anz | eggplant
+= in | brinjal, baingan
+@ Zucchini | A summer squash (botanically a fruit) with mild, tender green or yellow skin. It cooks quickly.
+= us | zucchini
+= uk | courgette
+= anz | zucchini
+= eu | courgette
+@ Bell pepper | A sweet, mild pepper in green, red, yellow or orange. Botanically a fruit, a berry.
+= us | bell pepper
+= uk | pepper, sweet pepper
+= anz | capsicum
+= in | capsicum, Shimla mirch
+@ Arugula | Peppery salad leaves.
+= us | arugula
+= uk | rocket
+= anz | rocket
+= also | roquette, rucola
+@ Heavy cream | Cream with about 36 to 40% fat. It whips and does not split when boiled.
+= us | heavy cream, heavy whipping cream
+= uk | double cream (48%); whipping cream (36%)
+= anz | thickened cream, heavy cream
+= ca | whipping cream (35%)
+@ Light cream | Pouring cream with about 18 to 20% fat. It may split if boiled.
+= us | light cream, half-and-half (10 to 18%)
+= uk | single cream
+= anz | pure cream, pouring cream
+= ca | table cream (18%)
+@ All-purpose flour | Medium-protein wheat flour for most baking and sauces.
+= us | all-purpose flour
+= uk | plain flour
+= anz | plain flour
+= in | maida
+@ Bread flour | High-protein wheat flour for chewy breads.
+= us | bread flour
+= uk | strong flour, strong white bread flour
+= anz | bread flour, baker's flour
+@ Whole-wheat flour | Flour milled from the whole wheat grain.
+= us | whole-wheat flour
+= uk | wholemeal flour
+= anz | wholemeal flour
+= in | atta (finely milled, for flatbreads)
+@ Cornstarch | A fine white starch for thickening sauces and crisp coatings.
+= us | cornstarch
+= uk | cornflour
+= anz | cornflour (sometimes made from wheat)
+= in | cornflour
+@ Cornmeal | Coarsely ground dried corn, for cornbread and polenta.
+= us | cornmeal, polenta
+= uk | polenta, maize meal
+= also | masa harina is different (treated corn for tortillas)
+@ Powdered sugar | Very fine sugar mixed with a little starch, for icing and dusting.
+= us | powdered sugar, confectioners' sugar
+= uk | icing sugar
+= anz | icing sugar, icing sugar mixture
+@ Superfine sugar | Fine-grained white sugar that dissolves quickly.
+= us | superfine sugar, baker's sugar
+= uk | caster sugar
+= anz | caster sugar
+@ Baking soda | Sodium bicarbonate. It needs an acid (buttermilk, yogurt, lemon) to rise.
+= us | baking soda
+= uk | bicarbonate of soda, bicarb
+= anz | bicarb soda
+= in | meetha soda, khane ka soda
+@ Ground beef | Minced beef. The fat percentage is often on the label.
+= us | ground beef, hamburger
+= uk | beef mince, minced beef
+= anz | beef mince
+= in | keema (often lamb or goat)
+@ Shrimp | Small to large shellfish, sold raw (grey) or cooked (pink).
+= us | shrimp
+= uk | prawns (large), shrimp (small)
+= anz | prawns
+@ Chickpeas | Round, nutty legumes used for hummus, curries and salads.
+= us | chickpeas, garbanzo beans
+= uk | chickpeas
+= in | chana, kabuli chana (large), kala chana (small dark)
+@ Fava beans | Large flat beans that are often peeled twice.
+= us | fava beans
+= uk | broad beans
+= anz | broad beans
+@ Lima beans | Pale, buttery-textured beans.
+= us | lima beans
+= uk | butter beans
+@ Navy beans | Small white beans, the ones in baked beans.
+= us | navy beans
+= uk | haricot beans
+@ Beet | A sweet, earthy root that stains everything red.
+= us | beet
+= uk | beetroot
+= anz | beetroot
+= in | chukandar
+@ Rutabaga | A large yellow-fleshed root that is sweeter than a turnip.
+= us | rutabaga
+= uk | swede; neep in Scotland
+= anz | swede
+@ Snow peas | Flat pea pods that are eaten whole.
+= us | snow peas
+= uk | mangetout
+= anz | snow peas
+@ Romaine lettuce | A long, crisp lettuce.
+= us | romaine
+= uk | cos lettuce
+= anz | cos lettuce
+@ Cookie | A small sweet baked biscuit, crisp or chewy.
+= us | cookie
+= uk | biscuit
+= anz | biscuit
+@ Biscuit (US) | A soft, scone-like quick bread.
+= us | biscuit
+= uk | scone (closest)
+= anz | scone (closest)
+@ French fries | Potatoes cut into sticks and fried.
+= us | French fries, fries
+= uk | chips
+= anz | chips, hot chips
+@ Potato chips | Thin, crisp fried potato slices sold in bags.
+= us | potato chips
+= uk | crisps
+= anz | chips, potato chips
+@ Plastic wrap | Thin film for covering food.
+= us | plastic wrap
+= uk | cling film
+= anz | cling wrap
+@ Parchment paper | Non-stick paper for lining baking trays.
+= us | parchment paper
+= uk | baking paper, greaseproof paper
+= anz | baking paper
+@ Broil | Cooking under the top heating element of the oven.
+= us | broil, broiler
+= uk | grill
+= anz | grill
+@ Skillet | A shallow frying pan with sloped sides.
+= us | skillet, frying pan
+= uk | frying pan
+= anz | frying pan
+@ Stove | The hob or burners on top of a cooker.
+= us | stove, stovetop
+= uk | hob
+= anz | stovetop, cooktop
+@ Ghee | Butter cooked until the water is gone and the milk solids brown, then strained. Good for high heat.
+= in | ghee
+= also | clarified butter (not browned)
+@ Paneer | A fresh, mild cheese that does not melt, used in Indian curries.
+= in | paneer
+= also | similar to firm farmer's cheese
+@ Jaggery | Unrefined cane sugar that tastes of caramel.
+= in | gur, jaggery
+= also | panela, piloncillo (Latin America)
+@ Asafoetida | A pungent dried resin used in tiny pinches. It turns mellow and onion-like when fried in oil.
+= in | hing
+@ Turmeric | A bright yellow root, usually sold ground, used for colour and earthy flavour.
+= in | haldi
+@ Cumin | Warm, earthy seeds, sold whole or ground.
+= in | jeera
+@ Fenugreek | Bitter-sweet seeds with a maple smell. The dried leaves are kasuri methi.
+= in | methi
+@ Amchur | Powder made from dried green mango. It adds sourness without liquid.
+= in | amchur, amchoor
+@ Tamarind | A sour, fruity pulp from pods, sold as a block or concentrate.
+= in | imli
+= also | asam (Malaysia), makham (Thailand)
+@ Sumac | Tart, crimson ground berries. Sprinkle over salads, meat and eggs.
+= also | summaq
+@ Tahini | A paste of ground sesame seeds, used for hummus and dressings.
+= also | tahina
+@ Fish sauce | A salty, savoury liquid from fermented fish. A little goes a long way.
+= also | nam pla (Thailand), nuoc mam (Vietnam), patis (Philippines)
+@ Soy sauce | A salty fermented soybean sauce. Light is saltier; dark is thicker and sweeter.
+= also | shoyu (Japan), kecap asin (Indonesia)
+@ Allspice | Dried berries that taste like a mix of clove, cinnamon and nutmeg.
+= us | allspice
+= uk | allspice (not mixed spice)
+= also | pimento (Caribbean)
+@ Mixed spice | A sweet British baking blend of cinnamon, nutmeg and allspice.
+= uk | mixed spice
+= us | pumpkin pie spice (close)
+@ Golden syrup | A thick, light amber syrup from refining sugar.
+= uk | golden syrup
+= anz | golden syrup
+= us | light corn syrup or honey (closest)
+@ Treacle | A dark, strong syrup from refining sugar.
+= uk | black treacle
+= us | molasses
+@ Self-raising flour | Flour with baking powder (and often salt) already added.
+= us | self-rising flour
+= uk | self-raising flour
+= anz | self-raising flour
+@ Cream cheese | A soft, spreadable fresh cheese.
+= us | cream cheese
+= uk | soft cheese, cream cheese
+= anz | cream cheese
+@ Sour cream | Cream thickened and soured with cultures.
+= us | sour cream
+= uk | soured cream
+= anz | sour cream
+@ Pork rinds | Fried, puffed pig skin.
+= us | pork rinds, chicharrones
+= uk | pork scratchings
+= anz | crackling (similar)
+@ Beef tallow | Rendered beef fat that is solid at room temperature. Very good for frying and roasting.
+= us | beef tallow
+= uk | dripping (beef dripping)
+= anz | dripping
+@ Schmaltz | Rendered chicken or goose fat.
+= also | chicken fat
+@ Offal | The organs and extremities of an animal: liver, heart, kidneys, tongue and bones.
+= us | variety meats, organ meats
+= uk | offal
+= anz | offal
+@ Bone broth | Stock simmered from bones for many hours until it sets to jelly when cold.
+= us | bone broth, stock
+= uk | stock
+= eu | fond, brodo, Brühe
+@ Chili flakes | Dried, crushed chilli with seeds.
+= us | red pepper flakes, crushed red pepper
+= uk | chilli flakes
+= anz | chilli flakes
+@ Chili powder | US chili powder is a blend (chilli, cumin, oregano). In the UK, India and ANZ it is often pure ground chilli, which is much hotter.
+= us | chili powder (blend)
+= uk | chilli powder (often pure)
+= in | lal mirch (pure)

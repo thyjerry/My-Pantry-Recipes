@@ -1,0 +1,839 @@
+# Tallow-Grilled Ribeye
+Main | American | 5 | 15 | 2 | Dinner, Main dish
+- 2 | ribeye steaks, about 2.5 cm thick
+- 1 tsp | salt
+- 1 tbsp | beef tallow, melted
+- 0.5 tsp | black pepper
+> Heat a grill or griddle pan until very hot. Brush the steak with the melted tallow and salt it well.
+> Grill 5 minutes on each side for medium-rare, turning once; a thermometer should read 54 °C in the thickest part.
+> Rest 5 minutes on a warm plate, then slice across the grain and season with the pepper.
+
+# Air Fryer Ribeye
+Main | American | 5 | 12 | 2 | Dinner, Main dish
+- 2 | ribeye steaks, about 2.5 cm thick
+- 1 tsp | salt
+- 2 tsp | butter, melted
+> Preheat the air fryer to 200 °C for 5 minutes. Pat the steak dry, brush with the butter and salt both sides.
+> Air fry for 5 minutes, turn and air fry 5 minutes more for medium-rare (54 °C inside). Thinner cuts need a minute or two less.
+> Rest 5 minutes before slicing across the grain.
+
+# Butter-Basted Sirloin
+Main | American | 5 | 12 | 2 | Dinner, Main dish
+- 2 | sirloin steaks, about 2.5 cm thick
+- 1 tsp | salt
+- 40 g | butter
+- 0.5 tsp | black pepper
+> Pat the steak dry and salt it on both sides 30 minutes ahead if you have time (or just before cooking).
+> Heat a heavy frying pan over high heat until smoking. Cook the steak 3 minutes on the first side without moving it.
+> Turn it, add the butter and, as it foams, tilt the pan and spoon the butter over the steak for 3 minutes for medium-rare (54 °C inside), longer if you like it more done.
+> Rest the steak 5 minutes, slice across the grain and pour over the pan butter. Finish with the pepper.
+
+# Tallow-Grilled Sirloin
+Main | American | 5 | 13 | 2 | Dinner, Main dish
+- 2 | sirloin steaks, about 2.5 cm thick
+- 1 tsp | salt
+- 1 tbsp | beef tallow, melted
+- 0.5 tsp | black pepper
+> Heat a grill or griddle pan until very hot. Brush the steak with the melted tallow and salt it well.
+> Grill 4 minutes on each side for medium-rare, turning once; a thermometer should read 54 °C in the thickest part.
+> Rest 5 minutes on a warm plate, then slice across the grain and season with the pepper.
+
+# Air Fryer Sirloin
+Main | American | 5 | 10 | 2 | Dinner, Main dish
+- 2 | sirloin steaks, about 2.5 cm thick
+- 1 tsp | salt
+- 2 tsp | butter, melted
+> Preheat the air fryer to 200 °C for 5 minutes. Pat the steak dry, brush with the butter and salt both sides.
+> Air fry for 4 minutes, turn and air fry 4 minutes more for medium-rare (54 °C inside). Thinner cuts need a minute or two less.
+> Rest 5 minutes before slicing across the grain.
+
+# Butter-Basted Flat Iron
+Main | American | 5 | 12 | 2 | Dinner, Main dish
+- 2 | flat iron steaks
+- 1 tsp | salt
+- 40 g | butter
+- 0.5 tsp | black pepper
+> Pat the steak dry and salt it on both sides 30 minutes ahead if you have time (or just before cooking).
+> Heat a heavy frying pan over high heat until smoking. Cook the steak 3 minutes on the first side without moving it.
+> Turn it, add the butter and, as it foams, tilt the pan and spoon the butter over the steak for 3 minutes for medium-rare (54 °C inside), longer if you like it more done.
+> Rest the steak 5 minutes, slice across the grain and pour over the pan butter. Finish with the pepper.
+
+# Tallow-Grilled Flat Iron
+Main | American | 5 | 13 | 2 | Dinner, Main dish
+- 2 | flat iron steaks
+- 1 tsp | salt
+- 1 tbsp | beef tallow, melted
+- 0.5 tsp | black pepper
+> Heat a grill or griddle pan until very hot. Brush the steak with the melted tallow and salt it well.
+> Grill 4 minutes on each side for medium-rare, turning once; a thermometer should read 54 °C in the thickest part.
+> Rest 5 minutes on a warm plate, then slice across the grain and season with the pepper.
+
+# Air Fryer Flat Iron
+Main | American | 5 | 10 | 2 | Dinner, Main dish
+- 2 | flat iron steaks
+- 1 tsp | salt
+- 2 tsp | butter, melted
+> Preheat the air fryer to 200 °C for 5 minutes. Pat the steak dry, brush with the butter and salt both sides.
+> Air fry for 4 minutes, turn and air fry 4 minutes more for medium-rare (54 °C inside). Thinner cuts need a minute or two less.
+> Rest 5 minutes before slicing across the grain.
+
+# Butter-Basted Skirt Steak
+Main | American | 5 | 10 | 3 | Dinner, Main dish
+- 600 g | skirt steak
+- 1 tsp | salt
+- 40 g | butter
+- 0.5 tsp | black pepper
+> Pat the steak dry and salt it on both sides 30 minutes ahead if you have time (or just before cooking).
+> Heat a heavy frying pan over high heat until smoking. Cook the steak 2 minutes on the first side without moving it.
+> Turn it, add the butter and, as it foams, tilt the pan and spoon the butter over the steak for 2 minutes for medium-rare (54 °C inside), longer if you like it more done.
+> Rest the steak 5 minutes, slice across the grain and pour over the pan butter. Finish with the pepper.
+
+# Tallow-Grilled Skirt Steak
+Main | American | 5 | 11 | 3 | Dinner, Main dish
+- 600 g | skirt steak
+- 1 tsp | salt
+- 1 tbsp | beef tallow, melted
+- 0.5 tsp | black pepper
+> Heat a grill or griddle pan until very hot. Brush the steak with the melted tallow and salt it well.
+> Grill 3 minutes on each side for medium-rare, turning once; a thermometer should read 54 °C in the thickest part.
+> Rest 5 minutes on a warm plate, then slice across the grain and season with the pepper.
+
+# Air Fryer Skirt Steak
+Main | American | 5 | 8 | 3 | Dinner, Main dish
+- 600 g | skirt steak
+- 1 tsp | salt
+- 2 tsp | butter, melted
+> Preheat the air fryer to 200 °C for 5 minutes. Pat the steak dry, brush with the butter and salt both sides.
+> Air fry for 3 minutes, turn and air fry 3 minutes more for medium-rare (54 °C inside). Thinner cuts need a minute or two less.
+> Rest 5 minutes before slicing across the grain.
+
+# Butter-Basted Hanger Steak
+Main | American | 5 | 14 | 3 | Dinner, Main dish
+- 600 g | hanger steak
+- 1 tsp | salt
+- 40 g | butter
+- 0.5 tsp | black pepper
+> Pat the steak dry and salt it on both sides 30 minutes ahead if you have time (or just before cooking).
+> Heat a heavy frying pan over high heat until smoking. Cook the steak 4 minutes on the first side without moving it.
+> Turn it, add the butter and, as it foams, tilt the pan and spoon the butter over the steak for 4 minutes for medium-rare (54 °C inside), longer if you like it more done.
+> Rest the steak 5 minutes, slice across the grain and pour over the pan butter. Finish with the pepper.
+
+# Tallow-Grilled Hanger Steak
+Main | American | 5 | 15 | 3 | Dinner, Main dish
+- 600 g | hanger steak
+- 1 tsp | salt
+- 1 tbsp | beef tallow, melted
+- 0.5 tsp | black pepper
+> Heat a grill or griddle pan until very hot. Brush the steak with the melted tallow and salt it well.
+> Grill 5 minutes on each side for medium-rare, turning once; a thermometer should read 54 °C in the thickest part.
+> Rest 5 minutes on a warm plate, then slice across the grain and season with the pepper.
+
+# Air Fryer Hanger Steak
+Main | American | 5 | 12 | 3 | Dinner, Main dish
+- 600 g | hanger steak
+- 1 tsp | salt
+- 2 tsp | butter, melted
+> Preheat the air fryer to 200 °C for 5 minutes. Pat the steak dry, brush with the butter and salt both sides.
+> Air fry for 5 minutes, turn and air fry 5 minutes more for medium-rare (54 °C inside). Thinner cuts need a minute or two less.
+> Rest 5 minutes before slicing across the grain.
+
+# Butter-Basted T-Bone
+Main | American | 5 | 16 | 2 | Dinner, Main dish
+- 2 | t-bone steaks, about 3 cm thick
+- 1 tsp | salt
+- 40 g | butter
+- 0.5 tsp | black pepper
+> Pat the steak dry and salt it on both sides 30 minutes ahead if you have time (or just before cooking).
+> Heat a heavy frying pan over high heat until smoking. Cook the steak 5 minutes on the first side without moving it.
+> Turn it, add the butter and, as it foams, tilt the pan and spoon the butter over the steak for 5 minutes for medium-rare (54 °C inside), longer if you like it more done.
+> Rest the steak 5 minutes, slice across the grain and pour over the pan butter. Finish with the pepper.
+
+# Tallow-Grilled T-Bone
+Main | American | 5 | 17 | 2 | Dinner, Main dish
+- 2 | t-bone steaks, about 3 cm thick
+- 1 tsp | salt
+- 1 tbsp | beef tallow, melted
+- 0.5 tsp | black pepper
+> Heat a grill or griddle pan until very hot. Brush the steak with the melted tallow and salt it well.
+> Grill 6 minutes on each side for medium-rare, turning once; a thermometer should read 54 °C in the thickest part.
+> Rest 5 minutes on a warm plate, then slice across the grain and season with the pepper.
+
+# Air Fryer T-Bone
+Main | American | 5 | 14 | 2 | Dinner, Main dish
+- 2 | t-bone steaks, about 3 cm thick
+- 1 tsp | salt
+- 2 tsp | butter, melted
+> Preheat the air fryer to 200 °C for 5 minutes. Pat the steak dry, brush with the butter and salt both sides.
+> Air fry for 6 minutes, turn and air fry 6 minutes more for medium-rare (54 °C inside). Thinner cuts need a minute or two less.
+> Rest 5 minutes before slicing across the grain.
+
+# Butter-Basted Rump Steak
+Main | American | 5 | 12 | 2 | Dinner, Main dish
+- 2 | rump steaks
+- 1 tsp | salt
+- 40 g | butter
+- 0.5 tsp | black pepper
+> Pat the steak dry and salt it on both sides 30 minutes ahead if you have time (or just before cooking).
+> Heat a heavy frying pan over high heat until smoking. Cook the steak 3 minutes on the first side without moving it.
+> Turn it, add the butter and, as it foams, tilt the pan and spoon the butter over the steak for 3 minutes for medium-rare (54 °C inside), longer if you like it more done.
+> Rest the steak 5 minutes, slice across the grain and pour over the pan butter. Finish with the pepper.
+
+# Tallow-Grilled Rump Steak
+Main | American | 5 | 13 | 2 | Dinner, Main dish
+- 2 | rump steaks
+- 1 tsp | salt
+- 1 tbsp | beef tallow, melted
+- 0.5 tsp | black pepper
+> Heat a grill or griddle pan until very hot. Brush the steak with the melted tallow and salt it well.
+> Grill 4 minutes on each side for medium-rare, turning once; a thermometer should read 54 °C in the thickest part.
+> Rest 5 minutes on a warm plate, then slice across the grain and season with the pepper.
+
+# Air Fryer Rump Steak
+Main | American | 5 | 10 | 2 | Dinner, Main dish
+- 2 | rump steaks
+- 1 tsp | salt
+- 2 tsp | butter, melted
+> Preheat the air fryer to 200 °C for 5 minutes. Pat the steak dry, brush with the butter and salt both sides.
+> Air fry for 4 minutes, turn and air fry 4 minutes more for medium-rare (54 °C inside). Thinner cuts need a minute or two less.
+> Rest 5 minutes before slicing across the grain.
+
+# Butter-Basted Bavette
+Main | American | 5 | 12 | 3 | Dinner, Main dish
+- 600 g | bavette steak
+- 1 tsp | salt
+- 40 g | butter
+- 0.5 tsp | black pepper
+> Pat the steak dry and salt it on both sides 30 minutes ahead if you have time (or just before cooking).
+> Heat a heavy frying pan over high heat until smoking. Cook the steak 3 minutes on the first side without moving it.
+> Turn it, add the butter and, as it foams, tilt the pan and spoon the butter over the steak for 3 minutes for medium-rare (54 °C inside), longer if you like it more done.
+> Rest the steak 5 minutes, slice across the grain and pour over the pan butter. Finish with the pepper.
+
+# Tallow-Grilled Bavette
+Main | American | 5 | 13 | 3 | Dinner, Main dish
+- 600 g | bavette steak
+- 1 tsp | salt
+- 1 tbsp | beef tallow, melted
+- 0.5 tsp | black pepper
+> Heat a grill or griddle pan until very hot. Brush the steak with the melted tallow and salt it well.
+> Grill 4 minutes on each side for medium-rare, turning once; a thermometer should read 54 °C in the thickest part.
+> Rest 5 minutes on a warm plate, then slice across the grain and season with the pepper.
+
+# Air Fryer Bavette
+Main | American | 5 | 10 | 3 | Dinner, Main dish
+- 600 g | bavette steak
+- 1 tsp | salt
+- 2 tsp | butter, melted
+> Preheat the air fryer to 200 °C for 5 minutes. Pat the steak dry, brush with the butter and salt both sides.
+> Air fry for 4 minutes, turn and air fry 4 minutes more for medium-rare (54 °C inside). Thinner cuts need a minute or two less.
+> Rest 5 minutes before slicing across the grain.
+
+# Pan-Fried Pork Chops in Butter
+Main | American | 5 | 14 | 2 | Dinner, Main dish
+- 2 | pork chops, bone-in, about 2 cm thick
+- 1 tsp | salt
+- 30 g | butter
+- 0.5 tsp | black pepper
+> Salt the chops and leave 15 minutes. Pat dry.
+> Fry in a hot pan for 4 to 5 minutes per side until golden and 63 °C inside, adding the butter for the last 2 minutes and spooning it over.
+> Rest 3 minutes and season with pepper.
+
+# Lamb Chops with Browned Butter
+Main | American | 5 | 10 | 2 | Dinner, Main dish
+- 6 | lamb loin chops
+- 1 tsp | salt
+- 40 g | butter
+- 0.5 tsp | black pepper
+> Salt the chops. Stand them fat side down in a hot dry pan for 2 minutes to render the fat.
+> Lay them flat and cook 3 minutes per side for pink.
+> Lift out, add the butter and cook until nutty brown, then pour over the chops with the pepper.
+
+# Air Fryer Lamb Chops
+Main | American | 5 | 10 | 2 | Dinner, Main dish
+- 6 | lamb loin chops
+- 1 tsp | salt
+- 0.5 tsp | black pepper
+> Preheat the air fryer to 200 °C. Salt the chops.
+> Air fry 5 minutes, turn and air fry 4 to 5 minutes more for pink (58 °C).
+> Rest 3 minutes and add the pepper.
+
+# Slow-Roasted Pork Shoulder with Crackling
+Main | American | 15 | 300 | 8 | Dinner, Main dish
+- 2.5 kg | pork shoulder, skin on and scored
+- 1 tbsp | salt
+- 250 ml | water
+> Dry the skin well and rub the salt into the scores. Leave uncovered in the fridge overnight if you can.
+> Roast at 160 °C with the water in the tin for 4½ hours, topping up the water if it dries.
+> Turn the oven to 230 °C for 20 to 30 minutes until the skin crackles all over.
+> Rest 20 minutes, then pull or slice.
+
+# Slow Cooker Pulled Pork Shoulder
+Main | American | 10 | 480 | 8 | Dinner, Main dish
+- 2 kg | pork shoulder, boneless
+- 1 tbsp | salt
+- 1 tsp | black pepper
+- 150 ml | bone broth
+> Rub the pork all over with the salt and pepper.
+> Put it in the slow cooker with the broth, cover and cook on Low for 8 hours until it pulls apart.
+> Shred with two forks and toss with some of the cooking juices.
+
+# Slow Cooker Beef Brisket
+Main | American | 10 | 540 | 8 | Dinner, Main dish
+- 2 kg | beef brisket
+- 1 tbsp | salt
+- 1 tsp | black pepper
+- 250 ml | beef stock
+- 1 tbsp | beef tallow
+> Season the brisket. Brown it all over in the tallow in a hot pan.
+> Put it fat side up in the slow cooker with the stock. Cover and cook on Low for 9 hours until tender.
+> Rest 15 minutes, slice across the grain and spoon over the juices.
+
+# Slow Cooker Beef Short Ribs
+Main | American | 10 | 480 | 4 | Dinner, Main dish
+- 1.5 kg | beef short ribs
+- 2 tsp | salt
+- 300 ml | bone broth
+- 0.5 tsp | black pepper
+> Salt the ribs and brown them in a hot dry pan, in batches.
+> Put them in the slow cooker with the broth. Cover and cook on Low for 8 hours.
+> Skim the fat from the juices and pour them over the ribs with the pepper.
+
+# Slow Cooker Oxtail in Bone Broth
+Main | American | 10 | 540 | 4 | Dinner, Main dish
+- 1.5 kg | oxtail pieces
+- 2 tsp | salt
+- 500 ml | bone broth
+- 0.5 tsp | black pepper
+> Salt and brown the oxtail in a hot pan.
+> Put in the slow cooker with the broth. Cover and cook on Low for 9 hours.
+> Chill the juices briefly so the fat sets, lift it off and reheat the oxtail in the juices.
+
+# Instant Pot Pork Belly Bites
+Main | American | 10 | 60 | 4 | Dinner, Main dish
+- 1 kg | pork belly, cut into 3 cm cubes
+- 1.5 tsp | salt
+- 250 ml | water
+> Put the pork and water in the pot. Lock the lid, set the valve to Sealing and pressure cook on High for 20 minutes.
+> Release the pressure naturally for 10 minutes, then quick release. Lift out the pork and pour off the liquid.
+> Select Sauté, return the pork with the salt and fry in its own fat, turning, for 10 minutes until crisp on all sides.
+
+# Instant Pot Chicken Thighs in Broth
+Main | American | 5 | 40 | 4 | Dinner, Main dish
+- 8 | chicken thighs, bone-in and skin on
+- 1.5 tsp | salt
+- 250 ml | chicken broth
+- 20 g | butter
+> Salt the thighs. Select Sauté and brown them skin side down in the butter, in batches.
+> Pour in the broth and scrape the bottom clean, then return the chicken.
+> Lock the lid, set the valve to Sealing and pressure cook on High for 10 minutes. Natural release for 10 minutes, then release the rest.
+> Check they are 75 °C inside. Serve with the broth spooned over.
+
+# Instant Pot Beef Bone Broth
+Main | American | 10 | 180 | 8 | Dinner, Main dish
+- 2 kg | beef marrow bones
+- 2 l | water
+- 2 tsp | salt
+> Roast the bones at 220 °C for 30 minutes for a deeper flavour (optional).
+> Put the bones in the pot and add the water up to the max line. Lock the lid, set to Sealing and pressure cook on High for 2 hours.
+> Let the pressure release naturally. Strain, season with the salt and chill; lift off the fat to cook with.
+
+# Air Fryer Chicken Drumsticks
+Main | American | 5 | 25 | 4 | Dinner, Main dish
+- 8 | chicken drumsticks
+- 1.5 tsp | salt
+- 0.5 tsp | black pepper
+> Pat the chicken very dry and salt them. For extra-crisp skin leave them uncovered in the fridge for an hour.
+> Preheat the air fryer to 190 °C. Lay them in one layer, skin side down, in batches if needed.
+> Air fry 21 minutes, turning halfway, then 3 to 4 minutes at 200 °C to crisp. They are done at 75 °C inside.
+> Season with the pepper and serve hot.
+
+# Air Fryer Crispy Chicken Thighs
+Main | American | 5 | 24 | 4 | Dinner, Main dish
+- 6 | chicken thighs, bone-in and skin on
+- 1.5 tsp | salt
+- 0.5 tsp | black pepper
+> Pat the chicken very dry and salt them. For extra-crisp skin leave them uncovered in the fridge for an hour.
+> Preheat the air fryer to 190 °C. Lay them in one layer, skin side down, in batches if needed.
+> Air fry 20 minutes, turning halfway, then 3 to 4 minutes at 200 °C to crisp. They are done at 75 °C inside.
+> Season with the pepper and serve hot.
+
+# Air Fryer Duck Legs
+Main | American | 5 | 30 | 4 | Dinner, Main dish
+- 4 | duck legs
+- 1.5 tsp | salt
+- 0.5 tsp | black pepper
+> Pat the duck very dry and salt them. For extra-crisp skin leave them uncovered in the fridge for an hour.
+> Preheat the air fryer to 190 °C. Lay them in one layer, skin side down, in batches if needed.
+> Air fry 26 minutes, turning halfway, then 3 to 4 minutes at 200 °C to crisp. They are done at 75 °C inside.
+> Season with the pepper and serve hot.
+
+# Pan-Seared Duck Breast
+Main | American | 5 | 18 | 2 | Dinner, Main dish
+- 2 | duck breasts
+- 1 tsp | salt
+- 0.5 tsp | black pepper
+> Score the skin in a criss-cross without cutting the meat and salt well.
+> Lay skin side down in a cold pan, then put it over medium heat. Cook 10 to 12 minutes, pouring off the fat now and then, until the skin is crisp.
+> Turn and cook 3 minutes for pink. Rest 5 minutes and slice; keep the fat for cooking.
+
+# Butter-Roasted Whole Chicken
+Main | American | 10 | 85 | 4 | Dinner, Main dish
+- 1.6 kg | whole chicken
+- 2 tsp | salt
+- 40 g | butter, soft
+- 0.5 tsp | black pepper
+> Dry the chicken and salt it inside and out. Rub the butter all over.
+> Roast at 200 °C for 75 to 85 minutes until the juices at the thigh run clear and it reads 75 °C.
+> Rest 15 minutes before carving; spoon the pan juices over.
+
+# Spatchcock Chicken with Schmaltz
+Main | American | 15 | 50 | 4 | Dinner, Main dish
+- 1.6 kg | whole chicken
+- 2 tsp | salt
+- 2 tbsp | schmaltz
+> Cut out the backbone with scissors and press the chicken flat. Salt it well.
+> Brush with the schmaltz and roast skin up at 220 °C for 45 to 50 minutes until 75 °C at the thigh.
+> Rest 10 minutes and cut into pieces.
+
+# Slow Cooker Whole Chicken
+Main | American | 10 | 360 | 4 | Dinner, Main dish
+- 1.6 kg | whole chicken
+- 2 tsp | salt
+- 0.5 tsp | black pepper
+> Salt the chicken inside and out.
+> Sit it breast up in the slow cooker with no liquid; it makes its own. Cover and cook on Low for 6 hours until 75 °C at the thigh.
+> Crisp the skin under a hot grill for 5 minutes if you like. Keep the juices for broth.
+
+# Turkey Thigh Roast with Butter
+Main | American | 10 | 90 | 4 | Dinner, Main dish
+- 2 | turkey thighs, bone-in
+- 2 tsp | salt
+- 40 g | butter
+> Salt the thighs and rub with the butter.
+> Roast at 180 °C for 80 to 90 minutes, basting twice, until 75 °C inside.
+> Rest 10 minutes and slice off the bone.
+
+# Butter-Fried Chicken Livers
+Main | American | 5 | 8 | 2 | Dinner, Main dish
+- 400 g | chicken livers, trimmed
+- 30 g | butter
+- 0.75 tsp | salt
+> Pat the livers dry and salt them.
+> Fry in the foaming butter over medium-high heat, 2 to 3 minutes per side, until browned and only just pink inside.
+> Serve with the pan butter.
+
+# Seared Beef Heart Steaks
+Main | American | 10 | 6 | 3 | Dinner, Main dish
+- 600 g | beef heart, trimmed and sliced 1.5 cm thick
+- 1 tsp | salt
+- 1 tbsp | beef tallow
+> Trim any sinew and fat from the heart and slice it. Salt well.
+> Sear in very hot tallow 2 to 3 minutes per side for medium-rare.
+> Rest 3 minutes and slice thinly across the grain.
+
+# Crispy Smash Patties
+Main | American | 5 | 10 | 4 | Dinner, Main dish
+- 800 g | ground beef
+- 1 tsp | salt
+- 1 tbsp | beef tallow
+- 4 slices | cheddar | opt
+> Roll the meat into 8 loose balls.
+> Heat a heavy pan or griddle until smoking and add a little tallow. Put in 2 balls and press each flat with a sturdy spatula.
+> Salt, cook 2 minutes until deeply browned, turn, add cheese if using and cook 1 minute more.
+> Repeat with the rest.
+
+# Lamb Smash Patties
+Main | American | 5 | 10 | 4 | Dinner, Main dish
+- 800 g | ground lamb
+- 1 tsp | salt
+- 1 tbsp | beef tallow
+- 4 slices | cheddar | opt
+> Roll the meat into 8 loose balls.
+> Heat a heavy pan or griddle until smoking and add a little tallow. Put in 2 balls and press each flat with a sturdy spatula.
+> Salt, cook 2 minutes until deeply browned, turn, add cheese if using and cook 1 minute more.
+> Repeat with the rest.
+
+# Pork Smash Patties
+Main | American | 5 | 10 | 4 | Dinner, Main dish
+- 800 g | ground pork
+- 1 tsp | salt
+- 1 tbsp | beef tallow
+- 4 slices | cheddar | opt
+> Roll the meat into 8 loose balls.
+> Heat a heavy pan or griddle until smoking and add a little tallow. Put in 2 balls and press each flat with a sturdy spatula.
+> Salt, cook 2 minutes until deeply browned, turn, add cheese if using and cook 1 minute more.
+> Repeat with the rest.
+
+# Venison Smash Patties
+Main | American | 5 | 10 | 4 | Dinner, Main dish
+- 800 g | ground venison
+- 1 tsp | salt
+- 1 tbsp | beef tallow
+- 4 slices | cheddar | opt
+> Roll the meat into 8 loose balls.
+> Heat a heavy pan or griddle until smoking and add a little tallow. Put in 2 balls and press each flat with a sturdy spatula.
+> Salt, cook 2 minutes until deeply browned, turn, add cheese if using and cook 1 minute more.
+> Repeat with the rest.
+
+# Carnivore Meatballs
+Main | American | 10 | 20 | 4 | Dinner, Main dish
+- 800 g | ground beef
+- 1 | egg
+- 40 g | parmesan, finely grated
+- 1 tsp | salt
+- 1 tbsp | butter
+> Mix the beef, egg, parmesan and salt with your hands until just combined.
+> Roll into 20 balls.
+> Brown in the butter over medium heat for 10 minutes, then cover and cook 6 to 8 minutes more until cooked through.
+
+# Parmesan Beef Air Fryer Meatballs
+Main | American | 10 | 12 | 4 | Dinner, Main dish
+- 800 g | ground beef
+- 1 | egg
+- 40 g | parmesan, finely grated
+- 1 tsp | salt
+> Mix everything and roll into 20 balls.
+> Air fry at 190 °C for 10 to 12 minutes, shaking the basket halfway, until browned and 71 °C inside.
+
+# Beef and Egg Meatloaf
+Main | American | 10 | 60 | 6 | Dinner, Main dish
+- 1 kg | ground beef
+- 2 | eggs
+- 60 g | parmesan, grated
+- 1.5 tsp | salt
+- 0.5 tsp | black pepper
+> Heat the oven to 180 °C. Mix everything well with your hands.
+> Press into a loaf tin and bake 55 to 60 minutes until 71 °C in the middle.
+> Pour off the fat and rest 10 minutes before slicing.
+
+# Lamb Kofta Skewers (Salt and Pepper)
+Main | American | 15 | 10 | 4 | Dinner, Main dish
+- 800 g | ground lamb
+- 1 tsp | salt
+- 0.5 tsp | black pepper
+> Knead the lamb with the salt and pepper for 2 minutes until sticky.
+> Shape around 8 skewers into long sausages.
+> Grill on high heat 8 to 10 minutes, turning, until browned and cooked through.
+
+# Instant Pot Ground Beef Chili (Meat Only)
+Main | American | 5 | 35 | 4 | Dinner, Main dish
+- 1 kg | ground beef
+- 1.5 tsp | salt
+- 250 ml | beef stock
+- 100 g | cheddar, grated | opt
+- 4 tbsp | sour cream | opt
+> Select Sauté and brown the beef with the salt, breaking it up, for 8 minutes.
+> Pour in the stock and scrape the bottom clean. Lock the lid, set to Sealing and pressure cook on High for 10 minutes.
+> Quick release. Simmer on Sauté for 5 minutes to thicken and serve with the cheese and sour cream if you like.
+
+# Butter-Seared Salmon
+Main | American | 5 | 8 | 4 | Dinner, Main dish
+- 4 | salmon fillets
+- 1 tsp | salt
+- 40 g | butter
+> Pat the fish dry and salt it.
+> Sear skin side down (or presentation side down) in a hot pan with half the butter for 3 to 4 minutes until crisp.
+> Turn, add the rest of the butter and baste for 1 to 2 minutes until just cooked through.
+
+# Buttered Air Fryer Salmon
+Main | American | 2 | 9 | 4 | Dinner, Main dish
+- 4 | salmon fillets
+- 1 tsp | salt
+- 1 tbsp | butter, melted
+> Preheat the air fryer to 200 °C. Brush the fish with butter and salt it.
+> Air fry skin side down for 9 minutes, without turning, until it flakes.
+> Serve straight away.
+
+# Butter-Seared Cod
+Main | American | 5 | 8 | 4 | Dinner, Main dish
+- 4 | cod fillets
+- 1 tsp | salt
+- 40 g | butter
+> Pat the fish dry and salt it.
+> Sear skin side down (or presentation side down) in a hot pan with half the butter for 3 to 4 minutes until crisp.
+> Turn, add the rest of the butter and baste for 1 to 2 minutes until just cooked through.
+
+# Buttered Air Fryer Cod
+Main | American | 2 | 10 | 4 | Dinner, Main dish
+- 4 | cod fillets
+- 1 tsp | salt
+- 1 tbsp | butter, melted
+> Preheat the air fryer to 200 °C. Brush the fish with butter and salt it.
+> Air fry skin side down for 10 minutes, without turning, until it flakes.
+> Serve straight away.
+
+# Butter-Seared Trout
+Main | American | 5 | 8 | 4 | Dinner, Main dish
+- 4 | trout fillets
+- 1 tsp | salt
+- 40 g | butter
+> Pat the fish dry and salt it.
+> Sear skin side down (or presentation side down) in a hot pan with half the butter for 3 to 4 minutes until crisp.
+> Turn, add the rest of the butter and baste for 1 to 2 minutes until just cooked through.
+
+# Buttered Air Fryer Trout
+Main | American | 2 | 8 | 4 | Dinner, Main dish
+- 4 | trout fillets
+- 1 tsp | salt
+- 1 tbsp | butter, melted
+> Preheat the air fryer to 200 °C. Brush the fish with butter and salt it.
+> Air fry skin side down for 8 minutes, without turning, until it flakes.
+> Serve straight away.
+
+# Butter-Seared Mackerel
+Main | American | 5 | 8 | 4 | Dinner, Main dish
+- 4 | mackerel fillets
+- 1 tsp | salt
+- 40 g | butter
+> Pat the fish dry and salt it.
+> Sear skin side down (or presentation side down) in a hot pan with half the butter for 3 to 4 minutes until crisp.
+> Turn, add the rest of the butter and baste for 1 to 2 minutes until just cooked through.
+
+# Buttered Air Fryer Mackerel
+Main | American | 2 | 7 | 4 | Dinner, Main dish
+- 4 | mackerel fillets
+- 1 tsp | salt
+- 1 tbsp | butter, melted
+> Preheat the air fryer to 200 °C. Brush the fish with butter and salt it.
+> Air fry skin side down for 7 minutes, without turning, until it flakes.
+> Serve straight away.
+
+# Butter-Seared Halibut
+Main | American | 5 | 8 | 4 | Dinner, Main dish
+- 4 | halibut fillets
+- 1 tsp | salt
+- 40 g | butter
+> Pat the fish dry and salt it.
+> Sear skin side down (or presentation side down) in a hot pan with half the butter for 3 to 4 minutes until crisp.
+> Turn, add the rest of the butter and baste for 1 to 2 minutes until just cooked through.
+
+# Buttered Air Fryer Halibut
+Main | American | 2 | 10 | 4 | Dinner, Main dish
+- 4 | halibut fillets
+- 1 tsp | salt
+- 1 tbsp | butter, melted
+> Preheat the air fryer to 200 °C. Brush the fish with butter and salt it.
+> Air fry skin side down for 10 minutes, without turning, until it flakes.
+> Serve straight away.
+
+# Butter-Seared Sea Bass
+Main | American | 5 | 8 | 4 | Dinner, Main dish
+- 4 | sea bass fillets
+- 1 tsp | salt
+- 40 g | butter
+> Pat the fish dry and salt it.
+> Sear skin side down (or presentation side down) in a hot pan with half the butter for 3 to 4 minutes until crisp.
+> Turn, add the rest of the butter and baste for 1 to 2 minutes until just cooked through.
+
+# Buttered Air Fryer Sea Bass
+Main | American | 2 | 7 | 4 | Dinner, Main dish
+- 4 | sea bass fillets
+- 1 tsp | salt
+- 1 tbsp | butter, melted
+> Preheat the air fryer to 200 °C. Brush the fish with butter and salt it.
+> Air fry skin side down for 7 minutes, without turning, until it flakes.
+> Serve straight away.
+
+# Broiled Tuna Steaks
+Main | American | 5 | 6 | 2 | Dinner, Main dish
+- 2 | tuna steaks
+- 1 tsp | salt
+- 1 tbsp | ghee
+> Brush the tuna with ghee and salt it.
+> Cook under a very hot grill or broiler 2 to 3 minutes per side for pink in the middle.
+> Slice and serve.
+
+# Steamed Mussels in Bone Broth
+Main | American | 10 | 8 | 2 | Dinner, Main dish
+- 1 kg | mussels, cleaned
+- 250 ml | bone broth
+- 30 g | butter
+> Throw away any mussels that are cracked or stay open when tapped.
+> Bring the broth and butter to a boil, add the mussels, cover and cook 4 to 5 minutes, shaking the pan, until they open.
+> Throw away any that stay shut.
+
+# Crab and Egg Scramble
+Breakfast | American | 5 | 5 | 2 | Breakfast, Brunch
+- 5 | eggs
+- 150 g | crab meat
+- 20 g | butter
+- 0.5 tsp | salt
+> Beat the eggs with the salt.
+> Melt the butter over low heat, add the eggs and stir slowly.
+> When almost set, fold in the crab and warm through.
+
+# Sardines on Fried Eggs
+Breakfast | American | 3 | 5 | 2 | Breakfast, Lunch
+- 4 | eggs
+- 1 can | sardines, in water, drained
+- 20 g | butter
+- 0.25 tsp | salt
+> Fry the eggs in the butter until the whites set.
+> Warm the sardines in the same pan for a minute.
+> Serve the sardines on the eggs with the salt.
+
+# Smoked Salmon Egg Bites
+Breakfast | American | 10 | 12 | 4 | Breakfast, Snack
+- 6 | eggs
+- 60 ml | heavy cream
+- 0.5 tsp | salt
+- 80 g | smoked salmon, chopped
+> Heat the oven to 160 °C and butter a 12-hole mini muffin tin.
+> Whisk the eggs, cream and salt, stir in the salmon and pour into the holes.
+> Bake 12 minutes until just set. Cool a little before turning out.
+
+# Three-Egg Butter Omelette with Cheese
+Breakfast | American | 2 | 4 | 1 | Breakfast, Brunch
+- 3 | eggs
+- 15 g | butter
+- 30 g | gruyere, grated
+- 0.25 tsp | salt
+> Beat the eggs with the salt.
+> Melt the butter in a nonstick pan over medium heat, pour in the eggs and stir with a fork until softly set.
+> Scatter over the cheese, fold and slide onto a plate.
+
+# Slow Soft Scrambled Eggs with Cream
+Breakfast | American | 2 | 8 | 2 | Breakfast, Brunch
+- 5 | eggs
+- 30 g | butter
+- 2 tbsp | heavy cream
+- 0.25 tsp | salt
+> Put the eggs and butter in a cold pan over low heat.
+> Stir constantly with a spatula for 6 to 8 minutes, taking the pan off the heat now and then, until creamy.
+> Stir in the cream and salt.
+
+# Cheese and Egg Waffles (Chaffles)
+Breakfast | American | 5 | 10 | 2 | Breakfast, Snack
+- 2 | eggs
+- 100 g | mozzarella, grated
+- 1 pinch | salt
+> Heat a waffle iron. Mix the eggs, mozzarella and salt.
+> Spoon half into the iron and cook 4 to 5 minutes until golden and crisp.
+> Repeat with the rest.
+
+# Baked Parmesan Crisps
+Snack | American | 5 | 8 | 4 | Appetizer, Snack
+- 150 g | parmesan, finely grated
+- 1 pinch | black pepper
+- 1 pinch | flaky salt | opt
+> Heat the oven to 200 °C and line a tray with baking paper.
+> Make 12 small piles of the cheese, spaced apart, and flatten them.
+> Bake 6 to 8 minutes until golden. Cool on the tray to crisp.
+
+# Air Fryer Cheese Crisps
+Snack | American | 5 | 6 | 2 | Snack
+- 100 g | cheddar, grated
+- 1 pinch | black pepper | opt
+- 1 pinch | flaky salt | opt
+> Line the air fryer basket with a round of baking paper.
+> Make 8 small piles of cheese, spaced apart.
+> Air fry at 180 °C for 5 to 6 minutes until golden; cool to crisp.
+
+# Baked Egg Custard (No Sugar)
+Dessert | American | 10 | 40 | 4 | Snack, Dessert
+- 4 | eggs
+- 400 ml | heavy cream
+- 1 pinch | salt
+> Heat the oven to 150 °C. Whisk the eggs, cream and salt.
+> Pour into 4 ramekins and set them in a roasting tin. Pour hot water halfway up the sides.
+> Bake 35 to 40 minutes until set with a slight wobble. Chill.
+
+# Bacon-Free Pork Belly Breakfast Plate
+Breakfast | American | 5 | 30 | 2 | Breakfast, Brunch
+- 300 g | pork belly slices
+- 4 | eggs
+- 0.75 tsp | salt
+> Lay the pork belly in a cold pan, salt it and cook over medium heat for 20 to 25 minutes, turning, until crisp.
+> Fry the eggs in the rendered fat.
+> Serve together.
+
+# Chicken Skin Cracklings
+Snack | American | 5 | 25 | 4 | Snack
+- 300 g | chicken skin
+- 1 tsp | salt
+- 1 pinch | black pepper | opt
+> Lay the skin flat on a lined tray, pressing it out.
+> Bake at 200 °C for 20 to 25 minutes, with a second tray on top for flat crisps, until golden.
+> Drain on paper and salt while hot.
+
+# Chicken Bone Broth (Stovetop)
+Soup | American | 10 | 360 | 8 | Soup
+- 2 kg | chicken wings
+- 3 l | water
+- 2 tsp | salt
+> Put the wings (or carcasses saved from roast chickens) in a big pot with the water and bring slowly to a simmer, skimming the foam.
+> Simmer very gently, uncovered, for 5 to 6 hours, topping up with water to keep the bones covered.
+> Strain, season and chill. Lift off the fat to cook with.
+
+# Beef Broth Sipping Cup
+Drink | American | 2 | 5 | 1 | Snack, Drink
+- 300 ml | bone broth
+- 1 pinch | salt
+- 1 tsp | butter
+> Heat the broth until steaming.
+> Season with salt and stir in the butter. Drink from a mug.
+
+# Lamb Neck Braise in Bone Broth
+Main | American | 10 | 150 | 4 | Dinner, Main dish
+- 1.2 kg | lamb neck fillets
+- 2 tsp | salt
+- 1 tbsp | ghee
+- 500 ml | bone broth
+> Salt the lamb and brown it all over in the ghee.
+> Add the broth, cover and cook at 150 °C for 2½ hours until tender.
+> Reduce the juices on the hob and spoon over.
+
+# Venison Medallions in Butter
+Main | American | 5 | 8 | 2 | Dinner, Main dish
+- 500 g | venison loin, cut into 4 medallions
+- 1 tsp | salt
+- 30 g | butter
+> Salt the venison.
+> Sear in a hot pan 2 to 3 minutes per side, adding the butter for the last minute, for rare to medium-rare; venison is very lean so don't overcook.
+> Rest 5 minutes.
+
+# Roast Bone Marrow
+Snack | American | 5 | 20 | 4 | Appetizer, Snack
+- 4 | beef marrow bones, split lengthways
+- 1 tsp | flaky salt
+- 1 pinch | black pepper | opt
+> Heat the oven to 220 °C. Stand the bones cut side up on a tray.
+> Roast 15 to 20 minutes until the marrow is soft and just starting to bubble.
+> Scoop out and sprinkle with flaky salt.
+
+# Prime Rib Roast
+Main | American | 15 | 150 | 8 | Dinner, Main dish
+- 3 kg | beef rib roast, bone-in
+- 1.5 tbsp | salt
+- 1 tsp | black pepper
+> Salt the roast all over the day before and leave uncovered in the fridge.
+> Roast at 110 °C for 2 to 2½ hours until 50 °C in the centre.
+> Rest 30 minutes, then blast at 260 °C for 8 to 10 minutes to brown the crust. Carve and season with pepper.
+
+# Slow-Roasted Leg of Lamb
+Main | American | 10 | 240 | 8 | Dinner, Main dish
+- 2.5 kg | leg of lamb
+- 1 tbsp | salt
+- 250 ml | water
+> Salt the lamb well. Put it in a roasting tin with the water and cover tightly with foil.
+> Roast at 150 °C for 4 hours until it pulls apart.
+> Uncover for the last 20 minutes at 200 °C to brown.
+
+# Carnitas-Style Crispy Pork (Lard Only)
+Main | American | 15 | 180 | 6 | Dinner, Main dish
+- 1.5 kg | pork shoulder, cut into 5 cm chunks
+- 2 tsp | salt
+- 100 g | lard
+- 250 ml | water
+> Put the pork, salt, lard and water in a heavy pot.
+> Simmer gently, partly covered, for 2½ hours until tender and the water has gone.
+> Keep cooking in the fat, turning, for 15 minutes until browned and crisp at the edges.
+
+# Pork Rind Crumbed Chicken Tenders
+Main | American | 10 | 15 | 4 | Dinner, Main dish
+- 600 g | chicken tenders
+- 2 | eggs
+- 80 g | pork rinds, crushed fine
+- 1 tsp | salt
+> Heat the oven to 200 °C. Beat the eggs with the salt.
+> Dip the chicken in egg, then press into the pork rind crumbs.
+> Bake on a rack 15 minutes, turning once, until golden and 75 °C inside.

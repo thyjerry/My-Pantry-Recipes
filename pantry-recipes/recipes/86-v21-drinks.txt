@@ -1,0 +1,321 @@
+# Strawberry Lassi
+Drink | Indian | 5 | 0 | 3 | Breakfast, Drink
+- 250 g | strawberries
+- 300 g | plain yogurt
+- 150 ml | milk
+- 2 tbsp | honey
+> Blend everything until smooth and frothy.
+> Pour over ice and serve.
+
+# Ayran
+Drink | Turkish | 5 | 0 | 3 | Breakfast, Drink
+- 400 g | plain yogurt
+- 400 ml | water, cold
+- 0.5 tsp | salt
+> Blend everything until smooth and frothy.
+> Pour over ice and serve.
+
+# Iced Lemon Tea
+Drink | American | 5 | 5 | 4 | Drink
+- 4 | black tea bags
+- 1 l | water
+- 1 | lemon, sliced
+- 3 tbsp | sugar
+- | ice | opt
+> Bring half the water to a boil and steep the tea with any spices for 5 minutes (10 for hibiscus), then remove the bags or strain.
+> Stir in the sweetener while hot, then add the rest of the water as cold water.
+> Add the fruit or herbs, chill and serve over ice.
+
+# Iced Raspberry Tea
+Drink | American | 5 | 5 | 4 | Drink
+- 4 | black tea bags
+- 1 l | water
+- 150 g | raspberries
+- 3 tbsp | sugar
+- | ice | opt
+> Bring half the water to a boil and steep the tea with any spices for 5 minutes (10 for hibiscus), then remove the bags or strain.
+> Stir in the sweetener while hot, then add the rest of the water as cold water.
+> Add the fruit or herbs, chill and serve over ice.
+
+# Iced Jasmine Tea with Peach
+Drink | Chinese | 5 | 5 | 4 | Drink
+- 4 | green tea bags, jasmine
+- 1 l | water
+- 10 | peaches, canned, sliced
+- 2 tbsp | sugar
+- | ice | opt
+> Bring half the water to a boil and steep the tea with any spices for 5 minutes (10 for hibiscus), then remove the bags or strain.
+> Stir in the sweetener while hot, then add the rest of the water as cold water.
+> Add the fruit or herbs, chill and serve over ice.
+
+# Watermelon Mint Cooler
+Drink | International | 10 | 0 | 4 | Drink
+- 600 g | watermelon, chopped
+- 1 handful | mint
+- 1 | lime, juiced
+- 750 ml | sparkling water
+- | ice | opt
+> Blend or muddle the fruit, herbs and sweetener, then strain into a jug.
+> Top up with cold sparkling water just before serving and pour over ice.
+
+# Cucumber Mint Spritzer
+Drink | International | 10 | 0 | 4 | Drink
+- 1 | cucumber, chopped
+- 1 handful | mint
+- 1 | lime, juiced
+- 750 ml | sparkling water
+- | ice | opt
+> Blend or muddle the fruit, herbs and sweetener, then strain into a jug.
+> Top up with cold sparkling water just before serving and pour over ice.
+
+# Grapefruit Rosemary Spritzer
+Drink | International | 10 | 0 | 4 | Drink
+- 2 | grapefruits, juiced
+- 1 sprig | rosemary
+- 1 tbsp | honey
+- 750 ml | sparkling water
+- | ice | opt
+> Blend or muddle the fruit, herbs and sweetener, then strain into a jug.
+> Top up with cold sparkling water just before serving and pour over ice.
+
+# Blackberry Lime Fizz
+Drink | International | 10 | 0 | 4 | Drink
+- 200 g | blackberries
+- 2 | limes, juiced
+- 2 tbsp | sugar
+- 750 ml | sparkling water
+- | ice | opt
+> Blend or muddle the fruit, herbs and sweetener, then strain into a jug.
+> Top up with cold sparkling water just before serving and pour over ice.
+
+# Pomegranate Orange Spritzer
+Drink | International | 10 | 0 | 4 | Drink
+- 1 | pomegranate, seeds juiced
+- 2 | oranges, juiced
+- 1 | lime, juiced
+- 750 ml | sparkling water
+- | ice | opt
+> Blend or muddle the fruit, herbs and sweetener, then strain into a jug.
+> Top up with cold sparkling water just before serving and pour over ice.
+
+# Peach Ginger Fizz
+Drink | International | 10 | 0 | 4 | Drink
+- 2 | peaches, chopped
+- 2 cm | ginger, grated
+- 1 tbsp | honey
+- 750 ml | sparkling water
+- | ice | opt
+> Blend or muddle the fruit, herbs and sweetener, then strain into a jug.
+> Top up with cold sparkling water just before serving and pour over ice.
+
+# Spiced Hot Chocolate with Cinnamon
+Drink | Mexican | 5 | 10 | 4 | Drink
+- 750 ml | milk
+- 100 g | dark chocolate, chopped
+- 1 | cinnamon stick
+- 1 tbsp | sugar
+- 1 pinch | salt
+> Heat the milk with the cinnamon until steaming and leave 5 minutes.
+> Remove the cinnamon, whisk in the chocolate, sugar and salt until smooth and frothy.
+
+# Chai Hot Chocolate
+Drink | Indian | 5 | 10 | 4 | Drink
+- 600 ml | milk
+- 80 g | milk chocolate, chopped
+- 2 | black tea bags
+- 4 | cardamom pods, crushed
+- 1 | cinnamon stick
+> Heat the milk with the tea and spices until steaming. Leave 5 minutes, then strain.
+> Whisk in the chocolate until melted.
+
+# Iced Oat Milk Latte
+Drink | International | 5 | 0 | 4 | Drink
+- 120 ml | coffee, strong and cold
+- 250 ml | oat milk
+- 1 tbsp | maple syrup
+- | ice
+> Stir the maple syrup into the coffee.
+> Fill a glass with ice, add the oat milk and pour over the coffee.
+
+# Turmeric Ginger Tea
+Drink | Indian | 5 | 10 | 4 | Drink
+- 500 ml | water
+- 1 tsp | turmeric
+- 3 cm | ginger, sliced
+- 1 tbsp | honey
+- 0.5 | lemon, juiced
+> Simmer the turmeric and ginger in the water for 10 minutes.
+> Strain and stir in the honey and lemon.
+
+# Cinnamon Oat Horchata
+Drink | Mexican | 5 | 10 | 4 | Drink
+- 100 g | rolled oats
+- 1 l | water
+- 1 | cinnamon stick
+- 4 tbsp | sugar
+- 1 tsp | vanilla extract
+> Soak the oats and cinnamon in the water for 30 minutes.
+> Blend until smooth and strain through a fine sieve.
+> Stir in the sugar and vanilla and serve over ice.
+
+# Chocolate Banana Milkshake
+Drink | American | 5 | 0 | 2 | Drink
+- 2 | bananas, frozen
+- 400 ml | milk
+- 2 tbsp | cocoa powder
+- 2 scoops | vanilla ice cream
+> Blend everything until thick and smooth.
+> Pour into tall glasses.
+
+# Coffee Milkshake
+Drink | American | 5 | 0 | 2 | Drink
+- 150 ml | coffee, cold
+- 300 ml | milk
+- 3 scoops | vanilla ice cream
+> Blend everything until smooth.
+> Serve with a straw.
+
+# Date and Almond Milkshake
+Drink | Emirati | 5 | 0 | 4 | Drink
+- 8 | dates, pitted
+- 500 ml | almond milk
+- 1 pinch | cardamom
+- | ice
+> Blend the dates, milk and cardamom until smooth.
+> Pour over ice.
+
+# Avocado Shake
+Drink | Filipino | 5 | 0 | 4 | Drink
+- 1 | avocado, ripe
+- 400 ml | milk
+- 3 tbsp | sugar
+- | ice
+> Blend the avocado, milk and sugar with a handful of ice until smooth and thick.
+> Serve cold.
+
+# Tamarind Agua Fresca
+Drink | Mexican | 5 | 10 | 4 | Drink
+- 100 g | tamarind pulp
+- 1.2 l | water
+- 100 g | sugar
+- | ice
+> Simmer the tamarind in 500 ml of the water for 5 minutes and mash.
+> Strain, add the sugar and the rest of the water.
+> Chill and serve over ice.
+
+# Mint Lemonade (Limonana)
+Drink | Israeli | 5 | 0 | 4 | Drink
+- 4 | lemons, juiced
+- 1 large handful | mint
+- 100 g | sugar
+- 750 ml | water, cold
+- | ice
+> Blend the lemon juice, mint, sugar and water until the mint is fine.
+> Strain if you like and serve over plenty of ice.
+
+# Sweet Potato Pie Smoothie
+Drink | Southern US | 5 | 0 | 2 | Drink
+- 150 g | sweet potato, cooked and cold
+- 1 | banana, frozen
+- 300 ml | milk
+- 1 tbsp | maple syrup
+- 0.5 tsp | cinnamon
+> Blend everything until smooth.
+> Serve straight away.
+
+# Papaya Lime Smoothie
+Drink | Mexican | 5 | 0 | 2 | Drink
+- 300 g | papaya, chopped
+- 1 | lime, juiced
+- 150 g | plain yogurt
+- 150 ml | water
+- 1 tbsp | honey
+> Blend everything until smooth.
+> Serve cold.
+
+# Hot Spiced Pineapple Drink
+Drink | Jamaican | 5 | 10 | 4 | Drink
+- 1 l | pineapple juice
+- 3 cm | ginger, sliced
+- 1 | cinnamon stick
+- 4 | cloves
+> Simmer everything gently for 10 minutes.
+> Strain and serve hot.
+
+# Barley Water with Lemon
+Drink | British | 5 | 10 | 4 | Drink
+- 100 g | pearl barley
+- 1.5 l | water
+- 2 | lemons
+- 3 tbsp | honey
+> Rinse the barley and simmer in the water for 30 minutes.
+> Strain, add the lemon zest and juice and the honey.
+> Chill before drinking.
+
+# Agua de Pepino con Limón y Chía
+Drink | Mexican | 10 | 0 | 4 | Drink
+- 2 | cucumbers
+- 3 | limes
+- 3 tbsp | sugar
+- 1 tbsp | chia seeds
+- 1 l | water, cold
+> Blend the cucumbers with the lime juice, sugar and half the water and strain.
+> Stir in the rest of the water and the chia and leave 10 minutes before serving over ice.
+
+# Korean Sikhye-Style Rice Drink
+Drink | Korean | 10 | 15 | 6 | Drink
+- 300 g | rice, cooked
+- 1.5 l | water
+- 100 g | sugar
+- 3 cm | ginger, sliced
+> Simmer the rice, ginger and water 10 minutes.
+> Stir in the sugar, cool and chill.
+> Serve cold with a few rice grains in each glass.
+
+# Brazilian Lemonade (Limonada Suíça)
+Drink | Brazilian | 5 | 0 | 4 | Drink
+- 4 | limes, quartered
+- 100 g | sugar
+- 4 tbsp | sweetened condensed milk
+- 1 l | water, cold
+> Blend the limes, sugar and water for only 10 seconds.
+> Strain at once, whisk in the condensed milk and serve over ice.
+
+# Spiced Pear and Ginger Apple Cider
+Drink | British | 5 | 15 | 6 | Drink
+- 1 l | apple juice, cloudy
+- 2 | pears, sliced
+- 3 cm | ginger, sliced
+- 1 | cinnamon stick
+- 4 | cloves
+> Heat everything gently 15 minutes without boiling.
+> Strain and serve hot.
+
+# Coconut Water Pineapple Cooler
+Drink | Filipino | 5 | 0 | 4 | Drink
+- 750 ml | coconut water
+- 300 g | pineapple
+- 1 | lime
+- 1 handful | mint
+> Blend the pineapple with half the coconut water and strain.
+> Stir in the rest with lime juice and torn mint and serve over ice.
+
+# Chocolate Peanut Butter Protein Shake
+Drink | American | 5 | 0 | 1 | Breakfast, Drink
+- 1 | banana, frozen
+- 2 tbsp | peanut butter
+- 1 tbsp | cocoa powder
+- 250 ml | milk
+- 150 g | greek yogurt
+> Blend everything until thick.
+> Drink straight away.
+
+# Pineapple Ginger Turmeric Juice
+Drink | Jamaican | 10 | 0 | 4 | Drink
+- 1 | pineapple, peeled and chopped
+- 5 cm | ginger
+- 1 tsp | turmeric
+- 2 | limes
+- 500 ml | water
+> Blend everything until smooth.
+> Strain and chill.

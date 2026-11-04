@@ -1,0 +1,233 @@
+# Pantry Recipes ingredient densities. Written for this app (MIT License).
+# name<TAB>grams per US cup (240 ml)<TAB>class
+# Classes: flour and baking = dry baking ingredients (shown in grams by the default "weights" setting);
+# spice = measured in spoons (kept in tsp/tbsp); liquid = kept in ml/cups; fat, dairy, grain, produce, other =
+# converted only by the US/Metric settings and the Conversions screen.
+# Values are rounded kitchen averages (spooned and levelled for flours). Real ingredients vary by brand,
+# grind and packing, so a kitchen scale is always more accurate.
+all-purpose flour	125	flour
+cake flour	115	flour
+self-raising flour	125	flour
+whole wheat flour	120	flour
+rye flour	100	flour
+spelt flour	110	flour
+gluten free flour	140	flour
+almond flour	100	flour
+coconut flour	115	flour
+oat flour	90	flour
+rice flour	160	flour
+chickpea flour	90	flour
+buckwheat flour	120	flour
+cornmeal	150	baking
+masa harina	115	flour
+masarepa	150	flour
+semolina	165	flour
+tapioca flour	120	flour
+potato starch	160	baking
+cornstarch	125	baking
+arrowroot	130	baking
+cocoa powder	85	baking
+sugar	200	baking
+brown sugar	220	baking
+powdered sugar	120	baking
+coconut sugar	150	baking
+rolled oats	90	baking
+quick oats	90	baking
+steel-cut oats	175	baking
+gluten free oats	90	baking
+oat bran	95	baking
+wheat bran	60	baking
+wheat germ	115	baking
+breadcrumbs	110	baking
+graham crackers	100	baking
+chocolate chips	170	baking
+white chocolate	170	baking
+butterscotch chips	170	baking
+toffee bits	160	baking
+cocoa nibs	120	baking
+shredded coconut	85	baking
+almonds	145	baking
+walnuts	120	baking
+pecans	110	baking
+hazelnuts	135	baking
+cashews	140	baking
+pistachios	125	baking
+peanuts	145	baking
+macadamia nuts	135	baking
+pine nuts	135	baking
+pumpkin seeds	130	baking
+sunflower seeds	140	baking
+sesame seeds	145	baking
+chia seeds	160	baking
+flaxseed	110	baking
+poppy seeds	140	baking
+hemp seeds	160	baking
+raisins	150	baking
+dried cranberries	120	baking
+dates	150	baking
+dried apricots	130	baking
+dried cherries	140	baking
+prunes	160	baking
+candied peel	170	baking
+glace cherries	200	baking
+marshmallows	50	baking
+sprinkles	180	baking
+rice cereal	30	baking
+cornflakes	30	baking
+granola	120	baking
+milk powder	120	baking
+malted milk powder	120	baking
+matcha powder	100	baking
+gelatin	150	spice
+baking powder	230	spice
+baking soda	275	spice
+cream of tartar	190	spice
+yeast	150	spice
+salt	290	spice
+flaky sea salt	150	spice
+xanthan gum	140	spice
+psyllium husk	75	spice
+cinnamon	125	spice
+ground ginger	90	spice
+nutmeg	110	spice
+allspice	95	spice
+cloves	100	spice
+cardamom	95	spice
+cumin	100	spice
+coriander	80	spice
+turmeric	150	spice
+paprika	110	spice
+smoked paprika	110	spice
+chili powder	130	spice
+cayenne	90	spice
+chili flakes	80	spice
+garam masala	100	spice
+curry powder	100	spice
+black pepper	115	spice
+dried oregano	50	spice
+dried thyme	50	spice
+dried basil	40	spice
+dried parsley	20	spice
+italian seasoning	50	spice
+garlic powder	150	spice
+onion powder	120	spice
+mustard powder	100	spice
+vanilla extract	210	spice
+almond extract	210	spice
+pumpkin pie spice	100	spice
+chinese five spice	100	spice
+za'atar	80	spice
+sumac	120	spice
+nutritional yeast	60	spice
+butter	227	fat
+vegan butter	227	fat
+coconut oil	220	fat
+shortening	190	fat
+lard	205	fat
+ghee	220	fat
+peanut butter	260	fat
+almond butter	260	fat
+tahini	240	fat
+chocolate hazelnut spread	300	fat
+water	240	liquid
+milk	245	liquid
+buttermilk	245	liquid
+heavy cream	240	liquid
+half and half	240	liquid
+evaporated milk	255	liquid
+condensed milk	305	liquid
+coconut milk	240	liquid
+coconut cream	240	liquid
+almond milk	240	liquid
+oat milk	240	liquid
+soy milk	245	liquid
+vegetable oil	220	liquid
+olive oil	215	liquid
+sesame oil	220	liquid
+honey	340	liquid
+maple syrup	320	liquid
+golden syrup	340	liquid
+corn syrup	330	liquid
+molasses	330	liquid
+agave syrup	330	liquid
+date syrup	330	liquid
+chicken stock	240	liquid
+vegetable stock	240	liquid
+beef stock	240	liquid
+orange juice	250	liquid
+lemon	240	liquid
+lime	240	liquid
+white wine	240	liquid
+red wine	240	liquid
+soy sauce	255	liquid
+vinegar	240	liquid
+cider vinegar	240	liquid
+rice vinegar	240	liquid
+yogurt	245	dairy
+sour cream	240	dairy
+cream cheese	230	dairy
+mascarpone	240	dairy
+ricotta	245	dairy
+cottage cheese	225	dairy
+cheddar	100	dairy
+parmesan	90	dairy
+mozzarella	110	dairy
+feta	150	dairy
+rice	185	grain
+arborio rice	200	grain
+brown rice	190	grain
+quinoa	170	grain
+couscous	175	grain
+bulgur	160	grain
+lentils	190	grain
+split peas	200	grain
+pearl barley	200	grain
+polenta	160	grain
+macaroni	100	grain
+orzo	190	grain
+dried beans	180	grain
+popcorn kernels	200	grain
+frozen peas	140	produce
+corn	150	produce
+spinach	30	produce
+kale	65	produce
+onion	160	produce
+carrot	130	produce
+celery	120	produce
+bell pepper	150	produce
+mushroom	70	produce
+tomato	180	produce
+cherry tomatoes	150	produce
+potato	150	produce
+sweet potato	135	produce
+cabbage	90	produce
+broccoli	90	produce
+cauliflower	105	produce
+zucchini	125	produce
+cucumber	120	produce
+blueberries	150	produce
+strawberries	150	produce
+raspberries	125	produce
+banana	225	produce
+apple	125	produce
+pumpkin puree	245	produce
+applesauce	255	produce
+canned tomatoes	245	produce
+tomato paste	260	produce
+chickpeas	165	produce
+black beans	170	produce
+cilantro	15	produce
+parsley	30	produce
+basil	25	produce
+mint	25	produce
+berries	145	produce
+candy coated chocolate	200	baking
+jam	320	other
+mayonnaise	220	other
+ketchup	270	other
+dijon mustard	250	other
+gochujang	280	other
+miso	275	other
+pesto	250	other
+hummus	245	other
+salsa	260	other

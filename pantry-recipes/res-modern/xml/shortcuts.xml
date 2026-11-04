@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v2.0 modern: launcher shortcuts -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="pantry" android:enabled="true" android:icon="@drawable/sc_pantry" android:shortcutShortLabel="@string/sc_pantry">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="org.pantryrecipes.app.modern" android:targetClass="org.pantryrecipes.app.MainActivity">
+            <extra android:name="shortcut" android:value="pantry" />
+        </intent>
+    </shortcut>
+    <shortcut android:shortcutId="shopping" android:enabled="true" android:icon="@drawable/sc_shopping" android:shortcutShortLabel="@string/sc_shopping">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="org.pantryrecipes.app.modern" android:targetClass="org.pantryrecipes.app.MainActivity">
+            <extra android:name="shortcut" android:value="shopping" />
+        </intent>
+    </shortcut>
+    <shortcut android:shortcutId="plan" android:enabled="true" android:icon="@drawable/sc_plan" android:shortcutShortLabel="@string/sc_plan">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="org.pantryrecipes.app.modern" android:targetClass="org.pantryrecipes.app.MainActivity">
+            <extra android:name="shortcut" android:value="plan" />
+        </intent>
+    </shortcut>
+    <shortcut android:shortcutId="inventory" android:enabled="true" android:icon="@drawable/sc_inventory" android:shortcutShortLabel="@string/sc_inventory">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="org.pantryrecipes.app.modern" android:targetClass="org.pantryrecipes.app.MainActivity">
+            <extra android:name="shortcut" android:value="inventory" />
+        </intent>
+    </shortcut>
+</shortcuts>
