@@ -23,3 +23,15 @@ No frameworks, analytics, trackers or other third-party libraries are included.
 
 ## Kitchen helpers and data notes (v2.0 Stage 2)
 The equivalents, rescue tips, spice blends, cooking times and ingredient explainers (`assets/helpers20.txt`) and the 64 carnivore recipes are original text written for this app. Weights are common kitchen averages, and safe temperatures follow widely published food-safety guidance. Disputed Caribbean dish origins are described in DATA-NOTES.md.
+
+## v2.2 sources
+- **Recipe text:** the 1,154 v2.2 dinner mains are original. A generator writes them from our own flavour sets and
+  cooking methods (tools/morerecipes/build_v22.py). No text is copied from any site or book.
+- **Photos (optional, on tap only):** Openverse (openverse.org) search API. Only CC0, Public Domain Mark and CC BY
+  images are offered. The title, creator, licence and source link are shown with each photo and kept with it.
+- **Wikibooks Cookbook** (en.wikibooks.org): searched only after the user agrees. Results link to Wikibooks; the text
+  is CC BY-SA and is not copied into the app.
+- **Project Gutenberg:** links to 7 public-domain cookbooks.
+- **Search link-outs** (open in the browser, nothing sent before a tap): Wikibooks, BBC Good Food, Serious Eats,
+  Allrecipes, RecipeTin Eats, King Arthur Baking, Chefkoch, Marmiton, GialloZafferano, TheMealDB. These names
+  belong to their owners; linking to them does not mean they endorse this app.

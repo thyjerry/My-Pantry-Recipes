@@ -38,6 +38,7 @@ import org.pantryrecipes.app.core.Catalog;
 import org.pantryrecipes.app.core.Dates;
 import org.pantryrecipes.app.core.UseBy;
 import org.pantryrecipes.app.core.Discover;
+import org.pantryrecipes.app.core.Variety;
 import org.pantryrecipes.app.core.Substitutions;
 import org.pantryrecipes.app.core.Ingredient;
 import org.pantryrecipes.app.core.Matcher;
@@ -288,17 +289,18 @@ public class MainActivity extends Activity implements Repo.Listener {
         TextView ver = Ui.text(this, "v" + Extras.version(this), 11, Ui.GREEN_DARK, Ui.MEDIUM);
         ver.setBackground(Ui.rounded(Ui.CARD, dp(8)));
         ver.setPadding(dp(6), dp(1), dp(6), dp(1));
-        ver.setContentDescription("Version " + Extras.version(this) + ". Tap for About");
-        ver.setOnClickListener(v -> showAbout());
+        ver.setContentDescription("Version " + Extras.version(this));
         bar.addView(ver, Ui.lpMargins(this, -2, -2, 8, 0, 0, 0));
         bar.addView(new View(this), new LinearLayout.LayoutParams(0, 1, 1));
         subtitle = Ui.caption(this, ""); // v1.8: kept for screen readers only (not shown; one view less in the header)
-        ImageView subsBtn = Ui.iconButton(this, R.drawable.ic_swap, Ui.TEXT2, "Substitutions");
-        subsBtn.setOnClickListener(v -> openSubs(null));
-        bar.addView(subsBtn);
-        ImageView about = Ui.iconButton(this, R.drawable.ic_info, Ui.TEXT2, "About");
-        about.setOnClickListener(v -> showAbout());
-        bar.addView(about);
+        TextView settings = Ui.text(this, "Settings", 14, Ui.GREEN_DARK, Ui.MEDIUM);
+        settings.setGravity(Gravity.CENTER);
+        settings.setPadding(dp(10), 0, dp(10), 0);
+        settings.setMinHeight(dp(48)); settings.setMinWidth(dp(48));
+        settings.setContentDescription("Settings");
+        settings.setBackground(Ui.rippleRound(Ui.CARD, dp(12)));
+        settings.setOnClickListener(v -> showAbout());
+        bar.addView(settings);
         root.addView(bar);
 
         // pill-shaped segmented tabs: one TextView per tab on a single rounded track; the one "selected"
@@ -666,14 +668,9 @@ public class MainActivity extends Activity implements Repo.Listener {
     void fillSection(LinearLayout body, int c) {
         FlowLayout f = null;
         java.util.Map<String, String> mv = V21.moves(this);
-        List<String> keys = mv.isEmpty() ? PantryIndex.get().sectionKeys(c) : org.pantryrecipes.app.core.Botany.sectionKeys(c, mv);
+        List<String> keys = mv.isEmpty() ? PantryIndex.get().sectionKeys(c) : org.pantryrecipes.app.core.CategoryMoves.sectionKeys(c, mv);
         int ki = 0;
-        if (c <= 1) { // v2.1: Vegetables and Fruits offer the optional botanical-fruit filter
-            FlowLayout bf = new FlowLayout(this, dp(8), dp(0));
-            bf.addView(V21.filterChip(this));
-            body.addView(bf);
-        }
-        for (String item : mv.isEmpty() ? java.util.Arrays.asList(Catalog.ITEMS[c]) : org.pantryrecipes.app.core.Botany.sectionItems(c, mv)) {
+        for (String item : mv.isEmpty() ? java.util.Arrays.asList(Catalog.ITEMS[c]) : org.pantryrecipes.app.core.CategoryMoves.sectionItems(c, mv)) {
             if (Catalog.isHeader(item)) {
                 TextView sub = Ui.text(this, item.substring(1), 12, Ui.TEXT2, Ui.MEDIUM);
                 sub.setLetterSpacing(0.04f);
@@ -891,8 +888,8 @@ public class MainActivity extends Activity implements Repo.Listener {
         for (TextView cnt : sectionCounts) {
             int c = (Integer) cnt.getTag();
             java.util.Map<String, String> mv = V21.moves(this);
-            int have = mv.isEmpty() ? idx.have(c, keys) : org.pantryrecipes.app.core.Botany.have(c, mv, keys);
-            int total = mv.isEmpty() ? idx.sectionKeys(c).size() : org.pantryrecipes.app.core.Botany.sectionKeys(c, mv).size();
+            int have = mv.isEmpty() ? idx.have(c, keys) : org.pantryrecipes.app.core.CategoryMoves.have(c, mv, keys);
+            int total = mv.isEmpty() ? idx.sectionKeys(c).size() : org.pantryrecipes.app.core.CategoryMoves.sectionKeys(c, mv).size();
             String txt = have > 0 ? have + " of " + total : String.valueOf(total);
             if (!txt.contentEquals(cnt.getText())) {
                 cnt.setText(txt);
@@ -1099,7 +1096,7 @@ public class MainActivity extends Activity implements Repo.Listener {
         hideDislikes = store.dislikes();
         hideAvoid = V20.avoid(this);   // v2.0: + household members marked hide
         return new Matcher(store.pantryKeys(false), store.pantryKeys(true))
-                .withSubstitutions(repo.substitutions(), store.acceptedSubs());
+                .withSubstitutions(repo.substitutions(), store.acceptedSubs()).withSwapAvoid(store.dislikes(), store.avoidAllergens(), store.prefs.getStringSet("diets", new HashSet<String>()));
     }
 
     // ===================== meal types =====================
@@ -1428,7 +1425,8 @@ public class MainActivity extends Activity implements Repo.Listener {
         for (Matcher.Result r : items) if (r.missingCount() == 0 && r.haveNonStaple > 0) pool.add(r);
         if (pool.isEmpty()) for (Matcher.Result r : items) if (r.missingCount() <= 2 && r.haveNonStaple > 0) pool.add(r);
         if (pool.isEmpty()) for (Matcher.Result r : items) if (r.haveNonStaple > 0) pool.add(r);
-        if (pool.isEmpty()) { toast("Add some ingredients to your pantry first"); return; }
+        if (pool.isEmpty()) pool = new ArrayList<Matcher.Result>(items); // v2.2: empty pantry -> any recipe that passes the filters
+        if (pool.isEmpty()) { toast("No recipes pass your filters"); return; }
         if (pool.size() > 1 && selectedId != null) {
             for (int i = 0; i < pool.size(); i++) if (pool.get(i).recipe.id.equals(selectedId)) { pool.remove(i); break; }
         }
@@ -1584,6 +1582,12 @@ public class MainActivity extends Activity implements Repo.Listener {
         return out;
     }
 
+    int shuffleN = 0;
+    int pickSeed(String salt) {
+        java.util.Calendar c = java.util.Calendar.getInstance();
+        return Variety.daySeed(c.get(java.util.Calendar.YEAR), c.get(java.util.Calendar.MONTH) + 1, c.get(java.util.Calendar.DAY_OF_MONTH), salt + (shuffleN > 0 ? "#" + shuffleN : ""));
+    }
+
     void refreshDiscover() {
         if (discoverBody == null) return;
         final int y = discoverScroll.getScrollY();
@@ -1636,7 +1640,24 @@ public class MainActivity extends Activity implements Repo.Listener {
         bhs.setHorizontalScrollBarEnabled(false);
         LinearLayout br = Ui.row(this);
         br.setPadding(0, dp(12), 0, 0);
-        TextView rnd = Ui.button(this, "Random recipe", R.drawable.ic_shuffle, true);
+        // v2.2: Surprise me (any recipe passing Discover's meal filter) and Try something new (an unopened recipe from your least-opened cuisine)
+        TextView sme = Ui.button(this, "Surprise me", R.drawable.ic_shuffle, true);
+        sme.setContentDescription("Surprise me: a random recipe that passes your meal filters");
+        sme.setOnClickListener(v -> {
+            Matcher.Result r = Variety.one(matchFiltered(), Variety.seed(String.valueOf(System.nanoTime())), selectedId);
+            if (r == null) toast("No recipes pass your meal filters"); else openDetail(r.recipe.id);
+        });
+        br.addView(sme, new LinearLayout.LayoutParams(-2, dp(48)));
+        br.addView(Ui.space(this, 10, 1));
+        TextView tnw = Ui.button(this, "Try something new", R.drawable.ic_explore, false);
+        tnw.setContentDescription("Try something new: an unopened recipe from a cuisine you rarely open");
+        tnw.setOnClickListener(v -> {
+            Matcher.Result r = Variety.tryNew(matchFiltered(), store.seenIds(), Variety.seed(String.valueOf(System.nanoTime())));
+            if (r == null) toast("No recipes pass your meal filters"); else openDetail(r.recipe.id);
+        });
+        br.addView(tnw, new LinearLayout.LayoutParams(-2, dp(48)));
+        br.addView(Ui.space(this, 10, 1));
+        TextView rnd = Ui.button(this, "Random recipe", R.drawable.ic_cloud, false);
         rnd.setOnClickListener(v -> randomRecipe());
         br.addView(rnd, new LinearLayout.LayoutParams(-2, dp(48)));
         br.addView(Ui.space(this, 10, 1));
@@ -1664,6 +1685,19 @@ public class MainActivity extends Activity implements Repo.Listener {
         if (!pantryEmpty) {
             View bn = V16.buyNextCard(this, results);
             if (bn != null) discoverBody.addView(bn, Ui.lpMargins(this, -1, -2, 16, 4, 16, 8));
+        }
+
+        // v2.2: today's picks (seeded by date, Shuffle bumps the salt) and two rotating cuisine rows
+        carousel("Today's picks" + (shuffleN > 0 ? " (shuffled)" : ""), "A fresh mix every day. Shuffle gives another set.",
+                Variety.picks(results, pickSeed("picks"), 12), () -> Variety.picks(matchFiltered(), pickSeed("picks"), 1000),
+                "No recipes pass your meal filters.");
+        TextView shf = Ui.button(this, "Shuffle today's picks", R.drawable.ic_shuffle, false);
+        shf.setOnClickListener(v -> { shuffleN++; refreshDiscover(); toast("Shuffled"); });
+        discoverBody.addView(shf, Ui.lpMargins(this, -2, dp(48), 16, 0, 16, 8));
+        for (final String cz : Variety.rotatingCuisines(results, pickSeed("cuisines"), 2, 8)) {
+            carousel("Cuisine of the day: " + cz, "Rotates daily",
+                    Variety.picks(Variety.inCuisine(results, cz), pickSeed("picks"), 12),
+                    () -> Variety.picks(Variety.inCuisine(matchFiltered(), cz), pickSeed("picks"), 1000), "");
         }
 
         final Set<String> soon = soonKeys();
@@ -1701,6 +1735,7 @@ public class MainActivity extends Activity implements Repo.Listener {
         facetCard("Browse by cuisine", 'a', Discover.facet(all, true), repo.mealDbNames(true));
         facetCard("Browse by category", 'c', Discover.facet(all, false), repo.mealDbNames(false));
 
+        discoverBody.addView(V22.sourcesCard(this), Ui.lpMargins(this, -1, -2, 16, 8, 16, 8));
         int seenN = 0;
         for (Recipe r : all) if (seen.contains(r.id)) seenN++;
         LinearLayout foot = Ui.row(this);
@@ -1786,15 +1821,25 @@ public class MainActivity extends Activity implements Repo.Listener {
         c.setBackground(Ui.ripple(Ui.outlined(Ui.CARD, Ui.LINE, dp(1), rad), rad));
         FrameLayout thumb = new FrameLayout(this);
         int cc = Ui.categoryColor(r.category);
-        GradientDrawable tb = new GradientDrawable();
-        tb.setColor(cc);
         float rr = rad * Ui.RAD;
-        tb.setCornerRadii(new float[]{rr, rr, rr, rr, 0, 0, 0, 0});
-        thumb.setBackground(tb);
-        TextView letter = Ui.text(this, r.title.isEmpty() ? "" : r.title.substring(0, 1), 34, 0x99000000, Ui.MEDIUM); // v2.0 a11y: dark ink reads on every tile colour
+        boolean illo = false;
+        if (illo) thumb.setBackground(IllustrationDrawable.forRecipe(this, r, rr, true)); // v2.2: illustrated card
+        else {
+            GradientDrawable tb = new GradientDrawable();
+            tb.setColor(cc);
+            tb.setCornerRadii(new float[]{rr, rr, rr, rr, 0, 0, 0, 0});
+            thumb.setBackground(tb);
+        }
+        TextView letter = Ui.text(this, "No photo", 12, Ui.TEXT, Ui.REGULAR); // v2.0 a11y: dark ink reads on every tile colour
         letter.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
         letter.setGravity(Gravity.CENTER);
+        thumb.setBackground(Ui.rounded(Ui.NEUTRAL, rad));
         thumb.addView(letter, new FrameLayout.LayoutParams(-1, -1));
+        ImageView cardPhoto = new ImageView(this);
+        cardPhoto.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        cardPhoto.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+        thumb.addView(cardPhoto, new FrameLayout.LayoutParams(-1, -1));
+        ImageLoader.get(this).load(cardPhoto, r.image, true, store.prefs.getBoolean("online", true));
         if (store.isFavorite(r.id)) {
             ImageView h = Ui.icon(this, R.drawable.ic_heart, Color.WHITE, 18);
             FrameLayout.LayoutParams hl = new FrameLayout.LayoutParams(dp(18), dp(18), Gravity.TOP | Gravity.RIGHT);
@@ -2123,7 +2168,9 @@ public class MainActivity extends Activity implements Repo.Listener {
         card.setClipToOutline(true);
         FrameLayout header = new FrameLayout(this);
         final android.graphics.Bitmap userPhoto = V16.loadPhoto(this, r.id);
-        int headerH = dp(r.image.isEmpty() && userPhoto == null ? 110 : 220);
+        View credit = null;
+        final boolean v22photo = userPhoto == null && r.image.isEmpty() && V22.photo(this, r.id) != null;
+        int headerH = dp(r.image.isEmpty() && userPhoto == null && !v22photo ? 130 : 220);
         int cc = Ui.categoryColor(r.category);
         GradientDrawable band = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{cc, blend(cc, 0xFF000000, 0.25f)});
         float rad = dp(16) * Ui.RAD;
@@ -2139,12 +2186,14 @@ public class MainActivity extends Activity implements Repo.Listener {
             ImageView iv = new ImageView(this);
             iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
             header.addView(iv, new FrameLayout.LayoutParams(-1, -1));
-            ImageLoader.get(this).load(iv, r.image, false);
+            ImageLoader.get(this).load(iv, r.image, false, store.prefs.getBoolean("online", true));
         } else {
-            TextView big = Ui.text(this, r.title.isEmpty() ? "" : r.title.substring(0, 1), 56, 0x66FFFFFF, Ui.MEDIUM);
-            FrameLayout.LayoutParams bl = new FrameLayout.LayoutParams(-2, -2, Gravity.CENTER_VERTICAL | Gravity.RIGHT);
-            bl.rightMargin = dp(72);
-            header.addView(big, bl);
+            if (v22photo) credit = V22.headerPhoto(this, header, r); // v2.2: licensed photo the user chose
+            else {
+                header.setBackground(Ui.rounded(Ui.NEUTRAL, rad));
+                TextView noPhoto = Ui.text(this, "No photo", 14, Ui.TEXT, Ui.REGULAR);
+                noPhoto.setGravity(Gravity.CENTER); header.addView(noPhoto, new FrameLayout.LayoutParams(-1, -1));
+            }
             TextView cat = Ui.text(this, (r.category + " \u00b7 " + r.cuisine).toUpperCase(Locale.US), 12, Color.WHITE, Ui.MEDIUM);
             cat.setBackground(Ui.rounded(0x8C000000, dp(10)));
             cat.setPadding(dp(8), dp(3), dp(8), dp(3));
@@ -2176,6 +2225,8 @@ public class MainActivity extends Activity implements Repo.Listener {
         hl.setMargins(0, dp(12), dp(12), 0);
         header.addView(heart, hl);
         card.addView(header, new LinearLayout.LayoutParams(-1, headerH));
+        if (credit != null) card.addView(credit, new LinearLayout.LayoutParams(-1, -2));
+        card.addView(V22.sourcesRow(this, r), new LinearLayout.LayoutParams(-1, -2));
 
         LinearLayout body = Ui.column(this);
         body.setPadding(dp(20), dp(16), dp(20), 0);
@@ -2463,7 +2514,7 @@ public class MainActivity extends Activity implements Repo.Listener {
 
     final java.util.IdentityHashMap<Ingredient, Amounts.Check> detailChecks = new java.util.IdentityHashMap<Ingredient, Amounts.Check>();
 
-    View ingredientRow(final Ingredient i, double scale, final Matcher.Result res) {
+    View ingredientRow(final Ingredient i, final double scale, final Matcher.Result res) {
         boolean missing = res.missing.contains(i);
         boolean subbed = res.substituted.contains(i);
         boolean have = !missing && !subbed && matcher.has(i.key);
@@ -2516,10 +2567,11 @@ public class MainActivity extends Activity implements Repo.Listener {
         }
 
         final Substitutions subs = matcher.substitutions();
-        final Substitutions.Entry entry = subs == null || (!missing && !subbed) ? null : subs.forKey(i.key);
+        final Substitutions.Entry entry = subs == null ? null : subs.forKey(i.key);
         if (entry != null) {
             final String rid = res.recipe.id;
-            List<Substitutions.Option> avail = subs.availableFor(i.key, matcher);
+            List<Substitutions.Option> avail = new ArrayList<Substitutions.Option>();
+            for (Substitutions.Option option : subs.availableFor(i.key, matcher)) if (swapCaution(option).isEmpty()) avail.add(option);
             LinearLayout hint = Ui.row(this);
             hint.setPadding(dp(32), dp(6), 0, 0);
             TextView ht;
@@ -2531,6 +2583,7 @@ public class MainActivity extends Activity implements Repo.Listener {
                 if (!det.isEmpty()) ht.setText(ht.getText() + "\n" + det);
                 hint.addView(ht, new LinearLayout.LayoutParams(0, -2, 1));
                 TextView act = Ui.text(this, subbed ? "Undo" : "Use substitute", 13, Ui.GREEN_DARK, Ui.MEDIUM);
+                act.setMinHeight(dp(48));
                 act.setPadding(dp(10), dp(6), dp(10), dp(6));
                 act.setBackground(Ui.rippleRound(subbed ? Color.TRANSPARENT : Ui.GREEN_TINT, dp(14)));
                 final boolean on = !subbed;
@@ -2541,11 +2594,12 @@ public class MainActivity extends Activity implements Repo.Listener {
                 });
                 hint.addView(act);
             } else {
-                ht = Ui.text(this, "Substitute?", 13, Ui.GREEN_DARK, Ui.MEDIUM);
+                ht = Ui.text(this, "Substitutions for " + i.name, 13, Ui.GREEN_DARK, Ui.MEDIUM);
                 ht.setPadding(0, dp(2), dp(8), dp(2));
                 hint.addView(ht);
             }
-            ht.setOnClickListener(v -> showSubsDialog(entry));
+            ht.setMinHeight(dp(48));
+            ht.setOnClickListener(v -> showSubsDialog(entry, i, scale));
             wrap.addView(hint);
         }
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
@@ -2554,12 +2608,21 @@ public class MainActivity extends Activity implements Repo.Listener {
         return wrap;
     }
 
-    void showSubsDialog(final Substitutions.Entry e) {
+    String swapCaution(Substitutions.Option o) {
+        return org.pantryrecipes.app.core.SwapAdvice.caution(o, store.dislikes(), store.avoidAllergens(), store.prefs.getStringSet("diets", new HashSet<String>()));
+    }
+    void showSubsDialog(final Substitutions.Entry e) { showSubsDialog(e, null, 1); }
+    void showSubsDialog(final Substitutions.Entry e, Ingredient selected, double scale) {
         StringBuilder sb = new StringBuilder();
+        sb.append("Selected ingredient: ").append(selected == null ? e.name : Quantity.format(selected.amount, selected.unit, scale) + " " + selected.name);
+        sb.append("\nCheck ingredient labels, cooking times and your dietary plan. Pantry availability is not a dietary assessment.\n\n");
         for (Substitutions.Option o : e.options) {
-            boolean ok = o.available(matcher);
+            String caution = swapCaution(o);
+            boolean ok = o.available(matcher) && caution.isEmpty();
             sb.append(ok ? "\u2713 " : "\u2022 ").append(o.text);
             if (ok) sb.append("  (you have ").append(o.usesLabel(matcher)).append(")");
+            if (!caution.isEmpty()) sb.append("\nCaution: ").append(caution);
+            if (selected != null) sb.append("\n").append(org.pantryrecipes.app.core.SwapAdvice.quantity(o, selected.amount * scale, selected.unit));
             String det = V17.swapDetail(o);
             if (!det.isEmpty()) sb.append("\n   ").append(det.replace("\n", "\n   "));
             sb.append("\n\n");
@@ -2686,6 +2749,7 @@ public class MainActivity extends Activity implements Repo.Listener {
     final class Holder {
         LinearLayout root;
         TextView letter, title, meta, missing, count, badge, meals, cook;
+        ImageView photo;
         MatchBar bar;
         android.graphics.drawable.Drawable heartD;
         String id;
@@ -2696,7 +2760,14 @@ public class MainActivity extends Activity implements Repo.Listener {
             letter = Ui.text(MainActivity.this, "", 24, 0xA6000000, Ui.MEDIUM); // v2.0 a11y: dark ink on the light tile colours
             letter.setGravity(Gravity.CENTER);
             letter.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-            root.addView(letter, new LinearLayout.LayoutParams(dp(56), dp(56)));
+            FrameLayout tile = new FrameLayout(MainActivity.this);
+            letter.setTextSize(11); letter.setTextColor(Ui.TEXT); letter.setText("No photo");
+            tile.setBackground(Ui.rounded(Ui.NEUTRAL, dp(10)));
+            tile.addView(letter, new FrameLayout.LayoutParams(-1, -1));
+            photo = new ImageView(MainActivity.this); photo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            photo.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+            tile.addView(photo, new FrameLayout.LayoutParams(-1, -1));
+            root.addView(tile, new LinearLayout.LayoutParams(dp(56), dp(56)));
             bgNormal = rowCard(false);
             bgSelected = rowCard(true);
             LinearLayout col = Ui.column(MainActivity.this);
@@ -2760,16 +2831,14 @@ public class MainActivity extends Activity implements Repo.Listener {
             root.setPadding(dp(16), dp(16), dp(16), dp(16)); // the background's inset + the card's own padding
         }
 
+        String boundIllo;
+
         void bind(Matcher.Result res) {
             Recipe r = res.recipe;
             id = r.id;
             setBg(wide && r.id.equals(selectedId));
-            int cc = Ui.categoryColor(r.category);
-            if (letter.getBackground() == null || boundColor != cc) {
-                boundColor = cc;
-                letter.setBackground(thumbFor(cc));
-            }
-            letter.setText(r.title.isEmpty() ? "" : r.title.substring(0, 1));
+            photo.animate().cancel(); photo.setAlpha(1f); photo.setTag(null); photo.setImageDrawable(null);
+            ImageLoader.get(MainActivity.this).load(photo, r.image, true, store.prefs.getBoolean("online", true));
             title.setText(r.title);
             int fav = store.isFavorite(r.id) ? 1 : 0;
             if (fav != boundHeart) {
@@ -2893,6 +2962,15 @@ public class MainActivity extends Activity implements Repo.Listener {
             refreshShopping();
         });
         acts.addView(toPantry, chipLp());
+        // v2.2: Select all / Select none
+        TextView selAll = smallAction("Select all", R.drawable.ic_check);
+        selAll.setContentDescription("Check every item on the shopping list");
+        selAll.setOnClickListener(v -> { int n = store.setAllChecked(true); toast(n == 0 ? "Everything is already checked" : "Checked " + n + " item" + (n == 1 ? "" : "s")); refreshShopping(); });
+        acts.addView(selAll, chipLp());
+        TextView selNone = smallAction("Select none", R.drawable.ic_check);
+        selNone.setContentDescription("Uncheck every item on the shopping list");
+        selNone.setOnClickListener(v -> { int n = store.setAllChecked(false); toast(n == 0 ? "Nothing is checked" : "Unchecked " + n + " item" + (n == 1 ? "" : "s")); refreshShopping(); });
+        acts.addView(selNone, chipLp());
         TextView clearChecked = smallAction("Clear checked", R.drawable.ic_check);
         clearChecked.setOnClickListener(v -> { int n = store.clearChecked(); if (n == 0) toast("Nothing checked yet"); refreshShopping(); });
         acts.addView(clearChecked, chipLp());
@@ -3163,11 +3241,13 @@ public class MainActivity extends Activity implements Repo.Listener {
                 + "Icons: Material Design icons by Google (Apache License 2.0).";
         TextView t = Ui.body(this, text);
         t.setTextSize(14);
-        box.addView(t);
         final AlertDialog[] self = new AlertDialog[1];
         TextView setH = Ui.sectionLabel(this, "Settings");
         setH.setPadding(0, dp(16), 0, dp(6));
         box.addView(setH);
+        TextView substitutions = smallAction("Ingredient substitutions", R.drawable.ic_swap);
+        substitutions.setOnClickListener(v -> { if (self[0] != null) self[0].dismiss(); openSubs(null); });
+        box.addView(substitutions, Ui.lpMargins(this, -2, dp(48), 0, 0, 0, 0));
         TextView app = smallAction("Appearance\u2026", R.drawable.ic_leaf);
         app.setContentDescription("Appearance: light, dark and colour themes");
         app.setOnClickListener(v -> { if (self[0] != null) self[0].dismiss(); startActivity(new Intent(this, AppearanceActivity.class)); });
@@ -3244,9 +3324,10 @@ public class MainActivity extends Activity implements Repo.Listener {
         key.setSingleLine(true);
         key.setTextSize(14);
         box.addView(key);
+        box.addView(t);
         ScrollView sv = new ScrollView(this);
         sv.addView(box);
-        self[0] = dialog().setTitle("About My Pantry Recipes")
+        self[0] = dialog().setTitle("Settings & About")
                 .setView(sv)
                 .setPositiveButton("Save", (d, w) -> {
                     String k = key.getText().toString().trim();

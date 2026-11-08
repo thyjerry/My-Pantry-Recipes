@@ -174,7 +174,7 @@ async function tap(page, sel) { await page.waitForSelector(sel, { timeout: 5000 
   // discover
   await tap(page, '.tab[data-tab="discover"]');
   await sleep(300);
-  check(await page.$$eval('.dsec', e => e.length) === 4, '4 Discover carousels');
+  { const nd = await page.$$eval('.dsec', e => e.length); check(nd >= 6, nd + ' Discover carousels (4 + Today\'s picks + rotating cuisines)'); }
   check(await page.$$eval('[data-a="browse"]', e => e.length) > 10, 'cuisine/category chips');
   check(await page.$$eval('#main .mcheck input', e => e.length) === 2 && await page.$$eval('#main .mealchips .chip', e => e.length) === 15, 'Discover: check boxes + meal chips');
   const carOk = await page.evaluate(src => { const f = eval(src); const ids = Array.from(document.querySelectorAll('.dsec [data-id]')).map(e => e.getAttribute('data-id')); return ids.length > 0 && ids.every(id => !f(id)); }, onlyDS.toString());
@@ -202,6 +202,7 @@ async function tap(page, sel) { await page.waitForSelector(sel, { timeout: 5000 
   check(await page.$('.screen') !== null, 'browse cuisine opens list (TheMealDB blocked: ' + (await page.$eval('.screen', e => (e.querySelector('.note') || {}).textContent || 'no note')) + ')');
   await tap(page, '.screen [data-a="back"]'); await sleep(200);
   // substitutions
+  await tap(page, '.top [data-a="about"]');
   await tap(page, '[data-a="subs"]');
   await page.waitForSelector('.screen .scard');
   await page.focus('.screen input[data-in="subq"]'); await page.keyboard.type('buttermilk'); await sleep(400);
@@ -401,10 +402,10 @@ async function tap(page, sel) { await page.waitForSelector(sel, { timeout: 5000 
     // custom theme editor
     await tap(p, '.screen [data-a="themeNew"]');
     await p.waitForSelector('.screen input.hex[data-teh="primary"]');
-    const prevBefore = await p.$eval('.screen .tprev', e => e.getAttribute('style'));
+    const prevBefore = await p.$$eval('.screen .tprev', e => e[e.length - 1].getAttribute('style'));
     await p.$eval('.screen input.hex[data-teh="primary"]', e => { e.value = '#8E2C6F'; e.dispatchEvent(new Event('input', { bubbles: true })); });
     await p.$eval('.screen input.hex[data-teh="bg"]', e => { e.value = '#FFF6FB'; e.dispatchEvent(new Event('input', { bubbles: true })); }); await sleep(150);
-    const prevAfter = await p.$eval('.screen .tprev', e => e.getAttribute('style'));
+    const prevAfter = await p.$$eval('.screen .tprev', e => e[e.length - 1].getAttribute('style'));
     check(prevBefore !== prevAfter && /#8E2C6F|142,\s*44,\s*111/i.test(prevAfter + (await p.$eval('.screen [data-te="primary"]', e => e.value))), 'editor live preview updates from hex input');
     check(await p.$$eval('.screen input[type=color][data-te]', e => e.length) === 5, '5 colour inputs in the editor');
     await p.$eval('.screen [data-tename]', e => { e.value = 'Plum'; });
@@ -511,7 +512,7 @@ async function tap(page, sel) { await page.waitForSelector(sel, { timeout: 5000 
     const clickIn = (sel) => p.evaluate(sel => { const l = [...document.querySelectorAll('.screen')].pop(); const b = (l || document).querySelector(sel); if (!b) return false; b.click(); return true; }, sel);
     await p.goto(BASE, { waitUntil: 'networkidle0' });
     await ready();
-    check(await p.evaluate(() => window.PR_APP.VERSION) === VERSION && /v2\.1(?![-.\w])/.test(await p.$eval('.top .ver', e => e.textContent)), 'version ' + VERSION + ' with header label');
+    check(await p.evaluate(() => window.PR_APP.VERSION) === VERSION && /v2\.3(?![-.\w])/.test(await p.$eval('.top .ver', e => e.textContent)), 'version ' + VERSION + ' with header label');
 
     // ---- Appearance: no jump to the top, grouped grid, font, corners, accent, random ----
     await tap(p, '.top [data-a="about"]'); await tap(p, '.screen [data-a="appearance"]');
@@ -775,7 +776,7 @@ async function tap(page, sel) { await page.waitForSelector(sel, { timeout: 5000 
     const clickIn = (sel) => p.evaluate(sel => { const l = [...document.querySelectorAll('.screen')].pop(); const b = (l || document).querySelector(sel); if (!b) return false; b.click(); return true; }, sel);
     const ingText = () => p.evaluate(() => { const l = [...document.querySelectorAll('.screen')].pop(); return [...l.querySelectorAll('.ing')].map(e => (e.querySelector('.q') || {}).textContent + ' | ' + (e.querySelector('.nm') || {}).textContent); });
     check(await p.evaluate(() => window.PR_APP.VERSION) === VERSION_EXPECT, 'v1.7: app version ' + VERSION_EXPECT);
-    check(/v2\.1(?![-.\w])/.test(await p.$eval('.top .ver', e => e.textContent)), 'main header label shows v2.1');
+    check(/v2\.3(?![-.\w])/.test(await p.$eval('.top .ver', e => e.textContent)), 'main header label shows v2.3');
     // default units = weights, flour in grams with cups in parentheses
     await p.evaluate(() => window.PR_APP.openDetail('b:1384')); await sleep(400);
     let ing = await ingText();
@@ -1121,7 +1122,7 @@ async function tap(page, sel) { await page.waitForSelector(sel, { timeout: 5000 
     // appearance: one preset group rendered at a time
     await tap(p, '[data-a="appearance"]');
     const tiles = await p.$$eval('.tgrid > *', e => e.length), groups = await p.$$eval('[data-a="themeGroup"]', e => e.length);
-    check(groups === 12 && tiles > 0 && tiles < 60, 'v2.0: presets grouped (' + groups + ' groups), only ' + tiles + ' tiles in the DOM');
+    check(groups === 14 && tiles > 0 && tiles < 60, 'v2.0: presets grouped (' + groups + ' groups), only ' + tiles + ' tiles in the DOM');
     await tap(p, '[data-a="themeGroup"][data-v="Game day"]');
     const gd = await p.$$eval('.tgrid > *', e => e.length);
     check(gd === 81, 'v2.0: Game day group has 81 presets (got ' + gd + ')');
@@ -1198,16 +1199,9 @@ async function tap(page, sel) { await page.waitForSelector(sel, { timeout: 5000 
     check(JSON.stringify(bk201.settings.medGuides) === '["renal","diabetic"]' && bk201.settings.medSodiumMg === 600 && bk201.settings.medCarbsG === 45, 'v2.0.1: guides and limits are in the backup');
     check(!/apikey|apiKey/.test(JSON.stringify(bk201.settings.medGuides || '')), 'v2.0.1: no secrets in the guide keys');
     for (let i = 0; i < 4 && (await p.evaluate(() => window.PR_APP.state().stack.length)); i++) { await p.evaluate(() => { const l = [...document.querySelectorAll('.screen')].pop(); const b = l && l.querySelector('[data-a="back"]'); if (b) b.click(); }); await sleep(200); }
-    // ---- v2.1: botanical fruits, category moves, glossary ----
+    // ---- v2.2: botanical fruits removed; category moves stay ----
     await p.evaluate(() => window.PR_APP.showTab('pantry')); await sleep(300);
-    await p.evaluate(() => { const i = document.querySelector('#quickIn'); i.value = 'botanical'; i.dispatchEvent(new Event('input', { bubbles: true })); }); await sleep(400);
-    const botList = await p.evaluate(() => [...document.querySelectorAll('#main [data-region="grid"] .chip, #main .grid .chip')].filter(c => c.offsetParent).map(c => c.textContent.trim()));
-    check(['Tomato', 'Avocado', 'Cucumber', 'Eggplant', 'Zucchini', 'Bell pepper'].every(n => botList.some(t => t.indexOf(n) >= 0)) && !botList.some(t => /Carrot|Apple/.test(t)), 'v2.1: "botanical" filter lists botanical fruits only (' + botList.length + ')');
-    await p.evaluate(() => { const i = document.querySelector('#quickIn'); i.value = ''; i.dispatchEvent(new Event('input', { bubbles: true })); }); await sleep(300);
-    await p.evaluate(() => { const b = [...document.querySelectorAll('#main [data-ci="0"]')][0]; if (b && b.getAttribute('aria-expanded') !== 'true') b.click(); }); await sleep(300);
-    const chipBtn = await p.$('#main [data-a="botFilter"]');
-    check(!!chipBtn, 'v2.1: Botanical fruits filter chip in Vegetables');
-    if (chipBtn) { await chipBtn.click(); await sleep(300); check(await p.$eval('#quickIn', i => i.value) === 'botanical fruits', 'v2.1: chip fills the filter'); await p.evaluate(() => { const i = document.querySelector('#quickIn'); i.value = ''; i.dispatchEvent(new Event('input', { bubbles: true })); }); await sleep(200); }
+    check(!(await p.$('#main [data-a="botFilter"]')) && !/botanic/i.test(await p.evaluate(() => document.body.textContent)), 'v2.2: no botanical chip or text');
     // badge + category move from the pantry item menu
     await p.evaluate(() => { const i = document.querySelector('#quickIn'); i.value = 'tomato'; i.dispatchEvent(new Event('input', { bubbles: true })); }); await sleep(300);
     await p.evaluate(() => { const c = [...document.querySelectorAll('#main [data-label]')].find(c => c.getAttribute('data-label') === 'Tomato'); if (c) c.click(); }); await sleep(300);
@@ -1215,14 +1209,14 @@ async function tap(page, sel) { await page.waitForSelector(sel, { timeout: 5000 
     await p.evaluate(() => window.PR_APP.showTab('pantry')); await sleep(300);
     await p.evaluate(() => { const r = [...document.querySelectorAll('#main [data-a="pmenu"]')].find(e => e.getAttribute('data-key') === 'tomato'); if (r) r.click(); }); await sleep(300);
     const sheetTxt = await p.evaluate(() => { const s = document.querySelector('.sheet'); return s ? s.textContent : ''; });
-    check(/Botanically a fruit/.test(sheetTxt) && /Category: Fruits/.test(sheetTxt), 'v2.1: tomato menu shows the botanical badge and its category (' + sheetTxt.slice(0, 80) + ')');
+    check(!/Botanically/.test(sheetTxt) && /Category: Fruits/.test(sheetTxt), 'v2.2: tomato menu shows its category, no botanical badge (' + sheetTxt.slice(0, 80) + ')');
     await p.evaluate(() => { const b = [...document.querySelectorAll('.sheet button')].find(b => /Category:/.test(b.textContent)); if (b) b.click(); }); await sleep(300);
     await p.evaluate(() => { const b = document.querySelector('[data-a="catPick"][data-v="Vegetables"]'); if (b) b.click(); }); await sleep(400);
     const bk21 = JSON.parse(await p.evaluate(() => window.PR_APP.backupText()));
     check(bk21.settings.catMoves && bk21.settings.catMoves.tomato === 'Vegetables', 'v2.1: moving tomato to Vegetables is saved and backed up');
     await p.evaluate(() => window.PR_APP.openScreen({ type: 'catmoves' })); await sleep(300);
     const cmTxt = await p.evaluate(() => [...document.querySelectorAll('.screen')].pop().textContent);
-    check(/Tomato/.test(cmTxt) && /Vegetables/.test(cmTxt) && /Nix v\. Hedden/.test(cmTxt), 'v2.1: categories screen lists the move and the glossary fun fact');
+    check(/Tomato/.test(cmTxt) && /Vegetables/.test(cmTxt) && !/Nix v\. Hedden|botanic/i.test(cmTxt), 'v2.2: categories screen lists the move, no fun fact');
     await p.evaluate(() => { const b = [...document.querySelectorAll('.screen')].pop().querySelector('[data-a="catReset"]'); if (b) b.click(); }); await sleep(300);
     check(!JSON.parse(await p.evaluate(() => window.PR_APP.backupText())).settings.catMoves, 'v2.1: Reset all clears the moves');
     for (let i = 0; i < 4 && (await p.evaluate(() => window.PR_APP.state().stack.length)); i++) { await p.evaluate(() => { const l = [...document.querySelectorAll('.screen')].pop(); const b = l && l.querySelector('[data-a="back"]'); if (b) b.click(); }); await sleep(200); }
@@ -1237,6 +1231,134 @@ async function tap(page, sel) { await page.waitForSelector(sel, { timeout: 5000 
     check(bad5.length === 0, 'v2.0: no console errors' + (bad5.length ? ': ' + bad5.join(' / ') : ''));
     await c5.close();
   }
+  // ---- v2.2: scrolling filter rows, select all/none, meal-plan week, chicken-thigh swaps, variety, illustrations, sources ----
+  {
+    const e6 = [], net6 = [];
+    const c6 = await browser.createBrowserContext();
+    const p = await c6.newPage();
+    await p.setViewport({ width: 800, height: 1280 });
+    p.on('console', m => { if (m.type() === 'error') e6.push(m.text()); });
+    p.on('pageerror', e => e6.push('pageerror: ' + e.message));
+    await p.setRequestInterception(true);
+    p.on('request', r => { const u = r.url(); if (!u.startsWith(BASE) && !u.startsWith('data:') && !u.startsWith('blob:')) { net6.push(u); r.abort(); } else r.continue(); });
+    await p.goto(BASE, { waitUntil: 'networkidle0' });
+    await p.waitForFunction(() => window.PR_APP && window.PR_APP.state().complete, { timeout: 15000 });
+    await p.evaluate(() => { const d = document.querySelector('.dialog button'); if (d) d.click(); }); await sleep(200);
+    if (await p.$('[data-a="welRegion"][data-v="us"]')) await tap(p, '[data-a="welRegion"][data-v="us"]');
+    await p.evaluate(() => window.PR_APP.showTab('recipes')); await sleep(500);
+    await p.setViewport({ width: 360, height: 900 }); await sleep(300);
+    // mouse wheel: vertical wheel over a filter row scrolls it sideways
+    const hs = await p.evaluate(() => { const h = [...document.querySelectorAll('#main .hscroll')].find(e => e.scrollWidth > e.clientWidth + 20); if (!h) return null; h.scrollLeft = 0; h.scrollIntoView({ block: 'center' }); const r = h.querySelector('.chip').getBoundingClientRect(); return { x: r.left + 40, y: r.top + r.height / 2, max: h.scrollWidth - h.clientWidth, ta: getComputedStyle(h).touchAction, ox: getComputedStyle(h).overflowX }; });
+    check(hs && hs.max > 0, 'v2.2: a Recipes filter row overflows at 360 px (' + (hs && hs.max) + ' px)');
+    if (hs) {
+      await sleep(600); Object.assign(hs, await p.evaluate(() => { const h = [...document.querySelectorAll('#main .hscroll')].find(e => e.scrollWidth > e.clientWidth + 20); const r = h.querySelector('.chip').getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; }));
+      await p.mouse.move(hs.x, hs.y); await p.mouse.wheel({ deltaY: 300 }); await sleep(300);
+      const sl = await p.evaluate(() => [...document.querySelectorAll('#main .hscroll')].find(e => e.scrollWidth > e.clientWidth + 20).scrollLeft);
+      const under = await p.evaluate((x, y) => { const e = document.elementFromPoint(x, y); return e ? e.tagName + '.' + e.className : ''; }, hs.x, hs.y);
+      check(sl > 0, 'v2.2: mouse wheel scrolls the filter row (scrollLeft ' + sl + ', under ' + under + ')');
+      check(/pan-x|auto|manipulation/.test(hs.ta) && /auto|scroll/.test(hs.ox), 'v2.2: filter row allows touch panning (touch-action ' + hs.ta + ', overflow-x ' + hs.ox + ')');
+      // keyboard: ArrowRight moves focus along the chips and scrolls them into view
+      const kb = await p.evaluate(() => { const h = [...document.querySelectorAll('#main .hscroll')].find(e => e.scrollWidth > e.clientWidth + 20); h.scrollLeft = 0; const cs = h.querySelectorAll('.chip'); cs[0].focus(); return cs.length; });
+      for (let i = 0; i < 12; i++) { await p.keyboard.press('ArrowRight'); await sleep(40); }
+      const kb2 = await p.evaluate(() => { const h = [...document.querySelectorAll('#main .hscroll')].find(e => e.scrollWidth > e.clientWidth + 20); const cs = [...h.querySelectorAll('.chip')]; return { i: cs.indexOf(document.activeElement), sl: h.scrollLeft }; });
+      check(kb2.i >= Math.min(kb - 1, 12) && kb2.sl > 0, 'v2.2: ArrowRight walks the chips and scrolls them into view (focus ' + kb2.i + ', scrollLeft ' + kb2.sl + ')');
+    }
+    await p.setViewport({ width: 800, height: 1280 }); await sleep(200);
+    // shopping list select all / none
+    await p.evaluate(() => window.PR_APP.showTab('shopping')); await sleep(300);
+    for (const t of ['2 lemons', '6 eggs', '500 g rice']) { await p.evaluate((t) => { const i = document.querySelector('#shopIn'); i.value = t; i.dispatchEvent(new Event('input', { bubbles: true })); document.querySelector('#main [data-a="shopAdd"]').click(); }, t); await sleep(200); }
+    const nItems = await p.evaluate(() => JSON.parse(localStorage.getItem('pr.shopping') || '[]').length);
+    await p.evaluate(() => { const b = document.querySelector('#main [data-a="shopSelAll"]'); if (b) b.click(); }); await sleep(300);
+    const allOn = await p.evaluate(() => { const l = JSON.parse(localStorage.getItem('pr.shopping') || '[]'); return l.length > 0 && l.every(x => x.checked); });
+    await p.evaluate(() => { const b = document.querySelector('#main [data-a="shopSelNone"]'); if (b) b.click(); }); await sleep(300);
+    const noneOn = await p.evaluate(() => { const l = JSON.parse(localStorage.getItem('pr.shopping') || '[]'); return l.length > 0 && l.every(x => !x.checked); });
+    check(nItems > 0 && allOn && noneOn, 'v2.2: shopping Select all checks every item, Select none clears them (' + nItems + ' items)');
+    check(await p.evaluate(() => { const a = document.querySelector('[data-a="shopSelAll"]'), b = document.querySelector('[data-a="shopSelNone"]'); return !!(a && b && a.getAttribute('aria-label') && b.getAttribute('aria-label') && a.getBoundingClientRect().height >= 40); }), 'v2.2: Select all / Select none are labelled, touch-sized buttons');
+    // meal plan: header range equals the 7 day cards, Sunday and Monday starts
+    for (const ws of ['sun', 'mon']) {
+      await p.evaluate((ws) => { const pr = JSON.parse(localStorage.getItem('pr.prefs') || '{}'); pr.weekStart = ws; localStorage.setItem('pr.prefs', JSON.stringify(pr)); }, ws);
+      await p.reload({ waitUntil: 'networkidle0' }); await p.waitForFunction(() => window.PR_APP && window.PR_APP.state().complete, { timeout: 15000 });
+      await p.evaluate(() => { const d = document.querySelector('.dialog button'); if (d) d.click(); });
+      await p.evaluate(() => window.PR_APP.showTab('plan')); await sleep(400);
+      const pl = await p.evaluate(() => ({ head: (document.querySelector('#main .secth .faint') || {}).textContent || '', days: [...document.querySelectorAll('#main .pday h2')].map(h => h.textContent.replace('Today', '').trim()) }));
+      const parts = pl.head.split(' \u2013 ');
+      check(pl.days.length === 7 && parts[0] === pl.days[0] && parts[1] === pl.days[6], 'v2.2: plan header ' + pl.head + ' matches the grid ' + pl.days[0] + ' .. ' + pl.days[6] + ' (' + ws + ' start)');
+      check(new RegExp('^' + (ws === 'sun' ? 'Sun' : 'Mon')).test(pl.days[0] || ''), 'v2.2: plan week starts on ' + ws + ' (' + pl.days[0] + ')');
+    }
+    // substitutions: chicken thigh search shows chicken entries first, no pork entry
+    await p.evaluate(() => window.PR_APP.openScreen({ type: 'subs', q: 'chicken thigh', cat: '' })); await sleep(400);
+    const subsTxt = await p.evaluate(() => [...document.querySelectorAll('.screen')].pop().textContent);
+    check(/Instead of chicken thighs/i.test(subsTxt) && /chicken breast/i.test(subsTxt) && !/Pork shoulder|Pork chop/.test(subsTxt), 'v2.2: "chicken thigh" swaps list chicken options, no pork entries' + (/Pork shoulder|Pork chop/.test(subsTxt) ? '' : ' [' + subsTxt.slice(0, 300) + ']'));
+    await p.evaluate(() => window.PR_APP.openScreen({ type: 'subs', q: 'pork shoulder', cat: '' })); await sleep(400);
+    const subs2 = await p.evaluate(() => [...document.querySelectorAll('.screen')].pop().textContent);
+    check(/Different (meat|protein)/.test(subs2), 'v2.2: cross-protein swaps are labelled "Different meat/protein"');
+    for (let i = 0; i < 4 && (await p.evaluate(() => window.PR_APP.state().stack.length)); i++) { await p.evaluate(() => { const l = [...document.querySelectorAll('.screen')].pop(); const b = l && l.querySelector('[data-a="back"]'); if (b) b.click(); }); await sleep(200); }
+    // variety on Discover
+    await p.evaluate(() => window.PR_APP.showTab('discover')); await sleep(500);
+    const picks1 = await p.evaluate(() => { const s = [...document.querySelectorAll('#main .dsec')].find(d => /Today\u2019s picks/.test(d.textContent)); return s ? [...s.querySelectorAll('[data-a="open"]')].map(b => b.getAttribute('data-id')).join(',') : ''; });
+    check(picks1.split(',').length === 12, "v2.2: Today's picks shows 12 recipes");
+    await p.evaluate(() => window.PR_APP.showTab('pantry')); await sleep(200); await p.evaluate(() => window.PR_APP.showTab('discover')); await sleep(400);
+    const picks2 = await p.evaluate(() => { const s = [...document.querySelectorAll('#main .dsec')].find(d => /Today\u2019s picks/.test(d.textContent)); return [...s.querySelectorAll('[data-a="open"]')].map(b => b.getAttribute('data-id')).join(','); });
+    check(picks1 === picks2, "v2.2: Today's picks stay the same through the day");
+    await p.evaluate(() => document.querySelector('#main [data-a="shufflePicks"]').click()); await sleep(400);
+    const picks3 = await p.evaluate(() => { const s = [...document.querySelectorAll('#main .dsec')].find(d => /Today\u2019s picks/.test(d.textContent)); return [...s.querySelectorAll('[data-a="open"]')].map(b => b.getAttribute('data-id')).join(','); });
+    check(picks3 !== picks1, 'v2.2: Shuffle gives a new set');
+    check((await p.$$eval('#main .dsec h3', e => e.filter(h => /^Cuisine of the day: /.test(h.textContent)).length)) === 2, 'v2.2: two rotating "Cuisine of the day" rows');
+    for (const a of ['surpriseAny', 'tryNew']) {
+      await p.evaluate((a) => document.querySelector('#main [data-a="' + a + '"]').click(), a); await sleep(400);
+      const ok = await p.evaluate(() => { const l = [...document.querySelectorAll('.screen')].pop(); return !!(l && l.querySelector('.band')); });
+      check(ok, 'v2.2: ' + a + ' opens a recipe');
+      await p.evaluate(() => { const l = [...document.querySelectorAll('.screen')].pop(); const b = l && l.querySelector('[data-a="back"]'); if (b) b.click(); }); await sleep(250);
+    }
+    // illustrated cards on every card/row; none fetch anything
+    const ill = await p.evaluate(() => ({ cards: document.querySelectorAll('#main .ccard').length, svg: document.querySelectorAll('#main .ccard .thumb.ill svg.illo').length }));
+    check(ill.cards > 0 && ill.svg === 0, 'v2.2: Discover cards do not masquerade illustrations as photos (' + ill.svg + '/' + ill.cards + ')');
+    await p.evaluate(() => window.PR_APP.showTab('recipes')); await sleep(400);
+    check(await p.evaluate(() => { const r = document.querySelectorAll('#main .rrow, #main .list .row, #main [data-a="open"]'); const s = document.querySelectorAll('#main svg.illo'); return s.length === 0; }), 'v2.2: recipe rows have no generic illustrations');
+    // detail: illustration band + sources row; link-outs open only on tap and are noopener
+    const anyId = await p.evaluate(() => window.PR_APP.matchAll()[0].recipe.id);
+    await p.evaluate((id) => window.PR_APP.openDetail(id), anyId); await sleep(400);
+    check(await p.evaluate(() => !document.querySelector('.screen .band.ill svg.illo') && !!document.querySelector('.screen [data-a="findPhoto"]') && !!document.querySelector('.screen [data-a="elsewhere"]')), 'v2.2: recipe page has no generic illustration, Find a photo and Find it elsewhere');
+    await p.evaluate(() => document.querySelector('.screen [data-a="elsewhere"]').click()); await sleep(400);
+    const lk = await p.evaluate(() => [...[...document.querySelectorAll('.screen')].pop().querySelectorAll('a[href^="https://"]')].map(a => ({ h: a.href, rel: a.rel, t: a.target })));
+    check(lk.length >= 17 && lk.every(a => /noopener/.test(a.rel) && /noreferrer/.test(a.rel) && a.t === '_blank'), 'v2.2: ' + lk.length + ' link-outs (10 sites + 7 public-domain books), all noopener noreferrer');
+    check(lk.some(a => /bbcgoodfood\.com\/search\?q=/.test(a.h)) && lk.some(a => /gutenberg\.org\/ebooks\/10136/.test(a.h)), 'v2.2: link-outs search by recipe title; Gutenberg books link by ebook number');
+    // Wikibooks search asks first; Cancel sends nothing
+    await p.evaluate(() => document.querySelector('.screen [data-a="wbSearch"]').click()); await sleep(300);
+    const askTxt = await p.evaluate(() => (document.querySelector('#dlg') || {}).textContent || '');
+    check(/Look online\?/.test(askTxt) && /wikibooks/i.test(askTxt), 'v2.2: first Wikibooks search asks before going online');
+    await p.evaluate(() => { const b = [...document.querySelectorAll('#dlg button')].find(b => /Cancel/.test(b.textContent)); if (b) b.click(); }); await sleep(300);
+    net6.splice(0, net6.length, ...net6.filter(u => !/themealdb\.com/.test(u))); // TheMealDB (opt-out, on since v1) is aborted in this run
+    check(net6.length === 0, 'v2.2: no network request without a tap (' + net6.slice(0, 3).join(' ') + ')');
+    // after consent: the API call goes to Wikibooks only (aborted here, so the error message shows)
+    await p.evaluate(() => document.querySelector('.screen [data-a="wbSearch"]').click()); await sleep(300);
+    await p.evaluate(() => { const b = [...document.querySelectorAll('#dlg button')].find(b => /Continue/.test(b.textContent)); if (b) b.click(); }); await sleep(800);
+    net6.splice(0, net6.length, ...net6.filter(u => !/themealdb\.com/.test(u)));
+    check(net6.length === 1 && /^https:\/\/en\.wikibooks\.org\/w\/api\.php\?action=query&list=search&srnamespace=102/.test(net6[0]), 'v2.2: after consent, one request to the Wikibooks API (' + (net6[0] || '').slice(0, 90) + ')');
+    check(/Couldn\u2019t reach Wikibooks/.test(await p.evaluate(() => [...document.querySelectorAll('.screen')].pop().textContent)), 'v2.2: offline Wikibooks search shows a clear message');
+    for (let i = 0; i < 4 && (await p.evaluate(() => window.PR_APP.state().stack.length)); i++) { await p.evaluate(() => { const l = [...document.querySelectorAll('.screen')].pop(); const b = l && l.querySelector('[data-a="back"]'); if (b) b.click(); }); await sleep(200); }
+    // licensed photo: a stored choice shows the photo with its credit (image request goes only to Openverse)
+    await p.evaluate((id) => { localStorage.setItem('pr.v22photos', JSON.stringify({ [id]: JSON.stringify(['https://api.openverse.org/v1/images/x/thumb/', 'https://live.staticflickr.com/1.jpg', 'Chicken Curry', 'rovingI', 'by', '2.0', 'https://www.flickr.com/photos/1', 'flickr']) })); }, anyId);
+    await p.reload({ waitUntil: 'networkidle0' }); await p.waitForFunction(() => window.PR_APP && window.PR_APP.state().complete, { timeout: 15000 });
+    await p.evaluate((id) => window.PR_APP.openDetail(id), anyId); await sleep(500);
+    const cr = await p.evaluate(() => ({ c: ([...document.querySelectorAll('.screen')].pop().querySelector('.credit') || {}).textContent || '', img: ([...document.querySelectorAll('.screen')].pop().querySelector('.band img') || {}).src || '' }));
+    check(/Photo: \u201cChicken Curry\u201d by rovingI, CC BY 2\.0, via Openverse \(flickr\)/.test(cr.c) && net6.some(u => /^https:\/\/api\.openverse\.org\/v1\/images\/x\/thumb\//.test(u)), 'v2.2: chosen photo shows with creator and licence (' + cr.c + ')');
+    await p.evaluate(() => [...document.querySelectorAll('.screen')].pop().querySelector('[data-a="rmPhoto"]').click()); await sleep(300);
+    check(await p.evaluate(() => ![...document.querySelectorAll('.screen')].pop().querySelector('.credit') && ![...document.querySelectorAll('.screen')].pop().querySelector('.band.ill')), 'v2.2: Remove photo goes back to a non-photo fallback');
+    for (let i = 0; i < 4 && (await p.evaluate(() => window.PR_APP.state().stack.length)); i++) { await p.evaluate(() => { const l = [...document.querySelectorAll('.screen')].pop(); const b = l && l.querySelector('[data-a="back"]'); if (b) b.click(); }); await sleep(200); }
+    // appearance: live preview first, big tiles with contrast info
+    await p.evaluate(() => window.PR_APP.openScreen({ type: 'appearance' })); await sleep(400);
+    const ap = await p.evaluate(() => { const s = [...document.querySelectorAll('.screen')].pop(); const h = [...s.querySelectorAll('h2')].map(h => h.textContent); const t = s.querySelector('.ttile'); return { first: h[0], hasPrev: !!s.querySelector('.tprev'), tileH: t ? t.getBoundingClientRect().height : 0, label: t ? t.getAttribute('aria-label') : '' }; });
+    check(/Live preview/.test(ap.first) && ap.hasPrev && ap.tileH >= 100 && /text contrast \d/.test(ap.label), 'v2.2: Appearance opens with a live preview; tiles are large (' + Math.round(ap.tileH) + ' px) and announce contrast');
+    const before = await p.evaluate(() => getComputedStyle([...document.querySelectorAll('.screen')].pop().querySelector('.tprev')).backgroundColor);
+    await p.evaluate(() => { const t = [...[...document.querySelectorAll('.screen')].pop().querySelectorAll('.ttile')].find(t => t.getAttribute('aria-pressed') !== 'true'); t.click(); }); await sleep(400);
+    const after = await p.evaluate(() => getComputedStyle([...document.querySelectorAll('.screen')].pop().querySelector('.tprev')).backgroundColor);
+    check(before !== after, 'v2.2: tapping a theme updates the live preview (' + before + ' -> ' + after + ')');
+    const bad6 = e6.filter(e => !/net::|Failed to load resource/i.test(e));
+    check(bad6.length === 0, 'v2.2: no console errors' + (bad6.length ? ': ' + bad6.join(' / ') : ''));
+    await c6.close();
+  }
+
   await browser.close();
   console.log(fails ? fails + ' FAILED' : 'ALL PASSED');
   process.exit(fails ? 1 : 0);

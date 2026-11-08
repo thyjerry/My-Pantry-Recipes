@@ -1,18 +1,8 @@
-/* My Pantry Recipes web v2.1: "botanically a fruit" badge and facts, the glossary fun fact, and the user's own
- * ingredient category moves (port of the Android core Botany.java; texts come from js/data21.js). MIT License. */
+/* My Pantry Recipes web v2.1/v2.2: the user's own ingredient category moves (port of the Android core
+ * CategoryMoves.java; the v2.1 botanical-fruit feature was removed in v2.2) and "Buy these next" extensions. MIT License. */
 (function (root) {
   'use strict';
-  var PR = root.PR, C = PR.Catalog, D = root.PR_DATA21 || {};
-  var LABELS = D.labels || [], FACTS = D.facts || {}, MAX_MOVES = 300;
-  var byKey = null;
-  function map() {
-    if (!byKey) { byKey = new Map(); LABELS.forEach(function (l) { byKey.set(PR.normalize(l), l); }); }
-    return byKey;
-  }
-  function isBotanicalFruit(key) { return key != null && map().has(key); }
-  function label(key) { return map().get(key) || null; }
-  function fact(key) { return isBotanicalFruit(key) ? FACTS[key] || null : null; }
-  function isQuery(q) { return PR.normalize(String(q || '')).indexOf('botanic') === 0 || String(q || '').toLowerCase().trim().indexOf('botanic') === 0; }
+  var PR = root.PR, C = PR.Catalog, MAX_MOVES = 300;
   function categoryIndex(name) { return C.CATEGORIES.indexOf(name); }
   var defMemo = null;
   function defaultCategory(key) {
@@ -61,8 +51,7 @@
   }
   function sectionKeys(ci, moves) { return sectionItems(ci, moves).filter(function (s) { return !C.isHeader(s); }).map(PR.normalize); }
   function have(ci, moves, pantryKeys) { var n = 0; sectionKeys(ci, moves).forEach(function (k) { if (pantryKeys.has(k)) n++; }); return n; }
-  PR.Botany = { LABELS: LABELS, TERM: D.term || 'Botanical fruit', GLOSSARY: D.glossary || '', FUN_FACT: D.funFact || '', MAX_MOVES: MAX_MOVES,
-    isBotanicalFruit: isBotanicalFruit, label: label, fact: fact, isQuery: isQuery, categoryIndex: categoryIndex, defaultCategory: defaultCategory,
+  PR.CatMoves = { MAX_MOVES: MAX_MOVES, categoryIndex: categoryIndex, defaultCategory: defaultCategory,
     labelFor: labelFor, sanitize: sanitize, toObject: toObject, sectionItems: sectionItems, sectionKeys: sectionKeys, have: have };
 
   // ---------- v2.1 "Buy these next": expand, see all, sort (same rules as Android BuyNext.java) ----------

@@ -185,6 +185,7 @@ public class RecipeTool {
         V20Tests.run(parsed, dir.getAbsoluteFile().getParentFile());
         V201Tests.run(parsed, dir.getAbsoluteFile().getParentFile());
         V21Tests.run(parsed, dir.getAbsoluteFile().getParentFile());
+        V22Tests.run(parsed, dir.getAbsoluteFile().getParentFile());
         StringBuilder unknown = new StringBuilder();
         for (Map.Entry<String, Integer> e : keyCount.entrySet())
             if (!Normalizer.isKnown(e.getKey())) unknown.append(e.getKey()).append('(').append(e.getValue()).append(") ");

@@ -40,7 +40,10 @@ final class ImageLoader {
 
     /** Loads url (thumbnail size if small) into the view. */
     void load(final ImageView iv, String imageUrl, final boolean small) {
-        if (imageUrl == null || imageUrl.isEmpty()) return;
+        load(iv, imageUrl, small, true);
+    }
+    void load(final ImageView iv, String imageUrl, final boolean small, final boolean allowNetwork) {
+        if (imageUrl == null || !imageUrl.startsWith("https://www.themealdb.com/images/media/meals/")) return;
         final String url = small ? imageUrl + "/preview" : imageUrl + "/medium";
         iv.setTag(url);
         Bitmap b = mem.get(url);
@@ -48,7 +51,7 @@ final class ImageLoader {
         pool.execute(new Runnable() {
             @Override
             public void run() {
-                final Bitmap bmp = fetch(url);
+                final Bitmap bmp = fetch(url, allowNetwork);
                 if (bmp == null) return;
                 mem.put(url, bmp);
                 main.post(new Runnable() {
@@ -65,14 +68,14 @@ final class ImageLoader {
         });
     }
 
-    private Bitmap fetch(String url) {
+    private Bitmap fetch(String url, boolean allowNetwork) {
         File f = new File(dir, Integer.toHexString(url.hashCode()) + ".jpg");
         try {
             if (f.exists()) {
                 Bitmap b = BitmapFactory.decodeFile(f.getPath());
                 if (b != null) return b;
             }
-            if (!url.startsWith("https://www.themealdb.com/")) return null;
+            if (!allowNetwork || !url.startsWith("https://www.themealdb.com/")) return null;
             HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
             con.setConnectTimeout(8000);
             con.setReadTimeout(10000);

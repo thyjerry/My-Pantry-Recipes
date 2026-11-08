@@ -1,0 +1,22 @@
+# v2.2 recipe illustrations: original geometric glyphs drawn on a 24x24 grid (no images, no network).
+# glyph name | background colour | primitives separated by ;
+# primitive: <ink> <shape> numbers   ink: k = dark ink, b = background (cut-out), a = cuisine accent
+# shapes: c cx cy r | e cx cy rx ry | r x y w h radius | p x1 y1 x2 y2 ... (filled polygon) | l x1 y1 x2 y2 width (round line)
+plate|B0BEC5|k c 12 12 9;b c 12 12 7;k c 12 12 5.2;b c 12 12 4
+chicken|F4B860|k e 10 10 6.5 5.5;k l 14 14 19 19 2.6;k c 19.8 17.8 1.9;k c 17.8 19.8 1.9;b e 8 8.5 1.8 1.2
+beef|E0796B|k e 12 12 9 6.5;b e 9 11 2.4 1.7;b l 14 9 17.5 12.5 1.2;b l 15 14 18 15 1
+pork|F2A6A0|k e 13.5 12 7.5 6.5;k r 2.5 10 7 4 2;b c 15.5 11 2.2
+lamb|C9A27E|k e 9.5 13.5 6 5;k l 13.5 10 20.5 3.5 2.2;k c 21 3.5 1.7;b c 8.5 13 1.8
+fish|6FB7D6|k e 10.5 12 7 4.6;k p 16.5 12 22 7 22 17;b c 7 11 1.2;b l 11 9.5 11 14.5 0.8
+shrimp|F7A072|k l 6.5 8.5 12 6 3.2;k l 12 6 17 8.5 3;k l 17 8.5 18.5 13.5 2.8;k l 18.5 13.5 15.5 17.5 2.4;k p 15.5 17 10.5 20.5 13 15.5;b c 8 8 0.9
+egg|F6C453|k e 12 13 6.6 8;b e 12 13 5.2 6.6;a c 12 14.5 3.3
+leaf|8BC97F|k e 12 11 5.5 9;b l 12 4 12 18 1.1;b l 12 9 15 7 0.9;b l 12 13 9 11 0.9;k l 12 19 12 22.5 1.6
+pasta|F3C77A|k p 2.5 11 21.5 11 18 19.5 6 19.5;k l 5 9 8.5 4 1.5;k l 9 9 12.5 4 1.5;k l 13 9 16.5 4 1.5;k l 17 9 20 5 1.5
+soup|EF8F5E|k p 2.5 11 21.5 11 18 19.5 6 19.5;k l 9 8.5 9 4 1.5;k l 12 8.5 12 3 1.5;k l 15 8.5 15 4 1.5;b l 6 13.5 18 13.5 1
+salad|86C98A|k p 2.5 12 21.5 12 18 19.5 6 19.5;k c 7.5 10 3.2;k c 12 8.8 3.8;k c 16.5 10 3.2;a c 12 9 1.4
+rice|E8D5A8|k p 2.5 12 21.5 12 18 19.5 6 19.5;k e 12 11.5 7.5 4;k l 15 8 21.5 2.5 1.1;k l 17 9 22 4.5 1.1
+cake|F4A3BF|k r 4.5 11 15 9 1.5;b r 4.5 14.2 15 1.4 0;k p 5 11 19 11 16 7 8 7;a c 12 4.8 2
+bread|D9AE78|k r 3.5 9 17 11 2.5;k e 12 9.5 8.5 4.3;b l 8 8 10 11.5 1.1;b l 12 7.5 14 11 1.1;b l 16 8 17.5 11.5 1.1
+drink|7FB8EC|k p 6 4 18 4 16 20.5 8 20.5;b p 7.6 6 16.4 6 15.7 11 8.3 11;a c 12 15 2;k l 14.5 4 18 1 1
+sauce|E57D7D|k r 7 8 10 13 2.5;k r 8.5 4.5 7 3.6 1;b r 9 12 6 4 1;a c 12 14 1.2
+snack|FFB74D|k c 8 14 4.5;k c 15.5 12 4.5;k c 12 8 4;b c 8 14 1.3;b c 15.5 12 1.3;b c 12 8 1.2

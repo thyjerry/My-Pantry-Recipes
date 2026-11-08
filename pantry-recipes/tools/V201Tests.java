@@ -126,7 +126,7 @@ public class V201Tests {
         String manifest = read(new File(root, "AndroidManifest.xml"));
         check(!manifest.contains("LOCATION"), "no location permission");
         Properties vp = new Properties(); vp.load(new java.io.StringReader(read(new File(root, "version.properties"))));
-        eq("2.1", vp.getProperty("versionName"), "versionName"); eq("14", vp.getProperty("versionCode"), "versionCode");
+        eq("2.3", vp.getProperty("versionName"), "versionName"); eq("16", vp.getProperty("versionCode"), "versionCode");
 
         // ---- timing on the JDK (the Fire HD 8 reads medflags.txt instead) ----
         long t1 = System.nanoTime();

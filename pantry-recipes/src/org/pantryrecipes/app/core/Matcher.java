@@ -49,6 +49,9 @@ public final class Matcher {
         return this;
     }
 
+    private Collection<String> swapDislikes, swapAvoid, swapDiets;
+    public Matcher withSwapAvoid(Collection<String> d, Collection<String> a, Collection<String> diets) { swapDislikes=d; swapAvoid=a; swapDiets=diets; return this; }
+    public boolean optionAllowed(Substitutions.Option o) { return SwapAdvice.caution(o, swapDislikes, swapAvoid, swapDiets).isEmpty(); }
     public Substitutions substitutions() { return subs; }
 
     public boolean isAccepted(String key) { return accepted.contains(key); }

@@ -41,8 +41,8 @@ man.icons.forEach(i => check(pre.includes(i.src), 'manifest icon is precached: '
 const JS_FILES = ['js/version.js', 'js/app.js', 'js/core.js', 'js/core15.js', 'js/core16.js', 'js/data16.js', 'js/core17.js', 'js/data17.js', 'js/import15.js', 'sw.js', 'index.html'];
 const allJs = JS_FILES.map(p => fs.readFileSync(path.join(ROOT, p), 'utf8')).join('\n');
 const hosts = new Set([...allJs.matchAll(/https?:\/\/([a-z0-9.-]+)/gi)].map(m => m[1].toLowerCase()));
-const ALLOWED_HOSTS = ['www.themealdb.com', 'world.openfoodfacts.org', 'schema.org']; // schema.org is only a JSON-LD type name, never fetched
-check([...hosts].every(h => ALLOWED_HOSTS.includes(h)), 'only network hosts are TheMealDB and Open Food Facts (' + [...hosts].join(', ') + ')');
+const ALLOWED_HOSTS = ['www.themealdb.com', 'world.openfoodfacts.org', 'api.openverse.org', 'en.wikibooks.org', 'schema.org']; // schema.org is only a JSON-LD type name, never fetched
+check([...hosts].every(h => ALLOWED_HOSTS.includes(h)), 'only network hosts are TheMealDB, Open Food Facts, Openverse and Wikibooks (each on user action) (' + [...hosts].join(', ') + ')');
 check(/connect-src[^;]*https:\/\/world\.openfoodfacts\.org/.test(html), 'CSP allows the Open Food Facts lookup');
 check(!/connect-src[^;]*\*/.test(html), 'CSP connect-src has no wildcard');
 check(!/google-analytics|googletagmanager|gtag\(|facebook\.net|sentry|mixpanel|segment\.io/i.test(allJs), 'no analytics/trackers');
@@ -51,11 +51,11 @@ const verSrc = fs.readFileSync(path.join(ROOT, 'js/version.js'), 'utf8');
 const vm = verSrc.match(/self\.PR_VERSION\s*=\s*'(([0-9.]+(?:-[a-z0-9]+)?)-web)'/);
 check(!!vm, 'js/version.js defines PR_VERSION');
 const VERSION = vm ? vm[1] : '?', SHORT = vm ? vm[2] : '?';
-check(VERSION === '2.1-web', 'version is 2.1-web (' + VERSION + ')');
+check(VERSION === '2.3-web', 'version is 2.3-web (' + VERSION + ')');
 check(/importScripts\('js\/version\.js'\)/.test(sw) && /'pr-core-' \+ self\.PR_VERSION/.test(sw), 'sw.js cache name derives from version.js');
 check(!/pr-1\.4|1\.4-web/.test(sw), 'sw.js has no old hard-coded version');
 const order = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]);
-check(JSON.stringify(order) === JSON.stringify(['js/version.js', 'js/core-data.js', 'js/icons.js', 'js/core.js', 'js/core15.js', 'js/core16.js', 'js/data16.js', 'js/core17.js', 'js/data17.js', 'js/import15.js', 'js/data20.js', 'js/helpers20.js', 'js/core20.js', 'js/stage3-data.js', 'js/core30.js', 'js/data201.js', 'js/core201.js', 'js/data21.js', 'js/core21.js', 'js/app.js']), 'index.html script order ' + order.join(','));
+check(JSON.stringify(order) === JSON.stringify(['js/version.js', 'js/core-data.js', 'js/icons.js', 'js/core.js', 'js/core15.js', 'js/core16.js', 'js/data16.js', 'js/core17.js', 'js/data17.js', 'js/import15.js', 'js/data20.js', 'js/helpers20.js', 'js/core20.js', 'js/stage3-data.js', 'js/core30.js', 'js/data201.js', 'js/core201.js', 'js/core21.js', 'js/data22.js', 'js/core22.js', 'js/app.js']), 'index.html script order ' + order.join(','));
 const app = fs.readFileSync(path.join(ROOT, 'js/app.js'), 'utf8');
 // ---- v2.1: recipe chunks (the app loads data/recipes-<n>.json; data/recipes.json stays the source for tests/tools) ----
 {

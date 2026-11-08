@@ -3,6 +3,43 @@
 Android app (`org.pantryrecipes.app`) and web/PWA version. Web versions carry the same number with a `-web` suffix.
 Entries for v1.0–v1.4 are summarised from the READMEs; detailed notes were not kept for those releases.
 
+## v2.3 (versionCode 16, web 2.3-web)
+- Dedicated **Settings** button, labeled in text. Settings precede the About text on Android.
+- The standalone swap icon is removed from the main header. A labeled **Ingredient substitutions** tool remains inside Settings.
+- Recipe details offer substitutions beside every supported ingredient, not just missing ingredients. The dialog names the exact selected ingredient and scaled original amount.
+- Simple single-ingredient volume/count ratios show a scaled replacement estimate. Mixtures, mass conversions and unknown amounts do not invent a quantity; the original option instructions remain visible. To-taste options remain to taste.
+- Conservative name-based checks flag replacements conflicting with saved dislikes, avoided allergens, or selected vegan/vegetarian/dairy-free/gluten-free filters. Conflicting options are not counted as usable pantry substitutions. These checks are not certification: read labels and consider cross-contact and cooking requirements.
+- Substitution search only matches ingredient names/aliases/categories, not unrelated ingredients mentioned inside replacement text.
+- Cards/rows now use associated TheMealDB recipe photos where available; the generic meat/plant drawings are no longer the default. Missing images use a restrained **No photo** fallback. This does not add photos to the bundled collection.
+- Images stay on the existing TheMealDB host and cache path. Android may read cached thumbnails when online recipes are off, but does not fetch new ones. Web cards hide remote images when online recipes are off; when enabled, existing service-worker caching supports offline reuse. Failed image loads leave the fallback visible.
+- **Unchanged data:** 3,774 bundled recipes, 0 bundled photos. Larger licensed recipe expansion is pending; there is no 6,000 cap and no inflated recipe count.
+- No EPUB/PDF importer, camera scanner, microphone, tracking or publishing added.
+
+## v2.2 (versionCode 15, `2.2`, web `2.2-web`) – 2026-11-03
+- **Recipes:** 3,774 recipes (up from 2,620). Adds 1,154 original dinner mains across 27 cuisines and 24 cuts of
+  chicken, beef, pork, lamb, turkey, salmon, cod and shrimp. Each one has doneness temperatures and steps written for
+  that cut. Diet and allergen tags and costs are computed the same way as before. Loading is still chunked: the web
+  version now has 6 data chunks and the first recipes still appear before the rest load.
+- **Variety:** "Today's picks" (12 a day, stays the same all day, Shuffle changes it), two "Cuisine of the day" rows,
+  "Surprise me" with any recipe, and "Try something new".
+- **Pictures:** small built-in drawings (inline SVG, 18 shapes, about 2 KB of data, nothing downloaded). An optional
+  free-licensed photo per recipe from Openverse (CC0, public domain or CC BY, with credit). Photos load only after
+  you tap and agree, and can be removed.
+- **Sources:** search links to 10 recipe sites, an in-app Wikibooks Cookbook search (asks first, sends nothing before
+  you tap), and 7 public-domain cookbooks from Project Gutenberg. See ATTRIBUTIONS.md.
+- **Appearance:** the settings preview updates as you change them.
+- **Your own category moves** replace the v2.1 "botanical fruit" badge and filter, which are removed.
+- **Fixed:** looking up substitutions for "chicken thighs" listed pork entries. Search matched words inside the
+  option text, so "Pork shoulder" and "Pork chop" came up. Name matches now rank first, and swaps to a different
+  protein are labelled.
+- **Fixed:** with a Sunday week start, the web meal-plan grid did not line up with its header. The grid used the
+  Monday-based week on top of the Sunday header. Android ignored the Sunday setting. Both now use the same start.
+- **Fixed (web):** finding or removing a photo now refreshes the recipe header.
+- **Planned for 3.0** (approved, recorded only, not built in 2.2):
+  - A camera barcode scanner using ZXing (open source, Apache-2.0). It runs on the device only; no Google Play
+    Services and no ML Kit.
+  - Recipe import from EPUB and PDF files, done on the device.
+
 ## v2.1 (versionCode 14, `2.1`, web `2.1-web`) – 2026-11-03
 v2.0.1 was skipped, and its fixes are included here.
 - **v2.0.1 fixes:**

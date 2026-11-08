@@ -317,6 +317,13 @@ final class Store extends SQLiteOpenHelper {
         getWritableDatabase().delete("shopping", "_id=?", new String[]{String.valueOf(id)});
     }
 
+    /** v2.2: Select all / Select none. Returns rows changed. */
+    int setAllChecked(boolean checked) {
+        ContentValues v = new ContentValues();
+        v.put("checked", checked ? 1 : 0);
+        return getWritableDatabase().update("shopping", v, "checked=?", new String[]{checked ? "0" : "1"});
+    }
+
     int clearChecked() {
         return getWritableDatabase().delete("shopping", "checked=1", null);
     }

@@ -1,4 +1,4 @@
-// v2.1: botanical fruits and category moves (js/core21.js) against the Java core (tests/vectors21.json), backup key catMoves.
+// v2.1/v2.2: category moves (botanical fruits removed in v2.2) (js/core21.js) against the Java core (tests/vectors21.json), backup key catMoves.
 'use strict';
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
@@ -6,7 +6,7 @@ global.window = global;
 require(path.join(ROOT, 'js/core-data.js'));
 const PR = require(path.join(ROOT, 'js/core.js'));
 global.PR = PR;
-['core15', 'core16', 'data16', 'core17', 'data17', 'import15', 'data20', 'helpers20', 'core20', 'data201', 'core201', 'data21', 'core21'].forEach(f => require(path.join(ROOT, 'js/' + f + '.js')));
+['core15', 'core16', 'data16', 'core17', 'data17', 'import15', 'data20', 'helpers20', 'core20', 'data201', 'core201', 'core21'].forEach(f => require(path.join(ROOT, 'js/' + f + '.js')));
 const V = JSON.parse(fs.readFileSync(path.join(__dirname, 'vectors21.json'), 'utf8'));
 let checks = 0, fails = 0;
 function eq(a, b, msg) {
@@ -14,19 +14,15 @@ function eq(a, b, msg) {
   const x = JSON.stringify(a), y = JSON.stringify(b);
   if (x !== y) { fails++; if (fails <= 30) console.log('FAIL ' + msg + '\n  got  ' + String(x).slice(0, 400) + '\n  want ' + String(y).slice(0, 400)); }
 }
-const B = PR.Botany;
-eq(B.LABELS.length, 24, '24 botanical-fruit labels');
-B.LABELS.forEach(l => { eq(B.isBotanicalFruit(PR.normalize(l)), true, 'badge ' + l); eq(typeof B.fact(PR.normalize(l)), 'string', 'fact ' + l); });
-['apple', 'carrot', 'potato', 'pea'].forEach(k => eq(B.isBotanicalFruit(k), false, 'no badge ' + k));
+const B = PR.CatMoves;
+eq(typeof PR.Botany, 'undefined', 'v2.2: botanical feature removed');
 const mv = B.sanitize(V.raw);
 eq(B.toObject(mv), V.sanitized, 'sanitize like Java');
 const pk = new Set(V.pantry);
 Object.keys(V.sections).forEach(c => { eq(B.sectionItems(+c, mv), V.sections[c], 'section ' + c); eq(B.have(+c, mv, pk), V.have[c], 'have ' + c); });
 eq(B.sectionItems(0, new Map()), PR.Catalog.ITEMS[0].filter((s, i, a) => !(PR.Catalog.isHeader(s) && (i + 1 >= a.length || PR.Catalog.isHeader(a[i + 1])))), 'no moves = catalog');
-eq(B.isQuery('Botanical fruits') && B.isQuery('botanic') && !B.isQuery('tomato'), true, 'botanical query');
-eq(B.FUN_FACT.indexOf('Nix v. Hedden') > 0 && B.GLOSSARY.indexOf('flower') > 0, true, 'glossary + fun fact');
 const helpers = fs.readFileSync(path.join(ROOT, 'js/helpers20.js'), 'utf8');
-eq(helpers.indexOf('@ Botanical fruit |') >= 0, true, 'glossary entry in Kitchen helpers');
+eq(/botanic/i.test(helpers) || helpers.indexOf('Nix v. Hedden') >= 0, false, 'v2.2: no botanical glossary entry');
 // backup
 const K = PR.Backup;
 eq(K.SETTINGS.indexOf('catMoves') >= 0, true, 'backup knows catMoves');

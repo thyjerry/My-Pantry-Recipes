@@ -3,50 +3,40 @@ import org.pantryrecipes.app.core.*;
 import java.io.File;
 import java.util.*;
 
-/** v2.1 checks: botanical fruits, category moves, backup key, recipe growth per category. */
+/** v2.1/v2.2 checks: category moves, backup key, recipe growth per category. */
 final class V21Tests {
     private V21Tests() { }
     static void check(boolean ok, String m) { RecipeTool.check(ok, m); }
     static void eq(Object e, Object g, String m) { RecipeTool.eq(e, g, m); }
 
     static void run(List<Recipe> parsed, File root) throws Exception {
-        // ---- botanical fruits ----
-        Set<String> catalog = new HashSet<String>(Catalog.allItems());
-        for (String l : Botany.LABELS) {
-            check(catalog.contains(l), "botanical fruit is a catalog item: " + l);
-            check(Botany.isBotanicalFruit(Normalizer.normalize(l)), "badge for " + l);
-            check(Botany.fact(Normalizer.normalize(l)) != null && !Botany.fact(Normalizer.normalize(l)).isEmpty(), "fact for " + l);
-        }
-        for (String l : new String[]{"Apple", "Carrot", "Potato", "Onion", "Spinach", "Peas"}) check(!Botany.isBotanicalFruit(Normalizer.normalize(l)), "no badge for " + l);
-        int veg = Botany.categoryIndex("Vegetables"), fr = Botany.categoryIndex("Fruits");
-        for (String l : new String[]{"Bell pepper", "Eggplant", "Zucchini", "Pumpkin", "Acorn squash"}) eq(veg, Botany.defaultCategory(Normalizer.normalize(l)), l + " stays in Vegetables");
-        for (String l : new String[]{"Tomato", "Cherry tomatoes", "Cucumber", "Avocado"}) eq(fr, Botany.defaultCategory(Normalizer.normalize(l)), l + " in Fruits");
-        PantryIndex.Hits h = PantryIndex.get().search("Botanical fruits", null);
-        eq(Botany.LABELS.size(), h.labels.size(), "botanical-fruit filter lists them all");
-        check(h.exact, "botanical filter offers no custom chip");
-        eq(Botany.LABELS.size(), PantryIndex.get().search("botanic", null).labels.size(), "partial botanical query");
+        // ---- v2.2: botanical-fruit feature removed; every ingredient sits where it makes kitchen sense ----
+        int veg = CategoryMoves.categoryIndex("Vegetables"), fr = CategoryMoves.categoryIndex("Fruits");
+        for (String l : new String[]{"Bell pepper", "Chili", "Jalapeno", "Eggplant", "Zucchini", "Pumpkin", "Acorn squash", "Spaghetti squash", "Delicata squash", "Olives"})
+            eq(veg, CategoryMoves.defaultCategory(Normalizer.normalize(l)), l + " in Vegetables");
+        for (String l : new String[]{"Tomato", "Cherry tomatoes", "Cucumber", "Avocado"}) eq(fr, CategoryMoves.defaultCategory(Normalizer.normalize(l)), l + " in Fruits");
+        check(PantryIndex.get().search("botanical fruits", null).labels.isEmpty(), "no botanical filter any more");
         check(PantryIndex.get().search("tomato", null).labels.contains("Tomato"), "plain search unchanged");
-        check(Botany.FUN_FACT.startsWith("Fun fact") && Botany.GLOSSARY.contains("flower"), "glossary + fun fact");
         String helpers = new String(java.nio.file.Files.readAllBytes(new File(root, "assets/helpers20.txt").toPath()), "UTF-8");
-        check(helpers.contains("@ Botanical fruit |") && helpers.contains("Nix v. Hedden"), "glossary entry with the fun fact in Kitchen helpers");
+        check(!helpers.toLowerCase(Locale.ROOT).contains("botanic") && !helpers.contains("Nix v. Hedden"), "glossary has no botanical entry");
         // ---- category moves ----
         Map<String, Object> raw = new LinkedHashMap<String, Object>();
         raw.put("Tomato", "Vegetables"); raw.put("cucumber", "Vegetables"); raw.put("eggplant", "Nope"); raw.put("", "Fruits");
-        raw.put("bell pepper", 7); raw.put("Olives", "Fruits");
-        Map<String, String> mv = Botany.sanitize(raw);
+        raw.put("bell pepper", 7); raw.put("Olives", "Cans & jars");
+        Map<String, String> mv = CategoryMoves.sanitize(raw);
         eq(3, mv.size(), "moves sanitized");
         eq("Vegetables", mv.get("tomato"), "move key normalized");
-        eq(mv, Botany.parse(Botany.format(mv)), "moves round-trip");
-        List<String> vs = Botany.sectionItems(veg, mv), fs = Botany.sectionItems(fr, mv);
+        eq(mv, CategoryMoves.parse(CategoryMoves.format(mv)), "moves round-trip");
+        List<String> vs = CategoryMoves.sectionItems(veg, mv), fs = CategoryMoves.sectionItems(fr, mv);
         check(vs.contains("#Moved here by you") && vs.contains("Tomato") && vs.contains("Cucumber"), "moved items show in Vegetables");
-        check(!fs.contains("Tomato") && !fs.contains("Cucumber") && fs.contains("Avocado") && fs.contains("Olives"), "moved items leave Fruits");
+        check(!fs.contains("Tomato") && !fs.contains("Cucumber") && fs.contains("Avocado") && !vs.contains("Olives"), "moved items leave their section");
         for (int i = 0; i < fs.size(); i++) if (Catalog.isHeader(fs.get(i))) check(i + 1 < fs.size() && !Catalog.isHeader(fs.get(i + 1)), "no empty header " + fs.get(i));
-        eq(PantryIndex.get().sectionKeys(veg), Botany.sectionKeys(veg, new LinkedHashMap<String, String>()), "no moves = catalog");
+        eq(PantryIndex.get().sectionKeys(veg), CategoryMoves.sectionKeys(veg, new LinkedHashMap<String, String>()), "no moves = catalog");
         Set<String> pk = new HashSet<String>(Arrays.asList("tomato", "avocado"));
-        eq(1, Botany.have(veg, mv, pk), "count follows the move");
-        eq(1, Botany.have(fr, mv, pk), "count leaves the old section");
+        eq(1, CategoryMoves.have(veg, mv, pk), "count follows the move");
+        eq(1, CategoryMoves.have(fr, mv, pk), "count leaves the old section");
         Map<String, String> back = new LinkedHashMap<String, String>(); back.put("tomato", "Fruits");
-        eq(Botany.sectionItems(fr, new LinkedHashMap<String, String>()), Botany.sectionItems(fr, back), "move to its own category = no change");
+        eq(CategoryMoves.sectionItems(fr, new LinkedHashMap<String, String>()), CategoryMoves.sectionItems(fr, back), "move to its own category = no change");
         // ---- backup ----
         check(Backup.SETTINGS.contains("catMoves"), "backup knows catMoves");
         Backup.Data bd = Backup.parse("{\"app\":\"Pantry Recipes\",\"format\":2,\"settings\":{\"catMoves\":{\"Tomato\":\"Vegetables\",\"x\":\"Bad\",\"apiKey\":5}}}");

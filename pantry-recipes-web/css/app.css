@@ -560,10 +560,45 @@ select.tin { min-height: 44px; }
 .medwarn { color: var(--amber); background: var(--amber-tint); border: 1px solid var(--amber-line); border-radius: calc(10px * var(--rad, 1)); padding: 8px 10px; margin: 6px 0 8px; }
 .medcard ul { margin: 4px 0 6px; padding-left: 20px; }
 .medcard .medg { margin: 4px 0; }
-/* v2.1: botanical-fruit badge */
-.badge.botbadge { color: var(--green-dark); background: var(--tint); font-size: calc(12px * var(--fs, 1)); letter-spacing: 0; padding: 4px 10px; }
 /* v2.1: expandable Buy these next */
 .bnitem [aria-expanded="true"] > svg.i:last-child { transform: rotate(180deg); }
 .bndetail { padding: 4px 6px 10px 14px; border-left: 3px solid var(--tint); margin: 0 0 6px 6px; }
 .bndetail p { margin: 4px 0; }
 .bndetail .btn { margin-top: 6px; min-height: 48px; }
+/* v2.2: filter rows scroll with touch, mouse wheel (see app.js) and keyboard; a thin scrollbar shows on mouse devices */
+.hscroll { touch-action: pan-x pan-y; overscroll-behavior-x: contain; }
+@media (hover: hover) and (pointer: fine) {
+  .hscroll { scrollbar-width: thin; scrollbar-color: var(--line) transparent; padding-bottom: 6px; }
+  .hscroll::-webkit-scrollbar { display: block; height: 8px; }
+  .hscroll::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+}
+/* v2.2: bigger, clearer theme swatches */
+.tgrid { grid-template-columns: repeat(auto-fill, minmax(136px, 1fr)); gap: 10px; }
+.ttile { min-height: 116px; padding: 10px; gap: 6px; border-width: 2px; }
+.ttile .tcard { align-items: center; gap: 8px; padding: 10px; min-height: 44px; box-shadow: 0 1px 2px rgba(0,0,0,.18); }
+.ttile .tcard b { font-size: calc(16px * var(--fs, 1)); }
+.ttile .tcard i.tbtn { width: 34px; height: 16px; border-radius: calc(8px * var(--rad, 1)); }
+.ttile .tcard i.tdot { width: 14px; height: 14px; border-radius: 50%; }
+.ttile .tname { font-size: calc(13.5px * var(--fs, 1)); }
+.ttile .tmeta { font-size: calc(11.5px * var(--fs, 1)); }
+.ttile:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
+/* v2.2: illustrated cards, licensed photo credit, sources */
+.ill { position: relative; overflow: hidden; padding: 0; }
+.ill > svg.illo, .band.ill > svg.illo { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.band.ill .cap { z-index: 1; }
+.credit { font-size: calc(12px * var(--fs, 1)); margin: 6px 2px 0; }
+.credit a { color: var(--text2, var(--text)); }
+.srcrow { margin: 8px 0 4px; }
+.linkouts .srow, .card > a.srow { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 6px 4px; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line); }
+
+/* v2.3: genuine associated photos only; restrained fallback. */
+.nophoto { background:var(--neutral)!important; color:var(--text)!important; font-size:12px!important; }
+.recipephoto { position:relative; overflow:hidden; background:var(--neutral); }
+.recipephoto .nophoto { position:absolute; top:0; right:0; bottom:0; left:0; display:flex; align-items:center; justify-content:center; }
+.recipephoto img { position:relative; width:100%; height:100%; object-fit:cover; }
+
+/* Every new navigation/substitution target retains a 48px touch area. */
+.hbtns > .pillbtn, .hint button { min-height:48px; min-width:48px; }
+
+.nophoto span { color:var(--text)!important; font-size:12px!important; }
+.top .hbtns .pillbtn, .hint button.link, .hint button.pillbtn { min-height:48px; min-width:48px; }

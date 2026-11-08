@@ -97,6 +97,24 @@
     return neg ? !v : !!v;
   }
   S.computeFlags = computeFlags;
+  S.caution = function (o, dislikes, avoid, diets) {
+    for (var g = 0; g < o.needs.length; g++) for (var j = 0; j < o.needs[g].length; j++) {
+      var k = o.needs[g][j], i;
+      for (i = 0; i < (dislikes || []).length; i++) if (PR.Allergens.dislikes(k, dislikes[i])) return 'Conflicts with your dislikes: ' + dislikes[i];
+      for (i = 0; i < (avoid || []).length; i++) if (PR.Allergens.keyHas(avoid[i], k)) return 'Conflicts with your avoided allergens: ' + PR.Allergens.label(avoid[i]);
+    }
+    for (var d = 0; d < (diets || []).length; d++) {
+      var id = diets[d];
+      if ((id === 'vegan' && !o.vegan) || (id === 'vegetarian' && !o.vegetarian) || (id === 'dairy-free' && !o.dairyFree) || (id === 'gluten-free' && !o.glutenFree)) return 'Not compatible with selected diet: ' + id;
+    }
+    return '';
+  };
+  S.quantityAdvice = function (o, amount, unit) {
+    if (o.ratio === 'to taste') return 'Add gradually to taste; no fixed replacement amount.';
+    var ratio = ratioValue(o.ratio);
+    if (ratio == null || !(amount > 0) || !isFinite(amount) || o.needs.length !== 1 || ['', 'cup', 'cups', 'tbsp', 'tsp', 'ml', 'l'].indexOf(unit || '') < 0) return 'Use the quantities in this option; ratios are by volume or count, not a mass conversion.';
+    return 'Replacement estimate: ' + PR.formatQty(amount * ratio, unit, 1) + ' ' + o.needNames[0].join(' / ') + '. Same-unit estimate; texture and cooking time may change.';
+  };
   S.ratioValue = ratioValue; S.ratioLabel = ratioLabel; S.dietLabels = dietLabels; S.flagsLine = flagsLine;
   S.swapDetail = swapDetail; S.claims = claims; S.claimHolds = claimHolds;
 

@@ -86,11 +86,6 @@ public final class PantryIndex {
         String qk = Normalizer.normalize(query);
         if (q.isEmpty()) return h;
         Set<String> seen = new HashSet<String>();
-        if (q.startsWith("botanic")) { // v2.1: the optional "botanical fruits" filter
-            for (String l : Botany.LABELS) if (seen.add(Normalizer.normalize(l))) { h.labels.add(l); h.keys.add(Normalizer.normalize(l)); }
-            h.exact = true;
-            return h;
-        }
         boolean[] catHit = new boolean[catFolded.length];
         for (int c = 0; c < catFolded.length; c++) catHit[c] = catFolded[c].contains(q);
         for (Item it : items) {

@@ -268,7 +268,7 @@ public final class Substitutions {
         Entry e = forKey(key);
         if (e == null) return Collections.emptyList();
         List<Option> out = new ArrayList<Option>();
-        for (Option o : e.options) if (o.available(m)) out.add(o);
+        for (Option o : e.options) if (o.available(m) && m.optionAllowed(o)) out.add(o);
         return out;
     }
 
@@ -277,8 +277,22 @@ public final class Substitutions {
         if (q.isEmpty()) return entries;
         List<Entry> out = new ArrayList<Entry>();
         String qk = Normalizer.normalize(q);
-        for (Entry e : entries) if (e.searchText().contains(q) || (!qk.isEmpty() && e.keys.contains(qk))) out.add(e);
-        return out;
+        // v2.2: the ingredient itself first. Entries that only mention the query inside an option
+        // ("use chicken thighs instead of pork shoulder") are shown only when nothing matches by name.
+        List<Entry> body = new ArrayList<Entry>();
+        for (Entry e : entries) {
+            if (nameMatches(e, q, qk)) out.add(e);
+            else if (e.searchText().contains(q)) body.add(e);
+        }
+        return out; // v2.3: never return unrelated ingredients because an option mentions the query.
+    }
+
+    /** v2.2: true when the query names this ingredient (name, alias, key or category), not just one of its options. */
+    public static boolean nameMatches(Entry e, String q, String qk) {
+        if (!qk.isEmpty() && e.keys.contains(qk)) return true;
+        if (e.name.toLowerCase(java.util.Locale.ROOT).contains(q) || e.category.toLowerCase(java.util.Locale.ROOT).contains(q)) return true;
+        for (String a : e.aliases) if (a.toLowerCase(java.util.Locale.ROOT).contains(q)) return true;
+        return false;
     }
 
     public int optionCount() {

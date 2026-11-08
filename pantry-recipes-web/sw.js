@@ -6,8 +6,8 @@ var MAX_IMAGES = 300;
 var PRECACHE = [
   './', 'index.html', 'manifest.json',
   'css/app.css',
-  'js/version.js', 'js/core-data.js', 'js/icons.js', 'js/core.js', 'js/core15.js', 'js/core16.js', 'js/data16.js', 'js/core17.js', 'js/data17.js', 'js/import15.js', 'js/data20.js', 'js/helpers20.js', 'js/core20.js', 'js/stage3-data.js', 'js/core30.js', 'js/data201.js', 'js/core201.js', 'js/data21.js', 'js/core21.js', 'js/app.js',
-  'data/recipes-0.json', 'data/recipes-1.json', 'data/recipes-2.json', 'data/recipes-3.json', 'data/recipes-4.json', 'data/substitutions.txt',
+  'js/version.js', 'js/core-data.js', 'js/icons.js', 'js/core.js', 'js/core15.js', 'js/core16.js', 'js/data16.js', 'js/core17.js', 'js/data17.js', 'js/import15.js', 'js/data20.js', 'js/helpers20.js', 'js/core20.js', 'js/stage3-data.js', 'js/core30.js', 'js/data201.js', 'js/core201.js', 'js/core21.js', 'js/data22.js', 'js/core22.js', 'js/app.js',
+  'data/recipes-0.json', 'data/recipes-1.json', 'data/recipes-2.json', 'data/recipes-3.json', 'data/recipes-4.json', 'data/recipes-5.json', 'data/substitutions.txt',
   'icons/apple-touch-icon.png', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/favicon-32.png'
 ];
 self.addEventListener('install', function (e) {

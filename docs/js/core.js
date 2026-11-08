@@ -468,13 +468,20 @@
   Substitutions.prototype.availableFor = function (key, m) {
     var e = this.forKey(key);
     if (e == null) return [];
-    return e.options.filter(function (o) { return optionAvailable(o, m); });
+    return e.options.filter(function (o) { return optionAvailable(o, m) && (!m.swapGuard || m.swapGuard(o)); });
   };
   Substitutions.prototype.search = function (query) {
     var q = query == null ? '' : jtrim(String(query)).toLowerCase();
     if (q === '') return this.entries;
     var qk = normalize(q);
-    return this.entries.filter(function (e) { return entrySearchText(e).indexOf(q) >= 0 || (qk !== '' && e.keys.indexOf(qk) >= 0); });
+    // v2.2: name/alias/key/category matches first; option-text-only matches only when nothing matches by name
+    var out = [], body = [];
+    this.entries.forEach(function (e) {
+      var nm = (qk !== '' && e.keys.indexOf(qk) >= 0) || e.name.toLowerCase().indexOf(q) >= 0 || e.category.toLowerCase().indexOf(q) >= 0 ||
+        e.aliases.some(function (a) { return a.toLowerCase().indexOf(q) >= 0; });
+      if (nm) out.push(e); else if (entrySearchText(e).indexOf(q) >= 0) body.push(e);
+    });
+    return out; // v2.3 ingredient names only
   };
   Substitutions.prototype.optionCount = function () { var n = 0; this.entries.forEach(function (e) { n += e.options.length; }); return n; };
 

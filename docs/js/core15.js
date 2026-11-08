@@ -187,6 +187,8 @@
   function between(a, b) { return (toDays(b) - toDays(a)) | 0; }
   function dayOfWeek(iso) { return (((toDays(iso) + 3) % 7) + 7) % 7; }
   function weekStart(iso) { return addDays(iso, -dayOfWeek(iso)); }
+  /** v2.2: the seven dates starting exactly at start (never re-snapped to Monday). */
+  function days7(start) { var o = []; for (var i = 0; i < 7; i++) o.push(addDays(start, i)); return o; }
   function week(iso) { var s = weekStart(iso), o = []; for (var i = 0; i < 7; i++) o.push(addDays(s, i)); return o; }
   function dateLabel(iso) {
     var p = parts(iso);
@@ -195,7 +197,7 @@
   }
   function today() { var d = new Date(); return pad(d.getFullYear(), 4) + '-' + pad(d.getMonth() + 1, 2) + '-' + pad(d.getDate(), 2); }
   var Dates = { DAY_SHORT: DAY_SHORT, MONTH_SHORT: MONTH_SHORT, valid: valid, toDays: toDays, fromDays: fromDays, addDays: addDays,
-    between: between, dayOfWeek: dayOfWeek, weekStart: weekStart, week: week, label: dateLabel, today: today, LONG_MIN: LONG_MIN };
+    between: between, dayOfWeek: dayOfWeek, weekStart: weekStart, week: week, days7: days7, label: dateLabel, today: today, LONG_MIN: LONG_MIN };
 
   // ======================= UseBy =======================
   var SOON_DAYS = 3, INT_MIN = -2147483648;
@@ -523,47 +525,47 @@
   var AA = 4.5, AA_LARGE = 3.0, MAX_CUSTOM = 12;
   function base(id, name, bg, surface, primary, accent, text, group) { return { id: id, name: name, group: group || '', bg: bg & 0xFFFFFF, surface: surface & 0xFFFFFF, primary: primary & 0xFFFFFF, accent: accent & 0xFFFFFF, text: text & 0xFFFFFF }; }
   function withColors(b, bg, surface, primary, accent, text) { return base(b.id, b.name, bg, surface, primary, accent, text, b.group); }
-  var GROUPS = ['Light', 'Dark', 'Colorful', 'Pastel', 'High contrast', 'Warm', 'Cool', 'Earthy', 'AMOLED black', 'Paper & sepia', 'Editor classics', 'Game day'];
+  var GROUPS = ['Light', 'Dark', 'Colorful', 'Pastel', 'High contrast', 'Warm', 'Cool', 'Earthy', 'AMOLED black', 'Paper & sepia', 'Editor classics', 'Bold bright', 'Bold deep', 'Game day'];
   // first 17 ids are the v1.5 ones (saved choices and backups keep resolving); generated from Palette.java
   var PRESETS = [
     base('light', 'Light', 0xF5F7F2, 0xFFFFFF, 0x2E9E5B, 0xD9822B, 0x1E2A22, 'Light'),
     base('dark', 'Dark', 0x121814, 0x1C2620, 0x5BC98A, 0xF0A35E, 0xE6EEE8, 'Dark'),
-    base('ocean', 'Ocean', 0xEEF5FA, 0xFFFFFF, 0x1F6FB2, 0xE07A3F, 0x13263A, 'Cool'),
+    base('ocean', 'Ocean', 0xCEDFEE, 0xEBF2F8, 0x1F6FB2, 0xE07A3F, 0x13263A, 'Cool'),
     base('midnight', 'Midnight', 0x0E1424, 0x182036, 0x7AA2FF, 0xFFB86B, 0xE4E9F5, 'Dark'),
-    base('sunset', 'Sunset', 0xFFF4EC, 0xFFFFFF, 0xC2492C, 0x7B4FA0, 0x3A1E16, 'Warm'),
-    base('lavender', 'Lavender', 0xF5F1FB, 0xFFFFFF, 0x6A4BB5, 0xD6467A, 0x241B35, 'Pastel'),
-    base('rose', 'Rose', 0xFDF1F4, 0xFFFFFF, 0xB0305A, 0x2F8F83, 0x3A1822, 'Warm'),
+    base('sunset', 'Sunset', 0xF2D7D1, 0xFAEFEC, 0xC2492C, 0x7B4FA0, 0x3A1E16, 'Warm'),
+    base('lavender', 'Lavender', 0xE7E2F3, 0xF8F6FB, 0x6A4BB5, 0xD6467A, 0x241B35, 'Pastel'),
+    base('rose', 'Rose', 0xEED1DB, 0xF8ECF0, 0xB0305A, 0x2F8F83, 0x3A1822, 'Warm'),
     base('espresso', 'Espresso', 0x1B1411, 0x2A201B, 0xD9A066, 0x8FC1A9, 0xF2E8DF, 'Earthy'),
-    base('slate', 'Slate', 0xEEF1F4, 0xFFFFFF, 0x3F5873, 0xC8553D, 0x1D2731, 'Cool'),
+    base('slate', 'Slate', 0xD5DAE0, 0xEEF0F2, 0x3F5873, 0xC8553D, 0x1D2731, 'Cool'),
     base('forest', 'Forest night', 0x0F1C15, 0x17291F, 0x7FD39B, 0xE8C15A, 0xE3F1E7, 'Dark'),
     base('citrus', 'Citrus', 0xFFF3C4, 0xFFFFFF, 0x8A9A10, 0xE2711D, 0x2B2A10, 'Colorful'),
-    base('mint', 'Mint', 0xEFFAF6, 0xFFFFFF, 0x0F8A74, 0xE65A6B, 0x12302A, 'Pastel'),
+    base('mint', 'Mint', 0xD9ECE9, 0xF3F9F8, 0x0F8A74, 0xE65A6B, 0x12302A, 'Pastel'),
     base('plum', 'Plum', 0x1A1020, 0x281A30, 0xD08CE8, 0x7FD1C7, 0xF1E6F5, 'Dark'),
     base('contrast', 'High contrast', 0xFFFFFF, 0xFFFFFF, 0x0B5D1E, 0x9A3412, 0x000000, 'High contrast'),
     base('contrast-dark', 'High contrast dark', 0x000000, 0x0A0A0A, 0x7CFC9A, 0xFFD166, 0xFFFFFF, 'High contrast'),
-    base('terracotta', 'Terracotta', 0xF3E3D3, 0xFFFAF5, 0x8E3B1E, 0x3E7C59, 0x2E1A12, 'Earthy'),
+    base('terracotta', 'Terracotta', 0xE8D8D2, 0xF7F1EF, 0x8E3B1E, 0x3E7C59, 0x2E1A12, 'Earthy'),
     base('arctic', 'Arctic night', 0x2E3440, 0x3B4252, 0x88C0D0, 0xEBCB8B, 0xECEFF4, 'Editor classics'),
-    base('cloud', 'Cloud', 0xF3F5F9, 0xFFFFFF, 0x3D63DD, 0xE8833A, 0x1B2230, 'Light'),
+    base('cloud', 'Cloud', 0xD8E0F8, 0xF1F4FD, 0x3D63DD, 0xE8833A, 0x1B2230, 'Light'),
     base('daylight', 'Daylight', 0xFAFAF7, 0xFFFFFF, 0x3F3FBF, 0xD9534F, 0x1F2526, 'Light'),
-    base('sage', 'Sage leaf', 0xF1F4EE, 0xFBFCF9, 0x5B7F4A, 0xB5654A, 0x232B1F, 'Light'),
-    base('porcelain', 'Porcelain', 0xF6F4F1, 0xFFFFFF, 0x4A5A8C, 0xC07A2C, 0x222326, 'Light'),
+    base('sage', 'Sage leaf', 0xDEE5DB, 0xF4F6F2, 0x5B7F4A, 0xB5654A, 0x232B1F, 'Light'),
+    base('porcelain', 'Porcelain', 0xDBDEE8, 0xF2F3F7, 0x4A5A8C, 0xC07A2C, 0x222326, 'Light'),
     base('graphite', 'Graphite', 0x18191B, 0x232528, 0x8AB4F8, 0xF6AE5B, 0xE8EAED, 'Dark'),
     base('deepsea', 'Deep sea', 0x0B1A22, 0x132833, 0x4FD1C5, 0xFF9F7A, 0xE2F1F4, 'Dark'),
-    base('tropical', 'Tropical', 0xE9FBF6, 0xFFFFFF, 0x00897B, 0xF4511E, 0x0F2E2A, 'Colorful'),
-    base('berrypop', 'Berry pop', 0xFFF0F6, 0xFFFFFF, 0xC2185B, 0x5E35B1, 0x2D0F1E, 'Colorful'),
-    base('lagoon', 'Lagoon', 0xE8F7FF, 0xFFFFFF, 0x0277BD, 0xEF6C00, 0x0B2233, 'Colorful'),
-    base('mango', 'Mango', 0xFFF6E5, 0xFFFFFF, 0xD26E00, 0x2E7D32, 0x2E1E05, 'Colorful'),
-    base('peach', 'Peach blossom', 0xFFF3EE, 0xFFFFFF, 0xD8674A, 0x6B8F71, 0x3A2420, 'Pastel'),
-    base('cottoncandy', 'Cotton candy', 0xFCF1FA, 0xFFFFFF, 0xB4479B, 0x3F8FC4, 0x33182E, 'Pastel'),
-    base('skypastel', 'Sky pastel', 0xEEF6FD, 0xFFFFFF, 0x4C7FC0, 0xE88B9A, 0x1C2838, 'Pastel'),
+    base('tropical', 'Tropical', 0xBDE0DD, 0xDEF0EE, 0x00897B, 0xF4511E, 0x0F2E2A, 'Colorful'),
+    base('berrypop', 'Berry pop', 0xEFC3D4, 0xF7E1EA, 0xC2185B, 0x5E35B1, 0x2D0F1E, 'Colorful'),
+    base('lagoon', 'Lagoon', 0xBDDCEE, 0xDEEDF6, 0x0277BD, 0xEF6C00, 0x0B2233, 'Colorful'),
+    base('mango', 'Mango', 0xF3D9BD, 0xF9ECDE, 0xD26E00, 0x2E7D32, 0x2E1E05, 'Colorful'),
+    base('peach', 'Peach blossom', 0xF9E7E2, 0xFDF7F6, 0xD8674A, 0x6B8F71, 0x3A2420, 'Pastel'),
+    base('cottoncandy', 'Cotton candy', 0xF3E2EF, 0xFBF6FA, 0xB4479B, 0x3F8FC4, 0x33182E, 'Pastel'),
+    base('skypastel', 'Sky pastel', 0xE2EBF5, 0xF6F9FC, 0x4C7FC0, 0xE88B9A, 0x1C2838, 'Pastel'),
     base('contrast-yellow', 'High contrast amber', 0x000000, 0x000000, 0xFFD400, 0x7FDBFF, 0xFFFFFF, 'High contrast'),
-    base('amber', 'Amber glow', 0xFFF7E8, 0xFFFFFF, 0xB45309, 0x0F766E, 0x2B1B07, 'Warm'),
+    base('amber', 'Amber glow', 0xEED9C9, 0xF8F0E9, 0xB45309, 0x0F766E, 0x2B1B07, 'Warm'),
     base('cinnamon', 'Cinnamon', 0x2A1A14, 0x38241C, 0xF0915A, 0xE7C66B, 0xF7E9E1, 'Warm'),
-    base('glacier', 'Glacier', 0xEDF7F9, 0xFFFFFF, 0x167A8F, 0x9A4FC6, 0x102A30, 'Cool'),
+    base('glacier', 'Glacier', 0xCCE2E6, 0xEAF3F5, 0x167A8F, 0x9A4FC6, 0x102A30, 'Cool'),
     base('steel', 'Steel', 0x1C232B, 0x26303A, 0x6CC4E8, 0xFF8F70, 0xE6EDF3, 'Cool'),
     base('moss', 'Moss', 0x1A1F14, 0x252C1D, 0xA8C46A, 0xE0A458, 0xEDF0E4, 'Earthy'),
-    base('clay', 'Clay', 0xF4EBE4, 0xFFFBF7, 0x9C4F35, 0x5A7A4E, 0x2D1E17, 'Earthy'),
-    base('olive', 'Olive grove', 0xF1F0E4, 0xFCFBF3, 0x6B6B1E, 0xA0522D, 0x26261A, 'Earthy'),
+    base('clay', 'Clay', 0xEBDCD7, 0xF8F3F1, 0x9C4F35, 0x5A7A4E, 0x2D1E17, 'Earthy'),
+    base('olive', 'Olive grove', 0xE1E1D2, 0xF5F5EF, 0x6B6B1E, 0xA0522D, 0x26261A, 'Earthy'),
     base('black', 'Pure black', 0x000000, 0x0D0D0D, 0x5EEAD4, 0xFF9E80, 0xF2F2F2, 'AMOLED black'),
     base('black-blue', 'Black sapphire', 0x000000, 0x0B0D12, 0x82AAFF, 0xFFCB6B, 0xEEF1F8, 'AMOLED black'),
     base('black-ember', 'Black ember', 0x000000, 0x100B0A, 0xFF8A65, 0xFFD166, 0xF5ECE8, 'AMOLED black'),
@@ -575,6 +577,31 @@
     base('citrine-dark', 'Citrine dark', 0x002B36, 0x073642, 0x5FB3E8, 0xE3A33B, 0xEEE8D5, 'Editor classics'),
     base('frostbite', 'Frostbite', 0xECEFF4, 0xFFFFFF, 0x4C6A92, 0xBF616A, 0x2E3440, 'Editor classics'),
     base('nightshade', 'Nightshade', 0x22212C, 0x2E2D3D, 0xBD93F9, 0xFF79C6, 0xF8F8F2, 'Editor classics'),
+    // ---- v2.2: bold backgrounds (tools/themes/gen22.py) ----
+    base('bold-saffron', 'Saffron', 0xFFC93C, 0xFFE7A7, 0x2D2A8C, 0xB3261E, 0x141414, 'Bold bright'),
+    base('bold-coral', 'Coral reef', 0xFF8A65, 0xFFCABA, 0x123C69, 0x00695C, 0x141414, 'Bold bright'),
+    base('bold-aqua', 'Aqua splash', 0x4FE3CF, 0xB0F2E9, 0x5B1A8C, 0xB3261E, 0x141414, 'Bold bright'),
+    base('bold-lime', 'Lime zest', 0xC6F432, 0xE5FAA3, 0x5A1E8C, 0x0D47A1, 0x141414, 'Bold bright'),
+    base('bold-bubblegum', 'Bubblegum', 0xFF9BCB, 0xFFD2E8, 0x0B4F6C, 0x5B2C00, 0x141414, 'Bold bright'),
+    base('bold-sky', 'Sky blue', 0x7CC8FF, 0xC4E6FF, 0x8C1D40, 0x4A3B00, 0x141414, 'Bold bright'),
+    base('bold-tangerine', 'Tangerine', 0xFFA53D, 0xFFD6A8, 0x1B3A8C, 0x6A1B5A, 0x141414, 'Bold bright'),
+    base('bold-lilac', 'Lilac', 0xC9A7FF, 0xE7D7FF, 0x1F5130, 0x7A2E00, 0x141414, 'Bold bright'),
+    base('bold-mint', 'Fresh mint', 0x7EF0B0, 0xC5F8DB, 0x6A1B4D, 0x0D3B8C, 0x141414, 'Bold bright'),
+    base('bold-lemon', 'Lemonade', 0xFFF06A, 0xFFF8BC, 0x7A1F3D, 0x0B4F6C, 0x141414, 'Bold bright'),
+    base('bold-peach', 'Peach fizz', 0xFFB38A, 0xFFDDCA, 0x214A6B, 0x5E2A84, 0x141414, 'Bold bright'),
+    base('bold-turquoise', 'Turquoise', 0x3DD6E0, 0xA8EDF1, 0x7A1F1F, 0x3E2A84, 0x141414, 'Bold bright'),
+    base('deep-cobalt', 'Cobalt', 0x163C9E, 0x2D50A8, 0xFFC145, 0x7CF0C8, 0xFFFFFF, 'Bold deep'),
+    base('deep-emerald', 'Emerald', 0x0B5E3C, 0x236E50, 0xFF9E6B, 0xFFE07A, 0xFFFFFF, 'Bold deep'),
+    base('deep-crimson', 'Crimson', 0x8E1B2C, 0x993241, 0x7FE3D0, 0xFFD166, 0xFFFFFF, 'Bold deep'),
+    base('deep-violet', 'Violet', 0x4B1F8C, 0x5D3598, 0xC6F432, 0xFF9BCB, 0xFFFFFF, 'Bold deep'),
+    base('deep-teal', 'Deep teal', 0x07595C, 0x206A6C, 0xFFB4A2, 0xFFE38A, 0xFFFFFF, 'Bold deep'),
+    base('deep-indigo', 'Indigo night', 0x26236B, 0x3C397A, 0xFF8FB1, 0x8EF0E0, 0xFFFFFF, 'Bold deep'),
+    base('deep-burgundy', 'Burgundy', 0x5C1030, 0x6C2845, 0x9BE7FF, 0xF7D774, 0xFFFFFF, 'Bold deep'),
+    base('deep-forest', 'Pine', 0x1F4D2B, 0x355F40, 0xFFB7D5, 0xFFE082, 0xFFFFFF, 'Bold deep'),
+    base('deep-navy', 'Navy', 0x0F2A52, 0x273F63, 0xFF9F43, 0x7FE7FF, 0xFFFFFF, 'Bold deep'),
+    base('deep-plum', 'Plum wine', 0x4E1442, 0x602C55, 0xA8F0B5, 0xFFC48A, 0xFFFFFF, 'Bold deep'),
+    base('deep-rust', 'Rust', 0x7A2E12, 0x87432A, 0x8FD8FF, 0xFFE48A, 0xFFFFFF, 'Bold deep'),
+    base('deep-ocean', 'Ocean deep', 0x053F6E, 0x1E527C, 0xFFD36E, 0xFF9AA8, 0xFFFFFF, 'Bold deep'),
     base('gd-gridiron-gold', 'Gridiron Gold', 0xF7F5EF, 0xFFFFFF, 0x7D6B41, 0x101820, 0x201C11, 'Game day'),
     base('gd-gridiron-gold-dark', 'Gridiron Gold dark', 0x15120B, 0x241F13, 0xB3995D, 0x6A6F74, 0xF7F5EF, 'Game day'),
     base('gd-harbor-orange-and-navy', 'Harbor Orange & Navy', 0xFFEDE8, 0xFFFFFF, 0xC33D10, 0x002244, 0x2D0E04, 'Game day'),
@@ -1091,7 +1118,7 @@
       if (typeof so.get('holBanner') === 'boolean') d.settings.set('holBanner', so.get('holBanner'));
       if (typeof so.get('holNotify') === 'boolean') d.settings.set('holNotify', so.get('holNotify'));
       if (typeof so.get('fastChips') === 'boolean') d.settings.set('fastChips', so.get('fastChips'));
-      if (isMap(so.get('catMoves')) && PR.Botany) d.settings.set('catMoves', PR.Botany.sanitize(so.get('catMoves')));
+      if (isMap(so.get('catMoves')) && PR.CatMoves) d.settings.set('catMoves', PR.CatMoves.sanitize(so.get('catMoves')));
       if (Array.isArray(so.get('medGuides'))) { var gl = []; so.get('medGuides').forEach(function (g) { if (['renal', 'cardiac', 'diabetic'].indexOf(g) >= 0 && gl.indexOf(g) < 0) gl.push(g); }); d.settings.set('medGuides', gl); }
       if (typeof so.get('medSodiumMg') === 'number' && !isNaN(so.get('medSodiumMg'))) d.settings.set('medSodiumMg', Math.max(0, Math.min(20000, Math.round(so.get('medSodiumMg')))));
       if (typeof so.get('medCarbsG') === 'number' && !isNaN(so.get('medCarbsG'))) d.settings.set('medCarbsG', Math.max(0, Math.min(1000, Math.round(so.get('medCarbsG')))));

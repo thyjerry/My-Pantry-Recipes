@@ -20,6 +20,7 @@ import android.widget.TextView;
 import org.pantryrecipes.app.core.Allergens;
 import org.pantryrecipes.app.core.Backup;
 import org.pantryrecipes.app.core.Dates;
+import org.pantryrecipes.app.core.Region;
 import org.pantryrecipes.app.core.MealPlan;
 import org.pantryrecipes.app.core.Matcher;
 import org.pantryrecipes.app.core.Recipe;
@@ -351,7 +352,7 @@ final class Extras {
 
     /** The planner card shown at the top of the Shopping tab. */
     static View plannerCard(final MainActivity a, final Store store, final Repo repo, final Runnable refresh) {
-        final String weekStart = Dates.addDays(Dates.weekStart(Dates.today()), 7 * a.planWeek);
+        final String weekStart = Dates.addDays(Region.weekStart(Dates.today(), V20.weekSunday(a)), 7 * a.planWeek);
         LinearLayout card = Ui.card(a);
         LinearLayout head = Ui.row(a);
         head.addView(Ui.icon(a, R.drawable.ic_calendar, Ui.GREEN, 20));

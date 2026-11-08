@@ -535,39 +535,44 @@
 
 ## Proteins
 * Ground beef | minced beef
-= Same amount of ground turkey, chicken or pork | ground turkey / ground chicken / ground pork | 1:1 | Leaner (poultry) and milder
+= Same amount of ground turkey, chicken or pork | ground turkey / ground chicken / ground pork | 1:1 | Different meat: leaner (poultry) and milder
 = Same amount of plant-based mince | plant based mince | 1:1 | Vegetarian; check label for soy and gluten
 = 1 cup cooked lentils per ½ lb (225 g) in sauces | lentils | 1:1 | Vegan; softer, earthier
 = Finely chopped mushrooms in sauces and tacos | mushroom | 1:1 | Vegan; meaty, more moisture
 * Ground pork
-= Same amount of ground chicken or turkey + a little extra oil | ground chicken / ground turkey | 1:1 | Leaner, milder
+= Same amount of ground chicken or turkey + a little extra oil | ground chicken / ground turkey | 1:1 | Different meat: leaner, milder
 = Same amount of sausage meat, removed from casings | sausage / italian sausage | 1:1 | Pre-seasoned; reduce salt
 * Ground turkey
 = Same amount of ground chicken | ground chicken | 1:1 | Same
-= Same amount of lean ground beef | ground beef | 1:1 | Richer, beefier
+= Same amount of lean ground beef | ground beef | 1:1 | Different meat: richer, beefier
 * Ground lamb
-= Same amount of ground beef + a pinch of cumin | ground beef | 1:1 | Less gamey
+= Same amount of ground beef + a pinch of cumin | ground beef | 1:1 | Different meat: less gamey
 * Chicken breast
 = Same amount of boneless chicken thighs (cook a few minutes longer) | chicken thighs | 1:1 | Juicier, richer
 = Same amount of turkey breast | turkey | 1:1 | Same; leaner
 = Extra-firm tofu or tempeh (vegetarian) | tofu / tempeh | 1:1 | Vegan; press tofu first; contains soy
-* Chicken thighs
-= Same amount of chicken breast (cook a few minutes less) | chicken breast | 1:1 | Leaner; dries out sooner
-= Chicken drumsticks, bone-in (cook longer) | chicken drumsticks | 1:1 | Needs 10 to 15 minutes longer
+* Chicken thighs | chicken thigh
+= Same amount of chicken breast (cook a few minutes less) | chicken breast | 1:1 | Leaner; dries out sooner, so check it 3 to 5 minutes early
+= Chicken drumsticks, bone-in (cook longer) | chicken drumsticks | 1:1 | Same dark meat; bone-in needs 10 to 15 minutes longer
+= Same weight of turkey thighs, boneless | turkey thighs / turkey | 1:1 | Same kind of dark meat, a little firmer; thick pieces need about 10 minutes longer
+= Chicken legs (thigh and drumstick), bone-in | chicken legs | 1:1 | Same dark meat with more skin and fat; 15 to 20 minutes longer
+~ Thighs have more fat than breast, so they stay juicy. With breast, cook less and take it off at 74 °C (165 °F).
 * Chicken
 = Rotisserie chicken, shredded (add at the end) | rotisserie chicken | 1:1 | Faster; already seasoned
 = Same amount of turkey | turkey | 1:1 | Same
 * Steak | sirloin, ribeye
-= Same weight of pork chops or lamb chops | pork chop / lamb chops | 1:1 | Cook pork through to 63 °C
+= Same weight of pork chops or lamb chops | pork chop / lamb chops | 1:1 | Different meat: cook pork through to 63 °C
 = Thick slices of portobello mushroom (vegetarian) | portobello mushrooms | 1:1 | Vegan; much quicker to cook
 * Beef roast | chuck roast
 = Same weight of beef short ribs or brisket | short rib / brisket | 1:1 | Richer; similar slow-cook time
-= Same weight of pork shoulder | pork shoulder | 1:1 | Milder, similar braising time
+= Same weight of pork shoulder | pork shoulder | 1:1 | Different meat: milder, similar braising time
 * Pork shoulder
-= Same weight of boneless chicken thighs (shorter cooking) | chicken thighs | 1:1 | Cooks in about a third of the time
-= Same weight of beef chuck | beef | 1:1 | Beefier
+= Same weight of pork belly or bone-in pork butt | pork belly / pork butt | 1:1 | Same meat; belly is fattier, butt cooks the same way
+= Same weight of boneless chicken thighs (shorter cooking) | chicken thighs | 1:1 | Different meat: cooks in about a third of the time
+= Same weight of beef chuck | beef | 1:1 | Different meat: beefier
 * Pork chop | pork chops
-= Same weight of boneless chicken thighs | chicken thighs | 1:1 | Similar cook time
+= Same weight of pork tenderloin, cut into thick medallions | pork tenderloin | 1:1 | Same meat; leaner, so cook it 2 to 3 minutes less
+= Same weight of boneless chicken thighs | chicken thighs | 1:1 | Different meat: similar cook time
 * Lamb shoulder
 = Same weight of beef chuck or goat | beef / goat | 1:1 | Milder (beef) or gamier (goat)
 * Sausage | sausages, italian sausage
@@ -584,7 +589,7 @@
 * Prosciutto
 = Same amount of thin ham or serrano ham | ham | 1:1 | Milder
 * Ham
-= Same amount of smoked turkey | turkey | 1:1 | Leaner
+= Same amount of smoked turkey | turkey | 1:1 | Different meat: leaner
 = Same amount of Canadian bacon | canadian bacon | 1:1 | Same
 * Chorizo
 = Smoked sausage + 1 tsp smoked paprika | smoked sausage + smoked paprika | 1:1 | Milder, less red oil
@@ -594,7 +599,7 @@
 = Squid rings | squid | 1:1 | Chewier; cook very fast or very slow
 * White fish | cod, haddock
 = Same amount of salmon or trout | salmon / trout | 1:1 | Richer, oilier
-= Shrimp | shrimp | 1:1 | Shellfish allergen
+= Shrimp | shrimp | 1:1 | Different protein: shellfish allergen
 * Salmon
 = Same amount of trout | trout | 1:1 | Milder, thinner; cook less
 = Firm white fish | white fish | 1:1 | Leaner, flakier
@@ -606,7 +611,7 @@
 = Miso, ½ tsp per fillet (vegan) | miso | 1:1 | Vegan; less salty-sea
 * Crab | crab meat
 = Same amount of cooked shrimp, chopped | shrimp | 1:1 | Firmer, sweeter
-= Same amount of flaked white fish | white fish | 1:1 | Milder; no shellfish
+= Same amount of flaked white fish | white fish | 1:1 | Different protein: milder; no shellfish
 * Scallop | scallops
 = Same weight of large shrimp | shrimp | 1:1 | Firmer
 = Thick rounds of king oyster mushroom stems, seared (vegan) | oyster mushroom | 1:1 | Vegan; similar look

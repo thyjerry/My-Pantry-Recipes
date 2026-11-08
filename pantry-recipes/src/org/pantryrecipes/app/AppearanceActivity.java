@@ -160,7 +160,37 @@ public class AppearanceActivity extends Activity {
     void showList() {
         editing = false;
         LinearLayout c = frame("Appearance");
-        c.addView(Ui.sectionLabel(this, "Mode"), Ui.lpMargins(this, MATCH, WRAP, 4, 8, 0, 8));
+        // v2.2: live preview of the theme in use, then the big gallery, then fine-tuning
+        c.addView(Ui.sectionLabel(this, "Live preview"), Ui.lpMargins(this, MATCH, WRAP, 4, 8, 0, 8));
+        LinearLayout live = Ui.column(this);
+        renderPreview(live, state.resolve(Ui.systemDark(this)), null);
+        live.setContentDescription("Preview of the theme in use");
+        c.addView(live, Ui.lp(MATCH, WRAP));
+        c.addView(Ui.caption(this, "Tap a theme below: the app and this preview change at once."), Ui.lpMargins(this, MATCH, WRAP, 4, 6, 4, 0));
+        // v2.0: group chips; only the chosen group's swatches are built (keeps the Fire HD 8 fast with 130 presets)
+        final String cur = state.active;
+        if (shownGroup == null) { Palette.Base pb = null; for (Palette.Base b : Palette.PRESETS) if (b.id.equals(cur)) pb = b; shownGroup = pb != null ? pb.group : Palette.GROUPS.get(0); }
+        c.addView(Ui.sectionLabel(this, "Themes \u00b7 " + Palette.PRESETS.size()), Ui.lpMargins(this, MATCH, WRAP, 4, 20, 0, 8));
+        final FlowLayout gchips = new FlowLayout(this, dp(8), dp(8));
+        final LinearLayout gbox = Ui.column(this);
+        final Runnable[] fill = new Runnable[1];
+        fill[0] = () -> {
+            gchips.removeAllViews();
+            for (final String g : Palette.GROUPS) {
+                List<Palette.Base> items = Palette.inGroup(g);
+                if (items.isEmpty()) continue;
+                TextView ch = Ui.chip(this, g + "  " + items.size(), g.equals(shownGroup));
+                ch.setOnClickListener(v -> { shownGroup = g; fill[0].run(); });
+                gchips.addView(ch);
+            }
+            gbox.removeAllViews();
+            gbox.addView(grid(Palette.inGroup(shownGroup), cur), Ui.lp(MATCH, WRAP));
+        };
+        fill[0].run();
+        c.addView(gchips, Ui.lp(MATCH, WRAP));
+        c.addView(gbox, Ui.lpMargins(this, MATCH, WRAP, 0, 10, 0, 0));
+
+        c.addView(Ui.sectionLabel(this, "Mode"), Ui.lpMargins(this, MATCH, WRAP, 4, 20, 0, 8));
         FlowLayout modes = new FlowLayout(this, dp(8), dp(8));
         String[][] m = {{Palette.SYSTEM, "Follow system"}, {Palette.LIGHT, "Light"}, {Palette.DARK, "Dark"}};
         for (String[] x : m) {
@@ -220,29 +250,6 @@ public class AppearanceActivity extends Activity {
         acc.addView(accentDot(-1));
         for (int a : Palette.QUICK_ACCENTS) acc.addView(accentDot(a));
         c.addView(acc, Ui.lp(MATCH, WRAP));
-
-        // v2.0: group chips; only the chosen group's swatches are built (keeps the Fire HD 8 fast with 130 presets)
-        final String cur = state.active;
-        if (shownGroup == null) { Palette.Base pb = null; for (Palette.Base b : Palette.PRESETS) if (b.id.equals(cur)) pb = b; shownGroup = pb != null ? pb.group : Palette.GROUPS.get(0); }
-        c.addView(Ui.sectionLabel(this, "Themes \u00b7 " + Palette.PRESETS.size()), Ui.lpMargins(this, MATCH, WRAP, 4, 20, 0, 8));
-        final FlowLayout gchips = new FlowLayout(this, dp(8), dp(8));
-        final LinearLayout gbox = Ui.column(this);
-        final Runnable[] fill = new Runnable[1];
-        fill[0] = () -> {
-            gchips.removeAllViews();
-            for (final String g : Palette.GROUPS) {
-                List<Palette.Base> items = Palette.inGroup(g);
-                if (items.isEmpty()) continue;
-                TextView ch = Ui.chip(this, g + "  " + items.size(), g.equals(shownGroup));
-                ch.setOnClickListener(v -> { shownGroup = g; fill[0].run(); });
-                gchips.addView(ch);
-            }
-            gbox.removeAllViews();
-            gbox.addView(grid(Palette.inGroup(shownGroup), cur), Ui.lp(MATCH, WRAP));
-        };
-        fill[0].run();
-        c.addView(gchips, Ui.lp(MATCH, WRAP));
-        c.addView(gbox, Ui.lpMargins(this, MATCH, WRAP, 0, 10, 0, 0));
 
         c.addView(Ui.sectionLabel(this, "Your themes"), Ui.lpMargins(this, MATCH, WRAP, 4, 20, 0, 8));
         if (state.custom.isEmpty()) {
@@ -306,7 +313,7 @@ public class AppearanceActivity extends Activity {
     /** Swatch tiles, 3 per row (2 on very narrow screens). */
     View grid(List<Palette.Base> items, String cur) {
         LinearLayout col = Ui.column(this);
-        int cols = getResources().getConfiguration().screenWidthDp >= 360 ? 3 : 2;
+        int cols = getResources().getConfiguration().screenWidthDp >= 400 ? 3 : 2;
         if (getResources().getConfiguration().screenWidthDp >= 600) cols = 4;
         LinearLayout row = null;
         for (int k = 0; k < items.size(); k++) {
@@ -340,7 +347,7 @@ public class AppearanceActivity extends Activity {
         LinearLayout card = Ui.column(this);
         card.setBackground(Ui.rounded(Ui.opaque(b.surface), dp(6)));
         card.setPadding(dp(6), dp(4), dp(6), dp(5));
-        card.addView(Ui.text(this, "Aa", 13, Ui.opaque(b.text), Ui.MEDIUM));
+        card.addView(Ui.text(this, "Aa", 16, Ui.opaque(b.text), Ui.MEDIUM));
         LinearLayout dots = Ui.row(this);
         View p1 = new View(this); p1.setBackground(Ui.rounded(Ui.opaque(b.primary), dp(3)));
         View p2 = new View(this); p2.setBackground(Ui.circle(Ui.opaque(b.accent)));
@@ -360,12 +367,15 @@ public class AppearanceActivity extends Activity {
             kl.topMargin = dp(5); kl.rightMargin = dp(5);
             prev.addView(ck, kl);
         }
-        t.addView(prev, new LinearLayout.LayoutParams(MATCH, dp(60)));
+        t.addView(prev, new LinearLayout.LayoutParams(MATCH, dp(84)));
         TextView name = Ui.text(this, b.name, 13, Ui.TEXT, sel ? Ui.MEDIUM : Ui.REGULAR);
         name.setMaxLines(2);
         name.setEllipsize(android.text.TextUtils.TruncateAt.END);
         t.addView(name, Ui.lpMargins(this, MATCH, WRAP, 2, 6, 2, 0));
-        t.setContentDescription(b.name + " theme" + (sel ? ", in use" : ""));
+        Palette.Colors dc = Palette.derive(b);
+        String meta = (dc.dark ? "Dark" : "Light") + " \u00b7 " + Palette.ratio(Palette.contrast(dc.text, dc.surface)) + ":1";
+        t.addView(Ui.text(this, meta, 12, Ui.TEXT2, Ui.REGULAR), Ui.lpMargins(this, MATCH, WRAP, 2, 0, 2, 0));
+        t.setContentDescription(b.name + " theme, " + (dc.dark ? "dark" : "light") + ", text contrast " + Palette.ratio(Palette.contrast(dc.text, dc.surface)) + " to 1" + (sel ? ", in use" : ""));
         t.setOnClickListener(v -> { if (!state.active.equals(b.id)) use(b.id); });
         return t;
     }
@@ -618,7 +628,11 @@ public class AppearanceActivity extends Activity {
     }
 
     void drawPreview() {
-        Palette.Base b = editBase(nameIn == null ? "" : nameIn.getText().toString());
+        renderPreview(preview, editBase(nameIn == null ? "" : nameIn.getText().toString()), report);
+    }
+
+    /** v2.2: one preview renderer for the editor and the live preview at the top of the theme list. */
+    void renderPreview(LinearLayout preview, Palette.Base b, TextView report) {
         Palette.Colors d = Palette.derive(b);
         preview.removeAllViews();
         int bg = Ui.opaque(d.bg), sf = Ui.opaque(d.surface);
@@ -675,6 +689,6 @@ public class AppearanceActivity extends Activity {
           .append(":1 \u00b7 buttons ").append(Palette.ratio(Palette.contrast(d.onFill, d.fill)))
           .append(":1 \u00b7 links ").append(Palette.ratio(Palette.contrast(d.primaryText, d.surface))).append(":1 (AA needs 4.5)");
         for (String w : Palette.warnings(b)) sb.append("\n\u26a0 ").append(w);
-        report.setText(sb.toString());
+        if (report != null) report.setText(sb.toString());
     }
 }

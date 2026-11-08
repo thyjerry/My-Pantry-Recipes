@@ -350,7 +350,7 @@ public final class Backup {
             }
             if ((v = st.get("medSodiumMg")) instanceof Number && !Double.isNaN(((Number) v).doubleValue())) d.settings.put("medSodiumMg", MedGuides.clampSodium(Math.round(((Number) v).doubleValue())));
             if ((v = st.get("medCarbsG")) instanceof Number && !Double.isNaN(((Number) v).doubleValue())) d.settings.put("medCarbsG", MedGuides.clampCarbs(Math.round(((Number) v).doubleValue())));
-            if ((v = st.get("catMoves")) instanceof Map) d.settings.put("catMoves", new java.util.LinkedHashMap<String, Object>(Botany.sanitize((Map<?, ?>) v)));
+            if ((v = st.get("catMoves")) instanceof Map) d.settings.put("catMoves", new java.util.LinkedHashMap<String, Object>(CategoryMoves.sanitize((Map<?, ?>) v)));
             if ((v = st.get("starter")) instanceof List) d.settings.put("starter", logList(v, new String[]{"d", "m", "ratio", "r"}, 60));
             if ((v = st.get("bakeLog")) instanceof List) d.settings.put("bakeLog", logList(v, new String[]{"d", "what", "note", "stars"}, 300));
             if ((v = st.get("methods")) instanceof List) {

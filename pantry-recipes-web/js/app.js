@@ -144,6 +144,18 @@
   })();
 
   /** Recipe photos: downscaled JPEG data URLs in IndexedDB (database "pantry-recipes-photos"); in memory only if IndexedDB is unavailable. */
+  // v2.2: free-licensed photos the user chose (Openverse); only the choice (URL + credit) is stored, the browser caches the image
+  var LicPhotos = {
+    all: function () { return Store.get('v22photos', {}) || {}; },
+    get: function (id) { return PR.Sources.decodePhoto(LicPhotos.all()[id]); },
+    set: function (id, p, idx) { var m = LicPhotos.all(); if (p) m[id] = PR.Sources.encodePhoto(p); else delete m[id]; Store.set('v22photos', m); var ix = Store.get('v22pidx', {}) || {}; if (p) ix[id] = idx; else delete ix[id]; Store.set('v22pidx', ix); },
+    idx: function (id) { return (Store.get('v22pidx', {}) || {})[id] || 0; }
+  };
+  /** Asks once per kind before the first online lookup. */
+  function netConsent(kind, text, go) {
+    if (pref('ok:' + kind, false)) { go(); return; }
+    confirmBox('Look online?', text + ' Only this search is sent. No account, no tracking.', 'Continue', function () { setPref('ok:' + kind, true); go(); });
+  }
   var Photos = (function () {
     var db = null, mem = new Map(), mode = 'memory';
     function open() {
@@ -214,7 +226,7 @@
   var openCats = new Set(Store.get('openCats', ['0']));
   var prefs = Store.get('prefs', {});
   function pref(k, def) { return prefs[k] === undefined ? def : prefs[k]; }
-  function setPref(k, v) { prefs[k] = v; Store.set('prefs', prefs); }
+  function setPref(k, v) { prefs[k] = v; Store.set('prefs', prefs); if (k === 'weekStart' && ui && ui.planS) ui.planS.week = wkStart(D.today()); } // v2.2: re-snap the plan week when the week start changes
   // v1.8: the in-recipe units toggle is remembered across reloads; changing the units setting clears it
   function setDetailUnits(v) { ui.detailUnits = v || null; setPref('detailUnits', v || ''); }
   var version = 0; // bumps whenever pantry, substitutions, recipes or dislikes change
@@ -394,6 +406,7 @@
   function matcher() {
     if (memo.v !== version || !memo.m) {
       memo.m = new PR.Matcher(pantryKeys(false), pantryKeys(true)).withSubstitutions(subs, Array.from(accepted));
+      memo.m.swapGuard = function (o) { return !swapCaution(o); };
       memo.v = version; memo.all = null;
     }
     return memo.m;
@@ -577,10 +590,14 @@
     var h = function (x) { return ('0' + Math.round(x).toString(16)).slice(-2); };
     return '#' + h(r + (r2 - r) * t) + h(g + (g2 - g) * t) + h(bl + (b2 - bl) * t);
   }
+  document.addEventListener('error', function (e) {
+    var el = e.target;
+    if (el && el.tagName === 'IMG' && el.parentNode && /recipephoto|band/.test(el.parentNode.className)) el.style.display = 'none';
+  }, true);
   function thumb(r, cls) {
-    var c = catColor(r.category);
-    // v1.8: a flat letter tile; no photos in lists (a recipe's own page still shows its photo)
-    return '<div class="' + cls + '" style="background:' + c + '"><span aria-hidden="true">' + esc(r.title.charAt(0)) + '</span></div>';
+    var image = r.image && /^https:\/\/www\.themealdb\.com\/images\/media\/meals\//.test(r.image) ? r.image : '';
+    if (image && onlineEnabled()) return '<div class="' + cls + ' recipephoto"><span class="nophoto">No photo</span><img alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" src="' + esc(image + '/preview') + '"></div>';
+    return '<div class="' + cls + ' nophoto"><span>No photo</span></div>';
   }
   function bar(res) {
     var pct = res.total ? Math.round(100 * res.have / res.total) : 0;
@@ -674,9 +691,8 @@
     document.body.innerHTML =
       '<div class="app" id="app">' +
       '<header class="top brandbar"><span class="hsp" aria-hidden="true"></span><div class="brand">' + (window.PR_LOGO || ic('leaf')) +
-      '<h1>My Pantry Recipes <button class="ver" data-a="about" aria-label="Version ' + esc(VERSION) + ', open About">' + esc(SHORT_VERSION) + '</button></h1><div class="sub vh" id="subtitle"></div></div>' +
-      '<span class="hbtns"><button class="iconbtn" data-a="subs" aria-label="Substitutions" title="Substitutions">' + ic('swap') + '</button>' +
-      '<button class="iconbtn" data-a="about" aria-label="Settings and about" title="Settings &amp; about">' + ic('info') + '</button></span></header>' +
+      '<h1>My Pantry Recipes <span class="ver" aria-label="Version ' + esc(VERSION) + '">' + esc(SHORT_VERSION) + '</span></h1><div class="sub vh" id="subtitle"></div></div>' +
+      '<span class="hbtns"><button class="pillbtn" data-a="about" aria-label="Settings">Settings</button></span></header>' +
       '<nav class="tabs seg" id="tabs" aria-label="Sections"></nav>' +
       '<main class="main" id="main"></main></div>';
   }
@@ -934,8 +950,7 @@
             keys.add(k); out.push(label);
             if (label.toLowerCase() === q || k === qk) exact = true;
           };
-          if (PR.Botany.isQuery(q)) { PR.Botany.LABELS.forEach(push); exact = true; } // v2.1: the optional botanical-fruit filter
-          else C.ITEMS.forEach(function (items, ci) {
+          C.ITEMS.forEach(function (items, ci) {
             var catHit = C.CATEGORIES[ci].toLowerCase().indexOf(q) >= 0, subHit = false;
             items.forEach(function (s) {
               if (C.isHeader(s)) { subHit = s.substring(1).toLowerCase().indexOf(q) >= 0; return; }
@@ -955,7 +970,7 @@
         if (recents.length) h2 += '<div class="subh">Recently used</div><div class="chips" id="recentChips">' + recents.map(function (l) { return itemChip(have, l); }).join('') + '</div><div style="height:10px"></div>';
         var mv = catMoves();
         h2 += C.CATEGORIES.map(function (name, ci) {
-          var items = mv.size ? PR.Botany.sectionItems(ci, mv) : C.ITEMS[ci], total = 0, n = 0;
+          var items = mv.size ? PR.CatMoves.sectionItems(ci, mv) : C.ITEMS[ci], total = 0, n = 0;
           items.forEach(function (s) { if (!C.isHeader(s)) { total++; if (have.has(PR.normalize(s))) n++; } });
           var open = openCats.has(String(ci)), body = '';
           if (open) {
@@ -964,7 +979,7 @@
               if (C.isHeader(s)) { cur = { h: s.substring(1), items: [] }; groups.push(cur); }
               else { if (!cur) { cur = { h: '', items: [] }; groups.push(cur); } cur.items.push(s); }
             });
-            body = '<div class="body">' + (ci <= 1 ? '<div class="chips"><button class="chip" data-a="botFilter" aria-label="Show ingredients that are botanically fruits">\ud83c\udf45 Botanical fruits</button></div>' : '') + groups.map(function (g) {
+            body = '<div class="body">' + groups.map(function (g) {
               return (g.h ? '<div class="subh">' + esc(g.h) + '</div>' : '') + '<div class="chips">' + g.items.map(function (l) { return itemChip(have, l); }).join('') + '</div>';
             }).join('') + '</div>';
           }
@@ -1046,7 +1061,8 @@
     var pool = items.filter(function (r) { return r.missing.length === 0 && r.haveNonStaple > 0; });
     if (!pool.length) pool = items.filter(function (r) { return r.missing.length <= 2 && r.haveNonStaple > 0; });
     if (!pool.length) pool = items.filter(function (r) { return r.haveNonStaple > 0; });
-    if (!pool.length) { toast('Add some ingredients to your pantry first'); return; }
+    if (!pool.length) pool = items.slice(); // v2.2: empty pantry -> any recipe that passes the filters
+    if (!pool.length) { toast('No recipes pass your filters'); return; }
     if (pool.length > 1 && avoid) pool = pool.filter(function (r) { return r.recipe.id !== avoid; });
     openDetail(pool[Math.floor(Math.random() * pool.length)].recipe.id);
   }
@@ -1128,12 +1144,20 @@
     else h += '<div class="car">' + items.map(recipeCard).join('') + '</div>';
     return h + '</div>';
   }
+  // v2.2: seeded daily variety. Same picks all day, new ones at midnight; Shuffle bumps the salt.
+  var shuffleN = 0;
+  function pickSeed() { return PR.Variety.todaySeed('picks' + (shuffleN ? '#' + shuffleN : '')); }
+  function dayCuisines() { return PR.Variety.rotatingCuisines(matchFiltered(), PR.Variety.todaySeed('cuisines' + (shuffleN ? '#' + shuffleN : '')), 2, 8); }
+  function czList(k) { var c = dayCuisines()[k]; return c ? PR.Variety.shuffle(PR.Variety.inCuisine(matchFiltered(), c).sort(function (a, b) { return a.recipe.id < b.recipe.id ? -1 : 1; }), pickSeed()) : []; }
   var SEE_ALL = {
     'new': { t: 'New for you', f: function () { return PR.newForYou(matchFiltered(), seen, 1000); } },
     quick: { t: 'Quick (under 30 min)', f: function () { return PR.quick(matchFiltered(), 1000); } },
     almost: { t: 'Almost there', f: function () { return PR.almostThere(matchFiltered(), 1000); } },
     favs: { t: 'Based on your favorites', f: function () { return likeFavorites(60); } },
-    useup: { t: 'Use it up', f: function () { return PR.UseBy.useItUp(matchAll(), soonMatcher().keys, 1000); } }
+    useup: { t: 'Use it up', f: function () { return PR.UseBy.useItUp(matchAll(), soonMatcher().keys, 1000); } },
+    today: { t: 'Today\u2019s picks', f: function () { return PR.Variety.picks(matchFiltered(), pickSeed(), 1000); } },
+    cz0: { t: 'Cuisine of the day', f: function () { return czList(0); } },
+    cz1: { t: 'Cuisine of the day', f: function () { return czList(1); } }
   };
   /** Results for "Buy these next" (Discover): Discover's meal-type filter only (v2.0.1: no Recipes diet filter); avoided recipes are already out of allRecipes(), substitutes are in the matcher. */
   function buyNextResults() { return matchAll().filter(function (x) { return dMealPasses(x.recipe); }); }
@@ -1205,16 +1229,21 @@
       body: function () {
         if (!loaded) return '<div class="loading"><span class="spin"></span> Loading recipes\u2026</div>';
         var results = matchFiltered(), all = allRecipes(), pantryEmpty = matcher().pantryEmpty();
-        var h = '<div class="row wrapbtns"><button class="btn" data-a="random">' + ic('shuffle', 's') + 'Random recipe</button><button class="btn ghost" data-a="surpriseP">' + ic('kitchen', 's') + 'Surprise me from my pantry</button></div>';
+        var h = '<div class="row wrapbtns"><button class="btn" data-a="surpriseAny" aria-label="Surprise me: a random recipe that passes your meal filters">' + ic('shuffle', 's') + 'Surprise me</button><button class="btn alt" data-a="tryNew" aria-label="Try something new: an unopened recipe from a cuisine you rarely open">' + ic('explore', 's') + 'Try something new</button><button class="btn ghost" data-a="surpriseP">' + ic('kitchen', 's') + 'Surprise me from my pantry</button>' +
+          (onlineEnabled() ? '<button class="btn ghost" data-a="random">' + ic('cloud', 's') + 'Random online recipe</button>' : '') + '</div>';
         if (!onlineEnabled() || !isOnline()) h += '<div class="faint note">' + ic('cloud_off', 'xs') + ' ' + (onlineEnabled() ? 'Offline \u2013 showing built-in and saved recipes' : 'Online recipes are off (see About)') + '</div>';
         else if (net.fetching) h += '<div class="faint note"><span class="spin s"></span> Finding online recipes for your pantry\u2026</div>';
         if (soonMatcher().keys.length) h += carousel('Use it up', 'Recipes with pantry items that need using soon', PR.UseBy.useItUp(results, soonMatcher().keys, 12), 'useup', 'No recipes use your soon-to-expire items yet.');
+        h += '<div class="dsec"><div class="dhead"><div class="grow"><h3>Today\u2019s picks</h3><div class="muted">A fresh mix every day' + (shuffleN ? ' (shuffled)' : '') + '</div></div><button class="link" data-a="shufflePicks" aria-label="Shuffle today\u2019s picks">' + ic('shuffle', 'xs') + ' Shuffle</button>' +
+          '<button class="link" data-a="seeAll" data-k="today">See all</button></div>' + (results.length ? '<div class="car">' + PR.Variety.picks(results, pickSeed(), 12).map(recipeCard).join('') + '</div>' : '<div class="faint pad">No recipes pass your meal filters.</div>') + '</div>';
         h += buyNextCard(buyNextResults(), pantryEmpty);
+        dayCuisines().forEach(function (c, k) { h += carousel('Cuisine of the day: ' + c, 'Rotates daily', czList(k).slice(0, 12), 'cz' + k, ''); });
         h += carousel('New for you', "Recipes you haven't opened yet, best match first", PR.newForYou(results, seen, 12), 'new', "You've opened every recipe! Browse a cuisine below to load more from TheMealDB.");
         h += carousel('Quick (under 30 min)', 'Ready in half an hour or less', PR.quick(results, 12), 'quick', 'No quick recipes yet.');
         h += carousel('Almost there', 'Missing just 1\u20132 ingredients', PR.almostThere(results, 12), 'almost', pantryEmpty ? 'Add ingredients to your pantry to see recipes you\'re one or two items away from.' : 'Nothing is one or two ingredients away. Add a few more pantry items.');
         h += carousel('Based on your favorites', 'Similar ingredients, cuisine or course', likeFavorites(12), 'favs', 'Tap the heart on recipes you like and similar ones show up here.');
         h += browseCards(all);
+        h += '<div class="card"><h2>More recipe sources</h2><div class="muted">Open a recipe and tap \u201cFind it elsewhere\u201d to search Wikibooks, BBC Good Food, Serious Eats, Chefkoch, Marmiton and more, or browse classic public-domain cookbooks.</div><button class="btn ghost" style="margin-top:8px" data-a="sourcesInfo">' + ic('list', 's') + 'Cookbooks and sources</button></div>';
         var seenN = all.filter(function (r) { return seen.has(r.id); }).length;
         h += '<div class="row foot"><span class="grow muted">You\'ve opened ' + seenN + ' of ' + all.length + ' recipes</span>' + (seenN > 0 ? '<button class="link" data-a="resetSeen">Reset</button>' : '') + '</div>';
         return h;
@@ -1309,7 +1338,7 @@
         var done = shopping.filter(function (s) { return s.checked; });
         if (!shopping.length) return emptyBox('cart', 'Your list is empty', 'Open a recipe and tap \u201cAdd missing to list\u201d, or type an item above.');
         var coll = pref('shopCollapsed', []) || [];
-        var h = '<div class="row wrapbtns shopbar"><span class="grow muted">' + open.length + ' to buy \u00b7 grouped by aisle</span><button class="btn alt small" data-a="shopShare">' + ic('share', 's') + 'Share</button></div>';
+        var h = '<div class="row wrapbtns shopbar"><span class="grow muted">' + open.length + ' to buy \u00b7 grouped by aisle</span><button class="btn alt small" data-a="shopSelAll" aria-label="Select all: check every item">Select all</button><button class="btn alt small" data-a="shopSelNone" aria-label="Select none: uncheck every item">Select none</button><button class="btn alt small" data-a="shopShare">' + ic('share', 's') + 'Share</button></div>';
         if (pref('shopCost', false) && open.length) {
           var t = PR.Cost.shopping(shopRowsData(open), prices, priceDefaults(), FOODS);
           h += '<div class="card est"><div class="row"><b class="grow">' + (t[1] ? 'About ' + esc(money(t[0])) : 'No prices yet') + '</b><span class="ebadge">Estimate \u00b7 ' + t[1] + ' of ' + t[2] + ' priced</span></div><div class="faint">' + esc(PR.Cost.NOTE) + '</div><button class="link" data-a="prices" style="margin-top:6px">' + ic('list', 'xs') + ' Edit prices</button></div>';
@@ -1380,27 +1409,32 @@
     if (warn) h += '<div class="iwarn">' + ic('warning', 'xs') + 'On your dislikes/allergies list (matched by name)</div>';
     var ac = amt && amt.get(i);
     if (ac) h += '<div class="amt ' + ac.status + '">' + (ac.status === 'enough' ? ic('check', 'xs') : ac.status === 'short' ? ic('warning', 'xs') : ic('kitchen', 'xs')) + esc(PR.Amounts.label(ac)) + '</div>';
-    var entry = (!missing && !subbed) ? null : subs.forKey(i.key);
+    var entry = subs.forKey(i.key);
     if (entry) {
-      var avail = subs.availableFor(i.key, m);
+      var avail = subs.availableFor(i.key, m).filter(function (o) { return !swapCaution(o); });
       h += '<div class="hint">';
       if (avail.length) {
         var o = avail[0];
-        h += '<button class="link grow left" data-a="subDlg" data-key="' + esc(i.key) + '">' + (subbed ? 'Using ' : 'You could use ') + esc(PR.usesLabel(o, m)) + ': ' + esc(o.text) + '</button>' +
+        h += '<button class="link grow left" data-a="subDlg" data-key="' + esc(i.key) + '" data-selected="' + esc(q + ' ' + i.name) + '" data-amount="' + (i.amount * scale) + '" data-unit="' + esc(i.unit || '') + '">' + (subbed ? 'Using ' : 'You could use ') + esc(PR.usesLabel(o, m)) + ': ' + esc(o.text) + '</button>' +
           '<button class="pillbtn' + (subbed ? '' : ' on') + '" data-a="useSub" data-key="' + esc(i.key) + '" data-on="' + (!subbed) + '">' + (subbed ? 'Undo' : 'Use substitute') + '</button>';
-      } else h += '<button class="link" data-a="subDlg" data-key="' + esc(i.key) + '">Substitute?</button>';
+      } else h += '<button class="link" data-a="subDlg" data-key="' + esc(i.key) + '" data-selected="' + esc(q + ' ' + i.name) + '" data-amount="' + (i.amount * scale) + '" data-unit="' + esc(i.unit || '') + '">Substitutions for ' + esc(i.name) + '</button>';
       h += '</div>';
       if (avail.length && PR.Substitutions.swapDetail(avail[0])) h += '<div class="faint sdet">' + esc(PR.Substitutions.swapDetail(avail[0])) + '</div>';
     }
     return h + '</div>';
   }
-  function subsDialog(key) {
+  function swapCaution(o) {
+    return PR.Substitutions.caution(o, dislikes, allergens, ui.diets);
+  }
+  function subsDialog(key, selected, amount, unit) {
     var e = subs.forKey(key), m = matcher();
     if (!e) return;
-    var html = '<div class="subq">' + e.options.map(function (o) {
-      var ok = PR.optionAvailable(o, m);
-      var det = PR.Substitutions.swapDetail(o);
+    var html = '<p>Selected ingredient: <strong>' + esc(selected || e.name) + '</strong></p><p>Check ingredient labels, cooking times and your dietary plan. Pantry availability is not a dietary assessment.</p><div class="subq">' + e.options.map(function (o) {
+      var ok = PR.optionAvailable(o, m) && !swapCaution(o);
+      var det = PR.Substitutions.swapDetail(o), caution = swapCaution(o);
+      if (selected) det = PR.Substitutions.quantityAdvice(o, amount, unit) + '\n' + det;
       return '<p class="' + (ok ? 'ok' : '') + '">' + (ok ? '\u2713 ' : '\u2022 ') + esc(o.text) + (ok ? ' <span class="faint">(you have ' + esc(PR.usesLabel(o, m)) + ')</span>' : '') +
+        (caution ? '<span class="iwarn">' + esc(caution) + '</span>' : '') +
         (det ? '<span class="faint sdet">' + esc(det) + '</span>' : '') + '</p>';
     }).join('') + (e.note ? '<p class="tip">Tip: ' + esc(e.note) + '</p>' : '') + '</div>';
     dialog({ title: 'Instead of ' + e.name.toLowerCase(), html: html, buttons: [{ label: 'All substitutions', fn: function () { openSubs(e.name); } }, { label: 'OK', primary: true }] });
@@ -1572,9 +1606,15 @@
         var fav = isFavorite(r.id);
         var heart = '<button class="iconbtn heart' + (fav ? ' on' : '') + '" data-a="fav" data-id="' + esc(r.id) + '" aria-pressed="' + fav + '" aria-label="Favorite">' + ic(fav ? 'heart' : 'heart_outline') + '</button>';
         var c = catColor(r.category);
-        var band = '<div class="band" style="background:' + c + '"><span class="big">' + esc(r.title.charAt(0)) + '</span>' +
-          (Photos.get(r.id) ? '<img alt="Your photo of ' + esc(r.title) + '" src="' + esc(Photos.get(r.id)) + '">' : r.image ? '<img alt="" decoding="async" referrerpolicy="no-referrer" src="' + esc(r.image + '/medium') + '">' : '') +
-          '<div class="cap">' + esc([r.category, r.cuisine].filter(Boolean).join(' \u00b7 ').toUpperCase()) + '</div></div>';
+        var lp = !Photos.get(r.id) && !r.image ? LicPhotos.get(r.id) : null, ill = false;
+        var band = '<div class="band' + (ill ? ' ill' : '') + (lp ? ' lp' : '') + ' nophoto"><span>No photo</span>' +
+          (Photos.get(r.id) ? '<img alt="Your photo of ' + esc(r.title) + '" src="' + esc(Photos.get(r.id)) + '">' : r.image && onlineEnabled() ? '<img alt="" decoding="async" referrerpolicy="no-referrer" src="' + esc(r.image + '/medium') + '">' :
+            lp ? '<img alt="Photo for ' + esc(r.title) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" src="' + esc(lp.thumb) + '">' : '') +
+          '<div class="cap">' + esc([r.category, r.cuisine].filter(Boolean).join(' \u00b7 ').toUpperCase()) + '</div></div>' +
+          (lp ? '<div class="credit"><a href="' + esc(lp.landing || lp.url) + '" target="_blank" rel="noopener noreferrer">' + esc(PR.Sources.credit(lp)) + '</a></div>' : '') +
+          '<div class="row wrapbtns srcrow">' + (r.image || Photos.get(r.id) ? '' : '<button class="btn ghost small" data-a="findPhoto" data-id="' + esc(r.id) + '" aria-label="' + (lp ? 'Pick a different free-licensed photo' : 'Find a free-licensed photo online (Openverse)') + '">' + ic('photo', 's') + (lp ? 'Different photo' : 'Find a photo') + '</button>' +
+            (lp ? '<button class="btn ghost small" data-a="rmPhoto" data-id="' + esc(r.id) + '">' + ic('delete', 's') + 'Remove photo</button>' : '')) +
+          '<button class="btn ghost small" data-a="elsewhere" data-id="' + esc(r.id) + '" aria-label="Look this recipe up on other recipe sites">' + ic('search', 's') + 'Find it elsewhere</button></div>';
         return topBar(r.title, '', heart) + '<div class="main"><div class="wrap">' + band + '<h2 class="dtitle">' + esc(r.title) + '</h2>' + (titleHint(r.id) ? '<div class="faint dhint">' + esc(titleHint(r.id)) + '</div>' : '') + sregion('body', s) + '</div></div>';
       },
       regions: {
@@ -1671,16 +1711,17 @@
         },
         body: function (s) {
           var m = matcher(), list = subs.search(s.q).filter(function (e) { return !s.cat || e.category === s.cat; });
-          var have = list.filter(function (e) { return e.options.some(function (o) { return PR.optionAvailable(o, m); }); }).length;
+          var have = list.filter(function (e) { return e.options.some(function (o) { return PR.optionAvailable(o, m) && !swapCaution(o); }); }).length;
           var h = '<div class="muted note">' + list.length + (list.length === 1 ? ' ingredient' : ' ingredients') + ' \u00b7 ' + have + ' you can swap with your pantry</div>';
           if (!list.length) return h + '<div class="muted center pad">No substitutions match \u201c' + esc(s.q) + '\u201d.</div>';
           return h + '<div class="list two">' + list.slice(0, s.limit || 80).map(function (e) {
             return '<div class="scard"><div class="row"><h3 class="grow">Instead of ' + esc(e.name.toLowerCase()) + '</h3>' + (m.has(e.keys[0]) ? '<span class="pbadge">in pantry</span>' : '') + '</div>' +
               (e.aliases.length ? '<div class="faint">Also: ' + esc(e.aliases.join(', ')) + '</div>' : '') +
               e.options.map(function (o) {
-                var ok = PR.optionAvailable(o, m);
+                var ok = PR.optionAvailable(o, m) && !swapCaution(o);
                 var det = PR.Substitutions.swapDetail(o);
                 return '<div class="opt' + (ok ? ' ok' : '') + '">' + (ok ? ic('check', 'xs') : '\u2022 ') + esc(o.text) + (ok ? '<div class="yes">You have: ' + esc(PR.usesLabel(o, m)) + '</div>' : '') +
+                  (swapCaution(o) ? '<div class="iwarn">' + esc(swapCaution(o)) + '</div>' : '') +
                   (det ? '<div class="faint sdet">' + esc(det) + '</div>' : '') + '</div>';
               }).join('') + (e.note ? '<div class="tip">Tip: ' + esc(e.note) + '</div>' : '') + '</div>';
           }).join('') + '</div>' + (list.length > (s.limit || 80) ? '<button class="btn ghost block" data-a="subsMore">Show more</button>' : '');
@@ -1703,11 +1744,12 @@
           '<label class="switchrow"><span class="grow">Decorations<span class="faint" style="display:block">Coloured header, title underlines and small accents. Static only, no animations.</span></span><input type="checkbox" class="switch" data-change="decorations"' + (decoOn() ? ' checked' : '') + '></label>' +
           row('avoid', 'warning', 'Dislikes &amp; allergies', avoidN ? avoidN + ' set \u00b7 ' + hiddenByAvoid() + ' recipes hidden' : 'Hide recipes with ingredients you avoid') +
           row('plan', 'calendar', 'Meal plan', plan.length ? plural(plan.length, 'planned meal', 'planned meals') : 'Plan the week and get one shopping list') +
+          row('subs', 'swap', 'Ingredient substitutions', 'Browse by ingredient; check quantities and cautions') +
           row('conv', 'swap', 'Measurement units &amp; conversions', esc(PR.Units.modeLabel(unitMode())) + ' \u00b7 cups, grams, ounces, oven temperatures') +
           row('helpers20', 'swap', 'Kitchen helpers', 'Equivalents, Rescue my dish, spice blends, cooking times, ingredient names') +
           row('baking30', 'timer', 'Baking', 'Bake recipes, baker\u2019s %, pan sizes, dough timeline, oven &amp; altitude, starter, bake log') +
           row('holidays30', 'calendar', 'Holidays &amp; fasting', 'Calendar, reminders, holiday recipes, fasting-day labels') +
-          row('catMoves21', 'list', 'Ingredient categories &amp; glossary', (catMoves().size ? catMoves().size + ' moved' : 'Move an ingredient to the category you prefer') + ' \u00b7 botanical fruits') +
+          row('catMoves21', 'list', 'Ingredient categories', (catMoves().size ? catMoves().size + ' moved' : 'Move an ingredient to the category you prefer')) +
           row('medGuides201', 'warning', 'Medical diet guides', 'Renal, cardiac and diabetic guides – off by default; not medical advice') +
           row('regional30', 'explore', 'Regional sets', 'Recipes grouped by region and country') +
           row('ipSheet', 'timer', 'Instant Pot cheat sheet', 'Approximate pressure-cooking times and tips') +
@@ -1795,7 +1837,7 @@
           var t = D.today(), entries = PR.MealPlan.forWeek(plan, s.week), h = '';
           var bw = +pref('budgetWeek', 0) || 0;
           if (bw > 0) { var wc = planWeekCost(s.week); h += '<div class="banner' + (wc > bw ? ' warn' : '') + '">' + ic('cart') + '<div class="grow"><b>Weekly budget ' + esc(money(bw)) + '</b><div class="muted">' + (wc < 0 ? 'No cost estimate for this week yet.' : 'Planned meals: about ' + esc(money(wc)) + (wc > bw ? ', over budget' : '')) + '</div></div></div>'; }
-          D.week(s.week).forEach(function (d) {
+          D.days7(s.week).forEach(function (d) {
             var es = entries.filter(function (e) { return e.date === d; });
             h += '<div class="card pday' + (d === t ? ' today' : '') + '"><div class="row"><h2 class="grow" style="margin:0">' + esc(D.label(d)) + (d === t ? ' <span class="pbadge">Today</span>' : '') + '</h2>' +
               '<button class="link" data-a="planPick" data-d="' + d + '">' + ic('add', 's') + 'Add</button></div>';
@@ -1894,6 +1936,26 @@
         }
       }
     },
+    sources: {
+      full: function (s) {
+        var S = PR.Sources, q = s.q, h = '';
+        if (q) {
+          h += '<div class="card"><h2>Find \u201c' + esc(q) + '\u201d elsewhere</h2><div class="faint" style="margin-bottom:8px">Opens a search on that site in a new tab. Those sites have their own privacy policies; nothing is sent until you tap.</div><div class="linkouts">' +
+            S.LINKS.map(function (l) { return '<a class="srow" href="' + esc(S.linkUrl(l[0], q)) + '" target="_blank" rel="noopener noreferrer"><span class="grow"><b>' + esc(l[1]) + '</b><span class="faint" style="display:block">' + esc(l[2]) + '</span></span>' + ic('next', 's') + '</a>'; }).join('') + '</div></div>';
+          h += '<div class="card"><h2>Wikibooks Cookbook</h2><div class="faint">Open recipes by Wikibooks contributors (CC BY-SA 4.0). Search here, read on Wikibooks.</div>';
+          if (!s.wb) h += '<button class="btn alt" style="margin-top:8px" data-a="wbSearch">' + ic('search', 's') + 'Search Wikibooks</button>';
+          else if (s.wb === 'loading') h += '<div class="loading"><span class="spin"></span> Searching\u2026</div>';
+          else if (s.wb === 'error') h += '<div class="tw">Couldn\u2019t reach Wikibooks. Check your connection.</div><button class="btn alt" data-a="wbSearch">Try again</button>';
+          else if (!s.wb.length) h += '<div class="muted" style="margin-top:8px">No Wikibooks Cookbook pages match.</div>';
+          else h += s.wb.map(function (x) { return '<a class="srow" href="' + esc(x.url) + '" target="_blank" rel="noopener noreferrer"><span class="grow"><b>' + esc(x.title) + '</b><span class="faint" style="display:block">' + esc(x.snippet.slice(0, 120)) + '</span></span></a>'; }).join('') + '<div class="faint" style="margin-top:6px">Text: Wikibooks contributors, CC BY-SA 4.0.</div>';
+          h += '</div>';
+        }
+        h += '<div class="card"><h2>Public-domain cookbooks</h2><div class="faint" style="margin-bottom:6px">Classic books on Project Gutenberg.</div>' +
+          S.BOOKS.map(function (b) { return '<a class="srow" href="' + esc(S.bookUrl(b[0])) + '" target="_blank" rel="noopener noreferrer"><span class="grow"><b>' + esc(b[1]) + '</b><span class="faint" style="display:block">' + esc(b[2] + ', ' + b[3]) + '</span></span>' + ic('next', 's') + '</a>'; }).join('') + '</div>';
+        h += '<div class="card"><h2>Sources and licences</h2>' + S.OPEN.map(function (o) { return '<p><b>' + esc(o[0]) + ':</b> ' + esc(o[1]) + '</p>'; }).join('') + '<p class="faint">Recipe illustrations are original drawings made by the app.</p></div>';
+        return topBar(q ? 'More sources' : 'Recipe sources', q ? q : 'Open sources and link-outs') + '<div class="main"><div class="wrap">' + h + '</div></div>';
+      }
+    },
     appearance: {
       full: function (s) {
         return topBar('Appearance', 'Theme, colours, text size and corners') + '<div class="main"><div class="wrap">' + sregion('body', s) + '</div></div>';
@@ -1902,19 +1964,23 @@
         body: function () {
           var st = Theme.state(), act = st.active, P = PR.Palette, cur = Theme.current();
           var tg = ui.themeGroup || (P.preset(act) && P.preset(act).group) || P.GROUPS[0]; if (P.GROUPS.indexOf(tg) < 0) tg = P.GROUPS[0];
-          var h = '<div class="card"><div class="row"><h2 class="grow" style="margin:0">Mode</h2><button class="btn alt small" data-a="themeRandom">' + ic('shuffle', 's') + 'Random theme</button></div><div class="chips" style="margin-top:8px">' +
+          var mode = '<div class="card"><div class="row"><h2 class="grow" style="margin:0">Mode</h2><button class="btn alt small" data-a="themeRandom">' + ic('shuffle', 's') + 'Random theme</button></div><div class="chips" style="margin-top:8px">' +
             chip('Follow system', act === 'system', 'themeUse', ' data-id="system"') + chip('Light', act === 'light', 'themeUse', ' data-id="light"') + chip('Dark', act === 'dark', 'themeUse', ' data-id="dark"') + '</div>' +
             '<div class="faint" style="margin-top:6px">Now using <b>' + esc(cur.name) + '</b>' + (act === 'system' ? ' (follows your device: ' + (Theme.systemDark() ? 'dark' : 'light') + ')' : '') + '.</div></div>';
-          h += '<div class="card"><h2>Text size</h2><div class="chips">' + P.FONT_IDS.map(function (id, i) { return chip(P.FONT_NAMES[i], st.font === id, 'themeFont', ' data-v="' + id + '"'); }).join('') + '</div>' +
+          var look = '<div class="card"><h2>Text size</h2><div class="chips">' + P.FONT_IDS.map(function (id, i) { return chip(P.FONT_NAMES[i], st.font === id, 'themeFont', ' data-v="' + id + '"'); }).join('') + '</div>' +
             '<h2 style="margin-top:14px">Corners</h2><div class="chips">' + P.CORNER_IDS.map(function (id, i) { return chip(P.CORNER_NAMES[i], st.corners === id, 'themeCorners', ' data-v="' + id + '"'); }).join('') + '</div>' +
             '<h2 style="margin-top:14px">Accent colour</h2><div class="faint" style="margin-bottom:8px">Overrides the main colour of any theme. Text stays readable: colours are adjusted to keep AA contrast.</div>' +
             '<div class="accents" role="group" aria-label="Accent colour"><button class="acc def' + (st.accentPick < 0 ? ' on' : '') + '" data-a="themeAccent" data-v="-1" aria-pressed="' + (st.accentPick < 0) + '" aria-label="Theme default">' + (st.accentPick < 0 ? ic('check', 'xs') : 'A') + '</button>' +
             P.QUICK_ACCENTS.map(function (c) { var on = st.accentPick === c; return '<button class="acc' + (on ? ' on' : '') + '" style="background:' + P.hex(c) + '" data-a="themeAccent" data-v="' + c + '" aria-pressed="' + on + '" aria-label="Accent ' + P.hex(c) + '">' + (on ? ic('check', 'xs') : '') + '</button>'; }).join('') + '</div></div>';
-          h += '<div class="card"><div class="row"><h2 class="grow" style="margin:0">Presets <span class="faint">(' + P.PRESETS.length + ')</span></h2><button class="link" data-a="themeCopy" data-id="' + esc(cur.custom ? '' : cur.id) + '">' + ic('add', 'xs') + ' Customise current</button></div>' +
+          var themes = '<div class="card"><div class="row"><h2 class="grow" style="margin:0">Themes <span class="faint">(' + P.PRESETS.length + ')</span></h2><button class="link" data-a="themeCopy" data-id="' + esc(cur.custom ? '' : cur.id) + '">' + ic('add', 'xs') + ' Customise current</button></div>' +
             '<div class="faint" style="margin:4px 0 8px">Every preset keeps body text at WCAG AA contrast (4.5:1) or better.</div>' +
             // v2.0: one group's tiles at a time (130 presets would be ~1300 DOM nodes on a Fire HD 8)
             '<div class="chips" role="tablist" aria-label="Preset groups">' + P.GROUPS.map(function (g) { return chip(esc(g) + ' <span class="faint">' + P.inGroup(g).length + '</span>', g === tg, 'themeGroup', ' data-v="' + esc(g) + '"'); }).join('') + '</div>' +
             '<div class="tgroup"><div class="tgrid">' + P.inGroup(tg).map(function (b) { return themeTile(b, act === b.id); }).join('') + '</div></div></div>';
+          // v2.2: live preview of the theme in use first, then the big theme gallery, then fine-tuning
+          var h = '<div class="card"><div class="row"><h2 class="grow" style="margin:0">Live preview</h2><span class="faint">' + esc(cur.name) + '</span></div>' +
+            '<div class="faint" style="margin:4px 0 8px">Tap any theme below: the whole app, and this preview, change at once.</div>' + SCREENS.themeEdit.regions.preview({ draft: cur }) + '</div>';
+          h += themes + mode + look;
           h += '<div class="card"><h2>Your themes <span class="faint">(' + st.custom.length + ' of ' + P.MAX_CUSTOM + ')</span></h2>' +
             (st.custom.length ? st.custom.map(function (b) { return themeRow(b, act === b.id, true); }).join('') : '<div class="muted">Make your own: pick background, cards, main colour, accent and text.</div>') +
             '<div class="row wrapbtns" style="margin-top:10px"><button class="btn" data-a="themeNew"' + (st.custom.length >= P.MAX_CUSTOM ? ' disabled' : '') + '>' + ic('add', 's') + 'Create custom theme</button>' +
@@ -2050,9 +2116,11 @@
   /** One swatch tile in the grouped preset grid; the current theme is marked with a check and aria-pressed. */
   function themeTile(b, on) {
     var P = PR.Palette, c = P.derive(b);
-    return '<button class="ttile' + (on ? ' on' : '') + '" data-a="themeUse" data-id="' + esc(b.id) + '" aria-pressed="' + on + '" title="' + esc(b.name) + '" style="background:' + P.hex(c.bg) + ';color:' + P.hex(c.text) + '">' +
-      '<span class="tcard" style="background:' + P.hex(c.surface) + '"><i style="background:' + P.hex(c.fill) + '"></i><i style="background:' + P.hex(b.accent) + '"></i></span>' +
-      '<span class="tname">' + esc(b.name) + '</span>' + (on ? '<span class="tchk" style="background:' + P.hex(c.fill) + ';color:' + P.hex(c.onFill) + '">' + ic('check', 'xs') + '</span>' : '') + '</button>';
+    var r = P.ratio(P.contrast(c.text, c.surface));
+    // v2.2: a big swatch: the real background, a mini card with text, a button in the main colour and an accent dot
+    return '<button class="ttile' + (on ? ' on' : '') + '" data-a="themeUse" data-id="' + esc(b.id) + '" aria-pressed="' + on + '" aria-label="' + esc(b.name) + ' theme, ' + (c.dark ? 'dark' : 'light') + ', text contrast ' + r + ' to 1" style="background:' + P.hex(c.bg) + ';color:' + P.hex(c.text) + '">' +
+      '<span class="tcard" style="background:' + P.hex(c.surface) + ';color:' + P.hex(c.text) + '"><b>Aa</b><i class="tbtn" style="background:' + P.hex(c.fill) + '"></i><i class="tdot" style="background:' + P.hex(b.accent) + '"></i></span>' +
+      '<span class="tname">' + esc(b.name) + '</span><span class="tmeta">' + (c.dark ? 'Dark' : 'Light') + ' \u00b7 ' + r + ':1</span>' + (on ? '<span class="tchk" style="background:' + P.hex(c.fill) + ';color:' + P.hex(c.onFill) + '">' + ic('check', 'xs') + '</span>' : '') + '</button>';
   }
   function themeRow(b, on, custom) {
     var c = PR.Palette.derive(b), r = PR.Palette.contrast(c.text, c.surface);
@@ -2191,7 +2259,7 @@
     if (st.has('region')) setPref('welcomed', true);
     if (st.has('household')) Store.set('household', PR.Household.toList(PR.Household.parse(st.get('household'))));
     ['holidays', 'fasts', 'holLead', 'holBanner', 'fastChips', 'holNotify', 'medGuides', 'medSodiumMg', 'medCarbsG'].forEach(function (k) { if (st.has(k)) setPref(k, st.get(k)); });
-    if (st.has('catMoves')) setPref('catMoves', PR.Botany.toObject(PR.Botany.sanitize(st.get('catMoves'))));
+    if (st.has('catMoves')) setPref('catMoves', PR.CatMoves.toObject(PR.CatMoves.sanitize(st.get('catMoves'))));
     pruneFastDiets();
     var plain = function (l) { return l.map(function (m) { var o = {}; m.forEach(function (v, k) { o[k] = v; }); return o; }); };
     if (st.has('starter')) Store.set('starter', { feeds: plain(st.get('starter')) });
@@ -2357,7 +2425,7 @@
         else if (!hadRecents && recents.length) { refreshRegion('grid'); rc = true; }
       }
       if (rc !== true) $$('#main .cat > button[data-ci]').forEach(function (b) {
-        var mv = catMoves(), ci = +b.getAttribute('data-ci'), items = mv.size ? PR.Botany.sectionItems(ci, mv) : C.ITEMS[ci], total = 0, n = 0, hit = false;
+        var mv = catMoves(), ci = +b.getAttribute('data-ci'), items = mv.size ? PR.CatMoves.sectionItems(ci, mv) : C.ITEMS[ci], total = 0, n = 0, hit = false;
         items.forEach(function (s) { if (!C.isHeader(s)) { total++; var sk = PR.normalize(s); if (sk === k) hit = true; if (have.has(sk)) n++; } });
         if (!hit) return;
         var cnt = b.querySelector('.cnt');
@@ -2376,8 +2444,8 @@
     },
     pmenu: function (el) {
       var p = pantryItem(el.getAttribute('data-key')); if (!p) return;
-      var bot = PR.Botany.isBotanicalFruit(p.key), cat = catOf(p.key);
-      sheet(p.label, (bot ? [{ label: '\ud83c\udf45 Botanically a fruit \u2013 why?', icon: 'leaf', fn: function () { botanyDialog(p.key); } }] : []).concat([
+      var cat = catOf(p.key);
+      sheet(p.label, [
         { label: 'Category: ' + (cat || 'none') + ' \u2013 change\u2026', icon: 'list', fn: function () { catDialog(p.key, p.label); } },
         p.staple ? { label: 'Not a staple', icon: 'star', fn: function () { setStaple(p.key, false); refresh(); } } : { label: 'Make it a staple (always on hand)', icon: 'star', fn: function () { setStaple(p.key, true); refresh(); } },
         { label: p.useBy ? 'Use-by ' + D.label(p.useBy) + ' \u2013 change\u2026' : 'Set use-by date\u2026', icon: 'calendar', fn: function () { useByDialog(p); } },
@@ -2385,9 +2453,8 @@
         { label: 'Recipes with ' + p.label.toLowerCase(), icon: 'restaurant', fn: function () { ui.query = p.label; showTab('recipes'); } },
         { label: 'Substitutions for ' + p.label.toLowerCase(), icon: 'swap', fn: function () { openSubs(p.label); } },
         { label: 'Remove from pantry', icon: 'delete', red: true, fn: function () { removeFromPantry(p.key); toast('Removed ' + p.label); refresh(); } }
-      ]));
+      ]);
     },
-    botFilter: function () { ui.quick = 'botanical fruits'; var qi = $('#quickIn'); if (qi) qi.value = ui.quick; refreshRegion('grid'); },
     clearPantry: function () {
       confirmBox('Clear pantry?', 'This removes everything except your staples.', 'Clear', function () { clearPantry(true); refresh(); });
     },
@@ -2409,6 +2476,39 @@
       if (i >= 0) ui.meals.splice(i, 1); else ui.meals.push(v);
       ui.meals = PR.mealSorted(ui.meals); saveMeals(); refresh();
     },
+    findPhoto: function (el) {
+      var r = byId(el.getAttribute('data-id')); if (!r) return;
+      netConsent('photos', 'This searches Openverse (openverse.org) for a free-licensed photo (CC0, Public Domain or CC BY) of \u201c' + r.title + '\u201d, shown with its creator and licence.', function () {
+        var idx = LicPhotos.get(r.id) ? LicPhotos.idx(r.id) + 1 : 0;
+        toast('Looking for a photo\u2026');
+        fetch(PR.Sources.openverseApi(r.title), { credentials: 'omit', referrerPolicy: 'no-referrer' }).then(function (x) { if (!x.ok) throw new Error('HTTP ' + x.status); return x.text(); }).then(function (t) {
+          var l = PR.Sources.parseOpenverse(t).filter(function (p) { return p.thumb.indexOf('https://api.openverse.org/') === 0; }); // CSP allows only Openverse's own thumbnails
+          if (!l.length) { toast('No free-licensed photo found for this recipe'); return; }
+          LicPhotos.set(r.id, l[idx % l.length], idx % l.length); renderScreen(topScreen(), false);
+        }).catch(function () { toast("Couldn't reach Openverse. Check your connection."); });
+      });
+    },
+    rmPhoto: function (el) { LicPhotos.set(el.getAttribute('data-id'), null); renderScreen(topScreen(), false); toast('Photo removed'); },
+    elsewhere: function (el) { var r = byId(el.getAttribute('data-id')); if (r) pushScreen({ type: 'sources', q: r.title }); },
+    wbSearch: function (el) {
+      var s = topScreen(), q = s.q;
+      netConsent('wikibooks', 'This searches the Wikibooks Cookbook (en.wikibooks.org) for \u201c' + q + '\u201d.', function () {
+        s.wb = 'loading'; renderScreen(s, true);
+        fetch(PR.Sources.wikibooksApi(q) + '&origin=*', { credentials: 'omit', referrerPolicy: 'no-referrer' }).then(function (x) { if (!x.ok) throw new Error(); return x.text(); })
+          .then(function (t) { s.wb = PR.Sources.parseWikibooks(t); renderScreen(s, true); })
+          .catch(function () { s.wb = 'error'; renderScreen(s, true); });
+      });
+    },
+    sourcesInfo: function () { pushScreen({ type: 'sources', q: '' }); },
+    surpriseAny: function () {
+      var r = PR.Variety.one(matchFiltered(), PR.Variety.seed(String(Date.now())), lastOpened);
+      if (r) openDetail(r.recipe.id); else toast('No recipes pass your meal filters');
+    },
+    tryNew: function () {
+      var r = PR.Variety.tryNew(matchFiltered(), seen, PR.Variety.seed(String(Date.now())));
+      if (r) openDetail(r.recipe.id); else toast('No recipes pass your meal filters');
+    },
+    shufflePicks: function () { shuffleN++; refresh(); toast('Shuffled'); },
     surpriseP: function () {
       if (matcher().pantryEmpty()) { toast('Add some ingredients to your pantry first'); showTab('pantry'); return; }
       surprise(matchAll(), lastOpened);
@@ -2456,6 +2556,8 @@
       if (!addShopping(p.name, p.amount, p.unit, '')) toast('Already on your list');
       inp.value = ''; refresh();
     },
+    shopSelAll: function () { var n = 0; shopping.forEach(function (s) { if (!s.checked) { s.checked = true; n++; } }); saveShopping(); refresh(); toast(n ? 'Checked ' + n + (n === 1 ? ' item' : ' items') : 'Everything is already checked'); },
+    shopSelNone: function () { var n = 0; shopping.forEach(function (s) { if (s.checked) { s.checked = false; n++; } }); saveShopping(); refresh(); toast(n ? 'Unchecked ' + n + (n === 1 ? ' item' : ' items') : 'Nothing is checked'); },
     shopCheck: function (el) { shopping.forEach(function (s) { if (s.id === el.getAttribute('data-id')) s.checked = !s.checked; }); saveShopping(); refresh(); },
     shopDel: function (el) { shopping = shopping.filter(function (s) { return s.id !== el.getAttribute('data-id'); }); saveShopping(); refresh(); },
     shopToPantry: function () {
@@ -2481,7 +2583,7 @@
       toast(on ? 'Counting the substitute as a match' : 'Back to missing');
       refresh();
     },
-    subDlg: function (el) { subsDialog(el.getAttribute('data-key')); },
+    subDlg: function (el) { subsDialog(el.getAttribute('data-key'), el.getAttribute('data-selected'), Number(el.getAttribute('data-amount')), el.getAttribute('data-unit')); },
     methodF: function (el) {
       var id = el.getAttribute('data-v'), mf = methodFilter(), i = mf.indexOf(id);
       if (i >= 0) mf.splice(i, 1); else mf.push(id);
@@ -3300,22 +3402,16 @@
       }
     }
   };
-  // ---------- v2.1 botanical fruits and the user's category moves (same rules as Android Botany.java) ----------
-  function catMoves() { return PR.Botany.sanitize(pref('catMoves', {})); }
+  // ---------- the user's category moves (same rules as Android CategoryMoves.java) ----------
+  function catMoves() { return PR.CatMoves.sanitize(pref('catMoves', {})); }
   function setCatMove(key, cat) {
-    var m = catMoves(), def = PR.Botany.defaultCategory(key);
-    if (!cat || PR.Botany.categoryIndex(cat) < 0 || PR.Botany.categoryIndex(cat) === def) m.delete(key); else m.set(key, cat);
-    setPref('catMoves', PR.Botany.toObject(PR.Botany.sanitize(m))); version++;
+    var m = catMoves(), def = PR.CatMoves.defaultCategory(key);
+    if (!cat || PR.CatMoves.categoryIndex(cat) < 0 || PR.CatMoves.categoryIndex(cat) === def) m.delete(key); else m.set(key, cat);
+    setPref('catMoves', PR.CatMoves.toObject(PR.CatMoves.sanitize(m))); version++;
   }
-  function catOf(key) { var m = catMoves(); if (m.has(key)) return m.get(key); var d = PR.Botany.defaultCategory(key); return d < 0 ? '' : C.CATEGORIES[d]; }
-  function botanyDialog(key) {
-    var B = PR.Botany;
-    dialog({ title: key ? B.labelFor(key) : 'Glossary', html: (key ? '<p><span class="badge botbadge">\ud83c\udf45 Botanically a fruit</span></p><p>' + esc(B.fact(key) || '') + '</p>' : '') +
-      '<h4>' + esc(B.TERM) + '</h4><p class="muted">' + esc(B.GLOSSARY) + '</p><p class="muted">' + esc(B.FUN_FACT) + '</p>' +
-      '<div class="faint">In the ingredient list: ' + esc(B.LABELS.join(', ')) + '. Type \u201cbotanical\u201d in quick add to list them.</div>', buttons: [{ label: 'OK', primary: true }] });
-  }
+  function catOf(key) { var m = catMoves(); if (m.has(key)) return m.get(key); var d = PR.CatMoves.defaultCategory(key); return d < 0 ? '' : C.CATEGORIES[d]; }
   function catDialog(key, label) {
-    var def = PR.Botany.defaultCategory(key), cur = catOf(key);
+    var def = PR.CatMoves.defaultCategory(key), cur = catOf(key);
     dialog({ title: 'Show ' + label.toLowerCase() + ' in', html: '<p class="muted">Where this ingredient shows in quick add. Your choice only; recipes are not changed.</p><div class="chips">' +
       C.CATEGORIES.map(function (c, i) { return '<button class="chip' + (c === cur ? ' on' : '') + '" data-a="catPick" data-k="' + esc(key) + '" data-v="' + esc(c) + '" aria-pressed="' + (c === cur) + '">' + esc(c) + (i === def ? ' (default)' : '') + '</button>'; }).join('') + '</div>',
       buttons: [{ label: 'Cancel' }] });
@@ -3324,15 +3420,15 @@
     full: function (s) { return topBar('Ingredient categories', 'Your own sorting') + '<div class="main"><div class="wrap">' + sregion('body', s) + '</div></div>'; },
     regions: {
       body: function () {
-        var m = catMoves(), h = '<div class="muted" style="margin:6px 0">Tap an ingredient in your pantry, then \u201cCategory\u201d, to move it \u2013 for example tomatoes back to Vegetables.</div><div class="card">';
+        var m = catMoves(), h = '<div class="muted" style="margin:6px 0">Tap an ingredient in your pantry, then \u201cCategory\u201d, to move it \u2013 for example peppers to Fruits.</div><div class="card">';
         if (!m.size) h += '<div class="muted">No ingredients moved.</div>';
         m.forEach(function (v, k) {
-          var d = PR.Botany.defaultCategory(k);
-          h += '<div class="switchrow"><span class="grow"><b>' + esc(PR.Botany.labelFor(k)) + '</b><span class="faint" style="display:block">In ' + esc(v) + (d >= 0 ? ' (default ' + esc(C.CATEGORIES[d]) + ')' : '') + '</span></span>' +
-            '<button class="btn ghost small" data-a="catUndo" data-v="' + esc(k) + '" aria-label="Move ' + esc(PR.Botany.labelFor(k)) + ' back to its default category">Undo</button></div>';
+          var d = PR.CatMoves.defaultCategory(k);
+          h += '<div class="switchrow"><span class="grow"><b>' + esc(PR.CatMoves.labelFor(k)) + '</b><span class="faint" style="display:block">In ' + esc(v) + (d >= 0 ? ' (default ' + esc(C.CATEGORIES[d]) + ')' : '') + '</span></span>' +
+            '<button class="btn ghost small" data-a="catUndo" data-v="' + esc(k) + '" aria-label="Move ' + esc(PR.CatMoves.labelFor(k)) + ' back to its default category">Undo</button></div>';
         });
-        h += '</div>' + (m.size ? '<button class="btn ghost" data-a="catReset">Reset all</button> ' : '') + '<button class="btn ghost" data-a="botGloss">Glossary: botanical fruit</button>';
-        return h + '<div class="faint note">' + esc(PR.Botany.FUN_FACT) + '</div>';
+        h += '</div>' + (m.size ? '<button class="btn ghost" data-a="catReset">Reset all</button> ' : '');
+        return h;
       }
     }
   };
@@ -3573,8 +3669,7 @@
     catMoves21: function () { pushScreen({ type: 'catmoves' }); },
     catUndo: function (el) { setCatMove(el.getAttribute('data-v'), null); renderScreen(topScreen(), true); },
     catReset: function () { setPref('catMoves', {}); version++; renderScreen(topScreen(), true); toast('Categories reset'); },
-    botGloss: function () { botanyDialog(null); },
-    catPick: function (el) { var k = el.getAttribute('data-k'), v = el.getAttribute('data-v'); closeDialog(); setCatMove(k, v); toast(PR.Botany.labelFor(k) + ' shows in ' + v); refresh(); },
+    catPick: function (el) { var k = el.getAttribute('data-k'), v = el.getAttribute('data-v'); closeDialog(); setCatMove(k, v); toast(PR.CatMoves.labelFor(k) + ' shows in ' + v); refresh(); },
     medList: function (el) { medList(el.getAttribute('data-v')); },
     bkTab: function (el) { var s = topScreen(); s.tab = el.getAttribute('data-v'); s.open = ''; s.resetScroll = true; renderScreen(s); },
     bkList: function (el) {
@@ -3663,6 +3758,24 @@
     shell();
     renderTabs();
     $('#main').innerHTML = '<div class="loading"><span class="spin"></span> Loading recipes\u2026</div>';
+    // v2.2: horizontal filter rows scroll with a vertical mouse wheel, and Left/Right arrows move between chips
+    document.addEventListener('wheel', function (ev) {
+      var t = ev.target, h = t && t.closest ? t.closest('.hscroll') : null;
+      if (!h || ev.ctrlKey || Math.abs(ev.deltaX) > Math.abs(ev.deltaY) || h.scrollWidth <= h.clientWidth + 1) return;
+      var max = h.scrollWidth - h.clientWidth, before = h.scrollLeft;
+      if ((ev.deltaY < 0 && before <= 0) || (ev.deltaY > 0 && before >= max - 1)) return; // at the end: let the page scroll
+      h.scrollLeft = before + (ev.deltaMode === 1 ? ev.deltaY * 16 : ev.deltaY);
+      ev.preventDefault();
+    }, { passive: false });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+      var t = ev.target, h = t && t.closest ? t.closest('.hscroll') : null;
+      if (!h || t.tagName !== 'BUTTON') return;
+      var bs = [].slice.call(h.querySelectorAll('button')), i = bs.indexOf(t) + (ev.key === 'ArrowRight' ? 1 : -1);
+      if (i < 0 || i >= bs.length) return;
+      bs[i].focus(); if (bs[i].scrollIntoView) bs[i].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      ev.preventDefault();
+    });
     try { history.replaceState({ depth: 0 }, ''); } catch (e) { }
     if (ui.tab === 'pantry' || ui.tab === 'shopping') {
       earlyTab = ui.tab; $('#main').innerHTML = '<div class="wrap">' + VIEWS[ui.tab].full() + '</div>';

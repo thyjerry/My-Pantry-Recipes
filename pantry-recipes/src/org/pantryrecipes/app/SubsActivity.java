@@ -185,7 +185,7 @@ public class SubsActivity extends Activity implements Repo.Listener {
 
     void refresh() {
         Substitutions subs = repo.substitutions();
-        matcher = new Matcher(store.pantryKeys(false), store.pantryKeys(true));
+        matcher = new Matcher(store.pantryKeys(false), store.pantryKeys(true)).withSwapAvoid(store.dislikes(), store.avoidAllergens(), store.prefs.getStringSet("diets", new java.util.HashSet<String>()));
         buildCats(subs);
         rows.clear();
         String last = null;
@@ -195,7 +195,7 @@ public class SubsActivity extends Activity implements Repo.Listener {
             if (!e.category.equals(last)) { rows.add(e.category); last = e.category; }
             rows.add(e);
             n++;
-            for (Substitutions.Option o : e.options) if (o.available(matcher)) { have++; break; }
+            for (Substitutions.Option o : e.options) if (o.available(matcher) && matcher.optionAllowed(o)) { have++; break; }
         }
         if (n == 0) rows.add(Boolean.FALSE);
         count.setText(n + (n == 1 ? " ingredient" : " ingredients") + " \u00b7 " + have + " you can swap with your pantry");
@@ -215,7 +215,8 @@ public class SubsActivity extends Activity implements Repo.Listener {
             card.addView(a);
         }
         for (Substitutions.Option o : e.options) {
-            boolean ok = o.available(matcher);
+            String caution = org.pantryrecipes.app.core.SwapAdvice.caution(o, store.dislikes(), store.avoidAllergens(), store.prefs.getStringSet("diets", new java.util.HashSet<String>()));
+            boolean ok = o.available(matcher) && caution.isEmpty();
             LinearLayout r = Ui.row(this);
             r.setGravity(Gravity.TOP);
             r.setPadding(0, dp(8), 0, 0);
@@ -224,6 +225,7 @@ public class SubsActivity extends Activity implements Repo.Listener {
             LinearLayout col = Ui.column(this);
             col.setPadding(dp(10), 0, 0, 0);
             col.addView(Ui.body(this, o.text));
+            if (!caution.isEmpty()) col.addView(Ui.text(this, caution, 13, Ui.DANGER, Ui.MEDIUM));
             String det = V17.swapDetail(o);
             if (!det.isEmpty()) {
                 TextView dt = Ui.caption(this, det);

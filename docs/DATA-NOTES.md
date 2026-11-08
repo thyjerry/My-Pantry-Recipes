@@ -35,19 +35,16 @@ The rule allows meat, fish, seafood, eggs, organ meats, bone broth, animal fats 
 water. Plants are excluded, and so are processed meats such as bacon and sausages. 63 original carnivore recipes were added
 in `recipes/82-v20-carnivore.txt`. Like every diet, the flag is worked out at build time and labelled "a guide, not certification".
 
-## Botanical fruits (v2.1)
-The 🍅 "Botanically a fruit" badge is shown for 24 ingredients: Tomato, Cherry tomatoes, Cucumber, Avocado, Bell pepper,
-Chili, Jalapeno, Poblano, Habanero, Eggplant, Zucchini, Pumpkin, Acorn squash, Spaghetti squash, Delicata squash, Olives,
-Tomatillos, Okra, Green beans, Snow peas, Sweetcorn, Chayote, Breadfruit, Plantains.
-- A botanical fruit is the part of a plant that grows from its flower and holds its seeds. The list covers ingredients that
-  cooks treat as vegetables.
-- Sweet fruits (apples, berries and so on) are already under Fruits, so they get no badge.
-- Peas and edamame are left out because we eat the seeds, not the pod. Snow peas and green beans are included because the
-  whole pod is eaten.
-- Grains and nuts are botanically fruits too, but they are not marked, to keep the list useful.
-- Categories are a cooking choice. Tomato, cherry tomatoes, cucumber and avocado are under Fruits (user request). Peppers,
-  eggplant, zucchini, pumpkin and squash stay in Vegetables. Anyone can move any ingredient in Settings.
-- Fun fact source: Nix v. Hedden, 149 U.S. 304 (1893).
+## Botanical fruits (v2.1, removed in v2.2)
+The v2.1 botanical-fruit badge and filter were removed in v2.2. You can now move any ingredient to another category yourself.
+
+## v2.2 dinner mains
+- 1,154 recipes in recipes/95-v22-chicken.txt … 99-v22c-shrimp.txt. These file names sort last, so ids b:1–b:2620 do not change.
+- The generator is tools/morerecipes/build_v22.py, using v22cuts.py (24 cuts, with method times) and v22cuisines.py (27 cuisines, 165 flavour sets).
+- A cut is only paired with methods that suit it: stir-fry, braise, roast/grill, skillet, or ground.
+- Halal-leaning cuisines skip pork. Indian skips beef and pork.
+- Doneness temperatures: poultry 74 °C/165 °F; pork and whole cuts of beef and lamb 63 °C/145 °F plus rest; ground red meat 71 °C/160 °F; fish 63 °C.
+- 35 candidates were skipped as near-duplicates of existing titles.
 
 ## Buy these next (v2.1)
 - The "Buy these next" picks are greedy: each pick completes the most recipes, counting the earlier picks as bought.

@@ -85,6 +85,13 @@ public final class Dates {
 
     public static String weekStart(String iso) { return addDays(iso, -dayOfWeek(iso)); }
 
+    /** v2.2: the seven dates starting exactly at {@code start} (never re-snapped to Monday). */
+    public static List<String> days7(String start) {
+        List<String> out = new ArrayList<String>();
+        for (int i = 0; i < 7; i++) out.add(addDays(start, i));
+        return out;
+    }
+
     /** The seven dates (Monday first) of the week containing {@code iso}. */
     public static List<String> week(String iso) {
         List<String> out = new ArrayList<String>();

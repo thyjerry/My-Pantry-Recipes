@@ -582,10 +582,6 @@ Baking | Pizza | Oven, hottest setting | 8 to 12 min |
 Baking | Roast vegetables (most) | Oven 200 C / 400 F | 25 to 40 min |
 [explain]
 # @ name | what it is ; = region | local name   (regions: us, uk, ca, anz, eu, in, also)
-@ Botanical fruit | The part of a plant that grows from its flower and holds its seeds. Tomatoes, peppers, squash, cucumbers and avocados are botanical fruits that cooks often use as vegetables. Fun fact: in 1893 the U.S. Supreme Court (Nix v. Hedden) ruled that tomatoes count as vegetables for import taxes, while agreeing that botanists call them fruits.
-= us | fruit (in botany)
-= uk | fruit (in botany)
-= also | culinary vegetable
 @ Cilantro | The leaves of the coriander plant. Fresh and citrusy; some people find it soapy. The seeds are the spice coriander.
 = us | cilantro
 = uk | coriander, fresh coriander
@@ -597,17 +593,17 @@ Baking | Roast vegetables (most) | Oven 200 C / 400 F | 25 to 40 min |
 = uk | spring onion
 = anz | spring onion; also shallot in parts of Australia
 = ca | green onion
-@ Eggplant | A purple-skinned vegetable (botanically a fruit, a berry) with spongy flesh that softens and soaks up oil and sauce.
+@ Eggplant | A purple-skinned vegetable with spongy flesh that softens and soaks up oil and sauce.
 = us | eggplant
 = uk | aubergine
 = anz | eggplant
 = in | brinjal, baingan
-@ Zucchini | A summer squash (botanically a fruit) with mild, tender green or yellow skin. It cooks quickly.
+@ Zucchini | A summer squash with mild, tender green or yellow skin. It cooks quickly.
 = us | zucchini
 = uk | courgette
 = anz | zucchini
 = eu | courgette
-@ Bell pepper | A sweet, mild pepper in green, red, yellow or orange. Botanically a fruit, a berry.
+@ Bell pepper | A sweet, mild pepper in green, red, yellow or orange.
 = us | bell pepper
 = uk | pepper, sweet pepper
 = anz | capsicum

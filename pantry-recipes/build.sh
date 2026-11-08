@@ -13,7 +13,7 @@ rm -rf build && mkdir -p build/core
   -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Pantry Recipes Debug,O=Pantry Recipes,C=US"
 
 echo "== recipes.json + test harness (JDK)"
-javac -nowarn -d build/core src/org/pantryrecipes/app/core/*.java tools/RecipeTool.java tools/V20Tests.java tools/V201Tests.java tools/V21Tests.java
+javac -nowarn -d build/core src/org/pantryrecipes/app/core/*.java tools/RecipeTool.java tools/V20Tests.java tools/V201Tests.java tools/V21Tests.java tools/V22Tests.java tools/V22More.java
 java -cp build/core RecipeTool recipes assets/recipes.json
 python3 tools/chunk_recipes.py assets/recipes.json build/apkassets
 

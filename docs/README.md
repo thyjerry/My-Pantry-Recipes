@@ -5,6 +5,31 @@ Find recipes from what you already have. This is the HTML5 / PWA version of the 
 Plain HTML, CSS and vanilla JavaScript. No frameworks, no build step, no ads, no analytics, no trackers, no accounts. MIT License.
 The only network connections go to TheMealDB (www.themealdb.com) for optional online recipes and photos, and to world.openfoodfacts.org when you look up a barcode.
 
+## v2.3 (versionCode 16, web 2.3-web)
+- Dedicated **Settings** button, labeled in text. Settings precede the About text on Android.
+- The standalone swap icon is removed from the main header. A labeled **Ingredient substitutions** tool remains inside Settings.
+- Recipe details offer substitutions beside every supported ingredient, not just missing ingredients. The dialog names the exact selected ingredient and scaled original amount.
+- Simple single-ingredient volume/count ratios show a scaled replacement estimate. Mixtures, mass conversions and unknown amounts do not invent a quantity; the original option instructions remain visible. To-taste options remain to taste.
+- Conservative name-based checks flag replacements conflicting with saved dislikes, avoided allergens, or selected vegan/vegetarian/dairy-free/gluten-free filters. Conflicting options are not counted as usable pantry substitutions. These checks are not certification: read labels and consider cross-contact and cooking requirements.
+- Substitution search only matches ingredient names/aliases/categories, not unrelated ingredients mentioned inside replacement text.
+- Cards/rows now use associated TheMealDB recipe photos where available; the generic meat/plant drawings are no longer the default. Missing images use a restrained **No photo** fallback. This does not add photos to the bundled collection.
+- Images stay on the existing TheMealDB host and cache path. Android may read cached thumbnails when online recipes are off, but does not fetch new ones. Web cards hide remote images when online recipes are off; when enabled, existing service-worker caching supports offline reuse. Failed image loads leave the fallback visible.
+- **Unchanged data:** 3,774 bundled recipes, 0 bundled photos. Larger licensed recipe expansion is pending; there is no 6,000 cap and no inflated recipe count.
+- No EPUB/PDF importer, camera scanner, microphone, tracking or publishing added.
+
+## New in v2.2 (versionCode 15, `2.2`, web `2.2-web`)
+- 3,774 recipes. 1,154 of them are new original dinner mains: 27 cuisines × chicken, beef, pork, lamb, turkey,
+  salmon, cod and shrimp, each with cut-specific times and doneness temperatures.
+- Daily variety: Today's picks, Cuisine of the day, Surprise me, Try something new.
+- Built-in drawings on cards (no download). Optional Openverse photos with credit, loaded only after you tap and agree.
+- Search links to 10 recipe sites, Wikibooks Cookbook search, and 7 public-domain Gutenberg cookbooks.
+- You can move an ingredient to another category yourself. The v2.1 botanical-fruit badge and filter are removed.
+- Fixed: chicken substitutions no longer list pork. The Sunday-start meal plan lines up with its header.
+
+## Planned for 3.0 (approved, not built yet)
+- Camera barcode scanner (ZXing, open source, on the device only, no Google Play Services).
+- Recipe import from EPUB and PDF files, on the device.
+
 ## New in v2.1 (versionCode 14, `2.1`, web `2.1-web`)
 v2.0.1 was skipped. Its fixes are part of this release.
 
@@ -23,7 +48,7 @@ v2.0.1 was skipped. Its fixes are part of this release.
   and stage of illness. Follow the plan from your doctor or dietitian." A recipe is never called "safe".
 
 **Botanical fruits and your own categories**
-- Ingredients that are botanically fruits get a 🍅 "Botanically a fruit" badge in their details, with a one-line reason.
+- Ingredients that are botanically fruits get a 🍅 "Botanically a fruit" badge in their details, with a one-line reason. *(Removed in v2.2.)*
 - An optional "🍅 Botanical fruits" filter chip in Vegetables and Fruits. Typing "botanical" in quick add lists them too.
 - **Move an ingredient to the category you prefer** (for example tomatoes back to Vegetables). Use Category in the
   ingredient's details. Settings › Ingredient categories & glossary lists your moves, with undo and Reset all. The moves
