@@ -12,7 +12,7 @@ Everything runs on your device — no accounts, no ads, no tracking, and no Goog
 - **“Buy these next”** — Smart suggestions that prioritize the ingredient which unlocks the most recipes, with estimated cost and one-tap add to shopping list.
 - **Shopping lists** with your own prices or regional averages.
 - **3,700+ original recipes** covering mains, breakfast, sides, soups, baking, snacks, desserts, drinks, salads, and sauces. Includes carnivore, vegetarian, vegan, Instant Pot, air fryer, slow cooker, and 30-minute options.
-- **15 diet filters** plus general guides for renal, cardiac, and diabetic eating (with clear “not medical advice” disclaimers).
+- **15 diet filters** plus general guides for renal, cardiac, and diabetic eating.
 - **Ingredient substitutions** with scaled quantities, diet/allergen conflict warnings, and pantry-aware matching.
 - **Country-based cuisines** with support for both metric and imperial units, plus EU allergen labels.
 - **Holiday & fasting calendar** (dozens of holidays) with optional reminders.
